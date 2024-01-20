@@ -12,7 +12,7 @@ DEFINITION MODULE ["C"] vgajoystick;
 IMPORT SYSTEM;
 
 (* Joystick interface modeled after svgalibs keyboard and mouse interfaces
- * Copyright 1998 Daniel Engström <daniel.engstrom@riksnett.no>
+ * Copyright 1998 Daniel EngstrÐŽm <daniel.engstrom@riksnett.no>
  * Partly based on code from
  * joystick-0.7.3 Copyright (C) 1992, 1993 Author C. Smith
  * and

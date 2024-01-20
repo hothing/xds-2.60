@@ -1,11 +1,11 @@
--- Модуль для выполнения некоторых стандартных действий,
--- содержить описания типов для организации списков,
--- универсальный обработчик списков и обработчик для
--- позиционирования в списках (локатор). Кроме этого,
--- содержит набор процедур для выдачи сообщений, запроса
--- и выполнения действий, перемещения окон. Здесь же
--- находятся обработчик диалогов, процедура редактирования
--- строк и ввода данных от пользователя.
+-- ╨Ь╨╛╨┤╤Г╨╗╤М ╨┤╨╗╤П ╨▓╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П ╨╜╨╡╨║╨╛╤В╨╛╤А╤Л╤Е ╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╤Л╤Е ╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╣,
+-- ╤Б╨╛╨┤╨╡╤А╨╢╨╕╤В╤М ╨╛╨┐╨╕╤Б╨░╨╜╨╕╤П ╤В╨╕╨┐╨╛╨▓ ╨┤╨╗╤П ╨╛╤А╨│╨░╨╜╨╕╨╖╨░╤Ж╨╕╨╕ ╤Б╨┐╨╕╤Б╨║╨╛╨▓,
+-- ╤Г╨╜╨╕╨▓╨╡╤А╤Б╨░╨╗╤М╨╜╤Л╨╣ ╨╛╨▒╤А╨░╨▒╨╛╤В╤З╨╕╨║ ╤Б╨┐╨╕╤Б╨║╨╛╨▓ ╨╕ ╨╛╨▒╤А╨░╨▒╨╛╤В╤З╨╕╨║ ╨┤╨╗╤П
+-- ╨┐╨╛╨╖╨╕╤Ж╨╕╨╛╨╜╨╕╤А╨╛╨▓╨░╨╜╨╕╤П ╨▓ ╤Б╨┐╨╕╤Б╨║╨░╤Е (╨╗╨╛╨║╨░╤В╨╛╤А). ╨Ъ╤А╨╛╨╝╨╡ ╤Н╤В╨╛╨│╨╛,
+-- ╤Б╨╛╨┤╨╡╤А╨╢╨╕╤В ╨╜╨░╨▒╨╛╤А ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А ╨┤╨╗╤П ╨▓╤Л╨┤╨░╤З╨╕ ╤Б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╨╣, ╨╖╨░╨┐╤А╨╛╤Б╨░
+-- ╨╕ ╨▓╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П ╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╣, ╨┐╨╡╤А╨╡╨╝╨╡╤Й╨╡╨╜╨╕╤П ╨╛╨║╨╛╨╜. ╨Ч╨┤╨╡╤Б╤М ╨╢╨╡
+-- ╨╜╨░╤Е╨╛╨┤╤П╤В╤Б╤П ╨╛╨▒╤А╨░╨▒╨╛╤В╤З╨╕╨║ ╨┤╨╕╨░╨╗╨╛╨│╨╛╨▓, ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░ ╤А╨╡╨┤╨░╨║╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╤П
+-- ╤Б╤В╤А╨╛╨║ ╨╕ ╨▓╨▓╨╛╨┤╨░ ╨┤╨░╨╜╨╜╤Л╤Е ╨╛╤В ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╤П.
 
 DEFINITION MODULE Dlg_Std;
 
@@ -29,7 +29,7 @@ PROCEDURE Normalize(size: crt.SZ; VAR curr, frame: CARDINAL; N: CARDINAL);
 
 
 
-(* координаты абсолютные *)
+(* ╨║╨╛╨╛╤А╨┤╨╕╨╜╨░╤В╤Л ╨░╨▒╤Б╨╛╨╗╤О╤В╨╜╤Л╨╡ *)
 PROCEDURE CheckFrame(size: crt.SZ; x,y: CARDINAL): BOOLEAN;
 
 
@@ -47,14 +47,14 @@ PROCEDURE PutItem (main: BOOLEAN; item: CARDINAL): CARDINAL;
 PROCEDURE GetItem (par: CARDINAL; VAR main: BOOLEAN; VAR item: CARDINAL);
 
 
--- по параметру обработчика получить действие и кнопку
+-- ╨┐╨╛ ╨┐╨░╤А╨░╨╝╨╡╤В╤А╤Г ╨╛╨▒╤А╨░╨▒╨╛╤В╤З╨╕╨║╨░ ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М ╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╡ ╨╕ ╨║╨╜╨╛╨┐╨║╤Г
 PROCEDURE GetAction (par: CARDINAL): act.ACTION;
 PROCEDURE GetKey (par: CARDINAL): key.KEY;
 
 
 
 
-(* Ошибки *)
+(* ╨Ю╤И╨╕╨▒╨║╨╕ *)
 
 
 VAR
@@ -65,7 +65,7 @@ PROCEDURE InitErrorMsg;
 
 TYPE
 
-(* --- Диалоги --- *)
+(* --- ╨Ф╨╕╨░╨╗╨╛╨│╨╕ --- *)
 
   MESSAGE = xs.String;
   PMESSAGE = POINTER TO MESSAGE;
@@ -106,13 +106,13 @@ TYPE
               len   : CARDINAL;
 
             | radio :
-              rname   : MESSAGE;  -- Hазвание гpуппы
-              radio_dx: CARDINAL; -- Длина pамочки для обpамления гpуппы
-              radio_dy: CARDINAL; -- Длина pамочки для обpамления гpуппы
-              rcurr   : CARDINAL; -- Текущий селектоp в гpуппе
-              ractive : CARDINAL; -- Выбpанный селектоp
+              rname   : MESSAGE;  -- H╨░╨╖╨▓╨░╨╜╨╕╨╡ ╨│p╤Г╨┐╨┐╤Л
+              radio_dx: CARDINAL; -- ╨Ф╨╗╨╕╨╜╨░ p╨░╨╝╨╛╤З╨║╨╕ ╨┤╨╗╤П ╨╛╨▒p╨░╨╝╨╗╨╡╨╜╨╕╤П ╨│p╤Г╨┐╨┐╤Л
+              radio_dy: CARDINAL; -- ╨Ф╨╗╨╕╨╜╨░ p╨░╨╝╨╛╤З╨║╨╕ ╨┤╨╗╤П ╨╛╨▒p╨░╨╝╨╗╨╡╨╜╨╕╤П ╨│p╤Г╨┐╨┐╤Л
+              rcurr   : CARDINAL; -- ╨в╨╡╨║╤Г╤Й╨╕╨╣ ╤Б╨╡╨╗╨╡╨║╤В╨╛p ╨▓ ╨│p╤Г╨┐╨┐╨╡
+              ractive : CARDINAL; -- ╨Т╤Л╨▒p╨░╨╜╨╜╤Л╨╣ ╤Б╨╡╨╗╨╡╨║╤В╨╛p
               pradio  : PRADIO;
-              raction : ACTION;   -- Что нужно делать по нажатии пробела
+              raction : ACTION;   -- ╨з╤В╨╛ ╨╜╤Г╨╢╨╜╨╛ ╨┤╨╡╨╗╨░╤В╤М ╨┐╨╛ ╨╜╨░╨╢╨░╤В╨╕╨╕ ╨┐╤А╨╛╨▒╨╡╨╗╨░
 
             | button:
               bname  : MESSAGE;
@@ -153,7 +153,7 @@ TYPE
             END;
   PPMSG = POINTER TO MSG_REC;
 
--- для окна с AM типа PPMSG
+-- ╨┤╨╗╤П ╨╛╨║╨╜╨░ ╤Б AM ╤В╨╕╨┐╨░ PPMSG
 PROCEDURE SetMessage (hwnd: crt.HWND; str: ARRAY OF CHAR);
 PROCEDURE InitMessage (hwnd: crt.HWND; message: CARDINAL);
 
@@ -236,15 +236,15 @@ PROCEDURE IniInputDialog(action: D_ACTION; preserve: BOOLEAN; name: ARRAY OF CHA
 
 TYPE
 
-(* --- Списки --- *)
+(* --- ╨б╨┐╨╕╤Б╨║╨╕ --- *)
 
   LCTR_STR  = PROCEDURE (crt.HWND, CARDINAL, VAR ARRAY OF CHAR);
 
   LIST = RECORD
-           N          : CARDINAL;    (* количество элементов в списке *)
-           frame, curr: CARDINAL;    (* начало видимого куска и положение текущего эелмента *)
-           pos        : CARDINAL;    (* позиция при левом/правом scroll'е *)
-           Frame      : crt.FRAME;   (* Какую рамку рисовать *)
+           N          : CARDINAL;    (* ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨╛╨▓ ╨▓ ╤Б╨┐╨╕╤Б╨║╨╡ *)
+           frame, curr: CARDINAL;    (* ╨╜╨░╤З╨░╨╗╨╛ ╨▓╨╕╨┤╨╕╨╝╨╛╨│╨╛ ╨║╤Г╤Б╨║╨░ ╨╕ ╨┐╨╛╨╗╨╛╨╢╨╡╨╜╨╕╨╡ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Н╨╡╨╗╨╝╨╡╨╜╤В╨░ *)
+           pos        : CARDINAL;    (* ╨┐╨╛╨╖╨╕╤Ж╨╕╤П ╨┐╤А╨╕ ╨╗╨╡╨▓╨╛╨╝/╨┐╤А╨░╨▓╨╛╨╝ scroll'╨╡ *)
+           Frame      : crt.FRAME;   (* ╨Ъ╨░╨║╤Г╤О ╤А╨░╨╝╨║╤Г ╤А╨╕╤Б╨╛╨▓╨░╤В╤М *)
            Colors     : POINTER TO crt.LIST_ATTR;
            locator    : LCTR_STR;
            actions    : act.CONTEXT_LIST;
@@ -272,7 +272,7 @@ PROCEDURE DefaultProc (hwnd: crt.HWND; msg: eve.MSG);
 PROCEDURE ListBox (hwnd: crt.HWND; msg: eve.MSG);
 
 
-(* Переключатель опций *)
+(* ╨Я╨╡╤А╨╡╨║╨╗╤О╤З╨░╤В╨╡╨╗╤М ╨╛╨┐╤Ж╨╕╨╣ *)
 PROCEDURE tglOption (VAR b: BOOLEAN; check: BOOLEAN): BOOLEAN;
 
 

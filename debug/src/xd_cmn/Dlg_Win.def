@@ -1,7 +1,7 @@
--- Модуль организует систему окон. Содержит процедуры для
--- регистрации окон, открытия, закрытия, установки заголовка,
--- обработчиков, других атрибутов окон. Позволяет получить
--- всю необходимую информацию об окне.
+-- ╨Ь╨╛╨┤╤Г╨╗╤М ╨╛╤А╨│╨░╨╜╨╕╨╖╤Г╨╡╤В ╤Б╨╕╤Б╤В╨╡╨╝╤Г ╨╛╨║╨╛╨╜. ╨б╨╛╨┤╨╡╤А╨╢╨╕╤В ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л ╨┤╨╗╤П
+-- ╤А╨╡╨│╨╕╤Б╤В╤А╨░╤Ж╨╕╨╕ ╨╛╨║╨╛╨╜, ╨╛╤В╨║╤А╤Л╤В╨╕╤П, ╨╖╨░╨║╤А╤Л╤В╨╕╤П, ╤Г╤Б╤В╨░╨╜╨╛╨▓╨║╨╕ ╨╖╨░╨│╨╛╨╗╨╛╨▓╨║╨░,
+-- ╨╛╨▒╤А╨░╨▒╨╛╤В╤З╨╕╨║╨╛╨▓, ╨┤╤А╤Г╨│╨╕╤Е ╨░╤В╤А╨╕╨▒╤Г╤В╨╛╨▓ ╨╛╨║╨╛╨╜. ╨Я╨╛╨╖╨▓╨╛╨╗╤П╨╡╤В ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М
+-- ╨▓╤Б╤О ╨╜╨╡╨╛╨▒╤Е╨╛╨┤╨╕╨╝╤Г╤О ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╤О ╨╛╨▒ ╨╛╨║╨╜╨╡.
 
 DEFINITION MODULE Dlg_Win;
 
@@ -27,7 +27,7 @@ TYPE
   WND_PROC = PROCEDURE(HWND,eve.MSG);
 
 PROCEDURE RegisterWindow(hndl: WND_PROC; amem: CARDINAL): HWND;
-          (* amem: pазмеp ассоцииpуемой с новым окном памяти *)
+          (* amem: p╨░╨╖╨╝╨╡p ╨░╤Б╤Б╨╛╤Ж╨╕╨╕p╤Г╨╡╨╝╨╛╨╣ ╤Б ╨╜╨╛╨▓╤Л╨╝ ╨╛╨║╨╜╨╛╨╝ ╨┐╨░╨╝╤П╤В╨╕ *)
 
 PROCEDURE FindOpened (hwnd: HWND; hndl: WND_PROC): CARDINAL;
 PROCEDURE FindClosed (hwnd: HWND; hndl: WND_PROC): CARDINAL;
@@ -37,7 +37,7 @@ PROCEDURE ActiveToTail;
 PROCEDURE PopupLast;
 
 PROCEDURE GetAMPtr(hwnd: HWND): sys.ADDRESS;
-(* получить указатель на ассоцииpуемую память по HWND *)
+(* ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М ╤Г╨║╨░╨╖╨░╤В╨╡╨╗╤М ╨╜╨░ ╨░╤Б╤Б╨╛╤Ж╨╕╨╕p╤Г╨╡╨╝╤Г╤О ╨┐╨░╨╝╤П╤В╤М ╨┐╨╛ HWND *)
 
 PROCEDURE ExcludeFromList (hwnd: HWND);
 
@@ -74,7 +74,7 @@ PROCEDURE SetHeader(hwnd: HWND; no: CARDINAL);
 PROCEDURE SetHeaderByStr(hwnd: HWND; str: ARRAY OF CHAR);
 
 
-PROCEDURE GetPrevious (hwnd: HWND): HWND; (* кто был пpедыдлущим активным окном? *)
+PROCEDURE GetPrevious (hwnd: HWND): HWND; (* ╨║╤В╨╛ ╨▒╤Л╨╗ ╨┐p╨╡╨┤╤Л╨┤╨╗╤Г╤Й╨╕╨╝ ╨░╨║╤В╨╕╨▓╨╜╤Л╨╝ ╨╛╨║╨╜╨╛╨╝? *)
 
 PROCEDURE GetMouse (msg: eve.MSG; VAR x, y: CARDINAL): BOOLEAN;
 PROCEDURE GetRelMouse (hwnd: HWND; msg: eve.MSG; VAR x, y: CARDINAL): BOOLEAN;

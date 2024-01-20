@@ -3,7 +3,7 @@ DEFINITION MODULE Names;
 IMPORT dt := DI_Types;
 
 
-(* Выдать полное имя объекта, для отображения в диалоговом отладчике *)
+(* ╨Т╤Л╨┤╨░╤В╤М ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ╨╛╨▒╤К╨╡╨║╤В╨░, ╨┤╨╗╤П ╨╛╤В╨╛╨▒╤А╨░╨╢╨╡╨╜╨╕╤П ╨▓ ╨┤╨╕╨░╨╗╨╛╨│╨╛╨▓╨╛╨╝ ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨╡ *)
 PROCEDURE ObjectNameGetAndCorrect (object: dt.OBJECT; VAR name: ARRAY OF CHAR);
 
 END Names.

@@ -1,6 +1,6 @@
--- Высокоуровневая обработка остановов.
--- Описание остановов по исполнению, доступу, условию.
--- Установка остановов, удаление, поиск.
+-- ╨Т╤Л╤Б╨╛╨║╨╛╤Г╤А╨╛╨▓╨╜╨╡╨▓╨░╤П ╨╛╨▒╤А╨░╨▒╨╛╤В╨║╨░ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨╛╨▓.
+-- ╨Ю╨┐╨╕╤Б╨░╨╜╨╕╨╡ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨╛╨▓ ╨┐╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤О, ╨┤╨╛╤Б╤В╤Г╨┐╤Г, ╤Г╤Б╨╗╨╛╨▓╨╕╤О.
+-- ╨г╤Б╤В╨░╨╜╨╛╨▓╨║╨░ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨╛╨▓, ╤Г╨┤╨░╨╗╨╡╨╜╨╕╨╡, ╨┐╨╛╨╕╤Б╨║.
 
 DEFINITION MODULE Breaks;
 
@@ -23,14 +23,14 @@ TYPE
  <* IF xd_batch_included THEN *>
              , Paket
  <* END *>
-              );   (* Кто установил останов               *)
+              );   (* ╨Ъ╤В╨╛ ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╕╨╗ ╨╛╤Б╤В╨░╨╜╨╛╨▓               *)
 
 
   BREAK = RECORD
-            Active : BOOLEAN;  (* Активен ли останов                        *)
-            Sticky : BOOLEAN;  (* Останов не снимается после срабатывания   *)
-            Pass   : CARDINAL; (* Оставшееся число проходов до срабатывания *)
-            Index  : CARDINAL; (* Системно-зависимый идентификатор останова *)
+            Active : BOOLEAN;  (* ╨Р╨║╤В╨╕╨▓╨╡╨╜ ╨╗╨╕ ╨╛╤Б╤В╨░╨╜╨╛╨▓                        *)
+            Sticky : BOOLEAN;  (* ╨Ю╤Б╤В╨░╨╜╨╛╨▓ ╨╜╨╡ ╤Б╨╜╨╕╨╝╨░╨╡╤В╤Б╤П ╨┐╨╛╤Б╨╗╨╡ ╤Б╤А╨░╨▒╨░╤В╤Л╨▓╨░╨╜╨╕╤П   *)
+            Pass   : CARDINAL; (* ╨Ю╤Б╤В╨░╨▓╤И╨╡╨╡╤Б╤П ╤З╨╕╤Б╨╗╨╛ ╨┐╤А╨╛╤Е╨╛╨┤╨╛╨▓ ╨┤╨╛ ╤Б╤А╨░╨▒╨░╤В╤Л╨▓╨░╨╜╨╕╤П *)
+            Index  : CARDINAL; (* ╨б╨╕╤Б╤В╨╡╨╝╨╜╨╛-╨╖╨░╨▓╨╕╤Б╨╕╨╝╤Л╨╣ ╨╕╨┤╨╡╨╜╤В╨╕╤Д╨╕╨║╨░╤В╨╛╤А ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░ *)
             CASE Owner: OWNER_ID OF
             | None  :
             | Dialog: Source_ID: CARDINAL;
@@ -44,11 +44,11 @@ TYPE
   BREAKPOINT = RECORD
                  Break    : BREAK;
                  Pos      : dt.POS;
-                 Line     : CARDINAL;     (* Номер строки             *)
-                 Addr     : kt.ADDRESS;  (* Адрес точки              *)
-                 Condition: xStr.STRING;  (* Выражение                *)
+                 Line     : CARDINAL;     (* ╨Э╨╛╨╝╨╡╤А ╤Б╤В╤А╨╛╨║╨╕             *)
+                 Addr     : kt.ADDRESS;  (* ╨Р╨┤╤А╨╡╤Б ╤В╨╛╤З╨║╨╕              *)
+                 Condition: xStr.STRING;  (* ╨Т╤Л╤А╨░╨╢╨╡╨╜╨╕╨╡                *)
                  Kind     : BREAK_KIND;
-                 init_value: CARDINAL;    (* начальное значение отложенной точки *)
+                 init_value: CARDINAL;    (* ╨╜╨░╤З╨░╨╗╤М╨╜╨╛╨╡ ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ ╨╛╤В╨╗╨╛╨╢╨╡╨╜╨╜╨╛╨╣ ╤В╨╛╤З╨║╨╕ *)
                END;
 
   PBREAKPOINT = POINTER TO ARRAY OF BREAKPOINT;
@@ -59,10 +59,10 @@ TYPE
 
 
   ACCESS_ID  = ( NoID
-               , Memory         (* Память                              *)
+               , Memory         (* ╨Я╨░╨╝╤П╤В╤М                              *)
               <* IF TARGET_VAX THEN *>
-               , Register       (* Регистр                             *)
-               , Port           (* Регистр внешнего устройства         *)
+               , Register       (* ╨а╨╡╨│╨╕╤Б╤В╤А                             *)
+               , Port           (* ╨а╨╡╨│╨╕╤Б╤В╤А ╨▓╨╜╨╡╤И╨╜╨╡╨│╨╛ ╤Г╤Б╤В╤А╨╛╨╣╤Б╤В╨▓╨░         *)
               <* END *>
                );
 
@@ -126,30 +126,30 @@ TYPE
 
 
 VAR
-  Breakpoints    : BREAKPOINTS;        (* Точки останова                  *)
-  AccessBreaks   : ACCESS_BREAKS;      (* Остановы по доступу             *)
-  ConditionBreaks: CONDITION_BREAKS;   (* Условные остановы               *)
-  ComponentBreaks: COMPONENT_BREAKS;   (* Остановы по загрузкам компонент *)
+  Breakpoints    : BREAKPOINTS;        (* ╨в╨╛╤З╨║╨╕ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░                  *)
+  AccessBreaks   : ACCESS_BREAKS;      (* ╨Ю╤Б╤В╨░╨╜╨╛╨▓╤Л ╨┐╨╛ ╨┤╨╛╤Б╤В╤Г╨┐╤Г             *)
+  ConditionBreaks: CONDITION_BREAKS;   (* ╨г╤Б╨╗╨╛╨▓╨╜╤Л╨╡ ╨╛╤Б╤В╨░╨╜╨╛╨▓╤Л               *)
+  ComponentBreaks: COMPONENT_BREAKS;   (* ╨Ю╤Б╤В╨░╨╜╨╛╨▓╤Л ╨┐╨╛ ╨╖╨░╨│╤А╤Г╨╖╨║╨░╨╝ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В *)
 
 
-(* Сравнение двух остановов, если "равны" вернет TRUE *)
+(* ╨б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╨┤╨▓╤Г╤Е ╨╛╤Б╤В╨░╨╜╨╛╨▓╨╛╨▓, ╨╡╤Б╨╗╨╕ "╤А╨░╨▓╨╜╤Л" ╨▓╨╡╤А╨╜╨╡╤В TRUE *)
 PROCEDURE CompareBreaks (break1, break2: BREAK): BOOLEAN;
 
-(* Сравнение двух точек останова, если "равны" вернет TRUE *)
+(* ╨б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╨┤╨▓╤Г╤Е ╤В╨╛╤З╨╡╨║ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░, ╨╡╤Б╨╗╨╕ "╤А╨░╨▓╨╜╤Л" ╨▓╨╡╤А╨╜╨╡╤В TRUE *)
 PROCEDURE CompareBreakpoints (breakpoint1, breakpoint2: BREAKPOINT): BOOLEAN;
 
 
-(* Добавляет точку останова, при необходимости заменяет старую, если есть *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╗╤П╨╡╤В ╤В╨╛╤З╨║╤Г ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░, ╨┐╤А╨╕ ╨╜╨╡╨╛╨▒╤Е╨╛╨┤╨╕╨╝╨╛╤Б╤В╨╕ ╨╖╨░╨╝╨╡╨╜╤П╨╡╤В ╤Б╤В╨░╤А╤Г╤О, ╨╡╤Б╨╗╨╕ ╨╡╤Б╤В╤М *)
 PROCEDURE Add_Breakpoint (BP: BREAKPOINT; replace: BOOLEAN; VAR index: CARDINAL): BOOLEAN;
 
-(* Удаляет точки останова по позиции *)
+(* ╨г╨┤╨░╨╗╤П╨╡╤В ╤В╨╛╤З╨║╨╕ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░ ╨┐╨╛ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ *)
 PROCEDURE Delete_Breakpoint        (BreakPos: CARDINAL): BOOLEAN;
 
-(* Удаляет все точки останова *)
+(* ╨г╨┤╨░╨╗╤П╨╡╤В ╨▓╤Б╨╡ ╤В╨╛╤З╨║╨╕ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░ *)
 PROCEDURE DeleteAll_Breakpoint     (): BOOLEAN;
 
-(* Ищет точку останова по индексу      *)
-(* Если найдена, вернет TRUE и позицию *)
+(* ╨Ш╤Й╨╡╤В ╤В╨╛╤З╨║╤Г ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░ ╨┐╨╛ ╨╕╨╜╨┤╨╡╨║╤Б╤Г      *)
+(* ╨Х╤Б╨╗╨╕ ╨╜╨░╨╣╨┤╨╡╨╜╨░, ╨▓╨╡╤А╨╜╨╡╤В TRUE ╨╕ ╨┐╨╛╨╖╨╕╤Ж╨╕╤О *)
 PROCEDURE FindByIndex_Breakpoint (Index: CARDINAL; VAR BreakPos: CARDINAL): BOOLEAN;
 
 PROCEDURE Enable_Breakpoint (BreakPos: CARDINAL): BOOLEAN;
@@ -169,35 +169,35 @@ PROCEDURE DeleteAll_AccessBreak;
 PROCEDURE FindByIndex_AccessBreak  (Index: CARDINAL; VAR BreakPos: CARDINAL): BOOLEAN;
 
 PROCEDURE Clear_AccessBreak;
--- нужно вызвать перед выполнением рестарта, затем вызвать Refresh_AccessBreak
+-- ╨╜╤Г╨╢╨╜╨╛ ╨▓╤Л╨╖╨▓╨░╤В╤М ╨┐╨╡╤А╨╡╨┤ ╨▓╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡╨╝ ╤А╨╡╤Б╤В╨░╤А╤В╨░, ╨╖╨░╤В╨╡╨╝ ╨▓╤Л╨╖╨▓╨░╤В╤М Refresh_AccessBreak
 
 PROCEDURE Refresh_AccessBreak;
 
 
-(* Добавляет условный останов *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╗╤П╨╡╤В ╤Г╤Б╨╗╨╛╨▓╨╜╤Л╨╣ ╨╛╤Б╤В╨░╨╜╨╛╨▓ *)
 PROCEDURE Add_ConditionBreak       (CB: CONDITION_BREAK): BOOLEAN;
 
-(* Удаляет останов по номеру *)
+(* ╨г╨┤╨░╨╗╤П╨╡╤В ╨╛╤Б╤В╨░╨╜╨╛╨▓ ╨┐╨╛ ╨╜╨╛╨╝╨╡╤А╤Г *)
 PROCEDURE Delete_ConditionBreak    (BreakPos: CARDINAL): BOOLEAN;
 
-(* Удаляет все остановы *)
+(* ╨г╨┤╨░╨╗╤П╨╡╤В ╨▓╤Б╨╡ ╨╛╤Б╤В╨░╨╜╨╛╨▓╤Л *)
 PROCEDURE DeleteAll_ConditionBreak (): BOOLEAN;
 
-(* Проверяет необходимость останова, начиная с позиции BreakPos *)
-(* Если вернет TRUE, то BreakPos - номер сработавшего останова  *)
+(* ╨Я╤А╨╛╨▓╨╡╤А╤П╨╡╤В ╨╜╨╡╨╛╨▒╤Е╨╛╨┤╨╕╨╝╨╛╤Б╤В╤М ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░, ╨╜╨░╤З╨╕╨╜╨░╤П ╤Б ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ BreakPos *)
+(* ╨Х╤Б╨╗╨╕ ╨▓╨╡╤А╨╜╨╡╤В TRUE, ╤В╨╛ BreakPos - ╨╜╨╛╨╝╨╡╤А ╤Б╤А╨░╨▒╨╛╤В╨░╨▓╤И╨╡╨│╨╛ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░  *)
 PROCEDURE NeedToStop (com: dt.ComNo; mod: dt.ModNo; VAR BreakPos: CARDINAL): BOOLEAN;
 
-(* Проверяет необходимость включения пошагового исполнения *)
+(* ╨Я╤А╨╛╨▓╨╡╤А╤П╨╡╤В ╨╜╨╡╨╛╨▒╤Е╨╛╨┤╨╕╨╝╨╛╤Б╤В╤М ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╤П ╨┐╨╛╤И╨░╨│╨╛╨▓╨╛╨│╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П *)
 PROCEDURE NeedToStepMode (): BOOLEAN;
 
 
-(* Добавляет останов по загрузке компоненты *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╗╤П╨╡╤В ╨╛╤Б╤В╨░╨╜╨╛╨▓ ╨┐╨╛ ╨╖╨░╨│╤А╤Г╨╖╨║╨╡ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╤Л *)
 PROCEDURE Add_ComponentBreak (CB: COMPONENT_BREAK): BOOLEAN;
 
-(* Удаляет останов по номеру *)
+(* ╨г╨┤╨░╨╗╤П╨╡╤В ╨╛╤Б╤В╨░╨╜╨╛╨▓ ╨┐╨╛ ╨╜╨╛╨╝╨╡╤А╤Г *)
 PROCEDURE Delete_ComponentBreak (BreakPos: CARDINAL): BOOLEAN;
 
-(* Удаляет все остановы по загрузке компонент *)
+(* ╨г╨┤╨░╨╗╤П╨╡╤В ╨▓╤Б╨╡ ╨╛╤Б╤В╨░╨╜╨╛╨▓╤Л ╨┐╨╛ ╨╖╨░╨│╤А╤Г╨╖╨║╨╡ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В *)
 PROCEDURE DeleteAll_ComponentBreak (): BOOLEAN;
 
 

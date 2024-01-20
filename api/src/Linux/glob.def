@@ -32,7 +32,7 @@ TYPE
   glob_t = RECORD
     gl_pathc : size_t;                     -- Count of paths matched so far.
     gl_pathv : POINTER TO POINTER TO CHAR; -- List of matched pathnames.
-    gl_offs  : size_t;                     -- Slots to reserve in ¢ gl_pathv.
+    gl_offs  : size_t;                     -- Slots to reserve in Ð² gl_pathv.
     reserved : ARRAY[0..7] OF CARDINAL;
   END;
 

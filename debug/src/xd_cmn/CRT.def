@@ -1,9 +1,9 @@
--- Поддержка изображений элементов интерфейса на физический экран.
--- Огранизация карты экрана. Содержит набор функций для
--- различных режимов вывода символов и/или их цветов и работы с курсором.
--- Содержит цветовые схемы для окон.
+-- ╨Я╨╛╨┤╨┤╨╡╤А╨╢╨║╨░ ╨╕╨╖╨╛╨▒╤А╨░╨╢╨╡╨╜╨╕╨╣ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨╛╨▓ ╨╕╨╜╤В╨╡╤А╤Д╨╡╨╣╤Б╨░ ╨╜╨░ ╤Д╨╕╨╖╨╕╤З╨╡╤Б╨║╨╕╨╣ ╤Н╨║╤А╨░╨╜.
+-- ╨Ю╨│╤А╨░╨╜╨╕╨╖╨░╤Ж╨╕╤П ╨║╨░╤А╤В╤Л ╤Н╨║╤А╨░╨╜╨░. ╨б╨╛╨┤╨╡╤А╨╢╨╕╤В ╨╜╨░╨▒╨╛╤А ╤Д╤Г╨╜╨║╤Ж╨╕╨╣ ╨┤╨╗╤П
+-- ╤А╨░╨╖╨╗╨╕╤З╨╜╤Л╤Е ╤А╨╡╨╢╨╕╨╝╨╛╨▓ ╨▓╤Л╨▓╨╛╨┤╨░ ╤Б╨╕╨╝╨▓╨╛╨╗╨╛╨▓ ╨╕/╨╕╨╗╨╕ ╨╕╤Е ╤Ж╨▓╨╡╤В╨╛╨▓ ╨╕ ╤А╨░╨▒╨╛╤В╤Л ╤Б ╨║╤Г╤А╤Б╨╛╤А╨╛╨╝.
+-- ╨б╨╛╨┤╨╡╤А╨╢╨╕╤В ╤Ж╨▓╨╡╤В╨╛╨▓╤Л╨╡ ╤Б╤Е╨╡╨╝╤Л ╨┤╨╗╤П ╨╛╨║╨╛╨╜.
 --
--- Перед использованием необходимо вызвать процедуру Ini, по окончании Exi;
+-- ╨Я╨╡╤А╨╡╨┤ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╕╨╡╨╝ ╨╜╨╡╨╛╨▒╤Е╨╛╨┤╨╕╨╝╨╛ ╨▓╤Л╨╖╨▓╨░╤В╤М ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Г Ini, ╨┐╨╛ ╨╛╨║╨╛╨╜╤З╨░╨╜╨╕╨╕ Exi;
 
 DEFINITION MODULE CRT;
 
@@ -81,8 +81,8 @@ TYPE
   LIST_NAMES = ARRAY LIST_ELEM OF ATTR_NAME;
 
 
-  -- Элементы цветовой схемы для окон структурных переменных
-  -- Первые элементы должны соответствовать элемантам для списков
+  -- ╨н╨╗╨╡╨╝╨╡╨╜╤В╤Л ╤Ж╨▓╨╡╤В╨╛╨▓╨╛╨╣ ╤Б╤Е╨╡╨╝╤Л ╨┤╨╗╤П ╨╛╨║╨╛╨╜ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
+  -- ╨Я╨╡╤А╨▓╤Л╨╡ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╤Л ╨┤╨╛╨╗╨╢╨╜╤Л ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╤В╨▓╨╛╨▓╨░╤В╤М ╤Н╨╗╨╡╨╝╨░╨╜╤В╨░╨╝ ╨┤╨╗╤П ╤Б╨┐╨╕╤Б╨║╨╛╨▓
   STRUCT_ELEM = ( Struct_Background
                 , Struct_Frame
                 , Struct_Header
@@ -95,7 +95,7 @@ TYPE
   STRUCT_NAMES = ARRAY STRUCT_ELEM OF ATTR_NAME;
 
 
-  -- Элементы цветовой схемы для диалоговых окон
+  -- ╨н╨╗╨╡╨╝╨╡╨╜╤В╤Л ╤Ж╨▓╨╡╤В╨╛╨▓╨╛╨╣ ╤Б╤Е╨╡╨╝╤Л ╨┤╨╗╤П ╨┤╨╕╨░╨╗╨╛╨│╨╛╨▓╤Л╤Е ╨╛╨║╨╛╨╜
   DIALOG_ELEM = ( Dialog_Background
                 , Dialog_ActiveEditor
                 , Dialog_InactiveEditor
@@ -184,7 +184,7 @@ CONST
                          'Code', 'NoCode', 'Disassembler', 'Break', 'BreakDisabled',
                          'UserCursor', 'ExecCursor', 'CallCursor'};
 
-  -- Названия элементов цветовой схемы для окон структурных переменных
+  -- ╨Э╨░╨╖╨▓╨░╨╜╨╕╤П ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨╛╨▓ ╤Ж╨▓╨╡╤В╨╛╨▓╨╛╨╣ ╤Б╤Е╨╡╨╝╤Л ╨┤╨╗╤П ╨╛╨║╨╛╨╜ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
   Struct_Names = STRUCT_NAMES{ 'Background'
                              , 'Frame'
                              , 'Header'
@@ -193,7 +193,7 @@ CONST
                              , 'CurrentLine'
                              , 'AlternateLine'};
 
-  -- Названия элементов цветовой схемы для диалоговых окон
+  -- ╨Э╨░╨╖╨▓╨░╨╜╨╕╤П ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨╛╨▓ ╤Ж╨▓╨╡╤В╨╛╨▓╨╛╨╣ ╤Б╤Е╨╡╨╝╤Л ╨┤╨╗╤П ╨┤╨╕╨░╨╗╨╛╨│╨╛╨▓╤Л╤Е ╨╛╨║╨╛╨╜
   Dialog_Names = DIALOG_NAMES{ 'Background'
                              , 'ActiveEditor'
                              , 'InactiveEditor'
@@ -257,7 +257,7 @@ VAR
   Help_Background : ATTR;
 
 PROCEDURE Attr(foreground, background: COLOR): ATTR;
-(* получение атpибута текстового экpана по цвету foreground и bacground *)
+(* ╨┐╨╛╨╗╤Г╤З╨╡╨╜╨╕╨╡ ╨░╤Вp╨╕╨▒╤Г╤В╨░ ╤В╨╡╨║╤Б╤В╨╛╨▓╨╛╨│╨╛ ╤Н╨║p╨░╨╜╨░ ╨┐╨╛ ╤Ж╨▓╨╡╤В╤Г foreground ╨╕ bacground *)
 
 PROCEDURE Fg(attr: ATTR): COLOR;
 PROCEDURE Bg(attr: ATTR): COLOR;
@@ -265,7 +265,7 @@ PROCEDURE Bg(attr: ATTR): COLOR;
 PROCEDURE BringColor (c: COLOR): COLOR;
 
 PROCEDURE SetPos(x,y: CARDINAL);
-(* Позиция для последующих безпозиционных опеpатоpов вывода *)
+(* ╨Я╨╛╨╖╨╕╤Ж╨╕╤П ╨┤╨╗╤П ╨┐╨╛╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╤Е ╨▒╨╡╨╖╨┐╨╛╨╖╨╕╤Ж╨╕╨╛╨╜╨╜╤Л╤Е ╨╛╨┐╨╡p╨░╤В╨╛p╨╛╨▓ ╨▓╤Л╨▓╨╛╨┤╨░ *)
 
 PROCEDURE FindWindow (x,y: CARDINAL): HWND;
 PROCEDURE FindWord (x,y: CARDINAL; VAR start, end: CARDINAL; VAR word: ARRAY OF CHAR): BOOLEAN;
@@ -282,8 +282,8 @@ PROCEDURE FillWindow(hwnd: HWND; ch: CHAR; attr: ATTR );
 PROCEDURE FillWindowSize(hwnd: HWND; size: SZ; ch: CHAR; attr: ATTR );
 
 
-PROCEDURE UpdateRect(size: SZ);  (* процедура вывода в физический буфер содержимого
-                                    логического, размеры которого указаны в size    *)
+PROCEDURE UpdateRect(size: SZ);  (* ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░ ╨▓╤Л╨▓╨╛╨┤╨░ ╨▓ ╤Д╨╕╨╖╨╕╤З╨╡╤Б╨║╨╕╨╣ ╨▒╤Г╤Д╨╡╤А ╤Б╨╛╨┤╨╡╤А╨╢╨╕╨╝╨╛╨│╨╛
+                                    ╨╗╨╛╨│╨╕╤З╨╡╤Б╨║╨╛╨│╨╛, ╤А╨░╨╖╨╝╨╡╤А╤Л ╨║╨╛╤В╨╛╤А╨╛╨│╨╛ ╤Г╨║╨░╨╖╨░╨╜╤Л ╨▓ size    *)
 
 PROCEDURE RiseWindow(hwnd: HWND);
 PROCEDURE HideWindow(hwnd: HWND);
@@ -302,12 +302,12 @@ PROCEDURE WrNCharAbs(ch: CHAR; N: CARDINAL; attr: ATTR);
 PROCEDURE WrStrAbs(str: ARRAY OF CHAR;attr: ATTR);
 PROCEDURE WrStrNAbs(str: ARRAY OF CHAR; N: CARDINAL; attr: ATTR);
 
-(* меняет в окне hwnd цвет подложки у i стpоки начиная с pos и до конца окна *)
+(* ╨╝╨╡╨╜╤П╨╡╤В ╨▓ ╨╛╨║╨╜╨╡ hwnd ╤Ж╨▓╨╡╤В ╨┐╨╛╨┤╨╗╨╛╨╢╨║╨╕ ╤Г i ╤Б╤Вp╨╛╨║╨╕ ╨╜╨░╤З╨╕╨╜╨░╤П ╤Б pos ╨╕ ╨┤╨╛ ╨║╨╛╨╜╤Ж╨░ ╨╛╨║╨╜╨░ *)
 PROCEDURE Hilite(hwnd: HWND; i, pos : CARDINAL; color: COLOR);
 
 PROCEDURE HilitePart(hwnd: HWND; i, pos1, pos2 : CARDINAL; color: COLOR);
 
-(* меняет в окне hwnd атpибут у i стpоки начиная с pos и до конца окна *)
+(* ╨╝╨╡╨╜╤П╨╡╤В ╨▓ ╨╛╨║╨╜╨╡ hwnd ╨░╤Вp╨╕╨▒╤Г╤В ╤Г i ╤Б╤Вp╨╛╨║╨╕ ╨╜╨░╤З╨╕╨╜╨░╤П ╤Б pos ╨╕ ╨┤╨╛ ╨║╨╛╨╜╤Ж╨░ ╨╛╨║╨╜╨░ *)
 PROCEDURE Lite(hwnd: HWND; i, pos : CARDINAL; attr: ATTR);
 
 PROCEDURE LitePart(hwnd: HWND; i, pos1, pos2 : CARDINAL; attr: ATTR);

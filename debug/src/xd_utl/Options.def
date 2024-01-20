@@ -1,4 +1,4 @@
--- Набор переменных, определяющих режим работы отладчика
+-- ╨Э╨░╨▒╨╛╤А ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е, ╨╛╨┐╤А╨╡╨┤╨╡╨╗╤П╤О╤Й╨╕╤Е ╤А╨╡╨╢╨╕╨╝ ╤А╨░╨▒╨╛╤В╤Л ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨░
 
 DEFINITION MODULE Options;
 
@@ -13,41 +13,41 @@ IMPORT Translit;
 
 
 VAR
-  tst_name   : xStr.String; (* имя файла тестового пакета           *)
-  prog_name  : xStr.String; (* имя программы                        *)
-  prog_args  : xStr.String; (* аргументы программы                  *)
-  Stop_Pack  : BOOLEAN;     (* признак останова пакетного отладчика *)
-  DialogMode : BOOLEAN;     (* запуск в диалоговом режиме           *)
-  in_dialog  : BOOLEAN;     (* признак работы в диалоге             *)
-  name_only  : BOOLEAN;     (* признак выдачи только иемни пакета   *)
-  DisasmMode : BOOLEAN;     (* Полный/стандартный дисассемблер      *)
-  Code       : BOOLEAN;     (* Представление кода программы         *)
-  WarningBell: BOOLEAN;     (* Сигнал при ошибках                   *)
-  SaveOpt    : BOOLEAN;     (* Сохранять опции с файле сессии       *)
-  CodeHilight: BOOLEAN;     (* Выделение кода                       *)
-  CallHilight: BOOLEAN;     (* Выделение в тексте мест вызова       *)
-  X-, Y-     : CARDINAL;    (* Размер окна отладчика                *)
-  WholeHex   : BOOLEAN;     (* Отображать целые в 16 с/c            *)
-  KbdFile    : xStr.String; (* Файл раскладки клавиатуры            *)
+  tst_name   : xStr.String; (* ╨╕╨╝╤П ╤Д╨░╨╣╨╗╨░ ╤В╨╡╤Б╤В╨╛╨▓╨╛╨│╨╛ ╨┐╨░╨║╨╡╤В╨░           *)
+  prog_name  : xStr.String; (* ╨╕╨╝╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л                        *)
+  prog_args  : xStr.String; (* ╨░╤А╨│╤Г╨╝╨╡╨╜╤В╤Л ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л                  *)
+  Stop_Pack  : BOOLEAN;     (* ╨┐╤А╨╕╨╖╨╜╨░╨║ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░ ╨┐╨░╨║╨╡╤В╨╜╨╛╨│╨╛ ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨░ *)
+  DialogMode : BOOLEAN;     (* ╨╖╨░╨┐╤Г╤Б╨║ ╨▓ ╨┤╨╕╨░╨╗╨╛╨│╨╛╨▓╨╛╨╝ ╤А╨╡╨╢╨╕╨╝╨╡           *)
+  in_dialog  : BOOLEAN;     (* ╨┐╤А╨╕╨╖╨╜╨░╨║ ╤А╨░╨▒╨╛╤В╤Л ╨▓ ╨┤╨╕╨░╨╗╨╛╨│╨╡             *)
+  name_only  : BOOLEAN;     (* ╨┐╤А╨╕╨╖╨╜╨░╨║ ╨▓╤Л╨┤╨░╤З╨╕ ╤В╨╛╨╗╤М╨║╨╛ ╨╕╨╡╨╝╨╜╨╕ ╨┐╨░╨║╨╡╤В╨░   *)
+  DisasmMode : BOOLEAN;     (* ╨Я╨╛╨╗╨╜╤Л╨╣/╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╤Л╨╣ ╨┤╨╕╤Б╨░╤Б╤Б╨╡╨╝╨▒╨╗╨╡╤А      *)
+  Code       : BOOLEAN;     (* ╨Я╤А╨╡╨┤╤Б╤В╨░╨▓╨╗╨╡╨╜╨╕╨╡ ╨║╨╛╨┤╨░ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л         *)
+  WarningBell: BOOLEAN;     (* ╨б╨╕╨│╨╜╨░╨╗ ╨┐╤А╨╕ ╨╛╤И╨╕╨▒╨║╨░╤Е                   *)
+  SaveOpt    : BOOLEAN;     (* ╨б╨╛╤Е╤А╨░╨╜╤П╤В╤М ╨╛╨┐╤Ж╨╕╨╕ ╤Б ╤Д╨░╨╣╨╗╨╡ ╤Б╨╡╤Б╤Б╨╕╨╕       *)
+  CodeHilight: BOOLEAN;     (* ╨Т╤Л╨┤╨╡╨╗╨╡╨╜╨╕╨╡ ╨║╨╛╨┤╨░                       *)
+  CallHilight: BOOLEAN;     (* ╨Т╤Л╨┤╨╡╨╗╨╡╨╜╨╕╨╡ ╨▓ ╤В╨╡╨║╤Б╤В╨╡ ╨╝╨╡╤Б╤В ╨▓╤Л╨╖╨╛╨▓╨░       *)
+  X-, Y-     : CARDINAL;    (* ╨а╨░╨╖╨╝╨╡╤А ╨╛╨║╨╜╨░ ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨░                *)
+  WholeHex   : BOOLEAN;     (* ╨Ю╤В╨╛╨▒╤А╨░╨╢╨░╤В╤М ╤Ж╨╡╨╗╤Л╨╡ ╨▓ 16 ╤Б/c            *)
+  KbdFile    : xStr.String; (* ╨д╨░╨╣╨╗ ╤А╨░╤Б╨║╨╗╨░╨┤╨║╨╕ ╨║╨╗╨░╨▓╨╕╨░╤В╤Г╤А╤Л            *)
 
-  ConvertVar2Ref: BOOLEAN;  (* Представление переменной как ссылки (см. Expr.def)    *)
-  ShowAllModules: BOOLEAN;  (* Показывать в диалоге модули без отладочной информации *)
-  InitDumpType  : CARDINAL; (* Умольчательное значение типа для дампа                *)
+  ConvertVar2Ref: BOOLEAN;  (* ╨Я╤А╨╡╨┤╤Б╤В╨░╨▓╨╗╨╡╨╜╨╕╨╡ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨╛╨╣ ╨║╨░╨║ ╤Б╤Б╤Л╨╗╨║╨╕ (╤Б╨╝. Expr.def)    *)
+  ShowAllModules: BOOLEAN;  (* ╨Я╨╛╨║╨░╨╖╤Л╨▓╨░╤В╤М ╨▓ ╨┤╨╕╨░╨╗╨╛╨│╨╡ ╨╝╨╛╨┤╤Г╨╗╨╕ ╨▒╨╡╨╖ ╨╛╤В╨╗╨░╨┤╨╛╤З╨╜╨╛╨╣ ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╕ *)
+  InitDumpType  : CARDINAL; (* ╨г╨╝╨╛╨╗╤М╤З╨░╤В╨╡╨╗╤М╨╜╨╛╨╡ ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ ╤В╨╕╨┐╨░ ╨┤╨╗╤П ╨┤╨░╨╝╨┐╨░                *)
 
  (*
-  JumpToMainEntry: BOOLEAN; (* Пропускать код до точки входа - главной функции *)
-  JumpToProgramEntry : BOOLEAN; (* Пропускать код до точки входа в компоненту      *)
+  JumpToMainEntry: BOOLEAN; (* ╨Я╤А╨╛╨┐╤Г╤Б╨║╨░╤В╤М ╨║╨╛╨┤ ╨┤╨╛ ╤В╨╛╤З╨║╨╕ ╨▓╤Е╨╛╨┤╨░ - ╨│╨╗╨░╨▓╨╜╨╛╨╣ ╤Д╤Г╨╜╨║╤Ж╨╕╨╕ *)
+  JumpToProgramEntry : BOOLEAN; (* ╨Я╤А╨╛╨┐╤Г╤Б╨║╨░╤В╤М ╨║╨╛╨┤ ╨┤╨╛ ╤В╨╛╤З╨║╨╕ ╨▓╤Е╨╛╨┤╨░ ╨▓ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╤Г      *)
  *)
 
   StopImmediately: BOOLEAN;
-  SkipDisasm     : BOOLEAN; (* Пропускать код без отладочной информации        *)
+  SkipDisasm     : BOOLEAN; (* ╨Я╤А╨╛╨┐╤Г╤Б╨║╨░╤В╤М ╨║╨╛╨┤ ╨▒╨╡╨╖ ╨╛╤В╨╗╨░╨┤╨╛╤З╨╜╨╛╨╣ ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╕        *)
 
-  ShowModuleWithoutSource  : BOOLEAN; (* Показывать модули без исходного текста          *)
-  DisplayDerefencePointer  : BOOLEAN; (* Показывать указатели с разыменованным значением *)
-  IgnoreWriteProtected     : BOOLEAN; (* Забивать на флаги дампа, писать можно в код     *)
-  UseSingleStructureWindow : BOOLEAN; (* Новую структуру показывать в том же окне        *)
-  CatchExceptInternalError : BOOLEAN; (* Ловить или нет в EXCEPT от MainLoop             *)
-                                      (* и во Flush в диалоге при ошибках                *)
+  ShowModuleWithoutSource  : BOOLEAN; (* ╨Я╨╛╨║╨░╨╖╤Л╨▓╨░╤В╤М ╨╝╨╛╨┤╤Г╨╗╨╕ ╨▒╨╡╨╖ ╨╕╤Б╤Е╨╛╨┤╨╜╨╛╨│╨╛ ╤В╨╡╨║╤Б╤В╨░          *)
+  DisplayDerefencePointer  : BOOLEAN; (* ╨Я╨╛╨║╨░╨╖╤Л╨▓╨░╤В╤М ╤Г╨║╨░╨╖╨░╤В╨╡╨╗╨╕ ╤Б ╤А╨░╨╖╤Л╨╝╨╡╨╜╨╛╨▓╨░╨╜╨╜╤Л╨╝ ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡╨╝ *)
+  IgnoreWriteProtected     : BOOLEAN; (* ╨Ч╨░╨▒╨╕╨▓╨░╤В╤М ╨╜╨░ ╤Д╨╗╨░╨│╨╕ ╨┤╨░╨╝╨┐╨░, ╨┐╨╕╤Б╨░╤В╤М ╨╝╨╛╨╢╨╜╨╛ ╨▓ ╨║╨╛╨┤     *)
+  UseSingleStructureWindow : BOOLEAN; (* ╨Э╨╛╨▓╤Г╤О ╤Б╤В╤А╤Г╨║╤В╤Г╤А╤Г ╨┐╨╛╨║╨░╨╖╤Л╨▓╨░╤В╤М ╨▓ ╤В╨╛╨╝ ╨╢╨╡ ╨╛╨║╨╜╨╡        *)
+  CatchExceptInternalError : BOOLEAN; (* ╨Ы╨╛╨▓╨╕╤В╤М ╨╕╨╗╨╕ ╨╜╨╡╤В ╨▓ EXCEPT ╨╛╤В MainLoop             *)
+                                      (* ╨╕ ╨▓╨╛ Flush ╨▓ ╨┤╨╕╨░╨╗╨╛╨│╨╡ ╨┐╤А╨╕ ╨╛╤И╨╕╨▒╨║╨░╤Е                *)
 
   MergeEqualTypes          : BOOLEAN;
 TYPE
@@ -62,8 +62,8 @@ PROCEDURE SetXY (x, y: CARDINAL);
 <* IF DEST_K26 THEN *>
 
 VAR
-  TableModel    : BOOLEAN; -- Замена штатной внешней на штатную табличную
-  TraceRegisters: BOOLEAN; -- Устанавливать трассировку регистров в диалоге
+  TableModel    : BOOLEAN; -- ╨Ч╨░╨╝╨╡╨╜╨░ ╤И╤В╨░╤В╨╜╨╛╨╣ ╨▓╨╜╨╡╤И╨╜╨╡╨╣ ╨╜╨░ ╤И╤В╨░╤В╨╜╤Г╤О ╤В╨░╨▒╨╗╨╕╤З╨╜╤Г╤О
+  TraceRegisters: BOOLEAN; -- ╨г╤Б╤В╨░╨╜╨░╨▓╨╗╨╕╨▓╨░╤В╤М ╤В╤А╨░╤Б╤Б╨╕╤А╨╛╨▓╨║╤Г ╤А╨╡╨│╨╕╤Б╤В╤А╨╛╨▓ ╨▓ ╨┤╨╕╨░╨╗╨╛╨│╨╡
 
 <* ELSIF DEST_XDS THEN *>
 
@@ -82,8 +82,8 @@ VAR
   RemoteTransport: xStr.String;
 
   KernelInRemoteMode  : BOOLEAN;
-  AutoDetectActualType: BOOLEAN; (* Определять настоящий тип обьектов             *)
-  CorrectObjectName   : BOOLEAN; (* По возможности преобразовавать имена обьектов *)
+  AutoDetectActualType: BOOLEAN; (* ╨Ю╨┐╤А╨╡╨┤╨╡╨╗╤П╤В╤М ╨╜╨░╤Б╤В╨╛╤П╤Й╨╕╨╣ ╤В╨╕╨┐ ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓             *)
+  CorrectObjectName   : BOOLEAN; (* ╨Я╨╛ ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛╤Б╤В╨╕ ╨┐╤А╨╡╨╛╨▒╤А╨░╨╖╨╛╨▓╨░╨▓╨░╤В╤М ╨╕╨╝╨╡╨╜╨░ ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ *)
 
 <* END *>
 
@@ -94,9 +94,9 @@ TYPE
   DEBUG_MODE = ( Load, Expr, Another, InfoCache);
   DEBUG_INFO = SET OF DEBUG_MODE;
 
-PROCEDURE DebugOn (d: DEBUG_MODE); (* Включить режим *)
+PROCEDURE DebugOn (d: DEBUG_MODE); (* ╨Т╨║╨╗╤О╤З╨╕╤В╤М ╤А╨╡╨╢╨╕╨╝ *)
 
-PROCEDURE Debug (d: DEBUG_MODE) : BOOLEAN; (* Включен ли режим? *)
+PROCEDURE Debug (d: DEBUG_MODE) : BOOLEAN; (* ╨Т╨║╨╗╤О╤З╨╡╨╜ ╨╗╨╕ ╤А╨╡╨╢╨╕╨╝? *)
 
 <* END *>
 

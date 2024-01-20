@@ -1,12 +1,12 @@
--- ëÆ§•‡¶®‚Ï ®§•≠‚®‰®™†‚Æ‡Î: ≠†ß¢†≠®• Ø‡Æ§„™‚†,
--- ≠Æ¨•‡ ¢•‡·®®, copyright
+-- –°–æ–¥–µ—Ä–∂–∏—Ç—å –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æ—Ä—ã: –Ω–∞–∑–≤–∞–Ω–∏–µ –ø—Ä–æ–¥—É–∫—Ç–∞,
+-- –Ω–æ–º–µ—Ä –≤–µ—Ä—Å–∏–∏, copyright
 
 DEFINITION MODULE ["C"] XD_Title;
 
 
 CONST
-  PRODUCT   = "XDS Debugger (native x86 edition)";  (* è‡Æ§„™‚   *)
-  VERSION   = "2.0";                                (* Ç•‡·®Ô    *)
+  PRODUCT   = "XDS Debugger (native x86 edition)";  (* –ü—Ä–æ–¥—É–∫—Ç   *)
+  VERSION   = "2.0";                                (* –í–µ—Ä—Å–∏—è    *)
   COPYRIGHT = "1996-2002 Excelsior";                (* Copyright *)
 
 

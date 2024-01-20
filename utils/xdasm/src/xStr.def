@@ -1,31 +1,31 @@
--- Различные процедуры для работы со строками.
+-- ╨а╨░╨╖╨╗╨╕╤З╨╜╤Л╨╡ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л ╨┤╨╗╤П ╤А╨░╨▒╨╛╤В╤Л ╤Б╨╛ ╤Б╤В╤А╨╛╨║╨░╨╝╨╕.
 
 DEFINITION MODULE xStr;
 
 CONST
-  MaxLengthLine = 16384; (* Максимальная длина строки *)
+  MaxLengthLine = 16384; (* ╨Ь╨░╨║╤Б╨╕╨╝╨░╨╗╤М╨╜╨░╤П ╨┤╨╗╨╕╨╜╨░ ╤Б╤В╤А╨╛╨║╨╕ *)
 
 TYPE
   txt_ptr = POINTER TO ARRAY [0..0FFFEH] OF CHAR;
 
   string = txt_ptr;
 
-  (* СТРОКА *)
+  (* ╨б╨в╨а╨Ю╨Ъ╨Р *)
   STRING = POINTER TO ARRAY OF CHAR;
-  (* реальная длина строки определяется HIGH(STRING) *)
+  (* ╤А╨╡╨░╨╗╤М╨╜╨░╤П ╨┤╨╗╨╕╨╜╨░ ╤Б╤В╤А╨╛╨║╨╕ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╤П╨╡╤В╤Б╤П HIGH(STRING) *)
 
-  (* строка, часто используется как промежуточный буфер *)
+  (* ╤Б╤В╤А╨╛╨║╨░, ╤З╨░╤Б╤В╨╛ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В╤Б╤П ╨║╨░╨║ ╨┐╤А╨╛╨╝╨╡╨╢╤Г╤В╨╛╤З╨╜╤Л╨╣ ╨▒╤Г╤Д╨╡╤А *)
   String = ARRAY [0..MaxLengthLine-1] OF CHAR;
 
   CHARSET = SET OF CHAR;
 
-(* Создает строку заданной длины *)
+(* ╨б╨╛╨╖╨┤╨░╨╡╤В ╤Б╤В╤А╨╛╨║╤Г ╨╖╨░╨┤╨░╨╜╨╜╨╛╨╣ ╨┤╨╗╨╕╨╜╤Л *)
 PROCEDURE alloc_str(VAR s: STRING; len: CARDINAL);
 
-(* Создает и копирует в строку содержимое buf *)
+(* ╨б╨╛╨╖╨┤╨░╨╡╤В ╨╕ ╨║╨╛╨┐╨╕╤А╤Г╨╡╤В ╨▓ ╤Б╤В╤А╨╛╨║╤Г ╤Б╨╛╨┤╨╡╤А╨╢╨╕╨╝╨╛╨╡ buf *)
 PROCEDURE alloc_from(VAR s: STRING; buf: ARRAY OF CHAR);
 
-(* Уничтожает строку *)
+(* ╨г╨╜╨╕╤З╤В╨╛╨╢╨░╨╡╤В ╤Б╤В╤А╨╛╨║╤Г *)
 PROCEDURE dealloc_str(VAR s: STRING);
 
 (* Copies at most numberToExtract characters from source to destination,
@@ -56,7 +56,7 @@ PROCEDURE UpChar (ch:CHAR) : CHAR;
 (* Upper case string *)
 PROCEDURE Uppercase (VAR s: ARRAY OF CHAR);
 
-(* Удаляет все ведущие пробелы и выделяет первое слово в строке *)
+(* ╨г╨┤╨░╨╗╤П╨╡╤В ╨▓╤Б╨╡ ╨▓╨╡╨┤╤Г╤Й╨╕╨╡ ╨┐╤А╨╛╨▒╨╡╨╗╤Л ╨╕ ╨▓╤Л╨┤╨╡╨╗╤П╨╡╤В ╨┐╨╡╤А╨▓╨╛╨╡ ╤Б╨╗╨╛╨▓╨╛ ╨▓ ╤Б╤В╤А╨╛╨║╨╡ *)
 PROCEDURE StripWord (str: ARRAY OF CHAR; VAR word: ARRAY OF CHAR);
 
 (* Truncuted string to l symbols *)

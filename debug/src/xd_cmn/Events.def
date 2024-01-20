@@ -1,6 +1,6 @@
--- События, обрабатываемые отладчиком
--- Содержит описание событий в программе
--- Поддержка очереди событий
+-- ╨б╨╛╨▒╤Л╤В╨╕╤П, ╨╛╨▒╤А╨░╨▒╨░╤В╤Л╨▓╨░╨╡╨╝╤Л╨╡ ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨╛╨╝
+-- ╨б╨╛╨┤╨╡╤А╨╢╨╕╤В ╨╛╨┐╨╕╤Б╨░╨╜╨╕╨╡ ╤Б╨╛╨▒╤Л╤В╨╕╨╣ ╨▓ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨╡
+-- ╨Я╨╛╨┤╨┤╨╡╤А╨╢╨║╨░ ╨╛╤З╨╡╤А╨╡╨┤╨╕ ╤Б╨╛╨▒╤Л╤В╨╕╨╣
 <* NOHEADER+ *> -- NEVER GET THE HEADER FOR THIS FILE
 
 DEFINITION MODULE Events;
@@ -15,27 +15,27 @@ IMPORT Krn_Thrs;
 
 
 TYPE
-  EXCEPTION_ID = ( OutOfMemory      (* Доступ по адресу вне диапазона адресов *)
-                 , WriteProtected   (* Запись в защищенную область памяти     *)
-                 , ProgramException (* Программное прерывание                 *)
-                 , UserException    (* Исполнение прервано пользователем      *)
+  EXCEPTION_ID = ( OutOfMemory      (* ╨Ф╨╛╤Б╤В╤Г╨┐ ╨┐╨╛ ╨░╨┤╤А╨╡╤Б╤Г ╨▓╨╜╨╡ ╨┤╨╕╨░╨┐╨░╨╖╨╛╨╜╨░ ╨░╨┤╤А╨╡╤Б╨╛╨▓ *)
+                 , WriteProtected   (* ╨Ч╨░╨┐╨╕╤Б╤М ╨▓ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╨╜╤Г╤О ╨╛╨▒╨╗╨░╤Б╤В╤М ╨┐╨░╨╝╤П╤В╨╕     *)
+                 , ProgramException (* ╨Я╤А╨╛╨│╤А╨░╨╝╨╝╨╜╨╛╨╡ ╨┐╤А╨╡╤А╤Л╨▓╨░╨╜╨╕╨╡                 *)
+                 , UserException    (* ╨Ш╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡ ╨┐╤А╨╡╤А╨▓╨░╨╜╨╛ ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╨╡╨╝      *)
                  );
 
-  EVENT_TYPE = ( InternalError  (* Исключительная ситуация в отладчике *)
-               , Exception      (* Исключительная ситуация в программе *)
-               , BreakpointHit  (* Точка останова                      *)
-               , SingleStep     (* Исполнена одна команда              *)
-               , Call           (* Выполнена инструкция CALL           *)
-               , Return         (* Выполнена инструкция RET            *)
-               , MemoryAccess   (* Достпуп к памяти                    *)
-               , CompCreated    (* Создана новая компонента программы  *)
-               , CompDestroyed  (* Создана новая компонента программы  *)
+  EVENT_TYPE = ( InternalError  (* ╨Ш╤Б╨║╨╗╤О╤З╨╕╤В╨╡╨╗╤М╨╜╨░╤П ╤Б╨╕╤В╤Г╨░╤Ж╨╕╤П ╨▓ ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨╡ *)
+               , Exception      (* ╨Ш╤Б╨║╨╗╤О╤З╨╕╤В╨╡╨╗╤М╨╜╨░╤П ╤Б╨╕╤В╤Г╨░╤Ж╨╕╤П ╨▓ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨╡ *)
+               , BreakpointHit  (* ╨в╨╛╤З╨║╨░ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░                      *)
+               , SingleStep     (* ╨Ш╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨░ ╨╛╨┤╨╜╨░ ╨║╨╛╨╝╨░╨╜╨┤╨░              *)
+               , Call           (* ╨Т╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨░ ╨╕╨╜╤Б╤В╤А╤Г╨║╤Ж╨╕╤П CALL           *)
+               , Return         (* ╨Т╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨░ ╨╕╨╜╤Б╤В╤А╤Г╨║╤Ж╨╕╤П RET            *)
+               , MemoryAccess   (* ╨Ф╨╛╤Б╤В╨┐╤Г╨┐ ╨║ ╨┐╨░╨╝╤П╤В╨╕                    *)
+               , CompCreated    (* ╨б╨╛╨╖╨┤╨░╨╜╨░ ╨╜╨╛╨▓╨░╤П ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╨░ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л  *)
+               , CompDestroyed  (* ╨б╨╛╨╖╨┤╨░╨╜╨░ ╨╜╨╛╨▓╨░╤П ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╨░ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л  *)
 
 <* IF TARGET_VAX THEN *>
-               , RegisterAccess (* Достпуп к регистрам                 *)
-               , DeviceAccess   (* Обращение к устройству              *)
+               , RegisterAccess (* ╨Ф╨╛╤Б╤В╨┐╤Г╨┐ ╨║ ╤А╨╡╨│╨╕╤Б╤В╤А╨░╨╝                 *)
+               , DeviceAccess   (* ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ ╤Г╤Б╤В╤А╨╛╨╣╤Б╤В╨▓╤Г              *)
 <* ELSIF DEST_XDS THEN *>
-               , ThreadCreated  (* Создан/удален thread                *)
+               , ThreadCreated  (* ╨б╨╛╨╖╨┤╨░╨╜/╤Г╨┤╨░╨╗╨╡╨╜ thread                *)
                , ThreadDestroyed
 <* END *>
 
@@ -43,36 +43,36 @@ TYPE
 
   ACCESS_TYPE = ( Nothing, Read, Write, ReadWrite );
 
-  (* Информация о последнем произошедшем событии *)
+  (* ╨Ш╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╤П ╨╛ ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨╝ ╨┐╤А╨╛╨╕╨╖╨╛╤И╨╡╨┤╤И╨╡╨╝ ╤Б╨╛╨▒╤Л╤В╨╕╨╕ *)
   EVENT = RECORD
-            IP: KrnTypes.ADDRESS;   (* Текуший адрес *)
+            IP: KrnTypes.ADDRESS;   (* ╨в╨╡╨║╤Г╤И╨╕╨╣ ╨░╨┤╤А╨╡╤Б *)
             CASE Event: EVENT_TYPE OF
-            | SingleStep     :             (* Исполнена одна команда              *)
+            | SingleStep     :             (* ╨Ш╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨░ ╨╛╨┤╨╜╨░ ╨║╨╛╨╝╨░╨╜╨┤╨░              *)
 
-            | InternalError  :             (* Исключительная ситуация в отладчике *)
-              ErrorNo        : CARDINAL;   (* Номер ошибки                        *)
-              ErrorContext   : CARDINAL;   (* Дополнительные атрибуты             *)
+            | InternalError  :             (* ╨Ш╤Б╨║╨╗╤О╤З╨╕╤В╨╡╨╗╤М╨╜╨░╤П ╤Б╨╕╤В╤Г╨░╤Ж╨╕╤П ╨▓ ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨╡ *)
+              ErrorNo        : CARDINAL;   (* ╨Э╨╛╨╝╨╡╤А ╨╛╤И╨╕╨▒╨║╨╕                        *)
+              ErrorContext   : CARDINAL;   (* ╨Ф╨╛╨┐╨╛╨╗╨╜╨╕╤В╨╡╨╗╤М╨╜╤Л╨╡ ╨░╤В╤А╨╕╨▒╤Г╤В╤Л             *)
 
-            | Exception      :             (* Исключительная ситуация в программе *)
+            | Exception      :             (* ╨Ш╤Б╨║╨╗╤О╤З╨╕╤В╨╡╨╗╤М╨╜╨░╤П ╤Б╨╕╤В╤Г╨░╤Ж╨╕╤П ╨▓ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨╡ *)
               Exception_ID   : EXCEPTION_ID;
               XCPT_INFO_1    : KrnTypes.WORD;
               XCPT_INFO_2    : KrnTypes.WORD;
               XCPT_INFO_3    : KrnTypes.WORD;
               XCPT_INFO_4    : KrnTypes.WORD;
 
-            | Call           :                   (* Выполнена инструкция CALL     *)
-              CallAddr       : KrnTypes.ADDRESS; (* Адрес вызываемой команды      *)
+            | Call           :                   (* ╨Т╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨░ ╨╕╨╜╤Б╤В╤А╤Г╨║╤Ж╨╕╤П CALL     *)
+              CallAddr       : KrnTypes.ADDRESS; (* ╨Р╨┤╤А╨╡╤Б ╨▓╤Л╨╖╤Л╨▓╨░╨╡╨╝╨╛╨╣ ╨║╨╛╨╝╨░╨╜╨┤╤Л      *)
              <* IF TARGET_VAX THEN *>
-              SP_before_CALL : KrnTypes.ADDRESS; (* значение SP до выполнения CALL*)
+              SP_before_CALL : KrnTypes.ADDRESS; (* ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ SP ╨┤╨╛ ╨▓╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П CALL*)
              <* END *>
 
-            | Return         :                   (* Выполнена инструкция RET      *)
-              ReturnAddr     : KrnTypes.ADDRESS; (* Адрес возврата                *)
+            | Return         :                   (* ╨Т╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨░ ╨╕╨╜╤Б╤В╤А╤Г╨║╤Ж╨╕╤П RET      *)
+              ReturnAddr     : KrnTypes.ADDRESS; (* ╨Р╨┤╤А╨╡╤Б ╨▓╨╛╨╖╨▓╤А╨░╤В╨░                *)
              <* IF TARGET_VAX THEN *>
-              SP_before_RET  : KrnTypes.ADDRESS; (* значение SP до выполнения RET *)
+              SP_before_RET  : KrnTypes.ADDRESS; (* ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ SP ╨┤╨╛ ╨▓╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П RET *)
              <* END *>
 
-            | BreakpointHit  :                   (* Точка останова                *)
+            | BreakpointHit  :                   (* ╨в╨╛╤З╨║╨░ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░                *)
               BreakpointInd  : CARDINAL;
 
             | CompCreated    :
@@ -83,19 +83,19 @@ TYPE
               Handle         : CARDINAL;
 
 <* IF TARGET_VAX THEN *>
-            | MemoryAccess   :                   (* Достпуп к памяти              *)
+            | MemoryAccess   :                   (* ╨Ф╨╛╤Б╤В╨┐╤Г╨┐ ╨║ ╨┐╨░╨╝╤П╤В╨╕              *)
               MemAccess_Ind  : CARDINAL;
               MemAccess_Type : ACCESS_TYPE;
               MemAccess_Addr : KrnTypes.ADDRESS;
               MemAccess_Len  : CARDINAL;
 
-            | RegisterAccess :           (* Достпуп к регистрам                   *)
+            | RegisterAccess :           (* ╨Ф╨╛╤Б╤В╨┐╤Г╨┐ ╨║ ╤А╨╡╨│╨╕╤Б╤В╤А╨░╨╝                   *)
               RegAccess_Type : ACCESS_TYPE;
               RegAccess_RegNo: CARDINAL;
               RegAccess_Len  : CARDINAL;
               RegAccess_Ind  : CARDINAL;
 
-            | DeviceAccess   :            (* Обращение к устройству               *)
+            | DeviceAccess   :            (* ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ ╤Г╤Б╤В╤А╨╛╨╣╤Б╤В╨▓╤Г               *)
               DevAccess_Type : ACCESS_TYPE;
               DevAccess_DevNo: CARDINAL;
               DevAccess_RegNo: CARDINAL;
@@ -103,7 +103,7 @@ TYPE
 
 <* ELSIF DEST_XDS THEN *>
 
-            | MemoryAccess   :                   (* Достпуп к памяти              *)
+            | MemoryAccess   :                   (* ╨Ф╨╛╤Б╤В╨┐╤Г╨┐ ╨║ ╨┐╨░╨╝╤П╤В╨╕              *)
               MemAccess_Ind  : CARDINAL;
 
             | ThreadCreated,
@@ -116,31 +116,31 @@ TYPE
 
 
 
--------------------- Обработка очереди сообщений -------------------------
+-------------------- ╨Ю╨▒╤А╨░╨▒╨╛╤В╨║╨░ ╨╛╤З╨╡╤А╨╡╨┤╨╕ ╤Б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╨╣ -------------------------
                     -----------------------------
 VAR
-  (* Описание последнего произошедшего события               *)
-  (* NB: всегда в реакциях следует пользоваться этой записью *)
+  (* ╨Ю╨┐╨╕╤Б╨░╨╜╨╕╨╡ ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨│╨╛ ╨┐╤А╨╛╨╕╨╖╨╛╤И╨╡╨┤╤И╨╡╨│╨╛ ╤Б╨╛╨▒╤Л╤В╨╕╤П               *)
+  (* NB: ╨▓╤Б╨╡╨│╨┤╨░ ╨▓ ╤А╨╡╨░╨║╤Ж╨╕╤П╤Е ╤Б╨╗╨╡╨┤╤Г╨╡╤В ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╤М╤Б╤П ╤Н╤В╨╛╨╣ ╨╖╨░╨┐╨╕╤Б╤М╤О *)
 
   LastEvent: EVENT;
 
 
 PROCEDURE QuantityEvents (): CARDINAL;
 
-(* Очеpедь пуста? Если пуста - TRUE, непуста - FALSE *)
+(* ╨Ю╤З╨╡p╨╡╨┤╤М ╨┐╤Г╤Б╤В╨░? ╨Х╤Б╨╗╨╕ ╨┐╤Г╤Б╤В╨░ - TRUE, ╨╜╨╡╨┐╤Г╤Б╤В╨░ - FALSE *)
 PROCEDURE QueueIsEmpty () : BOOLEAN;
 
-(* Добавить событие в очеpедь, при переполнении очереди вернет FALSE *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╕╤В╤М ╤Б╨╛╨▒╤Л╤В╨╕╨╡ ╨▓ ╨╛╤З╨╡p╨╡╨┤╤М, ╨┐╤А╨╕ ╨┐╨╡╤А╨╡╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╕ ╨╛╤З╨╡╤А╨╡╨┤╨╕ ╨▓╨╡╤А╨╜╨╡╤В FALSE *)
 PROCEDURE AddEvent (Event: EVENT): BOOLEAN;
 
-(* Получить событие, оно помещается в LastEvent и удаляется очереди *)
+(* ╨Я╨╛╨╗╤Г╤З╨╕╤В╤М ╤Б╨╛╨▒╤Л╤В╨╕╨╡, ╨╛╨╜╨╛ ╨┐╨╛╨╝╨╡╤Й╨░╨╡╤В╤Б╤П ╨▓ LastEvent ╨╕ ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П ╨╛╤З╨╡╤А╨╡╨┤╨╕ *)
 PROCEDURE GetEvent;
 
-(* Возвращеющая TRUE, если в очереди есть событие *)
-(* указаного типа, иначе вернет FALSE             *)
+(* ╨Т╨╛╨╖╨▓╤А╨░╤Й╨╡╤О╤Й╨░╤П TRUE, ╨╡╤Б╨╗╨╕ ╨▓ ╨╛╤З╨╡╤А╨╡╨┤╨╕ ╨╡╤Б╤В╤М ╤Б╨╛╨▒╤Л╤В╨╕╨╡ *)
+(* ╤Г╨║╨░╨╖╨░╨╜╨╛╨│╨╛ ╤В╨╕╨┐╨░, ╨╕╨╜╨░╤З╨╡ ╨▓╨╡╤А╨╜╨╡╤В FALSE             *)
 PROCEDURE QueryEvent (Event_type: EVENT_TYPE): BOOLEAN;
 
-(* Очишает текущее содержимое очереди событий *)
+(* ╨Ю╤З╨╕╤И╨░╨╡╤В ╤В╨╡╨║╤Г╤Й╨╡╨╡ ╤Б╨╛╨┤╨╡╤А╨╢╨╕╨╝╨╛╨╡ ╨╛╤З╨╡╤А╨╡╨┤╨╕ ╤Б╨╛╨▒╤Л╤В╨╕╨╣ *)
 PROCEDURE ClearQueue;
 
 

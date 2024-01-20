@@ -14,7 +14,7 @@ FROM SYSTEM IMPORT ADDRESS;
 -------------------------------------------------------------------------------
 
 TYPE
-  X2C_TD_STR     = xjRTS.X2C_TD_STR;   -- ·§•´†‚Ï ™Æ≠·‚†≠‚Î, † ≠• Ø•‡•ÆØ‡•§•´•≠®•
+  X2C_TD_STR     = xjRTS.X2C_TD_STR;   -- —Å–¥–µ–ª–∞—Ç—å –∫–æ–Ω—Å—Ç–∞–Ω—Ç—ã, –∞ –Ω–µ –ø–µ—Ä–µ–æ–ø—Ä–µ–¥–µ–ª–µ–Ω–∏–µ
   X2C_LINK_STR   = xjRTS.X2C_LINK_STR;
   X2J_DYNARR_STR = xjRTS.X2J_DYNARR_STR;
 

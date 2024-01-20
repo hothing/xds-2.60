@@ -1,12 +1,12 @@
--- �஢�ઠ ������ �⫠��筮� ���ଠ樨 ��� �ணࠬ��,
--- ��뢠�� ᮮ⢥�����騩 ��������.
+-- Проверка наличия отладочной информации для программы,
+-- вызывает соответствующий конвертор.
 
 DEFINITION MODULE DI_Read;
 
 FROM KrnTypes IMPORT EXEC_INFO;
 FROM DI_Types IMPORT ComNo, COMPONENT, RAW_DEBUG_INFO, PROCESS_DEBUGINFO_PROC, BUILD_FOR_MOD;
 
-(* ��� �ணࠬ�� �㦭� 㪠���� ������         *)
+(* Имя программы нужно указать полное         *)
 
 PROCEDURE CheckDebugInfoVersion (exec_info: EXEC_INFO): BOOLEAN;
 

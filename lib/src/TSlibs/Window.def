@@ -59,8 +59,8 @@ TYPE
 
 
 CONST
-  SingleFrame   = FrameStr {"зд©ЁЁюды"};
-  DoubleFrame   = FrameStr {"им╩╨╨хм╪"};
+  SingleFrame   = FrameStr {"Б■▄Б■─Б■░Б■┌Б■┌Б■■Б■─Б■≤"};
+  DoubleFrame   = FrameStr {"Б∙■Б∙░Б∙≈Б∙▒Б∙▒Б∙ Б∙░Б∙²"};
   FullScreenDef = WinDef   { 0,0, ScreenWidth-1,ScreenDepth-1,
                              White, Black, TRUE,TRUE,TRUE,FALSE,
                              '',Black, Black };

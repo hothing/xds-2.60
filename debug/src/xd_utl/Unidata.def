@@ -9,8 +9,8 @@ TYPE
   COMPARE_IMAGE = PROCEDURE (IMAGE, IMAGE,CARDINAL): BOOLEAN;
   LENGTH_IMAGE  = PROCEDURE (IMAGE): CARDINAL;
   HASH_RESULT   = RECORD
-                    index : CARDINAL; -- ®≠§•™· ¢ ‚†°´®Ê•
-                    number: CARDINAL; -- ≠Æ¨•‡ ‚†°´®ÊÎ
+                    index : CARDINAL; -- –∏–Ω–¥–µ–∫—Å –≤ —Ç–∞–±–ª–∏—Ü–µ
+                    number: CARDINAL; -- –Ω–æ–º–µ—Ä —Ç–∞–±–ª–∏—Ü—ã
                   END;
   HASH          = PROCEDURE (IMAGE): HASH_RESULT;
 
