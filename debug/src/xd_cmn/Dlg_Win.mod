@@ -34,10 +34,10 @@ TYPE
              Header : xStr.String;
              state  : WIN_STATE;
              handler: WND_PROC;
-             AM     : sys.ADDRESS; -- память ассоцииpуемая с конкpетным окном
+             AM     : sys.ADDRESS; -- ╨┐╨░╨╝╤П╤В╤М ╨░╤Б╤Б╨╛╤Ж╨╕╨╕p╤Г╨╡╨╝╨░╤П ╤Б ╨║╨╛╨╜╨║p╨╡╤В╨╜╤Л╨╝ ╨╛╨║╨╜╨╛╨╝
              size   : crt.SZ;
-             next, prev: HWND;  -- следующее и пpедыдущее окно в списке активных окон
-             pair_hwnd : HWND;  (* окно, в которое можно переехать с нажатой клавишей мышки *)
+             next, prev: HWND;  -- ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨╡ ╨╕ ╨┐p╨╡╨┤╤Л╨┤╤Г╤Й╨╡╨╡ ╨╛╨║╨╜╨╛ ╨▓ ╤Б╨┐╨╕╤Б╨║╨╡ ╨░╨║╤В╨╕╨▓╨╜╤Л╤Е ╨╛╨║╨╛╨╜
+             pair_hwnd : HWND;  (* ╨╛╨║╨╜╨╛, ╨▓ ╨║╨╛╤В╨╛╤А╨╛╨╡ ╨╝╨╛╨╢╨╜╨╛ ╨┐╨╡╤А╨╡╨╡╤Е╨░╤В╤М ╤Б ╨╜╨░╨╢╨░╤В╨╛╨╣ ╨║╨╗╨░╨▓╨╕╤И╨╡╨╣ ╨╝╤Л╤И╨║╨╕ *)
            END;
 
   PA_WINDOW = POINTER TO ARRAY OF WINDOW;
@@ -197,7 +197,7 @@ BEGIN
 END GetHandler;
 
 
--- Получить заголовок окна (без пробелов впереди/позади)
+-- ╨Я╨╛╨╗╤Г╤З╨╕╤В╤М ╨╖╨░╨│╨╛╨╗╨╛╨▓╨╛╨║ ╨╛╨║╨╜╨░ (╨▒╨╡╨╖ ╨┐╤А╨╛╨▒╨╡╨╗╨╛╨▓ ╨▓╨┐╨╡╤А╨╡╨┤╨╕/╨┐╨╛╨╖╨░╨┤╨╕)
 PROCEDURE GetHeader (hwnd: HWND; VAR header: ARRAY OF CHAR);
 BEGIN
   ASSERT(hwnd <= AllWindows.max);
@@ -226,7 +226,7 @@ BEGIN
 END SetPair;
 
 
--- Установить заголовок окна (дополнить пробелами)
+-- ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╨╖╨░╨│╨╛╨╗╨╛╨▓╨╛╨║ ╨╛╨║╨╜╨░ (╨┤╨╛╨┐╨╛╨╗╨╜╨╕╤В╤М ╨┐╤А╨╛╨▒╨╡╨╗╨░╨╝╨╕)
 PROCEDURE SetHeaderByStr (hwnd: HWND; str-: ARRAY OF CHAR);
 BEGIN
   ASSERT(hwnd <= AllWindows.max);
@@ -241,7 +241,7 @@ BEGIN
 END SetHeaderByStr;
 
 
--- Установить по номеру сообщения заголовок окна
+-- ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╨┐╨╛ ╨╜╨╛╨╝╨╡╤А╤Г ╤Б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╤П ╨╖╨░╨│╨╛╨╗╨╛╨▓╨╛╨║ ╨╛╨║╨╜╨░
 PROCEDURE SetHeader (hwnd: HWND; no: CARDINAL);
 VAR
   str: xStr.txt_ptr;

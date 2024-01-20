@@ -33,7 +33,7 @@ BEGIN
   ptr^.pos:=p
 END format_app;
 
-(* ç• Ø®Ë®‚• '-' „ Ø†‡†¨•‚‡† f - °„§•‚ Ø´ÆÂÆ! *)
+(* –ù–µ –ø–∏—à–∏—Ç–µ '-' —É –ø–∞—Ä–∞–º–µ—Ç—Ä–∞ f - –±—É–¥–µ—Ç –ø–ª–æ—Ö–æ! *)
 
 PROCEDURE print(VAR s: ARRAY OF CHAR; f: ARRAY OF CHAR;
                                       SEQ x: sys.BYTE);

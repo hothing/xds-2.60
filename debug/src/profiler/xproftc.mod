@@ -261,7 +261,7 @@ VAR
   pos: CARDINAL;
 
 BEGIN
-  (* Найти полный путь по redirection'у *)
+  (* в•ђСЂС‰Р„С€ СЏСЋС‹СЌв€љС‰ СЏС”Р„в„– СЏСЋ redirection'С” *)
 
   IF NOT fs.Exists(prog_name) THEN
     arg.String("PATH", PATH);

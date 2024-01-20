@@ -1,4 +1,4 @@
--- ѓ« ў­л© ¬®¤г«м Є®¬Ї®­Ґ­вл xd: ®в« ¤зЁЄ 
+-- Р“Р»Р°РІРЅС‹Р№ РјРѕРґСѓР»СЊ РєРѕРјРїРѕРЅРµРЅС‚С‹ xd: РѕС‚Р»Р°РґС‡РёРєР°
 
 MODULE XD_Main;
 
@@ -39,7 +39,7 @@ BEGIN
 END Copyright;
 
 
-(* Ља вЄЁ©/Ї®«­л© Help! *)
+(* РљСЂР°С‚РєРёР№/РїРѕР»РЅС‹Р№ Help! *)
 <* PUSH *>
 <* WOFF301+ *>
 PROCEDURE Help (full: BOOLEAN);
@@ -47,7 +47,7 @@ PROCEDURE Help (full: BOOLEAN);
 
 <* IF DEFINED(help_included) AND help_included THEN *>
 
-  (* ‚л¤ з  m бҐЄжЁЁ Help! *)
+  (* Р’С‹РґР°С‡Р° m СЃРµРєС†РёРё Help! *)
   PROCEDURE WriteHelpSection (m: CARDINAL);
   VAR
     i: CARDINAL;

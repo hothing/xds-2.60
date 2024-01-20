@@ -21,7 +21,7 @@ FROM Printf IMPORT printf;
 
 <* END *>
 
----------------------- ÑÆ·‚„Ø ™ Ø†¨Ô‚® ® ‡•£®·‚‡†¨ -------------------------
+---------------------- –î–æ—Å—Ç—É–ø –∫ –ø–∞–º—è—Ç–∏ –∏ —Ä–µ–≥–∏—Å—Ç—Ä–∞–º -------------------------
                       -----------------------------
 
 
@@ -89,7 +89,7 @@ BEGIN
 END GetRegisterCache;
 
 
-(* á†Ø®·†‚Ï ß≠†Á•≠®• ¢ ‡•£®·‚‡         *)
+(* –ó–∞–ø–∏—Å–∞—Ç—å –∑–Ω–∞—á–µ–Ω–∏–µ –≤ —Ä–µ–≥–∏—Å—Ç—Ä         *)
 PROCEDURE PutRegisterCache(RegisterCache: kt.REGISTER_CACHE): BOOLEAN;
 VAR
   regs: ARRAY [0..lnx.REGS_NO-1] OF CARDINAL;
@@ -141,7 +141,7 @@ BEGIN
   RETURN lnx.proc_get_memory (H_Thread, CARDINAL(source), len, dest);
 END Get;
 
-(* á†Ø®·†‚Ï ØÆ †§‡•·„ ®ß °„‰•‡† ≠•¨≠Æ£Æ °†©‚Æ¢ *)
+(* –ó–∞–ø–∏—Å–∞—Ç—å –ø–æ –∞–¥—Ä–µ—Å—É –∏–∑ –±—É—Ñ–µ—Ä–∞ –Ω–µ–º–Ω–æ–≥–æ –±–∞–π—Ç–æ–≤ *)
 PROCEDURE Put(dest: kt.ADDRESS; source: sys.ADDRESS; len: CARDINAL): BOOLEAN;
 BEGIN
   RETURN lnx.proc_set_memory (H_Thread, source, len, CARDINAL(dest));
@@ -150,8 +150,8 @@ END Put;
 
 CONST
   MainThread = 0;
-  -- £´†¢≠Î© ØÆ‚Æ™ ¢·•£§† ®¨••‚ ≠„´•¢Æ© ®≠§•™·,
-  -- ™‡Æ¨• ‚Æ£Æ, Æ≠ ¢·•£§† ·Æß§†•‚·Ô Ø‡® ·Æß§†≠®® Ø‡Æ£‡†¨¨Î
+  -- –≥–ª–∞–≤–Ω—ã–π –ø–æ—Ç–æ–∫ –≤—Å–µ–≥–¥–∞ –∏–º–µ–µ—Ç –Ω—É–ª–µ–≤–æ–π –∏–Ω–¥–µ–∫—Å,
+  -- –∫—Ä–æ–º–µ —Ç–æ–≥–æ, –æ–Ω –≤—Å–µ–≥–¥–∞ —Å–æ–∑–¥–∞–µ—Ç—Å—è –ø—Ä–∏ —Å–æ–∑–¥–∞–Ω–∏–∏ –ø—Ä–æ–≥—Ä–∞–º–º—ã
 
 
 <* IF DEFINED (xd_debug) & xd_debug THEN *>
@@ -183,7 +183,7 @@ END PrintThreadInfo;
 
 
 PROCEDURE SynchronizeTraceForAllThreads ();
--- ·®≠Â‡Æ≠®ß†Ê®Ô ‚‡†··®‡Æ¢™® Ø‡Æ®·ÂÆ§®‚ ØÆ £´†¢≠Æ¨„ ØÆ‚Æ™„
+-- —Å–∏–Ω—Ö—Ä–æ–Ω–∏–∑–∞—Ü–∏—è —Ç—Ä–∞—Å—Å–∏—Ä–æ–≤–∫–∏ –ø—Ä–æ–∏—Å—Ö–æ–¥–∏—Ç –ø–æ –≥–ª–∞–≤–Ω–æ–º—É –ø–æ—Ç–æ–∫—É
 BEGIN
  <* IF DEFINED (xd_debug) & xd_debug THEN *>
   IF opt.Debug (opt.Another) THEN
@@ -199,7 +199,7 @@ END SynchronizeTraceForAllThreads;
 
 
 
-(* ì·‚†≠Æ¢®‚Ï ‚‡†··®‡Æ¢™„ ß†Ø®·® ¢ ØÆ´• ØÆ †§‡•·„ · ß†§†≠Æ© §´®≠Æ© *)
+(* –£—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —Ç—Ä–∞—Å—Å–∏—Ä–æ–≤–∫—É –∑–∞–ø–∏—Å–∏ –≤ –ø–æ–ª–µ –ø–æ –∞–¥—Ä–µ—Å—É —Å –∑–∞–¥–∞–Ω–æ–π –¥–ª–∏–Ω–æ–π *)
 PROCEDURE SetTrace (Access: ACCESS_TYPE; addr: kt.ADDRESS; len: CARDINAL; VAR Index: CARDINAL): BOOLEAN;
 VAR
   dbg_regs: ARRAY [0..lnx.DBGREGS_NO-1] OF CARDINAL;
@@ -258,7 +258,7 @@ BEGIN
 END SetTrace;
 
 
-(* ë≠Ô‚Ï ‚‡†··®‡Æ¢™„ ß†Ø®·® ¢ ØÆ´• ØÆ †§‡•·„ · ß†§†≠Æ© §´®≠Æ© *)
+(* –°–Ω—è—Ç—å —Ç—Ä–∞—Å—Å–∏—Ä–æ–≤–∫—É –∑–∞–ø–∏—Å–∏ –≤ –ø–æ–ª–µ –ø–æ –∞–¥—Ä–µ—Å—É —Å –∑–∞–¥–∞–Ω–æ–π –¥–ª–∏–Ω–æ–π *)
 PROCEDURE RemoveTrace (VAR index: CARDINAL): BOOLEAN;
 VAR
   dbg_regs: ARRAY [0..lnx.DBGREGS_NO-1] OF CARDINAL;
@@ -288,7 +288,7 @@ BEGIN
 END RemoveTrace;
 
 
-(* èÆ´„Á®‚Ï ®≠‰Æ‡¨†Ê®Ó Æ ·•£¨•≠‚• *)
+(* –ü–æ–ª—É—á–∏—Ç—å –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏—é –æ —Å–µ–≥–º–µ–Ω—Ç–µ *)
 PROCEDURE GetSegmentInfo (      addr: kt.ADDRESS;
                           VAR  begin: kt.ADDRESS;
                           VAR    len: CARDINAL;

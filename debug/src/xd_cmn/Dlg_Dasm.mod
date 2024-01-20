@@ -382,7 +382,7 @@ BEGIN
   END;
  <* END *>
   CASE Mode OF
-  | D : -- Ñ®ß†··•¨°´•‡
+  | D : -- –î–∏–∑–∞—Å—Å–µ–º–±–ª–µ—Ä
     WITH Frame DO
       ASSERT( (MinPos<=D_frame) AND (D_frame<=MaxPos) );
       ASSERT( D_frame<=D_curr );
@@ -471,7 +471,7 @@ BEGIN
       END;
     END;
 
-  | DS : -- ë¨•Ë†≠≠Î© ‡•¶®¨
+  | DS : -- –°–º–µ—à–∞–Ω–Ω—ã–π —Ä–µ–∂–∏–º
     WITH Frame DO
       ASSERT( (MinPos<=D_frame) AND (D_frame<=MaxPos) );
       ASSERT( D_frame <= D_curr );

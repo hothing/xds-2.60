@@ -18,9 +18,9 @@ IMPORT xStr;
 FROM Storage IMPORT ALLOCATE, DEALLOCATE;
 
 CONST
-  CR  = 15C;        (* разделитель строк *)
-  LF  = CHR(10);    (* перевод строки    *)
-  EOF = CHR(1AH);   (* ^Z - конец файла  *)
+  CR  = 15C;        (* ╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М ╤Б╤В╤А╨╛╨║ *)
+  LF  = CHR(10);    (* ╨┐╨╡╤А╨╡╨▓╨╛╨┤ ╤Б╤В╤А╨╛╨║╨╕    *)
+  EOF = CHR(1AH);   (* ^Z - ╨║╨╛╨╜╨╡╤Ж ╤Д╨░╨╣╨╗╨░  *)
 
   TEXT_MAGIC = 59657279H;
 
@@ -38,11 +38,11 @@ TYPE
   STRINGS = POINTER TO ARRAY OF LINE;
 
   TextRec = RECORD
-              magic   : CARDINAL;                 -- идентификатор
-              filename: xStr.STRING;              -- имя файла с текстом
-              buffer  : BUFFER;                   -- весь текст
-              strings : STRINGS;                  -- строки текста
-              N       : CARDINAL;                 -- число строк в тексте
+              magic   : CARDINAL;                 -- ╨╕╨┤╨╡╨╜╤В╨╕╤Д╨╕╨║╨░╤В╨╛╤А
+              filename: xStr.STRING;              -- ╨╕╨╝╤П ╤Д╨░╨╣╨╗╨░ ╤Б ╤В╨╡╨║╤Б╤В╨╛╨╝
+              buffer  : BUFFER;                   -- ╨▓╨╡╤Б╤М ╤В╨╡╨║╤Б╤В
+              strings : STRINGS;                  -- ╤Б╤В╤А╨╛╨║╨╕ ╤В╨╡╨║╤Б╤В╨░
+              N       : CARDINAL;                 -- ╤З╨╕╤Б╨╗╨╛ ╤Б╤В╤А╨╛╨║ ╨▓ ╤В╨╡╨║╤Б╤В╨╡
             END;
 
 
@@ -50,7 +50,7 @@ CONST
   NEW_TEXT_BUFFER = 400H; -- #0
   NEW_TEXT_STRING =  40H; -- #0
 
-(* Создается новый текст *)
+(* ╨б╨╛╨╖╨┤╨░╨╡╤В╤Б╤П ╨╜╨╛╨▓╤Л╨╣ ╤В╨╡╨║╤Б╤В *)
 PROCEDURE New (VAR t: TEXT);
 BEGIN
   NEW(t);
@@ -67,7 +67,7 @@ END New;
 
 
 PROCEDURE Open (VAR t: TEXT; name-: ARRAY OF CHAR);
-(* создается новый текст на базе указанного файла      *)
+(* ╤Б╨╛╨╖╨┤╨░╨╡╤В╤Б╤П ╨╜╨╛╨▓╤Л╨╣ ╤В╨╡╨║╤Б╤В ╨╜╨░ ╨▒╨░╨╖╨╡ ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨│╨╛ ╤Д╨░╨╣╨╗╨░      *)
 VAR
   file: ioc.ChanId;
   res : cc.OpenResults;
@@ -109,7 +109,7 @@ BEGIN
   END;
   WITH tmp DO
     magic := TEXT_MAGIC;
-    NEW(buffer, size+1); (* лишний байт, если файл кончился "по размеру" *)
+    NEW(buffer, size+1); (* ╨╗╨╕╤И╨╜╨╕╨╣ ╨▒╨░╨╣╤В, ╨╡╤Б╨╗╨╕ ╤Д╨░╨╣╨╗ ╨║╨╛╨╜╤З╨╕╨╗╤Б╤П "╨┐╨╛ ╤А╨░╨╖╨╝╨╡╤А╤Г" *)
     IF buffer = NIL THEN
       ReadError (str);
       RETURN;
@@ -128,9 +128,9 @@ BEGIN
 
   WITH tmp DO
     buffer^[HIGH(tmp.buffer^)] := EOF;
-    ofs := 0; -- смещение в тексте
-    num := 1;  -- текущее кол-во строк
-    -- Подсчет числа строк
+    ofs := 0; -- ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╨▓ ╤В╨╡╨║╤Б╤В╨╡
+    num := 1;  -- ╤В╨╡╨║╤Г╤Й╨╡╨╡ ╨║╨╛╨╗-╨▓╨╛ ╤Б╤В╤А╨╛╨║
+    -- ╨Я╨╛╨┤╤Б╤З╨╡╤В ╤З╨╕╤Б╨╗╨░ ╤Б╤В╤А╨╛╨║
     LOOP
       CASE buffer^[ofs] OF
       | EOF:
@@ -144,10 +144,10 @@ BEGIN
       END;
       INC(ofs);
     END;
-    -- Построение ключа по строкам
+    -- ╨Я╨╛╤Б╤В╤А╨╛╨╡╨╜╨╕╨╡ ╨║╨╗╤О╤З╨░ ╨┐╨╛ ╤Б╤В╤А╨╛╨║╨░╨╝
     NEW(strings, num);
-    ofs := 0; -- смещение в тексте
-    num := 0;  -- текущая позиция в ключе
+    ofs := 0; -- ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╨▓ ╤В╨╡╨║╤Б╤В╨╡
+    num := 0;  -- ╤В╨╡╨║╤Г╤Й╨░╤П ╨┐╨╛╨╖╨╕╤Ж╨╕╤П ╨▓ ╨║╨╗╤О╤З╨╡
     strings^[num] := 0;
     LOOP
       CASE buffer^[ofs] OF
@@ -175,7 +175,7 @@ END Open;
 
 
 PROCEDURE Close(VAR t: TEXT);
-(* указанный текст уничтожается *)
+(* ╤Г╨║╨░╨╖╨░╨╜╨╜╤Л╨╣ ╤В╨╡╨║╤Б╤В ╤Г╨╜╨╕╤З╤В╨╛╨╢╨░╨╡╤В╤Б╤П *)
 BEGIN
   IF t # NIL THEN
     WITH t^ DO
@@ -198,7 +198,7 @@ END Close;
 
 
 PROCEDURE LastLine(t: TEXT): CARDINAL;
-(* Выдает номер последней строки *)
+(* ╨Т╤Л╨┤╨░╨╡╤В ╨╜╨╛╨╝╨╡╤А ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╕ *)
 BEGIN
   IF t = NIL THEN
     RETURN 0
@@ -212,15 +212,15 @@ END LastLine;
 
 
 PROCEDURE GetLine(t: TEXT; i: CARDINAL; VAR s: txt_ptr);
-(* выдает "текущий" указатель на i-ую строку текста t  *)
-(* если строки нет, то выдает пустую строку - длины 0  *)
+(* ╨▓╤Л╨┤╨░╨╡╤В "╤В╨╡╨║╤Г╤Й╨╕╨╣" ╤Г╨║╨░╨╖╨░╤В╨╡╨╗╤М ╨╜╨░ i-╤Г╤О ╤Б╤В╤А╨╛╨║╤Г ╤В╨╡╨║╤Б╤В╨░ t  *)
+(* ╨╡╤Б╨╗╨╕ ╤Б╤В╤А╨╛╨║╨╕ ╨╜╨╡╤В, ╤В╨╛ ╨▓╤Л╨┤╨░╨╡╤В ╨┐╤Г╤Б╤В╤Г╤О ╤Б╤В╤А╨╛╨║╤Г - ╨┤╨╗╨╕╨╜╤Л 0  *)
 BEGIN
   IF t = NIL THEN
     s := sys.ADR(empty_str);
   ELSE
     WITH t^ DO
       ASSERT(magic = TEXT_MAGIC);
-      IF i < N THEN (* такая строка в тексте есть *)
+      IF i < N THEN (* ╤В╨░╨║╨░╤П ╤Б╤В╤А╨╛╨║╨░ ╨▓ ╤В╨╡╨║╤Б╤В╨╡ ╨╡╤Б╤В╤М *)
         s := sys.ADR(buffer^[strings^[i]]);
       ELSE
         s := sys.ADR(NOLINE);
@@ -230,7 +230,7 @@ BEGIN
 END GetLine;
 
 
-(* Добавляет строку в конец текста *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╗╤П╨╡╤В ╤Б╤В╤А╨╛╨║╤Г ╨▓ ╨║╨╛╨╜╨╡╤Ж ╤В╨╡╨║╤Б╤В╨░ *)
 PROCEDURE AddLine (t: TEXT; f-: ARRAY OF CHAR; SEQ args: sys.BYTE);
 VAR
   line    : txt_ptr;
@@ -277,8 +277,8 @@ BEGIN
 END AddLine;
 
 
-(* Вставляет строку в текст перед указанной строкой *)
-(* Если такой строки нет, добавляет в конец текста *)
+(* ╨Т╤Б╤В╨░╨▓╨╗╤П╨╡╤В ╤Б╤В╤А╨╛╨║╤Г ╨▓ ╤В╨╡╨║╤Б╤В ╨┐╨╡╤А╨╡╨┤ ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨╣ ╤Б╤В╤А╨╛╨║╨╛╨╣ *)
+(* ╨Х╤Б╨╗╨╕ ╤В╨░╨║╨╛╨╣ ╤Б╤В╤А╨╛╨║╨╕ ╨╜╨╡╤В, ╨┤╨╛╨▒╨░╨▓╨╗╤П╨╡╤В ╨▓ ╨║╨╛╨╜╨╡╤Ж ╤В╨╡╨║╤Б╤В╨░ *)
 PROCEDURE InsLine (t: TEXT; i: CARDINAL; f-: ARRAY OF CHAR; SEQ args: sys.BYTE);
 VAR
   line    : txt_ptr;
@@ -331,7 +331,7 @@ BEGIN
 END InsLine;
 
 
-(* Удаляет строку из текста *)
+(* ╨г╨┤╨░╨╗╤П╨╡╤В ╤Б╤В╤А╨╛╨║╤Г ╨╕╨╖ ╤В╨╡╨║╤Б╤В╨░ *)
 PROCEDURE DelLine (t: TEXT; i: CARDINAL);
 VAR
   line    : txt_ptr;
@@ -364,7 +364,7 @@ END DelLine;
 
 
 PROCEDURE GetName (t: TEXT; VAR name: txt_ptr);
-(* выдает имя указанного текста  *)
+(* ╨▓╤Л╨┤╨░╨╡╤В ╨╕╨╝╤П ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨│╨╛ ╤В╨╡╨║╤Б╤В╨░  *)
 BEGIN
   IF t = NIL THEN
     name := sys.ADR(empty_str);
@@ -380,7 +380,7 @@ BEGIN
   END;
 END GetName;
 
-(* Устанавливает имя для указанного текста *)
+(* ╨г╤Б╤В╨░╨╜╨░╨▓╨╗╨╕╨▓╨░╨╡╤В ╨╕╨╝╤П ╨┤╨╗╤П ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨│╨╛ ╤В╨╡╨║╤Б╤В╨░ *)
 PROCEDURE SetName (t: TEXT; name-: ARRAY OF CHAR);
 BEGIN
   IF t # NIL THEN
@@ -395,7 +395,7 @@ BEGIN
 END SetName;
 
 
-(* Выдает размер указанного текста *)
+(* ╨Т╤Л╨┤╨░╨╡╤В ╤А╨░╨╖╨╝╨╡╤А ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨│╨╛ ╤В╨╡╨║╤Б╤В╨░ *)
 PROCEDURE GetSize (t: TEXT): CARDINAL;
 BEGIN
   IF t # NIL THEN
@@ -411,15 +411,15 @@ END GetSize;
 
 
 <* WOFF301+ *>
-PROCEDURE dummy_NotFound (file_name-: ARRAY OF CHAR); (* файл не найден *)
+PROCEDURE dummy_NotFound (file_name-: ARRAY OF CHAR); (* ╤Д╨░╨╣╨╗ ╨╜╨╡ ╨╜╨░╨╣╨┤╨╡╨╜ *)
 BEGIN
 END dummy_NotFound;
 
-PROCEDURE dummy_FileEmpty (file_name-: ARRAY OF CHAR); (* файл пустой *)
+PROCEDURE dummy_FileEmpty (file_name-: ARRAY OF CHAR); (* ╤Д╨░╨╣╨╗ ╨┐╤Г╤Б╤В╨╛╨╣ *)
 BEGIN
 END dummy_FileEmpty;
 
-PROCEDURE dummy_ReadError (file_name-: ARRAY OF CHAR); (* ошибка чтения *)
+PROCEDURE dummy_ReadError (file_name-: ARRAY OF CHAR); (* ╨╛╤И╨╕╨▒╨║╨░ ╤З╤В╨╡╨╜╨╕╤П *)
 BEGIN
 END dummy_ReadError;
 <* WOFF301- *>

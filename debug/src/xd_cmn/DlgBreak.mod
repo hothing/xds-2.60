@@ -61,7 +61,7 @@ VAR
 
 
 (* =============================================================== *)
-(*            ç•ØÆ·‡•§·‚¢•≠≠†Ô ‡†°Æ‚† · Æ·‚†≠Æ¢†¨®                 *)
+(*            –ù–µ–ø–æ—Å—Ä–µ–¥—Å—Ç–≤–µ–Ω–Ω–∞—è —Ä–∞–±–æ—Ç–∞ —Å –æ—Å—Ç–∞–Ω–æ–≤–∞–º–∏                 *)
 (* =============================================================== *)
 
 PROCEDURE FindBreakPos(com, mod, ln: CARDINAL): CARDINAL;
@@ -111,7 +111,7 @@ BEGIN
 END FindBreakPosByAddr;
 
 (* =============================================================== *)
-(*            Çß†®¨Æ§•©·‚¢®• · §®†´Æ£Æ¨                            *)
+(*            –í–∑–∞–∏–º–æ–¥–µ–π—Å—Ç–≤–∏–µ —Å –¥–∏–∞–ª–æ–≥–æ–º                            *)
 (* =============================================================== *)
 
 PROCEDURE RefreshBreaks;
@@ -544,7 +544,7 @@ BEGIN
   (*    std.SetErrorNo(exp.error);
       RETURN FALSE;
   *)
-      std.Notify('Ç ‚•™„È•¨ ™Æ≠‚•™·‚• ¢Î‡†¶•≠®• ≠•ÆØ‡•§•´•≠Æ');
+      std.Notify('–í —Ç–µ–∫—É—â–µ–º –∫–æ–Ω—Ç–µ–∫—Å—Ç–µ –≤—ã—Ä–∞–∂–µ–Ω–∏–µ –Ω–µ–æ–ø—Ä–µ–¥–µ–ª–µ–Ω–æ');
     END;
     CB := brk.EmptyCONDITION_BREAK;
     CB.Break.Owner  := brk.Dialog;
@@ -609,21 +609,21 @@ BEGIN
       NEW(Lines,6);
 
       NEW(Radio1, 3);
-      Radio1^[0] := RADIO{ 4, 4, 'èÆ ß†Ø®·®' , 4, key.AltP };
-      Radio1^[1] := RADIO{ 4, 5, 'èÆ Á‚•≠®Ó' , 4, key.AltX };
-      Radio1^[2] := RADIO{ 4, 6, 'èÆ „·´Æ¢®Ó', 4, key.AltE };
+      Radio1^[0] := RADIO{ 4, 4, '–ü–æ –∑–∞–ø–∏—Å–∏' , 4, key.AltP };
+      Radio1^[1] := RADIO{ 4, 5, '–ü–æ —á—Ç–µ–Ω–∏—é' , 4, key.AltX };
+      Radio1^[2] := RADIO{ 4, 6, '–ü–æ —É—Å–ª–æ–≤–∏—é', 4, key.AltE };
 
       NEW(Radio2, 4);
-      Radio2^[0] := RADIO{ 26, 4, 'Å†©‚'      , 2, key.AltF };
-      Radio2^[1] := RADIO{ 26, 5, 'ë´Æ¢Æ'     , 1, key.AltC };
-      Radio2^[2] := RADIO{ 26, 6, 'Ñ¢. ·´Æ¢Æ' , 1, key.AltL };
-      Radio2^[3] := RADIO{ 26, 7, 'í•‚p†·´Æ¢Æ', 1, key.AltN };
+      Radio2^[0] := RADIO{ 26, 4, '–ë–∞–π—Ç'      , 2, key.AltF };
+      Radio2^[1] := RADIO{ 26, 5, '–°–ª–æ–≤–æ'     , 1, key.AltC };
+      Radio2^[2] := RADIO{ 26, 6, '–î–≤. —Å–ª–æ–≤–æ' , 1, key.AltL };
+      Radio2^[3] := RADIO{ 26, 7, '–¢–µ—Çp–∞—Å–ª–æ–≤–æ', 1, key.AltN };
 
-      Lines^[0] := LINE{ 2, 2, std.radio, ' í®Ø Æ·‚†≠Æ¢† ' , 18, 5, 0, 0,  Radio1,  Toggle, std.d_enabled};
-      Lines^[1] := LINE{ 24, 2, std.radio, ' Ñ´®≠† „Á†·‚™† ' , 19, 6, 0, 0, Radio2, Dummy, std.d_enabled};
-      Lines^[2] := LINE{ 2, 9, std.msg, 'Ä§p•·:', std.d_enabled };
+      Lines^[0] := LINE{ 2, 2, std.radio, ' –¢–∏–ø –æ—Å—Ç–∞–Ω–æ–≤–∞ ' , 18, 5, 0, 0,  Radio1,  Toggle, std.d_enabled};
+      Lines^[1] := LINE{ 24, 2, std.radio, ' –î–ª–∏–Ω–∞ —É—á–∞—Å—Ç–∫–∞ ' , 19, 6, 0, 0, Radio2, Dummy, std.d_enabled};
+      Lines^[2] := LINE{ 2, 9, std.msg, '–ê–¥p–µ—Å:', std.d_enabled };
       Lines^[3] := LINE{ 8, 9, std.edit_str, sys.ADR(address), 14, std.d_enabled };
-      Lines^[4] := LINE{ 2, 11, std.msg, 'ì·´Æ¢®•:', std.d_disabled };
+      Lines^[4] := LINE{ 2, 11, std.msg, '–£—Å–ª–æ–≤–∏–µ:', std.d_disabled };
       Lines^[5] := LINE{ 10, 11, std.edit_str, sys.ADR(condition),   32, std.d_disabled };
 
 

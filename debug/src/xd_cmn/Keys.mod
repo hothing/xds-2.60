@@ -116,7 +116,7 @@ CONST
 
 
 
-(* èÆ ™´†¢®Ë• ¢Î§†•‚ •• ®¨Ô *)
+(* –ü–æ –∫–ª–∞–≤–∏—à–µ –≤—ã–¥–∞–µ—Ç –µ–µ –∏–º—è *)
 PROCEDURE GetKeyName (key: KEY; VAR key_name: ARRAY OF CHAR): BOOLEAN;
 VAR
   KeyNames: POINTER TO KEY_NAMES;
@@ -138,7 +138,7 @@ BEGIN
 END GetKeyName;
 
 
-(* èÆ ®¨•≠® ™´†¢®Ë® ¢Î§†•‚ •• ™Æ§ *)
+(* –ü–æ –∏–º–µ–Ω–∏ –∫–ª–∞–≤–∏—à–∏ –≤—ã–¥–∞–µ—Ç –µ–µ –∫–æ–¥ *)
 PROCEDURE GetKeyByName (key_name-: ARRAY OF CHAR; VAR key: KEY): BOOLEAN;
 VAR
   i: CARDINAL;

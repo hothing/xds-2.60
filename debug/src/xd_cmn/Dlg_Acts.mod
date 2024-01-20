@@ -65,7 +65,7 @@ VAR
   ShortCut1, ShortCut2: SHORTCUTS;
 
 
-(* По кнопке вернет действие *)
+(* ╨Я╨╛ ╨║╨╜╨╛╨┐╨║╨╡ ╨▓╨╡╤А╨╜╨╡╤В ╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╡ *)
 PROCEDURE GetActionByKey (k: key.KEY; VAR action: ACTION): BOOLEAN;
 VAR
   ShortCut: POINTER TO SHORTCUTS;
@@ -87,7 +87,7 @@ BEGIN
 END GetActionByKey;
 
 
-(* По имени вернет действие *)
+(* ╨Я╨╛ ╨╕╨╝╨╡╨╜╨╕ ╨▓╨╡╤А╨╜╨╡╤В ╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╡ *)
 PROCEDURE GetActionByName (name-: ARRAY OF CHAR; VAR action: ACTION): BOOLEAN;
 VAR
   i: ACTION;
@@ -154,7 +154,7 @@ END DeleteLinksForAction;
 
 
 
-(* Удаляет связи кнопок с действиями *)
+(* ╨г╨┤╨░╨╗╤П╨╡╤В ╤Б╨▓╤П╨╖╨╕ ╨║╨╜╨╛╨┐╨╛╨║ ╤Б ╨┤╨╡╨╣╤Б╤В╨▓╨╕╤П╨╝╨╕ *)
 PROCEDURE DeleteLinks;
 VAR
   i: CARDINAL;

@@ -71,7 +71,7 @@ VAR
   Counter : CARDINAL;
   CallAddr: kt.ADDRESS;
 
-(* Реакция на останов по заданному адресу *)
+(* ╨а╨╡╨░╨║╤Ж╨╕╤П ╨╜╨░ ╨╛╤Б╤В╨░╨╜╨╛╨▓ ╨┐╨╛ ╨╖╨░╨┤╨░╨╜╨╜╨╛╨╝╤Г ╨░╨┤╤А╨╡╤Б╤Г *)
 PROCEDURE DoAddress_VAX (data: DATA);
 VAR
   i : CARDINAL;
@@ -808,7 +808,7 @@ BEGIN
         END;
       END;
       tmp_addr := 0;
-      ASSERT (mem.Get (mem.GetSP()+4, sys.ADR(tmp_addr), 4)); -- первый параметр по смещению +4
+      ASSERT (mem.Get (mem.GetSP()+4, sys.ADR(tmp_addr), 4)); -- ╨┐╨╡╤А╨▓╤Л╨╣ ╨┐╨░╤А╨░╨╝╨╡╤В╤А ╨┐╨╛ ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╤О +4
       -- now tmp_addr is pointer to object
       IF exp.ROT_xjRTS_Java (tmp_addr, TRUE, type) AND NOT tls.IsTypePrimitive (type) AND tls.IsTypeValid (type) THEN
         com := tls.TypeCom (type);
@@ -1309,7 +1309,7 @@ BEGIN
 END DoRegisterAccess;
 
 
-(* Строит стек вызовов / и может быть реакция на выполнение до вызова *)
+(* ╨б╤В╤А╨╛╨╕╤В ╤Б╤В╨╡╨║ ╨▓╤Л╨╖╨╛╨▓╨╛╨▓ / ╨╕ ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М ╤А╨╡╨░╨║╤Ж╨╕╤П ╨╜╨░ ╨▓╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡ ╨┤╨╛ ╨▓╤Л╨╖╨╛╨▓╨░ *)
 PROCEDURE DoCall(data: DATA);
 VAR
   com, m, line: CARDINAL;
@@ -1347,7 +1347,7 @@ BEGIN
 END DoCall;
 
 
-(* Выпихивает один элемент стека вызовов / и может быть реакция на выполнение до возрата *)
+(* ╨Т╤Л╨┐╨╕╤Е╨╕╨▓╨░╨╡╤В ╨╛╨┤╨╕╨╜ ╤Н╨╗╨╡╨╝╨╡╨╜╤В ╤Б╤В╨╡╨║╨░ ╨▓╤Л╨╖╨╛╨▓╨╛╨▓ / ╨╕ ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М ╤А╨╡╨░╨║╤Ж╨╕╤П ╨╜╨░ ╨▓╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡ ╨┤╨╛ ╨▓╨╛╨╖╤А╨░╤В╨░ *)
 PROCEDURE DoRet(data: DATA);
 BEGIN
   IF opt.in_dialog THEN
@@ -1439,7 +1439,7 @@ BEGIN
             std.ErrorNo (mes.BreakProgInt, msg, CARDINAL(eve.LastEvent.XCPT_INFO_2));
           END;
         ELSE
-          -- или пришли после первой нотификации, или исключительная ситауция не может быть обработана
+          -- ╨╕╨╗╨╕ ╨┐╤А╨╕╤И╨╗╨╕ ╨┐╨╛╤Б╨╗╨╡ ╨┐╨╡╤А╨▓╨╛╨╣ ╨╜╨╛╤В╨╕╤Д╨╕╨║╨░╤Ж╨╕╨╕, ╨╕╨╗╨╕ ╨╕╤Б╨║╨╗╤О╤З╨╕╤В╨╡╨╗╤М╨╜╨░╤П ╤Б╨╕╤В╨░╤Г╤Ж╨╕╤П ╨╜╨╡ ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М ╨╛╨▒╤А╨░╨▒╨╛╤В╨░╨╜╨░
           dbg.SwitchToDebugger;
           dex.PointExecLine(eve.LastEvent.IP);
           xcp.Get_XCPT_Msg (CARDINAL(eve.LastEvent.XCPT_INFO_1), CARDINAL(eve.LastEvent.XCPT_INFO_4), msg);

@@ -26,7 +26,7 @@ TYPE
                            slots     : ARRAY[0..N_SLOTS-1] OF PBYTE;
                            Slot_size : CARDINAL;
                            curr_slot : CARDINAL;
-                           used      : CARDINAL;   (* Первый свободный для записи *)
+                           used      : CARDINAL;   (* ╨Я╨╡╤А╨▓╤Л╨╣ ╤Б╨▓╨╛╨▒╨╛╨┤╨╜╤Л╨╣ ╨┤╨╗╤П ╨╖╨░╨┐╨╕╤Б╨╕ *)
                          END;
 
 <*POP *>
@@ -77,8 +77,8 @@ END PrintStorageInfo;
 
 
 CONST
-  Slot_Marker_Final    = MAX(CARDINAL)-1; -- маркер конца слота
-  Slot_Marker_Next_Ref = MAX(CARDINAL)-2; -- маркер конца слота: в следующем в начале ссылка
+  Slot_Marker_Final    = MAX(CARDINAL)-1; -- ╨╝╨░╤А╨║╨╡╤А ╨║╨╛╨╜╤Ж╨░ ╤Б╨╗╨╛╤В╨░
+  Slot_Marker_Next_Ref = MAX(CARDINAL)-2; -- ╨╝╨░╤А╨║╨╡╤А ╨║╨╛╨╜╤Ж╨░ ╤Б╨╗╨╛╤В╨░: ╨▓ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨╝ ╨▓ ╨╜╨░╤З╨░╨╗╨╡ ╤Б╤Б╤Л╨╗╨║╨░
 
 
 PROCEDURE IsRefValid(storage:STORAGE; ref: IMAGE_REF): BOOLEAN;
@@ -116,7 +116,7 @@ BEGIN
   sys.FILL(sys.ADR(storage^.slots), 0, SIZE(storage^.slots));
   storage^.curr_slot:= 0;
   NEW(storage^.slots[storage^.curr_slot], SLOT_SIZE);
-  storage^.slots[0]^[0]:= ORD(0C);   -- чтобы исключить ссылку = NIL
+  storage^.slots[0]^[0]:= ORD(0C);   -- ╤З╤В╨╛╨▒╤Л ╨╕╤Б╨║╨╗╤О╤З╨╕╤В╤М ╤Б╤Б╤Л╨╗╨║╤Г = NIL
   storage^.used:= 1;
   storage^.Slot_size:= SLOT_SIZE;
 END CreateStorage;
@@ -178,10 +178,10 @@ BEGIN
     IF slots[slot]^[pos] = ORD(0C) THEN
       p_image := sys.ADR (slots[slot]^[pos+1]);
       IF IsRefValid (storage, p_image^) THEN
-        -- перед следующим именем   находится ссылка
+        -- ╨┐╨╡╤А╨╡╨┤ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╨╝ ╨╕╨╝╨╡╨╜╨╡╨╝   ╨╜╨░╤Е╨╛╨┤╨╕╤В╤Б╤П ╤Б╤Б╤Л╨╗╨║╨░
         INC(pos, 1+SIZE(IMAGE_REF));
       ELSE
-        -- сслыка-маркер завершает последнее имя в этом слоте
+        -- ╤Б╤Б╨╗╤Л╨║╨░-╨╝╨░╤А╨║╨╡╤А ╨╖╨░╨▓╨╡╤А╤И╨░╨╡╤В ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨╡ ╨╕╨╝╤П ╨▓ ╤Н╤В╨╛╨╝ ╤Б╨╗╨╛╤В╨╡
         INC (slot);
         IF p_image^ = Slot_Marker_Final THEN
           pos := 0;
@@ -225,16 +225,16 @@ BEGIN
      WHILE r_image # 0 DO
        slot := r_image DIV 1000000H;
        pos := r_image MOD 1000000H;
-       -- есть уже image с таким хешем
+       -- ╨╡╤Б╤В╤М ╤Г╨╢╨╡ image ╤Б ╤В╨░╨║╨╕╨╝ ╤Е╨╡╤И╨╡╨╝
        ASSERT(slot <=  HIGH(storage^.slots));
        ASSERT(storage^.slots[slot] # NIL);
-       ASSERT(pos < HIGH(storage^.slots[slot]^));   -- не <= т.к. еще 0C
+       ASSERT(pos < HIGH(storage^.slots[slot]^));   -- ╨╜╨╡ <= ╤В.╨║. ╨╡╤Й╨╡ 0C
        len2 := Length(sys.ADR(storage^.slots[slot]^[pos]));
        IF (len = len2) AND (IsEqual(sys.ADR(storage^.slots[slot]^[pos]), image,len))  THEN
          RETURN r_image;
        END;
-       IF (pos < 1+SIZE(IMAGE_REF))                  -- в начале не может быть ссылки
-         OR (storage^.slots[slot]^[pos-1] = ORD(0C)) -- за предыдущим именем находится 0С
+       IF (pos < 1+SIZE(IMAGE_REF))                  -- ╨▓ ╨╜╨░╤З╨░╨╗╨╡ ╨╜╨╡ ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М ╤Б╤Б╤Л╨╗╨║╨╕
+         OR (storage^.slots[slot]^[pos-1] = ORD(0C)) -- ╨╖╨░ ╨┐╤А╨╡╨┤╤Л╨┤╤Г╤Й╨╕╨╝ ╨╕╨╝╨╡╨╜╨╡╨╝ ╨╜╨░╤Е╨╛╨┤╨╕╤В╤Б╤П 0╨б
        THEN
          r_image := 0;
        ELSE
@@ -247,13 +247,13 @@ BEGIN
   WITH storage^ DO
     p_image := NIL;
     IF used + (1+SIZE(IMAGE_REF)) + (len+1) + (1+SIZE(IMAGE_REF)) >= HIGH(slots[curr_slot]^)  THEN
-      slots[curr_slot]^[used]:= ORD(0C); --перед ссылкой будет еще одно 0С как признак ссылки
+      slots[curr_slot]^[used]:= ORD(0C); --╨┐╨╡╤А╨╡╨┤ ╤Б╤Б╤Л╨╗╨║╨╛╨╣ ╨▒╤Г╨┤╨╡╤В ╨╡╤Й╨╡ ╨╛╨┤╨╜╨╛ 0╨б ╨║╨░╨║ ╨┐╤А╨╕╨╖╨╜╨░╨║ ╤Б╤Б╤Л╨╗╨║╨╕
       INC(used);
-      p_image:= sys.ADR(slots[curr_slot]^[used]); -- сохраним позицию маркера слота
+      p_image:= sys.ADR(slots[curr_slot]^[used]); -- ╤Б╨╛╤Е╤А╨░╨╜╨╕╨╝ ╨┐╨╛╨╖╨╕╤Ж╨╕╤О ╨╝╨░╤А╨║╨╡╤А╨░ ╤Б╨╗╨╛╤В╨░
       p_image^ := Slot_Marker_Final;
-      -- а теперь переходим к очередному слоту
+      -- ╨░ ╤В╨╡╨┐╨╡╤А╤М ╨┐╨╡╤А╨╡╤Е╨╛╨┤╨╕╨╝ ╨║ ╨╛╤З╨╡╤А╨╡╨┤╨╜╨╛╨╝╤Г ╤Б╨╗╨╛╤В╤Г
       INC(curr_slot);
-      IF slots[curr_slot] = NIL THEN -- ранее этот слот не использовали?
+      IF slots[curr_slot] = NIL THEN -- ╤А╨░╨╜╨╡╨╡ ╤Н╤В╨╛╤В ╤Б╨╗╨╛╤В ╨╜╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╗╨╕?
         NEW(slots[curr_slot], Slot_size);
       END;
       used:= 0;
@@ -261,11 +261,11 @@ BEGIN
     IF NOT unique THEN
        IF HashStruct.Tables^[ind.number]^[ind.index] # 0 THEN
          IF p_image # NIL THEN
-           -- т.е. был переход на очередной слот: маркер нужно изменить
+           -- ╤В.╨╡. ╨▒╤Л╨╗ ╨┐╨╡╤А╨╡╤Е╨╛╨┤ ╨╜╨░ ╨╛╤З╨╡╤А╨╡╨┤╨╜╨╛╨╣ ╤Б╨╗╨╛╤В: ╨╝╨░╤А╨║╨╡╤А ╨╜╤Г╨╢╨╜╨╛ ╨╕╨╖╨╝╨╡╨╜╨╕╤В╤М
            p_image^ := Slot_Marker_Next_Ref;
          END;
          r_image:= HashStruct.Tables^[ind.number]^[ind.index];
-         slots[curr_slot]^[used]:= ORD(0C); --перед ссылкой будет еще одно 0С как признак ссылки
+         slots[curr_slot]^[used]:= ORD(0C); --╨┐╨╡╤А╨╡╨┤ ╤Б╤Б╤Л╨╗╨║╨╛╨╣ ╨▒╤Г╨┤╨╡╤В ╨╡╤Й╨╡ ╨╛╨┤╨╜╨╛ 0╨б ╨║╨░╨║ ╨┐╤А╨╕╨╖╨╜╨░╨║ ╤Б╤Б╤Л╨╗╨║╨╕
          INC(used);
          sys.MOVE(sys.ADR(r_image), sys.ADR(slots[curr_slot]^[used]), SIZE(IMAGE_REF));
          INC (used, SIZE(IMAGE_REF));

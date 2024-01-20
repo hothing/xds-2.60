@@ -1,6 +1,6 @@
 <* storage+ *>
 
-(* ��ࠡ�⪠ ��।� ᮡ�⨩ *)
+(* Обработка очереди событий *)
 
 IMPLEMENTATION MODULE Events;
 
@@ -27,8 +27,8 @@ TYPE
   QUEUE = POINTER TO ARRAY OF EVENT;
 
 VAR
-  Queue: QUEUE;         (* ��।� ᮡ�⨩                         *)
-  Head, Tail: CARDINAL; (* ����� ��砫쭮�� � ��᫥����� ������� *)
+  Queue: QUEUE;         (* Очередь событий                         *)
+  Head, Tail: CARDINAL; (* Номера начального и последнего элемента *)
 
 
 PROCEDURE QuantityEvents (): CARDINAL;
@@ -41,7 +41,7 @@ BEGIN
 END QuantityEvents;
 
 
-(* ��p��� ����? �᫨ ���� - TRUE, ������ - FALSE *)
+(* Очеpедь пуста? Если пуста - TRUE, непуста - FALSE *)
 PROCEDURE QueueIsEmpty () : BOOLEAN;
 BEGIN
   RETURN Head = Tail;
@@ -67,7 +67,7 @@ BEGIN
 END ReallocQueue;
 
 
-(* �������� ᮡ�⨥ � ��p���, �� ��९������� ��।� ��୥� FALSE *)
+(* Добавить событие в очеpедь, при переполнении очереди вернет FALSE *)
 PROCEDURE AddEvent (event: EVENT): BOOLEAN;
 VAR
   max, tail, i, offs: CARDINAL;
@@ -96,7 +96,7 @@ BEGIN
 END AddEvent;
 
 
-(* ������� ᮡ�⨥, �� ����頥��� � LastEvent � 㤠����� ��।� *)
+(* Получить событие, он помещается в LastEvent и удаляется очереди *)
 PROCEDURE GetEvent;
 BEGIN
   ASSERT (NOT QueueIsEmpty());
@@ -115,8 +115,8 @@ END GetEvent;
 
 <* POP *>
 
-(* ��������� TRUE, �᫨ � ��।� ���� ᮡ�⨥ *)
-(* 㪠������ ⨯�, ���� ��୥� FALSE             *)
+(* Возвращеющая TRUE, если в очереди есть событие *)
+(* указаного типа, иначе вернет FALSE             *)
 PROCEDURE QueryEvent (event_type: EVENT_TYPE): BOOLEAN;
 VAR
   i: CARDINAL;
@@ -137,7 +137,7 @@ BEGIN
   END;
 END QueryEvent;
 
-(* ��頥� ⥪�饥 ᮤ�ন��� ��।� ᮡ�⨩ *)
+(* Очищает текущее содержимое очереди событий *)
 PROCEDURE ClearQueue;
 BEGIN
   Head := 0;

@@ -189,7 +189,7 @@ BEGIN
   (*
         RTS.X2C_ini_profiler;
                  profile:=NIL;
-     total_time:=0; <- ¤®«¦­® ¡ëâì á¤¥« ­® ¤® ¨­¨æ¨ «¨§ æ¨¨ xmm !!!!
+     total_time:=0; <- Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ ÑÐ´ÐµÐ»Ð°Ð½Ð¾ Ð´Ð¾ Ð¸Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ xmm !!!!
   *)
   OS.X2C_iniexit;
   OS.X2C_atexit ( atexit_procedure ); -- register the procedure

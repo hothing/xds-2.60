@@ -1,4 +1,4 @@
--- ‚ë¯®«­¥­¨¥ ª®¬ ­¤ ¯ ª¥â­®£® ®â« ¤ç¨ª  ¨§ ¤¨ «®£®¢®£®
+-- Ğ’Ñ‹Ğ¿Ğ¾Ğ»Ğ½ĞµĞ½Ğ¸Ğµ ĞºĞ¾Ğ¼Ğ°Ğ½Ğ´ Ğ¿Ğ°ĞºĞµÑ‚Ğ½Ğ¾Ğ³Ğ¾ Ğ¾Ñ‚Ğ»Ğ°Ğ´Ñ‡Ğ¸ĞºĞ° Ğ¸Ğ· Ğ´Ğ¸Ğ°Ğ»Ğ¾Ğ³Ğ¾Ğ²Ğ¾Ğ³Ğ¾
 
 IMPLEMENTATION MODULE Dlg_Cmd;
 
@@ -91,14 +91,14 @@ BEGIN
 
       NEW (Lines, 11);
       Lines^[ 0] := LINE{ 2, 2, std.msg     , zzz , std.d_enabled};
-      Lines^[ 1] := LINE{ 2, 3, std.msg     , '³' , std.d_enabled};
+      Lines^[ 1] := LINE{ 2, 3, std.msg     , 'â”‚' , std.d_enabled};
       Lines^[ 2] := LINE{ 4, 3, std.edit_str, sys.ADR(ExprStr), 35, std.d_enabled};
-      Lines^[ 3] := LINE{40, 3, std.msg     , '³' , std.d_enabled};
-      Lines^[ 4] := LINE{ 2, 4, std.msg     , '³' , std.d_enabled};
-      Lines^[ 5] := LINE{40, 4, std.msg     , '³' , std.d_enabled};
-      Lines^[ 6] := LINE{ 2, 5, std.msg     , '³' , std.d_enabled};
-      Lines^[ 7] := LINE{40, 5, std.msg     , '³' , std.d_enabled};
-      Lines^[ 8] := LINE{ 2, 6, std.msg     , 'ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ' , std.d_enabled};
+      Lines^[ 3] := LINE{40, 3, std.msg     , 'â”‚' , std.d_enabled};
+      Lines^[ 4] := LINE{ 2, 4, std.msg     , 'â”‚' , std.d_enabled};
+      Lines^[ 5] := LINE{40, 4, std.msg     , 'â”‚' , std.d_enabled};
+      Lines^[ 6] := LINE{ 2, 5, std.msg     , 'â”‚' , std.d_enabled};
+      Lines^[ 7] := LINE{40, 5, std.msg     , 'â”‚' , std.d_enabled};
+      Lines^[ 8] := LINE{ 2, 6, std.msg     , 'â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜' , std.d_enabled};
 
       Lines^[ExprNum] := LINE{ 4, 5, std.msg   , '???' , std.d_enabled};
       Lines^[ExprRad] := LINE{ 2, 8, std.radio , '' , 0, 0, 0, 0, Radio, UpdateExpr, std.d_enabled};

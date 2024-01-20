@@ -130,7 +130,7 @@ TYPE
                     CASE kind: KIND OF
                     | std_token: t     : TOKEN;
                     | std_const: res   : ExprRes;
-                                 intern: BOOLEAN; -- стандартный (системы отладки) идентификатор, требующий @
+                                 intern: BOOLEAN; -- ╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╤Л╨╣ (╤Б╨╕╤Б╤В╨╡╨╝╤Л ╨╛╤В╨╗╨░╨┤╨║╨╕) ╨╕╨┤╨╡╨╜╤В╨╕╤Д╨╕╨║╨░╤В╨╛╤А, ╤В╤А╨╡╨▒╤Г╤О╤Й╨╕╨╣ @
                     | std_var  : pvar  : PExprRes;
                     | std_reg  : num   : CARDINAL;
                     | std_func : f_ID  : FUNCTIONS;
@@ -267,8 +267,8 @@ VAR
   Ident        : IDENT;
   source       : exc.ExceptionSource;
   ComNum       : dt.ComNo;
-  ModNum       : dt.ModNo; (* Текущий номер модуля *)
-  IndirectType : dt.PTYPE; (* Тип для приведения   *)
+  ModNum       : dt.ModNo; (* ╨в╨╡╨║╤Г╤Й╨╕╨╣ ╨╜╨╛╨╝╨╡╤А ╨╝╨╛╨┤╤Г╨╗╤П *)
+  IndirectType : dt.PTYPE; (* ╨в╨╕╨┐ ╨┤╨╗╤П ╨┐╤А╨╕╨▓╨╡╨┤╨╡╨╜╨╕╤П   *)
   TmpRes       : ExprRes;
   TmpFunc      : FUNCTIONS;
 
@@ -398,7 +398,7 @@ BEGIN
         t_array_of.TypeData.Name := dt.Empty_Name;
         t_array_of.Base := type;
         arg.arr_desc := arg.location;
-        RETURN tls.FindComponentByAddr (mem.GetIP(), com) AND  --   <--- kt.ADDRESS(da.elemtype) может, так лучше?
+        RETURN tls.FindComponentByAddr (mem.GetIP(), com) AND  --   <--- kt.ADDRESS(da.elemtype) ╨╝╨╛╨╢╨╡╤В, ╤В╨░╨║ ╨╗╤Г╤З╤И╨╡?
                tls.FindTypeLikeThis (com, t_array_of, TRUE, type) AND
                ArrayOf_Desc2Loc (arg);
       ELSIF GetName (md.name) AND
@@ -450,8 +450,8 @@ BEGIN
 END ROT_xjRTS_Java;
 
 
-(* Проверяет, можно ли для выражения вычислить настоящий *)
-(* тип обьекта; делает это, если возможно                *)
+(* ╨Я╤А╨╛╨▓╨╡╤А╤П╨╡╤В, ╨╝╨╛╨╢╨╜╨╛ ╨╗╨╕ ╨┤╨╗╤П ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╤П ╨▓╤Л╤З╨╕╤Б╨╗╨╕╤В╤М ╨╜╨░╤Б╤В╨╛╤П╤Й╨╕╨╣ *)
+(* ╤В╨╕╨┐ ╨╛╨▒╤М╨╡╨║╤В╨░; ╨┤╨╡╨╗╨░╨╡╤В ╤Н╤В╨╛, ╨╡╤Б╨╗╨╕ ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛                *)
 PROCEDURE CheckActualType (VAR arg: ExprRes;  get_td: BOOLEAN): BOOLEAN;
 
   PROCEDURE ROT_xmRTS_M2O2 (VAR type: dt.PTYPE): BOOLEAN;
@@ -504,7 +504,7 @@ BEGIN
       IF (lang = dt.Lng_M2) OR (lang = dt.Lng_O2) THEN
         res := ROT_xmRTS_M2O2 (type);
       ELSIF lang = dt.Lng_Java THEN
-        res := ROT_xjRTS_Java (arg.location, get_td, type); -- может сменить arg.arr_desc!!!
+        res := ROT_xjRTS_Java (arg.location, get_td, type); -- ╨╝╨╛╨╢╨╡╤В ╤Б╨╝╨╡╨╜╨╕╤В╤М arg.arr_desc!!!
       END;
     END;
   END;
@@ -515,7 +515,7 @@ BEGIN
 END CheckActualType;
 
 
-(* Перевычисляет для выражения настоящий тип *)
+(* ╨Я╨╡╤А╨╡╨▓╤Л╤З╨╕╤Б╨╗╤П╨╡╤В ╨┤╨╗╤П ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╤П ╨╜╨░╤Б╤В╨╛╤П╤Й╨╕╨╣ ╤В╨╕╨┐ *)
 PROCEDURE GetActualType (VAR arg: ExprRes);
 BEGIN
   sys.EVAL(CheckActualType (arg, TRUE));
@@ -525,10 +525,10 @@ END GetActualType;
 
 
 
-PROCEDURE Var_Value (ConvertVar2Ref: BOOLEAN;   -- Делать из переменной ссылку
-                     ConvertAllTag: BOOLEAN;    -- Для всех тегов переменных
-                     arg:ExprRes;               -- Аргумент
-                     VAR res:ExprRes); FORWARD; -- Результат
+PROCEDURE Var_Value (ConvertVar2Ref: BOOLEAN;   -- ╨Ф╨╡╨╗╨░╤В╤М ╨╕╨╖ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨╛╨╣ ╤Б╤Б╤Л╨╗╨║╤Г
+                     ConvertAllTag: BOOLEAN;    -- ╨Ф╨╗╤П ╨▓╤Б╨╡╤Е ╤В╨╡╨│╨╛╨▓ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
+                     arg:ExprRes;               -- ╨Р╤А╨│╤Г╨╝╨╡╨╜╤В
+                     VAR res:ExprRes); FORWARD; -- ╨а╨╡╨╖╤Г╨╗╤М╤В╨░╤В
 
 PROCEDURE Expr(VAR res: ExprRes); FORWARD;
 
@@ -1078,7 +1078,7 @@ BEGIN
 EXCEPT
   IF exm.IsM2Exception() THEN
     ASSERT(exm.M2Exception() = exm.realValueException);
-    Error(msg.RealTooBig); -- Слишком большое число
+    Error(msg.RealTooBig); -- ╨б╨╗╨╕╤И╨║╨╛╨╝ ╨▒╨╛╨╗╤М╤И╨╛╨╡ ╤З╨╕╤Б╨╗╨╛
     RETURN r;
   END;
 END power10;
@@ -1095,7 +1095,7 @@ PROCEDURE GetNumber;
     sum := 0;
     FOR i := 0 TO LENGTH(str)-1 DO
       c := str[i];
-      IF ALPHA[c] >= 4C THEN (* десятичная цифpа *)
+      IF ALPHA[c] >= 4C THEN (* ╨┤╨╡╤Б╤П╤В╨╕╤З╨╜╨░╤П ╤Ж╨╕╤Дp╨░ *)
         IF (Base = 2) THEN
           IF (c # '0') AND (c # '1') THEN
             RETURN FALSE;
@@ -1108,7 +1108,7 @@ PROCEDURE GetNumber;
         sum := sum*Base + (ORD(c) - ORD('0'));
       ELSE
         c := CAP(c);
-        IF ALPHA[c] < 2C THEN (* не шестнадцатеpичная цифpа *)
+        IF ALPHA[c] < 2C THEN (* ╨╜╨╡ ╤И╨╡╤Б╤В╨╜╨░╨┤╤Ж╨░╤В╨╡p╨╕╤З╨╜╨░╤П ╤Ж╨╕╤Дp╨░ *)
           RETURN FALSE
         END;
         IF Base # 16 THEN Error(msg.IncorrectIntConstant); END;
@@ -1120,7 +1120,7 @@ PROCEDURE GetNumber;
 
 
 VAR
-  c         : CHAR;            (* Очередной символ                 *)
+  c         : CHAR;            (* ╨Ю╤З╨╡╤А╨╡╨┤╨╜╨╛╨╣ ╤Б╨╕╨╝╨▓╨╛╨╗                 *)
   result    : CARDINAL;
   sum_r     : LONGLONGREAL;
   d         : LONGLONGREAL;
@@ -1140,7 +1140,7 @@ BEGIN
   pos := 0;
   LOOP
     c := char;
-    IF ALPHA[c] >= 4C THEN (* десятичная цифра *)
+    IF ALPHA[c] >= 4C THEN (* ╨┤╨╡╤Б╤П╤В╨╕╤З╨╜╨░╤П ╤Ж╨╕╤Д╤А╨░ *)
       IF NOT BaseOK THEN HexAllowed := TRUE; END;
     ELSE
       CASE c OF
@@ -1151,7 +1151,7 @@ BEGIN
       ELSE
       END;
       c := CAP(c);
-      IF (NOT HexAllowed) OR (ALPHA[c] < 2C) THEN (* не шестнадцатеpичная цифpа *)
+      IF (NOT HexAllowed) OR (ALPHA[c] < 2C) THEN (* ╨╜╨╡ ╤И╨╡╤Б╤В╨╜╨░╨┤╤Ж╨░╤В╨╡p╨╕╤З╨╜╨░╤П ╤Ж╨╕╤Дp╨░ *)
         EXIT
       END;
     END;
@@ -1190,7 +1190,7 @@ BEGIN
           c := '+';
         END;
         IF ALPHA[char] < 4C THEN
-          Error(msg.IncorrectRealConstant) -- Обязательно цифра
+          Error(msg.IncorrectRealConstant) -- ╨Ю╨▒╤П╨╖╨░╤В╨╡╨╗╤М╨╜╨╛ ╤Ж╨╕╤Д╤А╨░
         END;
         result := 0;
         LOOP
@@ -1234,7 +1234,7 @@ BEGIN
 EXCEPT
   IF exm.IsM2Exception() THEN
     ASSERT(exm.M2Exception() = exm.wholeValueException);
-    Error(msg.IntTooBig); -- Слишком длинное число
+    Error(msg.IntTooBig); -- ╨б╨╗╨╕╤И╨║╨╛╨╝ ╨┤╨╗╨╕╨╜╨╜╨╛╨╡ ╤З╨╕╤Б╨╗╨╛
     RETURN;
   END;
 END GetNumber;
@@ -1244,7 +1244,7 @@ END GetNumber;
 PROCEDURE CheckToken(t: TOKEN);
 BEGIN
   IF Token # t THEN
-    Error(msg.IncorrectToken); -- Ошибка в выpажении !
+    Error(msg.IncorrectToken); -- ╨Ю╤И╨╕╨▒╨║╨░ ╨▓ ╨▓╤Лp╨░╨╢╨╡╨╜╨╕╨╕ !
   ELSE
     GetToken;
   END;
@@ -1336,7 +1336,7 @@ BEGIN
       CASE desc.kind OF
       | std_const:
         IF desc.intern THEN
-          -- стандартный (системы отладки) идентификатор, требующий @
+          -- ╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╤Л╨╣ (╤Б╨╕╤Б╤В╨╡╨╝╤Л ╨╛╤В╨╗╨░╨┤╨║╨╕) ╨╕╨┤╨╡╨╜╤В╨╕╤Д╨╕╨║╨░╤В╨╛╤А, ╤В╤А╨╡╨▒╤Г╤О╤Й╨╕╨╣ @
           Token := const_val;
           TmpRes := desc.res;
         ELSE
@@ -1350,7 +1350,7 @@ BEGIN
           reg_type := dt.Invalid_Type;
         END;
       | std_var:
-        Token := const_val; --действительно, далее значение станет константным!
+        Token := const_val; --╨┤╨╡╨╣╤Б╤В╨▓╨╕╤В╨╡╨╗╤М╨╜╨╛, ╨┤╨░╨╗╨╡╨╡ ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ ╤Б╤В╨░╨╜╨╡╤В ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╨╜╤Л╨╝!
         TmpRes := desc.pvar^;
       | std_func:
         IF Std_Func[desc.f_ID].spec THEN
@@ -1391,7 +1391,7 @@ BEGIN
 
   |'0'..'9': GetNumber;
 
-  |'a'..'z','A'..'Z','а'..'п','р'..'я','А'..'Я','_','$':
+  |'a'..'z','A'..'Z','╨░'..'╨┐','╤А'..'╤П','╨Р'..'╨п','_','$':
      IF (char = 'A') AND (next = ':') THEN
        Token := address;
        getchar;
@@ -1416,7 +1416,7 @@ BEGIN
        END;
      END;
   ELSE
-    Error(msg.IncorrectToken); -- Если невеpный токен
+    Error(msg.IncorrectToken); -- ╨Х╤Б╨╗╨╕ ╨╜╨╡╨▓╨╡p╨╜╤Л╨╣ ╤В╨╛╨║╨╡╨╜
   END;
 END GetToken;
 
@@ -1431,7 +1431,7 @@ BEGIN
   Fmt_CTRL_CHAR  := "%oC";
   Fmt_STRINGval  := '"%s"';
   Fmt_ADDRval    := "A:%$8X";
-  Fmt_Register   := 'Регистр %s';
+  Fmt_Register   := '╨а╨╡╨│╨╕╤Б╤В╤А %s';
   Fmt_RegWindow  := "X'%$8X'";
 END SetDefaultFormat;
 
@@ -1467,9 +1467,9 @@ CONST
   MULTIPLOP = TOKENLIST { times, and, slash, div, mod, rem};
 
 
-(* Проверяет типы результатов выражений на совместимость           *)
-(* Если один из них - константа, то он становится (если возможно)  *)
-(* значением с типом второго операнда                              *)
+(* ╨Я╤А╨╛╨▓╨╡╤А╤П╨╡╤В ╤В╨╕╨┐╤Л ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В╨╛╨▓ ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╨╣ ╨╜╨░ ╤Б╨╛╨▓╨╝╨╡╤Б╤В╨╕╨╝╨╛╤Б╤В╤М           *)
+(* ╨Х╤Б╨╗╨╕ ╨╛╨┤╨╕╨╜ ╨╕╨╖ ╨╜╨╕╤Е - ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╨░, ╤В╨╛ ╨╛╨╜ ╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤Б╤П (╨╡╤Б╨╗╨╕ ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛)  *)
+(* ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡╨╝ ╤Б ╤В╨╕╨┐╨╛╨╝ ╨▓╤В╨╛╤А╨╛╨│╨╛ ╨╛╨┐╨╡╤А╨░╨╜╨┤╨░                              *)
 PROCEDURE TypesCompatible (token: TOKEN; VAR res1, res2: ExprRes): BOOLEAN;
 VAR
   tmp, res: ExprRes;
@@ -1813,7 +1813,7 @@ BEGIN
   IF name^ = dt.STD_TYPES[dt.STD_TYPE_REAL_G].Name THEN
     RETURN dt.STD_TYPE_REAL_G;
   END;
-  -- закомментарено, так как все остальные на VAX вормата D
+  -- ╨╖╨░╨║╨╛╨╝╨╝╨╡╨╜╤В╨░╤А╨╡╨╜╨╛, ╤В╨░╨║ ╨║╨░╨║ ╨▓╤Б╨╡ ╨╛╤Б╤В╨░╨╗╤М╨╜╤Л╨╡ ╨╜╨░ VAX ╨▓╨╛╤А╨╝╨░╤В╨░ D
   -- ASSERT (name^ = dt.STD_TYPES[dt.STD_TYPE_REAL_D].Name);
   RETURN dt.STD_TYPE_REAL_D;
 END GetTypeRealType;
@@ -1821,10 +1821,10 @@ END GetTypeRealType;
 
 
 --------------------------------------------------------------------------------
-PROCEDURE Var_Value (ConvertVar2Ref: BOOLEAN;   -- Делать из переменной ссылку
-                     ConvertAllTag: BOOLEAN;    -- Для всех тегов переменных
-                     arg:ExprRes;               -- Аргумент
-                     VAR res:ExprRes);          -- Результат
+PROCEDURE Var_Value (ConvertVar2Ref: BOOLEAN;   -- ╨Ф╨╡╨╗╨░╤В╤М ╨╕╨╖ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨╛╨╣ ╤Б╤Б╤Л╨╗╨║╤Г
+                     ConvertAllTag: BOOLEAN;    -- ╨Ф╨╗╤П ╨▓╤Б╨╡╤Е ╤В╨╡╨│╨╛╨▓ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
+                     arg:ExprRes;               -- ╨Р╤А╨│╤Г╨╝╨╡╨╜╤В
+                     VAR res:ExprRes);          -- ╨а╨╡╨╖╤Г╨╗╤М╤В╨░╤В
     -- 1 ---- Var_Value --------------------------------------------------------
     PROCEDURE VarOnRegisters_Value (arg: ExprRes; VAR res: ExprRes): BOOLEAN;
     VAR type_tag   : dt.TYPE_TAG;
@@ -2111,7 +2111,7 @@ BEGIN
   | Reference : res.location := arg.reference;
   | Address   : res.location := arg.address;
   ELSE
-    Error(msg.IllegalUsageOperation) -- Хочу, но не могу...
+    Error(msg.IllegalUsageOperation) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
   END;
   res.sort := Variable;
   res.type := dt.st_original;
@@ -2133,7 +2133,7 @@ BEGIN
     res := arg;
     res.var_type := IndirectType;
   ELSE
-    Error(msg.IllegalUsageOperation) -- Хочу, но не могу...
+    Error(msg.IllegalUsageOperation) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
   END;
   IndirectType := dt.Invalid_Type;
 END TypeCast;
@@ -2160,7 +2160,7 @@ BEGIN
     | REALval:
       res := arg;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | minus :
     CASE arg.sort OF
@@ -2185,7 +2185,7 @@ BEGIN
         res.r_val := - arg.r_val;
       <* END *>
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | take_addr :
     IF (arg.sort = Variable) THEN
@@ -2193,7 +2193,7 @@ BEGIN
       res.type := dt.st_original;
       res.address := arg.location;
     ELSE
-      Error(msg.IllegalUsageOperation) -- Хочу, но не могу...
+      Error(msg.IllegalUsageOperation) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | indir_addr :
     CASE arg.sort OF
@@ -2226,7 +2226,7 @@ BEGIN
       END;
      <* END *>
     ELSE
-      Error (msg.IllegalUsageOperation) -- Хочу, но не могу...
+      Error (msg.IllegalUsageOperation) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | bar :
     IF arg.sort = Variable THEN
@@ -2243,8 +2243,8 @@ BEGIN
         IF NOT (mem.GetSegmentInfo(res.location, start, size, access) AND (kt.read IN access)) THEN
           Error(msg.NilPointerDereference);
         END;
--- Это сильно тормозит под Win'95
--- Теперь region может быть invalid, но это не страшно (dialog.StructList)
+-- ╨н╤В╨╛ ╤Б╨╕╨╗╤М╨╜╨╛ ╤В╨╛╤А╨╝╨╛╨╖╨╕╤В ╨┐╨╛╨┤ Win'95
+-- ╨в╨╡╨┐╨╡╤А╤М region ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М invalid, ╨╜╨╛ ╤Н╤В╨╛ ╨╜╨╡ ╤Б╤В╤А╨░╤И╨╜╨╛ (dialog.StructList)
 --        IF NOT CheckRegionValid(res) THEN Error(msg.NilPointerDereference); END;
         IF tag = dt.Array_of THEN
           res.arr_desc := res.location;
@@ -2256,16 +2256,16 @@ BEGIN
         END
        <* END *>
       ELSE
-        Error(msg.IllegalUsageOperation) -- Хочу, но не могу...
+        Error(msg.IllegalUsageOperation) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     ELSIF arg.sort = Register THEN
       IF tls.IsTypeValid(IndirectType) THEN
         IndirectTypeAddr (arg, res);
       ELSE
-        Error(msg.IllegalUsageOperation) -- Хочу, но не могу...
+        Error(msg.IllegalUsageOperation) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     ELSE
-      Error(msg.IllegalUsageOperation) -- Хочу, но не могу...
+      Error(msg.IllegalUsageOperation) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | not :
     CASE arg.sort OF
@@ -2276,10 +2276,10 @@ BEGIN
       res.sort := BOOLval;
       res.b_val := NOT arg.b_val;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   ELSE
-    Error(msg.IllegalUsageOperation); -- Hе понял. Чего делать-то?!
+    Error(msg.IllegalUsageOperation); -- H╨╡ ╨┐╨╛╨╜╤П╨╗. ╨з╨╡╨│╨╛ ╨┤╨╡╨╗╨░╤В╤М-╤В╨╛?!
   END;
 <* POP *>
 END Unar;
@@ -2324,7 +2324,7 @@ BEGIN
       ELSIF (arg2.sort = CARDval) THEN
         res.address := arg1.address + arg2.value;
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     | Reference:
       IF (arg2.sort = INTval) THEN
@@ -2332,7 +2332,7 @@ BEGIN
       ELSIF (arg2.sort = CARDval) THEN
         res.reference := arg1.reference + arg2.value;
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     | STRINGval:
       res.sort := STRINGval;
@@ -2340,7 +2340,7 @@ BEGIN
       res.string := arg1.string;
       xs.Append (arg2.string, res.string);
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | minus :
     CASE arg1.sort OF
@@ -2382,7 +2382,7 @@ BEGIN
            res.value := CARDINAL(LONGINT(arg1.address) - LONGINT(arg2.address));
          END;
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     | Reference:
       res.sort := Address;
@@ -2391,10 +2391,10 @@ BEGIN
       ELSIF (arg2.sort = CARDval) THEN
         res.reference := kt.ADDRESS(arg1.reference - arg2.value);
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | times :
     CASE arg1.sort OF
@@ -2420,7 +2420,7 @@ BEGIN
       res.r_val := arg1.r_val * arg2.r_val;
 <* END  *>
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | slash :
     CASE arg1.sort OF
@@ -2446,7 +2446,7 @@ BEGIN
       res.r_val := arg1.r_val / arg2.r_val;
 <* END  *>
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | div :
     CASE arg1.sort OF
@@ -2459,7 +2459,7 @@ BEGIN
       res.type := dt.st_original;
       res.value := arg1.value DIV arg2.value;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | mod :
     CASE arg1.sort OF
@@ -2472,7 +2472,7 @@ BEGIN
       res.type := dt.st_original;
       res.value := arg1.value MOD arg2.value;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | rem :
     CASE arg1.sort OF
@@ -2485,7 +2485,7 @@ BEGIN
       res.type := dt.st_original;
       res.value := arg1.value REM arg2.value;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   | equ :
     CASE arg1.sort OF
@@ -2511,7 +2511,7 @@ BEGIN
       IF (arg2.sort = Address) THEN
         res.b_val := arg1.address = arg2.address;
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     | BOOLval:
       res.sort := BOOLval;
@@ -2524,7 +2524,7 @@ BEGIN
       res.type := dt.st_original;
       res.b_val := arg1.string = arg2.string;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
 
   | neq :
@@ -2551,7 +2551,7 @@ BEGIN
       IF (arg2.sort = Address) THEN
         res.b_val := arg1.address # arg2.address;
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     | BOOLval:
       res.sort := BOOLval;
@@ -2564,7 +2564,7 @@ BEGIN
       res.type := dt.st_original;
       res.b_val := arg1.string # arg2.string;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
 
   | gtr :
@@ -2591,7 +2591,7 @@ BEGIN
       IF (arg2.sort = Address) THEN
         res.b_val := arg1.address > arg2.address;
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     | CHARval:
       res.sort := BOOLval;
@@ -2601,7 +2601,7 @@ BEGIN
       res.type := dt.st_original;
       res.b_val := arg1.string > arg2.string;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
 
   | geq :
@@ -2628,7 +2628,7 @@ BEGIN
       IF (arg2.sort = Address) THEN
         res.b_val := arg1.address >= arg2.address;
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     | CHARval:
       res.sort := BOOLval;
@@ -2638,7 +2638,7 @@ BEGIN
       res.type := dt.st_original;
       res.b_val := arg1.string >= arg2.string;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
 
   | lss :
@@ -2665,7 +2665,7 @@ BEGIN
       IF (arg2.sort = Address) THEN
         res.b_val := arg1.address < arg2.address;
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     | CHARval:
       res.sort := BOOLval;
@@ -2675,7 +2675,7 @@ BEGIN
       res.type := dt.st_original;
       res.b_val := arg1.string < arg2.string;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
 
   | leq :
@@ -2702,7 +2702,7 @@ BEGIN
       IF (arg2.sort = Address) THEN
         res.b_val := arg1.address <= arg2.address;
       ELSE
-        Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+        Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
       END;
     | CHARval:
       res.sort := BOOLval;
@@ -2712,7 +2712,7 @@ BEGIN
       res.type := dt.st_original;
       res.b_val := arg1.string <= arg2.string;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
 
   | and :
@@ -2724,7 +2724,7 @@ BEGIN
       res.sort := BOOLval;
       res.b_val := arg1.b_val AND arg2.b_val;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
 
   | or :
@@ -2736,7 +2736,7 @@ BEGIN
       res.sort := BOOLval;
       res.b_val := arg1.b_val OR arg2.b_val;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
 
   | xor :
@@ -2748,10 +2748,10 @@ BEGIN
       res.sort := BOOLval;
       res.b_val := arg1.b_val # arg2.b_val;
     ELSE
-      Error(msg.IncompatibleTypes) -- Хочу, но не могу...
+      Error(msg.IncompatibleTypes) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   ELSE
-    Error(msg.IncompatibleTypes); -- Hе понял. Чего делать-то?!
+    Error(msg.IncompatibleTypes); -- H╨╡ ╨┐╨╛╨╜╤П╨╗. ╨з╨╡╨│╨╛ ╨┤╨╡╨╗╨░╤В╤М-╤В╨╛?!
   END;
 <* POP *>
 EXCEPT
@@ -2759,7 +2759,7 @@ EXCEPT
     IF (exm.M2Exception() = exm.wholeDivException) OR
        (exm.M2Exception() = exm.realDivException)
     THEN
-      Error(msg.DivizionByZero); -- Деление на ноль
+      Error(msg.DivizionByZero); -- ╨Ф╨╡╨╗╨╡╨╜╨╕╨╡ ╨╜╨░ ╨╜╨╛╨╗╤М
     END;
   END;
 END Binar;
@@ -2776,7 +2776,7 @@ BEGIN
     IF tls.IsTypeValid(IndirectType) THEN
       IndirectTypeAddr (rec, rec);
     ELSE
-      Error(msg.IllegalUsageOperation) -- Хочу, но не могу...
+      Error(msg.IllegalUsageOperation) -- ╨е╨╛╤З╤Г, ╨╜╨╛ ╨╜╨╡ ╨╝╨╛╨│╤Г...
     END;
   ELSIF rec.sort # Variable THEN
     Error(msg.ExpectedIdent);
@@ -2885,7 +2885,7 @@ BEGIN
       END;
       res.location := arr.location + (ORD(index.ch)-min) * SubSize;
     ELSE
-      Error(msg.IncompatibleTypeIndex); -- Индекс - только целое число
+      Error(msg.IncompatibleTypeIndex); -- ╨Ш╨╜╨┤╨╡╨║╤Б - ╤В╨╛╨╗╤М╨║╨╛ ╤Ж╨╡╨╗╨╛╨╡ ╤З╨╕╤Б╨╗╨╛
     END;
   | dt.Boolean:
     IF index.sort = BOOLval THEN
@@ -2894,7 +2894,7 @@ BEGIN
       END;
       res.location := arr.location + (ORD(index.b_val)-min) * SubSize;
     ELSE
-      Error(msg.IncompatibleTypeIndex); -- Индекс - только целое число
+      Error(msg.IncompatibleTypeIndex); -- ╨Ш╨╜╨┤╨╡╨║╤Б - ╤В╨╛╨╗╤М╨║╨╛ ╤Ж╨╡╨╗╨╛╨╡ ╤З╨╕╤Б╨╗╨╛
     END;
   | dt.Int :
     CASE index.sort OF
@@ -3024,22 +3024,22 @@ VAR
     begin    : kt.ADDRESS;
    <* END *>
   BEGIN
-    -- поиск локальных обьектов происходит только если:
+    -- ╨┐╨╛╨╕╤Б╨║ ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ ╨┐╤А╨╛╨╕╤Б╤Е╨╛╨┤╨╕╤В ╤В╨╛╨╗╤М╨║╨╛ ╨╡╤Б╨╗╨╕:
     --
-    -- 1) ExecScope - текущая исполняемая процедура и выполняется
-    --    - квалифицированный поиск локальных обьектов
-    --    - неквалифицированный поиск локальных обьектов
-    --    при этом ExecScope == p
+    -- 1) ExecScope - ╤В╨╡╨║╤Г╤Й╨░╤П ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╨░╤П ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░ ╨╕ ╨▓╤Л╨┐╨╛╨╗╨╜╤П╨╡╤В╤Б╤П
+    --    - ╨║╨▓╨░╨╗╨╕╤Д╨╕╤Ж╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨┐╨╛╨╕╤Б╨║ ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
+    --    - ╨╜╨╡╨║╨▓╨░╨╗╨╕╤Д╨╕╤Ж╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨┐╨╛╨╕╤Б╨║ ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
+    --    ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ExecScope == p
     --
-    -- 2) глобальный поиск среди процедур модуля привел к
-    --    - квалифицированному поиску локальных обьектов
-    --    при этом возможно, что ExecScope ## p
+    -- 2) ╨│╨╗╨╛╨▒╨░╨╗╤М╨╜╤Л╨╣ ╨┐╨╛╨╕╤Б╨║ ╤Б╤А╨╡╨┤╨╕ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А ╨╝╨╛╨┤╤Г╨╗╤П ╨┐╤А╨╕╨▓╨╡╨╗ ╨║
+    --    - ╨║╨▓╨░╨╗╨╕╤Д╨╕╤Ж╨╕╤А╨╛╨▓╨░╨╜╨╜╨╛╨╝╤Г ╨┐╨╛╨╕╤Б╨║╤Г ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
+    --    ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛, ╤З╤В╨╛ ExecScope ## p
     --
-    -- 3) найденный локальный обьект оказался процедурой и выполняется
-    --    - квалифицированный поиск локальных обьектов
-    --    при этом возможно, что ExecScope ## p
+    -- 3) ╨╜╨░╨╣╨┤╨╡╨╜╨╜╤Л╨╣ ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╨╣ ╨╛╨▒╤М╨╡╨║╤В ╨╛╨║╨░╨╖╨░╨╗╤Б╤П ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨╛╨╣ ╨╕ ╨▓╤Л╨┐╨╛╨╗╨╜╤П╨╡╤В╤Б╤П
+    --    - ╨║╨▓╨░╨╗╨╕╤Д╨╕╤Ж╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨┐╨╛╨╕╤Б╨║ ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
+    --    ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛, ╤З╤В╨╛ ExecScope ## p
 
-    -- определение текущего контекста
+    -- ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╨╡ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨░
     LOOP
       IF tls.EqualObjects (p, dt.Invalid_Object) THEN
         RETURN FALSE;
@@ -3055,13 +3055,13 @@ VAR
     ASSERT (tls.ObjectType(v, res.var_type));
     CASE sym_tag OF
     | dt.Sy_Register:
-      -- только для текущей *исполняемой* процедуры
+      -- ╤В╨╛╨╗╤М╨║╨╛ ╨┤╨╗╤П ╤В╨╡╨║╤Г╤Й╨╡╨╣ *╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╨╛╨╣* ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л
       IF NOT tls.EqualObjects (p, ExecScope) THEN
         Error(0);
       END;
-      -- теперь ясно, что и ExecScope определен
+      -- ╤В╨╡╨┐╨╡╤А╤М ╤П╤Б╨╜╨╛, ╤З╤В╨╛ ╨╕ ExecScope ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜
      <* IF TARGET_x86 THEN *>
-      -- адрес должен быть как минимум внутри тела процедуры,
+      -- ╨░╨┤╤А╨╡╤Б ╨┤╨╛╨╗╨╢╨╡╨╜ ╨▒╤Л╤В╤М ╨║╨░╨║ ╨╝╨╕╨╜╨╕╨╝╤Г╨╝ ╨▓╨╜╤Г╤В╤А╨╕ ╤В╨╡╨╗╨░ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л,
       IF NOT tls.AddrInProcBody (p, mem.GetIP()) THEN
         Error(0);
       END;
@@ -3080,11 +3080,11 @@ VAR
       ELSE
         ASSERT(tls.TypeTag(res.var_type, type_tag));
         IF type_tag = dt.Pointer THEN
-          -- возможно, в дальнейшем потребуется разыменование
-          -- указателя, расположенного на регистре, см. Unar(bar)
-          -- вызов Unar сразу после завершения этого вызова QualIdent
-          -- в Designator, приведет к разыменованию регистра
-          -- (т.е. косвенно по регистру с типом IndirectType
+          -- ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛, ╨▓ ╨┤╨░╨╗╤М╨╜╨╡╨╣╤И╨╡╨╝ ╨┐╨╛╤В╤А╨╡╨▒╤Г╨╡╤В╤Б╤П ╤А╨░╨╖╤Л╨╝╨╡╨╜╨╛╨▓╨░╨╜╨╕╨╡
+          -- ╤Г╨║╨░╨╖╨░╤В╨╡╨╗╤П, ╤А╨░╤Б╨┐╨╛╨╗╨╛╨╢╨╡╨╜╨╜╨╛╨│╨╛ ╨╜╨░ ╤А╨╡╨│╨╕╤Б╤В╤А╨╡, ╤Б╨╝. Unar(bar)
+          -- ╨▓╤Л╨╖╨╛╨▓ Unar ╤Б╤А╨░╨╖╤Г ╨┐╨╛╤Б╨╗╨╡ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨╕╤П ╤Н╤В╨╛╨│╨╛ ╨▓╤Л╨╖╨╛╨▓╨░ QualIdent
+          -- ╨▓ Designator, ╨┐╤А╨╕╨▓╨╡╨┤╨╡╤В ╨║ ╤А╨░╨╖╤Л╨╝╨╡╨╜╨╛╨▓╨░╨╜╨╕╤О ╤А╨╡╨│╨╕╤Б╤В╤А╨░
+          -- (╤В.╨╡. ╨║╨╛╤Б╨▓╨╡╨╜╨╜╨╛ ╨┐╨╛ ╤А╨╡╨│╨╕╤Б╤В╤А╤Г ╤Б ╤В╨╕╨┐╨╛╨╝ IndirectType
           tls.SubType (res.var_type, IndirectType);
         ELSE
           IndirectType := dt.Invalid_Type;
@@ -3100,31 +3100,31 @@ VAR
       IF top_call AND tls.ProcHasFrame (ExecScope) AND
         NOT tls.AddrInProcBody (ExecScope, mem.GetIP())
       THEN
-        -- текущий и исполняемый контекст совпали, но
-        -- еще не инициализирована база текущего контекста
+        -- ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╨╕ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╤Л╨╣ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В ╤Б╨╛╨▓╨┐╨░╨╗╨╕, ╨╜╨╛
+        -- ╨╡╤Й╨╡ ╨╜╨╡ ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨╕╤А╨╛╨▓╨░╨╜╨░ ╨▒╨░╨╖╨░ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨░
         Error (0);
       END;
       ASSERT (tls.GetLocalObject_Reg (v, reg_no, ref));
       IF reg_no = kt.FRAME_REG THEN
-        -- переменная относительно кадра (FRAME_REG), а не произвольного регистра
+        -- ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨░╤П ╨╛╤В╨╜╨╛╤Б╨╕╤В╨╡╨╗╤М╨╜╨╛ ╨║╨░╨┤╤А╨░ (FRAME_REG), ╨░ ╨╜╨╡ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨╗╤М╨╜╨╛╨│╨╛ ╤А╨╡╨│╨╕╤Б╤В╤А╨░
        <* IF DEST_XDS THEN *>
         stk.ScanCallStack;
        <* END *>
-        -- поискать текущий в стеке вызовов
+        -- ╨┐╨╛╨╕╤Б╨║╨░╤В╤М ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╨▓ ╤Б╤В╨╡╨║╨╡ ╨▓╤Л╨╖╨╛╨▓╨╛╨▓
         IF NOT stk.GetObjectLevelInCallStack (0, p, level) THEN
           RETURN FALSE;
         END;
-        -- достать базу текущего контекста из стека
+        -- ╨┤╨╛╤Б╤В╨░╤В╤М ╨▒╨░╨╖╤Г ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨░ ╨╕╨╖ ╤Б╤В╨╡╨║╨░
         IF NOT stk.GetFrame (level, reg_val) THEN
           RETURN FALSE;
         END;
       ELSIF top_call THEN
-        -- текущий и исполняемый контекст совпали
-        -- при этом база обьекта не является регистром кадра
+        -- ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╨╕ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╤Л╨╣ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В ╤Б╨╛╨▓╨┐╨░╨╗╨╕
+        -- ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ╨▒╨░╨╖╨░ ╨╛╨▒╤М╨╡╨║╤В╨░ ╨╜╨╡ ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╤А╨╡╨│╨╕╤Б╤В╤А╨╛╨╝ ╨║╨░╨┤╤А╨░
         ASSERT (mem.GetReg (reg_no, reg_val));
       ELSE
-        -- текущий и исполняемый контекст не совпали, получить
-        -- значение регистра уже нельзя
+        -- ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╨╕ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╤Л╨╣ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В ╨╜╨╡ ╤Б╨╛╨▓╨┐╨░╨╗╨╕, ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М
+        -- ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ ╤А╨╡╨│╨╕╤Б╤В╤А╨░ ╤Г╨╢╨╡ ╨╜╨╡╨╗╤М╨╖╤П
         Error (0);
       END;
       res.sort := Variable;
@@ -3227,9 +3227,9 @@ VAR
 
 BEGIN
  <* IF xd_batch_included THEN *>
-  (* Поиск эквивалентного имени *)
+  (* ╨Я╨╛╨╕╤Б╨║ ╤Н╨║╨▓╨╕╨▓╨░╨╗╨╡╨╜╤В╨╜╨╛╨│╨╛ ╨╕╨╝╨╡╨╜╨╕ *)
   IF lst.IsEquName(Ident) THEN
-    IF lst.IsEngaged(Ident) THEN Error(msg.UsageEquNameInCycles); END; -- -ЁЄ<Ёз_бЄR_ ЁбЇR<мRў -Ё_ нЄў. Ё┐_-Ё
+    IF lst.IsEngaged(Ident) THEN Error(msg.UsageEquNameInCycles); END; -- -╨Б╨Д<╨Б╨╖_╨▒╨ДR_ ╨Б╨▒╨ЗR<╨╝R╤Ю┬а-╨Б_ ╨╜╨Д╤Ю. ╨БтФР_-╨Б
     lst.SetEngaged(Ident);
     lst.GetEquName (Ident, equname);
     Save;
@@ -3274,12 +3274,12 @@ BEGIN
         IF tls.IsObjectValid(ExecScope) THEN
           tls.ObjectName (ExecScope, name);
           IF name = Ident THEN
-            -- это исполняемая процедура
+            -- ╤Н╤В╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╨░╤П ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░
             res.sort := Address;
             ASSERT(tls.ObjectAddr(ExecScope, res.address));
             GetToken;
             IF Token = loc_qual THEN
-              -- квалифицированный поиск локальных переменных
+              -- ╨║╨▓╨░╨╗╨╕╤Д╨╕╤Ж╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨┐╨╛╨╕╤Б╨║ ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
               GetToken;
               IF Token <> ident THEN
                 Error(msg.ExpectedIdent);
@@ -3287,33 +3287,33 @@ BEGIN
               IF NOT GetLocalObject(ExecScope) THEN
                 Error(msg.ObjectNotFound);
               END;
-              -- результат поиска - локальныя переменная
+              -- ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В ╨┐╨╛╨╕╤Б╨║╨░ - ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤П ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨░╤П
             END;
-            -- результат поиска - процедура
+            -- ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В ╨┐╨╛╨╕╤Б╨║╨░ - ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░
             RETURN;
-          ELSIF FirstTime AND             -- только если сумеем найти среди локалов с первого раза
-                GetLocalObject(ExecScope) -- неквалифицированный поиск локальных переменных
+          ELSIF FirstTime AND             -- ╤В╨╛╨╗╤М╨║╨╛ ╨╡╤Б╨╗╨╕ ╤Б╤Г╨╝╨╡╨╡╨╝ ╨╜╨░╨╣╤В╨╕ ╤Б╤А╨╡╨┤╨╕ ╨╗╨╛╨║╨░╨╗╨╛╨▓ ╤Б ╨┐╨╡╤А╨▓╨╛╨│╨╛ ╤А╨░╨╖╨░
+                GetLocalObject(ExecScope) -- ╨╜╨╡╨║╨▓╨░╨╗╨╕╤Д╨╕╤Ж╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨┐╨╛╨╕╤Б╨║ ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
           THEN
-            -- результат поиска - локальныя переменная
+            -- ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В ╨┐╨╛╨╕╤Б╨║╨░ - ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤П ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨░╤П
             RETURN;
           END;
         END;
-        -- Поиск глобальных обьектов в модуле
+        -- ╨Я╨╛╨╕╤Б╨║ ╨│╨╗╨╛╨▒╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ ╨▓ ╨╝╨╛╨┤╤Г╨╗╨╡
         IF FindGlobal (modno) THEN
           RETURN;
         END;
-        -- Поиск глобальных обьектов в компоненте
+        -- ╨Я╨╛╨╕╤Б╨║ ╨│╨╗╨╛╨▒╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ ╨▓ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╨╡
         IF FindGlobal (dt.Fake_Module) THEN
           RETURN;
         END;
-        -- Поиск значения перечислимого типа
+        -- ╨Я╨╛╨╕╤Б╨║ ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П ╨┐╨╡╤А╨╡╤З╨╕╤Б╨╗╨╕╨╝╨╛╨│╨╛ ╤В╨╕╨┐╨░
         IF tls.FindValueByEnumeration (comno, modno, Ident, res.value) THEN
           res.sort := CARDval;
           res.type  := dt.st_original;
           GetToken;
           RETURN;
         END;
-        -- Поиск типа
+        -- ╨Я╨╛╨╕╤Б╨║ ╤В╨╕╨┐╨░
         IF tls.FindType (comno, modno, Ident, IndirectType) THEN
           GetToken;
           CASE Token OF
@@ -3373,7 +3373,7 @@ BEGIN
       END;
     END;
   END;
-  (* Поиск стандартного типа *)
+  (* ╨Я╨╛╨╕╤Б╨║ ╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╨╛╨│╨╛ ╤В╨╕╨┐╨░ *)
   IF tls.FindStdType(Ident, IndirectType) THEN
     GetToken;
     CASE Token OF
@@ -3431,20 +3431,20 @@ END Designator;
 
 PROCEDURE ExactlyAddress(VAR res:ExprRes);
 VAR
-  c   : CHAR;            (* Очередной символ                 *)
+  c   : CHAR;            (* ╨Ю╤З╨╡╤А╨╡╨┤╨╜╨╛╨╣ ╤Б╨╕╨╝╨▓╨╛╨╗                 *)
   sum : CARDINAL;
   emp : BOOLEAN;
 BEGIN
-  (* Явный адрес - "A:"{ШестнадцатиричнаяЦифра} *)
+  (* ╨п╨▓╨╜╤Л╨╣ ╨░╨┤╤А╨╡╤Б - "A:"{╨и╨╡╤Б╤В╨╜╨░╨┤╤Ж╨░╤В╨╕╤А╨╕╤З╨╜╨░╤П╨ж╨╕╤Д╤А╨░} *)
   sum := 0;
   emp := TRUE;
   LOOP
     c := char;
-    IF ALPHA[c] >= 4C THEN (* десятичная цифpа *)
+    IF ALPHA[c] >= 4C THEN (* ╨┤╨╡╤Б╤П╤В╨╕╤З╨╜╨░╤П ╤Ж╨╕╤Дp╨░ *)
       sum := sum*16 + (ORD(c) - ORD('0'));
     ELSE
       c := CAP(c);
-      IF ALPHA[c] < 2C THEN (* не шестнадцатеpичная цифpа *)
+      IF ALPHA[c] < 2C THEN (* ╨╜╨╡ ╤И╨╡╤Б╤В╨╜╨░╨┤╤Ж╨░╤В╨╡p╨╕╤З╨╜╨░╤П ╤Ж╨╕╤Дp╨░ *)
         EXIT;
       END;
       sum := sum*16 + (10+(ORD(c) - ORD('A')));
@@ -3456,12 +3456,12 @@ BEGIN
     res.sort    := Address;
     res.address := sum;
   ELSE
-    Error(msg.ExpectedIntConstant); -- Явный адрес содержит только целое X-значение
+    Error(msg.ExpectedIntConstant); -- ╨п╨▓╨╜╤Л╨╣ ╨░╨┤╤А╨╡╤Б ╤Б╨╛╨┤╨╡╤А╨╢╨╕╤В ╤В╨╛╨╗╤М╨║╨╛ ╤Ж╨╡╨╗╨╛╨╡ X-╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡
   END;
 EXCEPT
   IF exm.IsM2Exception() THEN
     ASSERT(exm.M2Exception() = exm.wholeValueException);
-    Error(msg.Incorrect_address); -- Слишком длинное число
+    Error(msg.Incorrect_address); -- ╨б╨╗╨╕╤И╨║╨╛╨╝ ╨┤╨╗╨╕╨╜╨╜╨╛╨╡ ╤З╨╕╤Б╨╗╨╛
     RETURN;
   END;
 END ExactlyAddress;
@@ -3523,7 +3523,7 @@ BEGIN
       CASE desc.kind OF
       | std_const:
         IF NOT desc.intern THEN
-          -- стандартный идентификатор, не требующий @
+          -- ╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╤Л╨╣ ╨╕╨┤╨╡╨╜╤В╨╕╤Д╨╕╨║╨░╤В╨╛╤А, ╨╜╨╡ ╤В╤А╨╡╨▒╤Г╤О╤Й╨╕╨╣ @
           res := desc.res;
           GetToken;
           RETURN;
@@ -3617,7 +3617,7 @@ BEGIN
   ExprStr := sys.ADR(st);
   char := ExprStr^[0];
   IF char = EL THEN
-    Error(msg.ExpressionIsEmpty); -- Выражение пустое
+    Error(msg.ExpressionIsEmpty); -- ╨Т╤Л╤А╨░╨╢╨╡╨╜╨╕╨╡ ╨┐╤Г╤Б╤В╨╛╨╡
   ELSE
     next := ExprStr^[1];
   END;
@@ -3808,7 +3808,7 @@ BEGIN
       RETURN TRUE; 
     ELSE
       IF mem.GetReg(RegNo, addr) THEN RETURN TRUE END;
-    END; (* Не регистр, а адрес *)
+    END; (* ╨Э╨╡ ╤А╨╡╨│╨╕╤Б╤В╤А, ╨░ ╨░╨┤╤А╨╡╤Б *)
   END;
   error := msg.Expected_address;
   RETURN FALSE;
@@ -4128,7 +4128,7 @@ BEGIN
 END Assign;
 
 
-(* Выдать полное имя объекта *)
+(* ╨Т╤Л╨┤╨░╤В╤М ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ╨╛╨▒╤К╨╡╨║╤В╨░ *)
 PROCEDURE ObjectFullName (object: dt.OBJECT; VAR name: ARRAY OF CHAR);
 VAR
   s  : xs.String;
@@ -4294,7 +4294,7 @@ BEGIN
     IF ConvertReal2Host (res, value) THEN
       PrintReal(value);
     ELSE
-      COPY("Ошибка при конвертации", str);
+      COPY("╨Ю╤И╨╕╨▒╨║╨░ ╨┐╤А╨╕ ╨║╨╛╨╜╨▓╨╡╤А╤В╨░╤Ж╨╕╨╕", str);
     END;
    <* ELSE *>
     PrintReal(res.r_val);
@@ -4351,8 +4351,8 @@ BEGIN
     | dt.Char:
       -- unicode charecter
       len := tls.TypeSize (res.var_type);
-      -- если длина 1, то такая переменная должна была
-      -- быть ранее преобразована Var_Value в выражение
+      -- ╨╡╤Б╨╗╨╕ ╨┤╨╗╨╕╨╜╨░ 1, ╤В╨╛ ╤В╨░╨║╨░╤П ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨░╤П ╨┤╨╛╨╗╨╢╨╜╨░ ╨▒╤Л╨╗╨░
+      -- ╨▒╤Л╤В╤М ╤А╨░╨╜╨╡╨╡ ╨┐╤А╨╡╨╛╨▒╤А╨░╨╖╨╛╨▓╨░╨╜╨░ Var_Value ╨▓ ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╨╡
       ASSERT(len=2);
       l := 0;
       IF GetMem (res.location, sys.ADR(l), 2) THEN
@@ -4377,7 +4377,7 @@ BEGIN
             IF NOT GetMem (res.location, sys.ADR(expr.r_val_f), l) THEN
               RETURN;
             END;
-      | 8 : -- только тип D, поскольку COMPLEX может получиться только из Modula-2
+      | 8 : -- ╤В╨╛╨╗╤М╨║╨╛ ╤В╨╕╨┐ D, ╨┐╨╛╤Б╨║╨╛╨╗╤М╨║╤Г COMPLEX ╨╝╨╛╨╢╨╡╤В ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М╤Б╤П ╤В╨╛╨╗╤М╨║╨╛ ╨╕╨╖ Modula-2
             expr.r_type  := d;
             ASSERT (l = SIZE(expr.r_val_d));
             IF NOT GetMem (res.location, sys.ADR(expr.r_val_d), l) THEN
@@ -4660,9 +4660,9 @@ BEGIN
       IF tag = dt.Array_of THEN
         CASE lang OF
         | dt.Lng_M2, dt.Lng_O2:
-          -- переменная типа POINTER TO ARRAY OF ... ссылается
-          -- на дескриптор xmRTS.X2C_ARRSTR, который имеет первое
-          -- поле, указывающие на собственно сам массив
+          -- ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨░╤П ╤В╨╕╨┐╨░ POINTER TO ARRAY OF ... ╤Б╤Б╤Л╨╗╨░╨╡╤В╤Б╤П
+          -- ╨╜╨░ ╨┤╨╡╤Б╨║╤А╨╕╨┐╤В╨╛╤А xmRTS.X2C_ARRSTR, ╨║╨╛╤В╨╛╤А╤Л╨╣ ╨╕╨╝╨╡╨╡╤В ╨┐╨╡╤А╨▓╨╛╨╡
+          -- ╨┐╨╛╨╗╨╡, ╤Г╨║╨░╨╖╤Л╨▓╨░╤О╤Й╨╕╨╡ ╨╜╨░ ╤Б╨╛╨▒╤Б╤В╨▓╨╡╨╜╨╜╨╛ ╤Б╨░╨╝ ╨╝╨░╤Б╤Б╨╕╨▓
           IF mem.GetSegmentInfo (a, b, l, access) AND
              mem.Get(a, sys.ADR(b), 4) AND
              mem.GetSegmentInfo (b, len, l, access)
@@ -4671,8 +4671,8 @@ BEGIN
           END;
        <* IF DEST_XDS THEN *>
         | dt.Lng_Java:
-          -- здесь тело массива просто смещено относительно
-          -- переменной на xi.BODY_OFFS
+          -- ╨╖╨┤╨╡╤Б╤М ╤В╨╡╨╗╨╛ ╨╝╨░╤Б╤Б╨╕╨▓╨░ ╨┐╤А╨╛╤Б╤В╨╛ ╤Б╨╝╨╡╤Й╨╡╨╜╨╛ ╨╛╤В╨╜╨╛╤Б╨╕╤В╨╡╨╗╤М╨╜╨╛
+          -- ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨╛╨╣ ╨╜╨░ xi.BODY_OFFS
           IF mem.Get (a, sys.ADR(b), 4) AND (a <= MAX(CARDINAL) - xi.BODY_OFFS) THEN
             a := a + xi.BODY_OFFS;
           ELSE
@@ -4834,7 +4834,7 @@ BEGIN
 END Res2Str;
 
 
-(* Печать i-го элемента типа, если этот тип может быть перечислен *)
+(* ╨Я╨╡╤З╨░╤В╤М i-╨│╨╛ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨░ ╤В╨╕╨┐╨░, ╨╡╤Б╨╗╨╕ ╤Н╤В╨╛╤В ╤В╨╕╨┐ ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М ╨┐╨╡╤А╨╡╤З╨╕╤Б╨╗╨╡╨╜ *)
 PROCEDURE i2Str (type: dt.PTYPE; i: LONGCARD; VAR str: ARRAY OF CHAR);
 VAR
   tag: dt.TYPE_TAG;
@@ -5000,10 +5000,10 @@ PROCEDURE GetSource (com: dt.ComNo; mod: dt.ModNo; st-: ARRAY OF CHAR;
 
   VAR
     i : LONGCARD;
-    b    , (* База *)
-    bits : CARDINAL;  (* Кол-во бит на символ *)
-    length : CARDINAL; (* Длина константа в памяти *)
-    ln : CARDINAL; (* Кол-во символов на целой число байт *)
+    b    , (* ╨С╨░╨╖╨░ *)
+    bits : CARDINAL;  (* ╨Ъ╨╛╨╗-╨▓╨╛ ╨▒╨╕╤В ╨╜╨░ ╤Б╨╕╨╝╨▓╨╛╨╗ *)
+    length : CARDINAL; (* ╨Ф╨╗╨╕╨╜╨░ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╨░ ╨▓ ╨┐╨░╨╝╤П╤В╨╕ *)
+    ln : CARDINAL; (* ╨Ъ╨╛╨╗-╨▓╨╛ ╤Б╨╕╨╝╨▓╨╛╨╗╨╛╨▓ ╨╜╨░ ╤Ж╨╡╨╗╨╛╨╣ ╤З╨╕╤Б╨╗╨╛ ╨▒╨░╨╣╤В *)
     ln2, k, cnt: CARDINAL;
     tmp : xs.String;
     ok : BOOLEAN;
@@ -5033,7 +5033,7 @@ PROCEDURE GetSource (com: dt.ComNo; mod: dt.ModNo; st-: ARRAY OF CHAR;
                     ELSE
                       Error(msg.IncompatibleTypes);
                     END;
-    | 'X','B','O' : (* Вычисляем длину константы - кол-во байт, необходимое для нее *)
+    | 'X','B','O' : (* ╨Т╤Л╤З╨╕╤Б╨╗╤П╨╡╨╝ ╨┤╨╗╨╕╨╜╤Г ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╤Л - ╨║╨╛╨╗-╨▓╨╛ ╨▒╨░╨╣╤В, ╨╜╨╡╨╛╨▒╤Е╨╛╨┤╨╕╨╝╨╛╨╡ ╨┤╨╗╤П ╨╜╨╡╨╡ *)
                     IF next = "'" THEN
                       CASE char OF
                       | 'X' : ln := 2; b := 16;
@@ -5079,7 +5079,7 @@ PROCEDURE GetSource (com: dt.ComNo; mod: dt.ModNo; st-: ARRAY OF CHAR;
                           INC(length);
                         ELSE
                           IF st[k-ln2] = "'" THEN
-                            bits := ln2*3;        (* Кол-во бит *)
+                            bits := ln2*3;        (* ╨Ъ╨╛╨╗-╨▓╨╛ ╨▒╨╕╤В *)
                             CASE st[k-ln2+1] OF
                             | '0'..'1' : DEC(bits,2);
                             | '2'..'3' : DEC(bits,1);
@@ -5095,7 +5095,7 @@ PROCEDURE GetSource (com: dt.ComNo; mod: dt.ModNo; st-: ARRAY OF CHAR;
                       END;
                       IF length = 0 THEN Error(msg.IncorrectIntConstant); END;
 
-                      (* Размещаем константу *)
+                      (* ╨а╨░╨╖╨╝╨╡╤Й╨░╨╡╨╝ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╤Г *)
                       LocalLongConstBuffer.len := length;
                       p := sys.ADR(i);
                       cnt := 0;
@@ -5134,7 +5134,7 @@ PROCEDURE GetSource (com: dt.ComNo; mod: dt.ModNo; st-: ARRAY OF CHAR;
                         ELSE
                           sys.MOVE(p,sys.ADR(LocalLongConstBuffer.ptr^[length]),3);
                           IF st[k-ln2] = "'" THEN
-                            bits := ln2*3;        (* Кол-во бит *)
+                            bits := ln2*3;        (* ╨Ъ╨╛╨╗-╨▓╨╛ ╨▒╨╕╤В *)
                             CASE st[k-ln2+1] OF
                             | '0'..'1' : DEC(bits,2);
                             | '2'..'3' : DEC(bits,1);
@@ -5237,7 +5237,7 @@ BEGIN
   ExprStr := sys.ADR(st);
   char := ExprStr^[0];
   IF char = EL THEN
-    Error(msg.ExpressionIsEmpty); -- Имя пустое
+    Error(msg.ExpressionIsEmpty); -- ╨Ш╨╝╤П ╨┐╤Г╤Б╤В╨╛╨╡
   ELSE
     next := ExprStr^[1];
   END;
@@ -5262,7 +5262,7 @@ EXCEPT
 END CheckName;
 
 
-(* Проверка Имени файла *)
+(* ╨Я╤А╨╛╨▓╨╡╤А╨║╨░ ╨Ш╨╝╨╡╨╜╨╕ ╤Д╨░╨╣╨╗╨░ *)
 PROCEDURE CheckFileName (st-:ARRAY OF CHAR; VAR ext:BOOLEAN) : BOOLEAN;
 VAR
   p: CARDINAL;

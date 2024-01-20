@@ -62,7 +62,7 @@ VAR
 
 PROCEDURE StartSmartSelector;
 BEGIN
-  -- â®«ìª® ¢ ¤¨ «®£¥, ­® ­¥ ¯à¨ ã¤ «¥­­®© ®â« ¤ª¥
+  -- Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð² Ð´Ð¸Ð°Ð»Ð¾Ð³Ðµ, Ð½Ð¾ Ð½Ðµ Ð¿Ñ€Ð¸ ÑƒÐ´Ð°Ð»ÐµÐ½Ð½Ð¾Ð¹ Ð¾Ñ‚Ð»Ð°Ð´ÐºÐµ
 --  IF opt.in_dialog AND NOT opt.KernelInRemoteMode THEN
 --  END;
 END StartSmartSelector;
@@ -70,7 +70,7 @@ END StartSmartSelector;
 
 PROCEDURE StopSmartSelector;
 BEGIN
-  -- â®«ìª® ¢ ¤¨ «®£¥, ­® ­¥ ¯à¨ ã¤ «¥­­®© ®â« ¤ª¥
+  -- Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð² Ð´Ð¸Ð°Ð»Ð¾Ð³Ðµ, Ð½Ð¾ Ð½Ðµ Ð¿Ñ€Ð¸ ÑƒÐ´Ð°Ð»ÐµÐ½Ð½Ð¾Ð¹ Ð¾Ñ‚Ð»Ð°Ð´ÐºÐµ
 --  IF opt.in_dialog AND NOT opt.KernelInRemoteMode THEN
 --  END;
 END StopSmartSelector;

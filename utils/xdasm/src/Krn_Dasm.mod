@@ -19,7 +19,7 @@ IMPORT dsm := Dasm_PPC;
 IMPORT kt := KrnTypes;
 
 
--- get_prefix_only - получить только ПЕРВЫЙ префикс команды
+-- get_prefix_only - ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М ╤В╨╛╨╗╤М╨║╨╛ ╨Я╨Х╨а╨Т╨л╨Щ ╨┐╤А╨╡╤Д╨╕╨║╤Б ╨║╨╛╨╝╨░╨╜╨┤╤Л
 PROCEDURE Disasm (addr: kt.ADDRESS; curr: BOOLEAN; VAR asm, info: ARRAY OF CHAR; VAR len: CARDINAL; get_prefix_only := FALSE: BOOLEAN): BOOLEAN;
 BEGIN
   RETURN dsm.Disasm (addr, curr, asm, info, len, get_prefix_only);

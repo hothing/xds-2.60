@@ -7,7 +7,7 @@ IMPORT sys := SYSTEM;
 CONST
   HN = 32;
 
-(* Добавит новый индекс, вернет его номер *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╕╤В ╨╜╨╛╨▓╤Л╨╣ ╨╕╨╜╨┤╨╡╨║╤Б, ╨▓╨╡╤А╨╜╨╡╤В ╨╡╨│╨╛ ╨╜╨╛╨╝╨╡╤А *)
 PROCEDURE AddIndex (I: INDEX_REC): CARDINAL;
 VAR
   tmp: PINDEX;
@@ -49,7 +49,7 @@ END AddIndex;
 
 
 
-(* Удалит индекс по номеру, если не было - вернет FALSE *)
+(* ╨г╨┤╨░╨╗╨╕╤В ╨╕╨╜╨┤╨╡╨║╤Б ╨┐╨╛ ╨╜╨╛╨╝╨╡╤А╤Г, ╨╡╤Б╨╗╨╕ ╨╜╨╡ ╨▒╤Л╨╗╨╛ - ╨▓╨╡╤А╨╜╨╡╤В FALSE *)
 PROCEDURE DelIndex (N: CARDINAL; VAR I: INDEX_REC): BOOLEAN;
 BEGIN
   WITH Index DO
@@ -65,7 +65,7 @@ BEGIN
 END DelIndex;
 
 
-(* Существует ли подобный в индексе *)
+(* ╨б╤Г╤Й╨╡╤Б╤В╨▓╤Г╨╡╤В ╨╗╨╕ ╨┐╨╛╨┤╨╛╨▒╨╜╤Л╨╣ ╨▓ ╨╕╨╜╨┤╨╡╨║╤Б╨╡ *)
 PROCEDURE Find (N: CARDINAL): BOOLEAN;
 VAR
   I: INDEX_REC;

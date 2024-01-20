@@ -10,7 +10,7 @@ IMPORT opt := Options;
 
 FROM Krn_Dbg IMPORT PID, TID;
 
----------------------- ÑÆ·‚„Ø ™ Ø†¨Ô‚® ® ‡•£®·‚‡†¨ -------------------------
+---------------------- –î–æ—Å—Ç—É–ø –∫ –ø–∞–º—è—Ç–∏ –∏ —Ä–µ–≥–∏—Å—Ç—Ä–∞–º -------------------------
                       -----------------------------
 
 
@@ -76,7 +76,7 @@ BEGIN
 END PutRegisterCache;
 
 (*
-(* èÆ´„Á®‚Ï ß≠†Á•≠®• ®ß ‡•£®·‚‡†       *)
+(* –ü–æ–ª—É—á–∏—Ç—å –∑–Ω–∞—á–µ–Ω–∏–µ –∏–∑ —Ä–µ–≥–∏—Å—Ç—Ä–∞       *)
 PROCEDURE GetReg(regno: CARDINAL; VAR value: kt.REG_VALUE): BOOLEAN;
 BEGIN
   IF opt.RemoteMode THEN
@@ -131,7 +131,7 @@ BEGIN
   RETURN TRUE;
 END GetReg;
 
-(* á†Ø®·†‚Ï ß≠†Á•≠®• ¢ ‡•£®·‚‡         *)
+(* –ó–∞–ø–∏—Å–∞—Ç—å –∑–Ω–∞—á–µ–Ω–∏–µ –≤ —Ä–µ–≥–∏—Å—Ç—Ä         *)
 PROCEDURE SetReg(regno: CARDINAL; value: kt.REG_VALUE): BOOLEAN;
 BEGIN
   IF opt.RemoteMode THEN
@@ -170,7 +170,7 @@ BEGIN
 END SetReg;
 *)
 
-(* è‡ÆÁ®‚†‚Ï · †§‡•·† ¢ °„‰•‡ ≠•¨≠Æ£Æ °†©‚Æ¢   *)
+(* –ü—Ä–æ—á–∏—Ç–∞—Ç—å —Å –∞–¥—Ä–µ—Å–∞ –≤ –±—É—Ñ–µ—Ä –Ω–µ–º–Ω–æ–≥–æ –±–∞–π—Ç–æ–≤   *)
 PROCEDURE Get(source: kt.ADDRESS; dest: sys.ADDRESS; len: CARDINAL): BOOLEAN;
 VAR
   DbgBuffer: OS2.uDB_t;
@@ -191,7 +191,7 @@ BEGIN
   RETURN DbgBuffer.Cmd = OS2.DBG_N_Success;
 END Get;
 
-(* á†Ø®·†‚Ï ØÆ †§‡•·„ ®ß °„‰•‡† ≠•¨≠Æ£Æ °†©‚Æ¢ *)
+(* –ó–∞–ø–∏—Å–∞—Ç—å –ø–æ –∞–¥—Ä–µ—Å—É –∏–∑ –±—É—Ñ–µ—Ä–∞ –Ω–µ–º–Ω–æ–≥–æ –±–∞–π—Ç–æ–≤ *)
 PROCEDURE Put(dest: kt.ADDRESS; source: sys.ADDRESS; len: CARDINAL): BOOLEAN;
 VAR
   DbgBuffer: OS2.uDB_t;
@@ -270,7 +270,7 @@ BEGIN
   END;
 END RemoveTrace;
 
-(* èÆ´„Á®‚Ï ®≠‰Æ‡¨†Ê®Ó Æ ·•£¨•≠‚• *)
+(* –ü–æ–ª—É—á–∏—Ç—å –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏—é –æ —Å–µ–≥–º–µ–Ω—Ç–µ *)
 PROCEDURE GetSegmentInfo (      addr: kt.ADDRESS;
                           VAR  begin: kt.ADDRESS;
                           VAR    len: CARDINAL;

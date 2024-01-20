@@ -75,8 +75,8 @@ TYPE
              CASE state: BSTATE OF
              | enabled, disabled:
                action: act.ACTION;
-               hotkey : CHAR;     (* ´Æ™†´Ï≠†Ô £Æ‡ÔÁ†Ô ™´†¢®Ë† *)
-               l_pos  : CARDINAL; (* ØÆß®Ê®Ô ØÆ§·¢•Á®¢†•¨Æ£Æ Ì´•¨•≠‚† ¢ ®¨•≠® Ø„≠™‚† *)
+               hotkey : CHAR;     (* –ª–æ–∫–∞–ª—å–Ω–∞—è –≥–æ—Ä—è—á–∞—è –∫–ª–∞–≤–∏—à–∞ *)
+               l_pos  : CARDINAL; (* –ø–æ–∑–∏—Ü–∏—è –ø–æ–¥—Å–≤–µ—á–∏–≤–∞–µ–º–æ–≥–æ —ç–ª–µ–º–µ–Ω—Ç–∞ –≤ –∏–º–µ–Ω–∏ –ø—É–Ω–∫—Ç–∞ *)
              ELSE
              END;
            END;
@@ -1154,17 +1154,17 @@ END prv_Init;
 <* IF DEST_K26 THEN *>
 
 CONST
-  _MainMenu = MAIN_MENU{ { win.Invalid_H, 0, ' î†©´ '     , 1, key.AltA, ORD('a'), act.FileMenu     },
-                         { win.Invalid_H, 0, ' á†Ø„·™ '   , 1, key.AltP, ORD('p'), act.RunMenu      },
-                         { win.Invalid_H, 0, ' é·‚†≠Æ¢Î ' , 1, key.AltJ, ORD('j'), act.BreaksMenu   },
-                         { win.Invalid_H, 0, ' äÆ§ '      , 1, key.AltR, ORD('r'), act.CodeMenu    },
-                         { win.Invalid_H, 0, ' Ñ†≠≠Î• '   , 1, key.AltL, ORD('l'), act.DataMenu     },
-                         { win.Invalid_H, 0, ' èÆ®·™ '    , 1, key.AltG, ORD('g'), act.SearchMenu   },
-                         { win.Invalid_H, 0, ' é™≠† '     , 3, key.AltY, ORD('y'), act.WindowsMenu  },
+  _MainMenu = MAIN_MENU{ { win.Invalid_H, 0, ' –§–∞–π–ª '     , 1, key.AltA, ORD('a'), act.FileMenu     },
+                         { win.Invalid_H, 0, ' –ó–∞–ø—É—Å–∫ '   , 1, key.AltP, ORD('p'), act.RunMenu      },
+                         { win.Invalid_H, 0, ' –û—Å—Ç–∞–Ω–æ–≤—ã ' , 1, key.AltJ, ORD('j'), act.BreaksMenu   },
+                         { win.Invalid_H, 0, ' –ö–æ–¥ '      , 1, key.AltR, ORD('r'), act.CodeMenu    },
+                         { win.Invalid_H, 0, ' –î–∞–Ω–Ω—ã–µ '   , 1, key.AltL, ORD('l'), act.DataMenu     },
+                         { win.Invalid_H, 0, ' –ü–æ–∏—Å–∫ '    , 1, key.AltG, ORD('g'), act.SearchMenu   },
+                         { win.Invalid_H, 0, ' –û–∫–Ω–∞ '     , 3, key.AltY, ORD('y'), act.WindowsMenu  },
                         <* IF SCHERN_K26 THEN  *>
-                         { 0, ' è‡Æ‰®´®‡Æ¢†≠®•'  , 2, key.AltF, ORD('f'), act.ProfMenu     },     (* CHERN *)
+                         { 0, ' –ü—Ä–æ—Ñ–∏–ª–∏—Ä–æ–≤–∞–Ω–∏–µ'  , 2, key.AltF, ORD('f'), act.ProfMenu     },     (* CHERN *)
                         <* END *>
-                         { win.Invalid_H, 0, ' èÆ¨ÆËÏ '   , 3, key.AltV, ORD('v'), act.HelpMenu     }
+                         { win.Invalid_H, 0, ' –ü–æ–º–æ—à—å '   , 3, key.AltV, ORD('v'), act.HelpMenu     }
                         };
 
 <* ELSIF DEST_XDS THEN *>

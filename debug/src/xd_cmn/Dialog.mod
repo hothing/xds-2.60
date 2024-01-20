@@ -158,7 +158,7 @@ END StartViewer;
 
 <* IF DEFINED(SCHERN_K26) AND SCHERN_K26 THEN *>
 VAR
-  prf_Var_Ind : CARDINAL;    (*       индекс текущeй проф переменной SCHERN         *)
+  prf_Var_Ind : CARDINAL;    (*       ╨╕╨╜╨┤╨╡╨║╤Б ╤В╨╡╨║╤Г╤Йe╨╣ ╨┐╤А╨╛╤Д ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨╛╨╣ SCHERN         *)
 <* END *>
 
 
@@ -200,9 +200,9 @@ VAR
   SearchDialog : win.HWND;
 
 VAR
-  SearchStr  : xs.String; (* строка, котоpая будет искаться *)
-  win2search : win.HWND; (* окно в котоpом будет осуществляться поиск *)
-  found      : BOOLEAN;  (* Была ли найдена строчка соответсвующим окном в своем контексте *)
+  SearchStr  : xs.String; (* ╤Б╤В╤А╨╛╨║╨░, ╨║╨╛╤В╨╛p╨░╤П ╨▒╤Г╨┤╨╡╤В ╨╕╤Б╨║╨░╤В╤М╤Б╤П *)
+  win2search : win.HWND; (* ╨╛╨║╨╜╨╛ ╨▓ ╨║╨╛╤В╨╛p╨╛╨╝ ╨▒╤Г╨┤╨╡╤В ╨╛╤Б╤Г╤Й╨╡╤Б╤В╨▓╨╗╤П╤В╤М╤Б╤П ╨┐╨╛╨╕╤Б╨║ *)
+  found      : BOOLEAN;  (* ╨С╤Л╨╗╨░ ╨╗╨╕ ╨╜╨░╨╣╨┤╨╡╨╜╨░ ╤Б╤В╤А╨╛╤З╨║╨░ ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╨▓╤Г╤О╤Й╨╕╨╝ ╨╛╨║╨╜╨╛╨╝ ╨▓ ╤Б╨▓╨╛╨╡╨╝ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨╡ *)
 
 
 
@@ -293,7 +293,7 @@ BEGIN
         pl  := tls.GetLabel(mod.Curr^.Pos.ComN, mod.Curr^.Pos.ModN, curr);
         ASSERT( tls.ObjectAddr(pl, addr));
         <* IF TARGET_VAX THEN *>
-        INC(addr, 2); -- Смещение из-за маски входа
+        INC(addr, 2); -- ╨б╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╨╕╨╖-╨╖╨░ ╨╝╨░╤Б╨║╨╕ ╨▓╤Е╨╛╨┤╨░
         <* END *>
         ASSERT(mod.SetNewPosByAddr(addr));
         eve.AddToTail(hwnd, eve.Redraw, 0);
@@ -608,7 +608,7 @@ BEGIN
 (*                                                              SCHERN              *)
 --          prv.Ind_Var:= curr;
 --          act.ExecuteAction (act.prf_var0);
-          IF prv.AddVar(mod.Curr^.Pos.ComN,mod.Curr^.Pos.ModN, curr) THEN  (* включаем переменную в профилирование*)
+          IF prv.AddVar(mod.Curr^.Pos.ComN,mod.Curr^.Pos.ModN, curr) THEN  (* ╨▓╨║╨╗╤О╤З╨░╨╡╨╝ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Г╤О ╨▓ ╨┐╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡*)
             eve.AddToTail(hwnd, eve.Redraw, 0);
           END;
       | act.prf_var9:
@@ -616,11 +616,11 @@ BEGIN
           eve.AddToTail(hwnd, eve.Redraw, 0);
       | act.prf_var8:
           prv.AddAllVar(mod.Curr^.Pos.ComN,mod.Curr^.Pos.ModN);
-          (* включаем все переменные модуля в профилирование*)
+          (* ╨▓╨║╨╗╤О╤З╨░╨╡╨╝ ╨▓╤Б╨╡ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╨╡ ╨╝╨╛╨┤╤Г╨╗╤П ╨▓ ╨┐╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡*)
           eve.AddToTail(hwnd, eve.Redraw, 0);
       | act.prf_var7:
           prv.DelAllVar(mod.Curr^.Pos.ComN,mod.Curr^.Pos.ModN);
-          (* исключаем все переменные модуля из профилирование*)
+          (* ╨╕╤Б╨║╨╗╤О╤З╨░╨╡╨╝ ╨▓╤Б╨╡ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╨╡ ╨╝╨╛╨┤╤Г╨╗╤П ╨╕╨╖ ╨┐╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡*)
           eve.AddToTail(hwnd, eve.Redraw, 0);
      | act.prf_var6:
           wbr.ShowCountVar(mod.Curr^.Pos.ComN,mod.Curr^.Pos.ModN, curr);
@@ -684,7 +684,7 @@ BEGIN
      <* IF DEFINED(SCHERN_K26) AND SCHERN_K26 THEN *>
 (*                                     SCHERN              *)
       |key.Alt0:
-          IF prv.AddVar(mod.Curr^.Pos.ComN,mod.Curr^.Pos.ModN, curr) THEN  (* включаем переменную в профилирование*)
+          IF prv.AddVar(mod.Curr^.Pos.ComN,mod.Curr^.Pos.ModN, curr) THEN  (* ╨▓╨║╨╗╤О╤З╨░╨╡╨╝ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Г╤О ╨▓ ╨┐╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡*)
             eve.AddToTail(hwnd, eve.Redraw, 0);
           END;
       | key.Alt9:
@@ -693,12 +693,12 @@ BEGIN
 
       | key.Alt8 :
           prv.AddAllVar(mod.Curr^.Pos.ComN,mod.Curr^.Pos.ModN);
-          (* включаем все переменные модуля в профилирование*)
+          (* ╨▓╨║╨╗╤О╤З╨░╨╡╨╝ ╨▓╤Б╨╡ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╨╡ ╨╝╨╛╨┤╤Г╨╗╤П ╨▓ ╨┐╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡*)
           eve.AddToTail(hwnd, eve.Redraw, 0);
 
       | key.Alt7 :
           prv.DelAllVar(mod.Curr^.Pos.ComN,mod.Curr^.Pos.ModN);
-          (* исключаем все переменные модуля из профилирование*)
+          (* ╨╕╤Б╨║╨╗╤О╤З╨░╨╡╨╝ ╨▓╤Б╨╡ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╨╡ ╨╝╨╛╨┤╤Г╨╗╤П ╨╕╨╖ ╨┐╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡*)
           eve.AddToTail(hwnd, eve.Redraw, 0);
 
       | key.Alt6 :
@@ -888,7 +888,7 @@ END InitGlobalVarList;
 
 
 
--- по текущему контексту возвращает число строк
+-- ╨┐╨╛ ╤В╨╡╨║╤Г╤Й╨╡╨╝╤Г ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╤Г ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В ╤З╨╕╤Б╨╗╨╛ ╤Б╤В╤А╨╛╨║
 PROCEDURE CountLocalObjects (): CARDINAL;
 VAR
   scope: dt.OBJECT;
@@ -896,33 +896,33 @@ VAR
   locals: CARDINAL;
   n: CARDINAL;
 BEGIN
-  -- обход всех объемлющих блоков
+  -- ╨╛╨▒╤Е╨╛╨┤ ╨▓╤Б╨╡╤Е ╨╛╨▒╤К╨╡╨╝╨╗╤О╤Й╨╕╤Е ╨▒╨╗╨╛╨║╨╛╨▓
   scope := dv.LocalScope;
   n := 0;
   REPEAT
     params := tls.ParamVarsNo (scope);
     locals := tls.LocalVarsNo (scope);
-    -- число собственных локальных обьектов
+    -- ╤З╨╕╤Б╨╗╨╛ ╤Б╨╛╨▒╤Б╤В╨▓╨╡╨╜╨╜╤Л╤Е ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
     INC(n, params+locals);
-    -- строка-разделитель с именем контекста
+    -- ╤Б╤В╤А╨╛╨║╨░-╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М ╤Б ╨╕╨╝╨╡╨╜╨╡╨╝ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨░
     INC(n);
     scope := tls.ObjectParentScope(scope);
   UNTIL tls.EqualObjects (scope, dt.Invalid_Object);
-  -- строку-разделитель для текущего контекста не надо добавлять
+  -- ╤Б╤В╤А╨╛╨║╤Г-╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М ╨┤╨╗╤П ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨░ ╨╜╨╡ ╨╜╨░╨┤╨╛ ╨┤╨╛╨▒╨░╨▓╨╗╤П╤В╤М
   DEC(n);
   RETURN n;
 END CountLocalObjects;
 
 
--- по номеру строки возвращает контекст и обьект,
--- при этом если строка - разделитель, то вернет FALSE
+-- ╨┐╨╛ ╨╜╨╛╨╝╨╡╤А╤Г ╤Б╤В╤А╨╛╨║╨╕ ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В ╨║╨╛╨╜╤В╨╡╨║╤Б╤В ╨╕ ╨╛╨▒╤М╨╡╨║╤В,
+-- ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ╨╡╤Б╨╗╨╕ ╤Б╤В╤А╨╛╨║╨░ - ╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М, ╤В╨╛ ╨▓╨╡╤А╨╜╨╡╤В FALSE
 PROCEDURE GetLineLocalWindow (N, i: CARDINAL; VAR scope, obj: dt.OBJECT; VAR separate: BOOLEAN): BOOLEAN;
 VAR
   params: CARDINAL;
   locals: CARDINAL;
 BEGIN
   IF i < N THEN
-    -- обход всех объемлющих блоков
+    -- ╨╛╨▒╤Е╨╛╨┤ ╨▓╤Б╨╡╤Е ╨╛╨▒╤К╨╡╨╝╨╗╤О╤Й╨╕╤Е ╨▒╨╗╨╛╨║╨╛╨▓
     scope := dv.LocalScope;
     separate := FALSE;
     LOOP
@@ -930,11 +930,11 @@ BEGIN
       locals := tls.LocalVarsNo (scope);
       N := params + locals;
       IF i < params THEN
-        -- параметры
+        -- ╨┐╨░╤А╨░╨╝╨╡╤В╤А╤Л
         obj := tls.GetParamVar (scope, i);
         EXIT;
       ELSIF i < N THEN
-        -- локалы
+        -- ╨╗╨╛╨║╨░╨╗╤Л
         obj := tls.GetLocalVar (scope, i-params);
         EXIT;
       ELSE
@@ -943,11 +943,11 @@ BEGIN
           RETURN FALSE;
         END;
         IF i = N THEN
-          -- строка-разделитель с именем контекста
+          -- ╤Б╤В╤А╨╛╨║╨░-╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М ╤Б ╨╕╨╝╨╡╨╜╨╡╨╝ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨░
           separate := TRUE;
           EXIT;
         END;
-        -- обьект из охватывающего контекста
+        -- ╨╛╨▒╤М╨╡╨║╤В ╨╕╨╖ ╨╛╤Е╨▓╨░╤В╤Л╨▓╨░╤О╤Й╨╡╨│╨╛ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨░
         DEC(i, N+1);
       END;
     END;
@@ -972,7 +972,7 @@ BEGIN
     IF GetLineLocalWindow (p^.N, i, scope, obj, separate) THEN
       IF separate THEN
         nm.ObjectNameGetAndCorrect (scope, name);
-        fmt.print (str, '- %s ──────────────────────────────────────────────────────────────────────────', name);
+        fmt.print (str, '- %s тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА', name);
       ELSE
         tls.ObjectName (obj, name);
         COPY (name, str);
@@ -1000,14 +1000,14 @@ END tglShowLocation;
 
 PROCEDURE LocalVariablesHandler (hwnd: win.HWND; msg: eve.MSG);
 
--- Замечание по терминологии, используемой в комментариях
--- exe.ExecScope - исполняемый контекст
--- dv.LocalScope - отображаемый контекст
--- scope - текущий контекст
--- при этом dv.LocalScope может не являтся охватывающим для
--- exe.ExecScope, или же совпадать с ним
--- при этом scope всегда является охватывающим для dv.LocalScope,
--- или же совпадает с ним
+-- ╨Ч╨░╨╝╨╡╤З╨░╨╜╨╕╨╡ ╨┐╨╛ ╤В╨╡╤А╨╝╨╕╨╜╨╛╨╗╨╛╨│╨╕╨╕, ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝╨╛╨╣ ╨▓ ╨║╨╛╨╝╨╝╨╡╨╜╤В╨░╤А╨╕╤П╤Е
+-- exe.ExecScope - ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╤Л╨╣ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В
+-- dv.LocalScope - ╨╛╤В╨╛╨▒╤А╨░╨╢╨░╨╡╨╝╤Л╨╣ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В
+-- scope - ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В
+-- ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ dv.LocalScope ╨╝╨╛╨╢╨╡╤В ╨╜╨╡ ╤П╨▓╨╗╤П╤В╤Б╤П ╨╛╤Е╨▓╨░╤В╤Л╨▓╨░╤О╤Й╨╕╨╝ ╨┤╨╗╤П
+-- exe.ExecScope, ╨╕╨╗╨╕ ╨╢╨╡ ╤Б╨╛╨▓╨┐╨░╨┤╨░╤В╤М ╤Б ╨╜╨╕╨╝
+-- ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ scope ╨▓╤Б╨╡╨│╨┤╨░ ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨╛╤Е╨▓╨░╤В╤Л╨▓╨░╤О╤Й╨╕╨╝ ╨┤╨╗╤П dv.LocalScope,
+-- ╨╕╨╗╨╕ ╨╢╨╡ ╤Б╨╛╨▓╨┐╨░╨┤╨░╨╡╤В ╤Б ╨╜╨╕╨╝
 -- exe.ExecScope <= dv.LocalScope <= scope
 
 VAR
@@ -1079,31 +1079,31 @@ VAR
     | dt.Sy_Relative :
       top_call := tls.EqualObjects (exe.ExecScope, scope) AND (dv.LocalScopeLevel = 0);
       IF top_call AND tls.ProcHasFrame (exe.ExecScope) AND NOT body THEN
-        -- текущий и исполняемый контекст совпали, но
-        -- еще не инициализирована база текущего контекста
+        -- ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╨╕ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╤Л╨╣ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В ╤Б╨╛╨▓╨┐╨░╨╗╨╕, ╨╜╨╛
+        -- ╨╡╤Й╨╡ ╨╜╨╡ ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨╕╤А╨╛╨▓╨░╨╜╨░ ╨▒╨░╨╖╨░ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨░
         RETURN FALSE;
       END;
       ASSERT (tls.GetLocalObject_Reg (obj, reg_no, ref));
       IF reg_no = kt.FRAME_REG THEN
-        -- переменная относительно кадра (FRAME_REG), а не произвольного регистра
+        -- ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨░╤П ╨╛╤В╨╜╨╛╤Б╨╕╤В╨╡╨╗╤М╨╜╨╛ ╨║╨░╨┤╤А╨░ (FRAME_REG), ╨░ ╨╜╨╡ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨╗╤М╨╜╨╛╨│╨╛ ╤А╨╡╨│╨╕╤Б╤В╤А╨░
        <* IF DEST_XDS THEN *>
         stk.ScanCallStack;
        <* END *>
-        -- поискать текущий в стеке вызовов
+        -- ╨┐╨╛╨╕╤Б╨║╨░╤В╤М ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╨▓ ╤Б╤В╨╡╨║╨╡ ╨▓╤Л╨╖╨╛╨▓╨╛╨▓
         IF NOT stk.GetObjectLevelInCallStack (dv.LocalScopeLevel, scope, level) THEN
           RETURN FALSE;
         END;
-        -- достать базу текущего контекста из стека
+        -- ╨┤╨╛╤Б╤В╨░╤В╤М ╨▒╨░╨╖╤Г ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В╨░ ╨╕╨╖ ╤Б╤В╨╡╨║╨░
         IF NOT stk.GetFrame (level, reg_val) THEN
           RETURN FALSE;
         END;
       ELSIF top_call THEN
-        -- текущий и исполняемый контекст совпали
-        -- при этом база обьекта не является регистром кадра
+        -- ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╨╕ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╤Л╨╣ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В ╤Б╨╛╨▓╨┐╨░╨╗╨╕
+        -- ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ╨▒╨░╨╖╨░ ╨╛╨▒╤М╨╡╨║╤В╨░ ╨╜╨╡ ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╤А╨╡╨│╨╕╤Б╤В╤А╨╛╨╝ ╨║╨░╨┤╤А╨░
         ASSERT (mem.GetReg (reg_no, reg_val));
       ELSE
-        -- текущий и исполняемый контекст не совпали, получить
-        -- значение регистра уже нельзя
+        -- ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╨╕ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╤Л╨╣ ╨║╨╛╨╜╤В╨╡╨║╤Б╤В ╨╜╨╡ ╤Б╨╛╨▓╨┐╨░╨╗╨╕, ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М
+        -- ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ ╤А╨╡╨│╨╕╤Б╤В╤А╨░ ╤Г╨╢╨╡ ╨╜╨╡╨╗╤М╨╖╤П
         RETURN FALSE;
       END;
       ASSERT (tls.GetLocalObject_Addr (obj, reg_val, res.location));
@@ -1164,13 +1164,13 @@ VAR
     IF GetLineLocalWindow (p^.N, num, scope, obj, separate) THEN
       IF separate THEN
         tls.ObjectName (scope, name);
-        fmt.print (buf, '─ %s ', name);
+        fmt.print (buf, 'тФА %s ', name);
         crt.SetPos (1, num-p^.frame + 1);
         crt.WrStrFromPos (hwnd, buf, p^.Colors^[crt.List_Line], p^.pos);
         offs := LENGTH(buf)+1;
         IF offs < size.x2 THEN
           crt.SetPos (offs, num-p^.frame + 1);
-          crt.WrNChar (hwnd, size.x2-offs, '─', p^.Colors^[crt.List_Line]);
+          crt.WrNChar (hwnd, size.x2-offs, 'тФА', p^.Colors^[crt.List_Line]);
         END;
       ELSE
         IF body OR NOT tls.EqualObjects(dv.LocalScope, exe.ExecScope) THEN
@@ -1622,7 +1622,7 @@ BEGIN
       FOR i := curr+1 TO N DO
         IF tls.AddrBySource(mod.Curr^.Pos.ComN, mod.Curr^.Pos.ModN, i+1, ps) THEN
           <* IF TARGET_VAX THEN *>
-          IF ps > 2 THEN DEC(ps, 2); END; -- Смещение из-за маски входа
+          IF ps > 2 THEN DEC(ps, 2); END; -- ╨б╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╨╕╨╖-╨╖╨░ ╨╝╨░╤Б╨║╨╕ ╨▓╤Е╨╛╨┤╨░
           <* END *>
           IF tls.IsLabelOnAddr(mod.Curr^.Pos.ComN, mod.Curr^.Pos.ModN, ps) THEN
             mod.SetCurrLine(i);
@@ -2102,7 +2102,7 @@ VAR
   BEGIN
     WITH mod.Curr^ DO
 (*
-      -- позиционирование курсора в середину окна
+      -- ╨┐╨╛╨╖╨╕╤Ж╨╕╨╛╨╜╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨║╤Г╤А╤Б╨╛╤А╨░ ╨▓ ╤Б╨╡╤А╨╡╨┤╨╕╨╜╤Г ╨╛╨║╨╜╨░
       IF (exe.ExecComp = Pos.ComN) AND (exe.ExecMod = Pos.ModN) AND (exe.ExecLine >= frame) AND (exe.ExecLine <= frame+len-1) THEN
         center := frame+(len DIV 2)-1;
         IF center < exe.ExecLine THEN
@@ -2150,7 +2150,7 @@ VAR
             str := sys.ADR(EmptyStr);
           END;
           <* IF DEFINED(SCHERN_K26) AND SCHERN_K26 THEN *>
-          (* проверка на точки останова профилировщика                          СHERN*)
+          (* ╨┐╤А╨╛╨▓╨╡╤А╨║╨░ ╨╜╨░ ╤В╨╛╤З╨║╨╕ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░ ╨┐╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╤Й╨╕╨║╨░                          ╨бHERN*)
           IF bls.isMyLine(frame+i,Pos.ComN,Pos.ModN) THEN
              IF tim.InstByLine(Pos.ComN,frame+i,Pos.ModN) THEN
                attr := crt.Attr(crt.Red,crt.LightGreen);
@@ -2229,8 +2229,8 @@ VAR
     unknown = '???';
 
    <* IF DEFINED(mode) AND (mode="work") THEN *> -- FIXME
-    line1 = "Черный квадрат";
-    line2 = "Малевич";
+    line1 = "╨з╨╡╤А╨╜╤Л╨╣ ╨║╨▓╨░╨┤╤А╨░╤В";
+    line2 = "╨Ь╨░╨╗╨╡╨▓╨╕╤З";
    <* ELSE *>
     line1 = "Instruction pointer is out";
     line2 = "of known executeble segments";
@@ -2855,7 +2855,7 @@ END MainWindowStateAction;
 
 
 VAR
-  DlgExitCode: exp.ExprRes; -- WHOLEval, на самом деле value: act.ACTION;
+  DlgExitCode: exp.ExprRes; -- WHOLEval, ╨╜╨░ ╤Б╨░╨╝╨╛╨╝ ╨┤╨╡╨╗╨╡ value: act.ACTION;
 
 
 PROCEDURE Halt (action: act.ACTION; mode: act.ACTION_MODE): BOOLEAN;
@@ -3461,27 +3461,27 @@ BEGIN
     IF LoadProgramDialog = win.Invalid_H THEN
      <* IF DEST_K26 THEN *>
       NEW(Lines,6);
-      Lines^[ 0] := LINE{ 2, 2, std.msg     , '┌── Введите имя программы ─┐'            , std.d_enabled};
-      Lines^[ 1] := LINE{ 2, 3, std.msg     , '│'                                       , std.d_enabled};
+      Lines^[ 0] := LINE{ 2, 2, std.msg     , 'тФМтФАтФА ╨Т╨▓╨╡╨┤╨╕╤В╨╡ ╨╕╨╝╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л тФАтФР'            , std.d_enabled};
+      Lines^[ 1] := LINE{ 2, 3, std.msg     , 'тФВ'                                       , std.d_enabled};
       Lines^[ 2] := LINE{ 4, 3, std.edit_str, sys.ADR(ProgramName), 24                , std.d_enabled};
-      Lines^[ 3] := LINE{29, 3, std.msg     ,                               '│'         , std.d_enabled};
-      Lines^[ 4] := LINE{ 2, 4, std.msg     , '└──────────────────────────┘'            , std.d_enabled};
-      Lines^[ 5] := LINE{31, 3, std.button  , 'Выбор', BrowseProgramName               , 1, key.AltD, std.d_enabled};
+      Lines^[ 3] := LINE{29, 3, std.msg     ,                               'тФВ'         , std.d_enabled};
+      Lines^[ 4] := LINE{ 2, 4, std.msg     , 'тФФтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФШ'            , std.d_enabled};
+      Lines^[ 5] := LINE{31, 3, std.button  , '╨Т╤Л╨▒╨╛╤А', BrowseProgramName               , 1, key.AltD, std.d_enabled};
       size.x1 := 18; size.y1 := 8;
       size.x2 := 60; size.y2 := 16;
      <* ELSIF DEST_XDS THEN *>
       NEW(Lines,11);
-      Lines^[ 0] := LINE{ 2, 2, std.msg     , '┌── Program name ──────────┐'            , std.d_enabled};
-      Lines^[ 1] := LINE{ 2, 3, std.msg     , '│'                                       , std.d_enabled};
+      Lines^[ 0] := LINE{ 2, 2, std.msg     , 'тФМтФАтФА Program name тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФР'            , std.d_enabled};
+      Lines^[ 1] := LINE{ 2, 3, std.msg     , 'тФВ'                                       , std.d_enabled};
       Lines^[ 2] := LINE{ 4, 3, std.edit_str, sys.ADR(ProgramName), 24                , std.d_enabled};
-      Lines^[ 3] := LINE{29, 3, std.msg     ,                               '│'         , std.d_enabled};
-      Lines^[ 4] := LINE{ 2, 4, std.msg     , '└──────────────────────────┘'            , std.d_enabled};
+      Lines^[ 3] := LINE{29, 3, std.msg     ,                               'тФВ'         , std.d_enabled};
+      Lines^[ 4] := LINE{ 2, 4, std.msg     , 'тФФтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФШ'            , std.d_enabled};
       Lines^[ 5] := LINE{31, 3, std.button  , 'Browse', BrowseProgramName               , 1, key.AltB, std.d_enabled};
-      Lines^[ 6] := LINE{ 2, 5, std.msg     , '┌── Arguments ────────────────────────┐' , std.d_enabled};
-      Lines^[ 7] := LINE{ 2, 6, std.msg     , '│'                                       , std.d_enabled};
+      Lines^[ 6] := LINE{ 2, 5, std.msg     , 'тФМтФАтФА Arguments тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФР' , std.d_enabled};
+      Lines^[ 7] := LINE{ 2, 6, std.msg     , 'тФВ'                                       , std.d_enabled};
       Lines^[ 8] := LINE{ 4, 6, std.edit_str, sys.ADR(ProgramArgs), 35                , std.d_enabled};
-      Lines^[ 9] := LINE{40, 6, std.msg     ,                                       '│' , std.d_enabled};
-      Lines^[10] := LINE{ 2, 7, std.msg     , '└─────────────────────────────────────┘' , std.d_enabled};
+      Lines^[ 9] := LINE{40, 6, std.msg     ,                                       'тФВ' , std.d_enabled};
+      Lines^[10] := LINE{ 2, 7, std.msg     , 'тФФтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФШ' , std.d_enabled};
       size.x1 := 18; size.y1 := 7;
       size.x2 := 60; size.y2 := 18;
      <* END *>
@@ -3541,12 +3541,12 @@ END ChangeVarValue;
 
 
 CONST
-  -- Максимальная вложенность для структур
+  -- ╨Ь╨░╨║╤Б╨╕╨╝╨░╨╗╤М╨╜╨░╤П ╨▓╨╗╨╛╨╢╨╡╨╜╨╜╨╛╤Б╤В╤М ╨┤╨╗╤П ╤Б╤В╤А╤Г╨║╤В╤Г╤А
   MaxDepth = 64;
 
 
 TYPE
-  -- Текущее состояние окна структурных переменных
+  -- ╨в╨╡╨║╤Г╤Й╨╡╨╡ ╤Б╨╛╤Б╤В╨╛╤П╨╜╨╕╨╡ ╨╛╨║╨╜╨░ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
   STRUCT_STATE = RECORD
                    curr, frame: CARDINAL;
                    struct     : exp.ExprRes;
@@ -3606,10 +3606,10 @@ END StructListLocator;
 
 
 VAR
-  -- Окно структурных переменных
+  -- ╨Ю╨║╨╜╨╛ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
   StructWindow: win.HWND;
 
--- Обработчик окна структурных переменных
+-- ╨Ю╨▒╤А╨░╨▒╨╛╤В╤З╨╕╨║ ╨╛╨║╨╜╨░ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
 PROCEDURE StructList(hwnd: win.HWND; msg: eve.MSG); FORWARD;
 
 
@@ -3662,8 +3662,8 @@ BEGIN
 END FixUpSize;
 
 
--- Переключает опцию, открывать ли новое окно при инициализации
--- окна структурных переменных из списка переменных
+-- ╨Я╨╡╤А╨╡╨║╨╗╤О╤З╨░╨╡╤В ╨╛╨┐╤Ж╨╕╤О, ╨╛╤В╨║╤А╤Л╨▓╨░╤В╤М ╨╗╨╕ ╨╜╨╛╨▓╨╛╨╡ ╨╛╨║╨╜╨╛ ╨┐╤А╨╕ ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨░╤Ж╨╕╨╕
+-- ╨╛╨║╨╜╨░ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е ╨╕╨╖ ╤Б╨┐╨╕╤Б╨║╨░ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
 PROCEDURE tglUseSingleStructWindow (check: BOOLEAN): BOOLEAN;
 BEGIN
   RETURN std.tglOption (opt.UseSingleStructureWindow, check);
@@ -3684,8 +3684,8 @@ CONST
 
 
 VAR
-  OpenNewWindowMode : BOOLEAN; -- Режим открытия нового окна
-  OpenNewWindowCheck: BOOLEAN; -- Режим проверки возможности открытия
+  OpenNewWindowMode : BOOLEAN; -- ╨а╨╡╨╢╨╕╨╝ ╨╛╤В╨║╤А╤Л╤В╨╕╤П ╨╜╨╛╨▓╨╛╨│╨╛ ╨╛╨║╨╜╨░
+  OpenNewWindowCheck: BOOLEAN; -- ╨а╨╡╨╢╨╕╨╝ ╨┐╤А╨╛╨▓╨╡╤А╨║╨╕ ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛╤Б╤В╨╕ ╨╛╤В╨║╤А╤Л╤В╨╕╤П
 
 
 PROCEDURE OpenStructWindow (size: crt.SZ; single_window: BOOLEAN);
@@ -3770,7 +3770,7 @@ END OpenStructWindow;
 
 
 <* IF DEST_XDS THEN *>
--- Переключает опцию авто-определения настоящего типа обьекта
+-- ╨Я╨╡╤А╨╡╨║╨╗╤О╤З╨░╨╡╤В ╨╛╨┐╤Ж╨╕╤О ╨░╨▓╤В╨╛-╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╤П ╨╜╨░╤Б╤В╨╛╤П╤Й╨╡╨│╨╛ ╤В╨╕╨┐╨░ ╨╛╨▒╤М╨╡╨║╤В╨░
 PROCEDURE tlgAutoDetectActualType (check: BOOLEAN): BOOLEAN;
 BEGIN
   RETURN std.tglOption (opt.AutoDetectActualType, check);
@@ -4140,12 +4140,12 @@ END MyIndVar;
           | dt.Record, dt.Class:
            <* IF DEST_XDS THEN *>
             IF design = dt.Class THEN
-              -- для класса возможно определение настоящего типа
+              -- ╨┤╨╗╤П ╨║╨╗╨░╤Б╤Б╨░ ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╨╡ ╨╜╨░╤Б╤В╨╛╤П╤Й╨╡╨│╨╛ ╤В╨╕╨┐╨░
               actions[ContextItem_AutoDetectActualType+0] := act.CONTEXT{ act.separate };
               actions[ContextItem_AutoDetectActualType+1] := act.CONTEXT{ act.toggler, 'Auto-detect actual type', tlgAutoDetectActualType };
               actions[ContextItem_AutoDetectActualType+3] := act.EMPTY_CONTEXT;
               IF NOT opt.AutoDetectActualType THEN
-                -- если автоопределение не включено, можно сделать выбором из меню
+                -- ╨╡╤Б╨╗╨╕ ╨░╨▓╤В╨╛╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╨╡ ╨╜╨╡ ╨▓╨║╨╗╤О╤З╨╡╨╜╨╛, ╨╝╨╛╨╢╨╜╨╛ ╤Б╨┤╨╡╨╗╨░╤В╤М ╨▓╤Л╨▒╨╛╤А╨╛╨╝ ╨╕╨╖ ╨╝╨╡╨╜╤О
                 actions[ContextItem_GetActualType+0] := act.CONTEXT{ act.separate };
                 actions[ContextItem_GetActualType+1] := act.CONTEXT{ act.context_item, 'Get actual type'};
                 actions[ContextItem_GetActualType+2] := act.EMPTY_CONTEXT;
@@ -4443,7 +4443,7 @@ BEGIN
             END;
           END;
         END;
-        -- Заполнение нового состояния структуры
+        -- ╨Ч╨░╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡ ╨╜╨╛╨▓╨╛╨│╨╛ ╤Б╨╛╤Б╤В╨╛╤П╨╜╨╕╤П ╤Б╤В╤А╤Г╨║╤В╤Г╤А╤Л
         WITH Struct DO
           curr := 0;
           frame := 0;
@@ -4622,7 +4622,7 @@ BEGIN
    <* IF DEST_XDS THEN *>
     | ContextItem_AddrInHeader:
       act.ConfirmQuery();
-    | ContextItem_GetActualType+1: -- так как нужно учесть разделитель
+    | ContextItem_GetActualType+1: -- ╤В╨░╨║ ╨║╨░╨║ ╨╜╤Г╨╢╨╜╨╛ ╤Г╤З╨╡╤Б╤В╤М ╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М
       ASSERT(p^.Structs[p^.Depth].design = dt.Class);
       ASSERT(NOT opt.AutoDetectActualType);
       act.ConfirmQuery;
@@ -4701,9 +4701,9 @@ BEGIN
       eve.AddToTail (StructWindow, eve.Hide, 0);
       eve.Flush;
     END;
-    -- Создание окна структурных переменных
+    -- ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨╛╨║╨╜╨░ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
     OpenStructWindow (crt.SZ{ crt.Xmax-30, 1, crt.Xmax-1, 15}, opt.UseSingleStructureWindow);
-    -- Инициализация окна структурных переменных
+    -- ╨Ш╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨░╤Ж╨╕╤П ╨╛╨║╨╜╨░ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╨╜╤Л╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
     p := PSTRUCT(win.GetAMPtr(StructWindow));
     WITH p^ DO
       WITH Structs[Depth] DO;
@@ -4939,14 +4939,14 @@ BEGIN
 
       NEW (Lines, 11);
       Lines^[ 0] := LINE{ 2, 2, std.msg     , zzz , std.d_enabled};
-      Lines^[ 1] := LINE{ 2, 3, std.msg     , '│' , std.d_enabled};
+      Lines^[ 1] := LINE{ 2, 3, std.msg     , 'тФВ' , std.d_enabled};
       Lines^[ExprStrNum] := LINE{ 4, 3, std.edit_str, sys.ADR(ExprString), 35, std.d_enabled};
-      Lines^[ 3] := LINE{40, 3, std.msg     , '│' , std.d_enabled};
-      Lines^[ 4] := LINE{ 2, 4, std.msg     , '│' , std.d_enabled};
-      Lines^[ 5] := LINE{40, 4, std.msg     , '│' , std.d_enabled};
-      Lines^[ 6] := LINE{ 2, 5, std.msg     , '│' , std.d_enabled};
-      Lines^[ 7] := LINE{40, 5, std.msg     , '│' , std.d_enabled};
-      Lines^[ 8] := LINE{ 2, 6, std.msg     , '└─────────────────────────────────────┘' , std.d_enabled};
+      Lines^[ 3] := LINE{40, 3, std.msg     , 'тФВ' , std.d_enabled};
+      Lines^[ 4] := LINE{ 2, 4, std.msg     , 'тФВ' , std.d_enabled};
+      Lines^[ 5] := LINE{40, 4, std.msg     , 'тФВ' , std.d_enabled};
+      Lines^[ 6] := LINE{ 2, 5, std.msg     , 'тФВ' , std.d_enabled};
+      Lines^[ 7] := LINE{40, 5, std.msg     , 'тФВ' , std.d_enabled};
+      Lines^[ 8] := LINE{ 2, 6, std.msg     , 'тФФтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФШ' , std.d_enabled};
 
       Lines^[ExprResNum] := LINE{ 4, 5, std.msg   , '???' , std.d_enabled};
       Lines^[ExprRadNum] := LINE{ 2, 8, std.radio , '' , 0, 0, 0, 0, Radio, UpdateExpr, std.d_enabled};
@@ -6104,8 +6104,8 @@ BEGIN
   AddrNum := '';
   x_direct := FALSE;
   y_direct := FALSE;
-  OpenNewWindowMode  := FALSE; -- Режим открытия нового окна
-  OpenNewWindowCheck := FALSE; -- Режим проверки возможности открытия
+  OpenNewWindowMode  := FALSE; -- ╨а╨╡╨╢╨╕╨╝ ╨╛╤В╨║╤А╤Л╤В╨╕╤П ╨╜╨╛╨▓╨╛╨│╨╛ ╨╛╨║╨╜╨░
+  OpenNewWindowCheck := FALSE; -- ╨а╨╡╨╢╨╕╨╝ ╨┐╤А╨╛╨▓╨╡╤А╨║╨╕ ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛╤Б╤В╨╕ ╨╛╤В╨║╤А╤Л╤В╨╕╤П
 
   std.Wnds[std.MainWindow].init      := InitMainWindow;
   std.Wnds[std.LblWindow].init       := InitLblWindow;

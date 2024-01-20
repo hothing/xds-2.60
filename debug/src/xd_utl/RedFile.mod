@@ -18,11 +18,11 @@ IMPORT xs  := xStr;
 
 
 CONST
-  CR   = 15C;        (* разделитель строк *)
-  LF   = 12C;        (* разделитель строк *)
-  CRLF = 15C;        (* разделитель строк *)
-  EOF  = CHR(1AH);   (* ^Z - конец файла *)
-  EL   = 0C;         (* конец строки *)
+  CR   = 15C;        (* ╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М ╤Б╤В╤А╨╛╨║ *)
+  LF   = 12C;        (* ╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М ╤Б╤В╤А╨╛╨║ *)
+  CRLF = 15C;        (* ╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М ╤Б╤В╤А╨╛╨║ *)
+  EOF  = CHR(1AH);   (* ^Z - ╨║╨╛╨╜╨╡╤Ж ╤Д╨░╨╣╨╗╨░ *)
+  EL   = 0C;         (* ╨║╨╛╨╜╨╡╤Ж ╤Б╤В╤А╨╛╨║╨╕ *)
 
 
 TYPE
@@ -48,7 +48,7 @@ VAR
   RedList : Redirection;
 
 PROCEDURE RedirectionCreated (): BOOLEAN;
-(* Создан ли уже redirection *)
+(* ╨б╨╛╨╖╨┤╨░╨╜ ╨╗╨╕ ╤Г╨╢╨╡ redirection *)
 BEGIN
   RETURN RedFilePresent;
 END RedirectionCreated;
@@ -82,13 +82,13 @@ BEGIN
     END;
   END;
   IF fs.Exists(s) THEN RETURN TRUE; END;
-  arg.ProgramName(fname); (* взять полное имя программы   *)
+  arg.ProgramName(fname); (* ╨▓╨╖╤П╤В╤М ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л   *)
   p := LENGTH(fname)-1;
   LOOP
     IF (fname[p] = PathSep) THEN EXIT; END;
     DEC(p);
   END;
-  fname[p+1] := EL; (* Оставить PathSep *)
+  fname[p+1] := EL; (* ╨Ю╤Б╤В╨░╨▓╨╕╤В╤М PathSep *)
   xs.Append(s,fname);
   COPY(fname,s);
   RETURN fs.Exists(s);
@@ -143,14 +143,14 @@ BEGIN
     rf.Close(file);
     RETURN RedFileEmpty;
   END;
-  NEW(RedList.buff,size+1); (* лишний байт, если файл кончился "по размеру" *)
+  NEW(RedList.buff,size+1); (* ╨╗╨╕╤И╨╜╨╕╨╣ ╨▒╨░╨╣╤В, ╨╡╤Б╨╗╨╕ ╤Д╨░╨╣╨╗ ╨║╨╛╨╜╤З╨╕╨╗╤Б╤П "╨┐╨╛ ╤А╨░╨╖╨╝╨╡╤А╤Г" *)
   rio.Read(file,RedList.buff^);
   rf.Close(file);
   RedList.Np := 0;
   i := 0;
   RedList.buff^[size] := CR;
   flag := TRUE;
-  LOOP (* Подсчет числа непустых строк *)
+  LOOP (* ╨Я╨╛╨┤╤Б╤З╨╡╤В ╤З╨╕╤Б╨╗╨░ ╨╜╨╡╨┐╤Г╤Б╤В╤Л╤Е ╤Б╤В╤А╨╛╨║ *)
     IF (RedList.buff^[i] = CR) OR (RedList.buff^[i] = LF) THEN
       RedList.buff^[i] := 0C;
       flag := TRUE;
@@ -160,33 +160,33 @@ BEGIN
       flag := FALSE;
     END;
     INC(i);
-  END; (* Подсчет числа непустых строк закончился *)
+  END; (* ╨Я╨╛╨┤╤Б╤З╨╡╤В ╤З╨╕╤Б╨╗╨░ ╨╜╨╡╨┐╤Г╤Б╤В╤Л╤Е ╤Б╤В╤А╨╛╨║ ╨╖╨░╨║╨╛╨╜╤З╨╕╨╗╤Б╤П *)
   IF RedList.Np = 0 THEN RETURN RedFileEmpty; END;
   NEW(RedList.Ap,RedList.Np);
-  RedList.Np := 0; (* Счетчик строк *)
-  i := 0;    (* Счетчик символов *)
-  LOOP (* Разбор строк в red-файле *)
+  RedList.Np := 0; (* ╨б╤З╨╡╤В╤З╨╕╨║ ╤Б╤В╤А╨╛╨║ *)
+  i := 0;    (* ╨б╤З╨╡╤В╤З╨╕╨║ ╤Б╨╕╨╝╨▓╨╛╨╗╨╛╨▓ *)
+  LOOP (* ╨а╨░╨╖╨▒╨╛╤А ╤Б╤В╤А╨╛╨║ ╨▓ red-╤Д╨░╨╣╨╗╨╡ *)
     IF (RedList.buff^[i] <> EL) THEN
       SkipBlanks(i);
-      IF RedList.buff^[i] <> EL THEN (* Если строка не вся из пробелов *)
+      IF RedList.buff^[i] <> EL THEN (* ╨Х╤Б╨╗╨╕ ╤Б╤В╤А╨╛╨║╨░ ╨╜╨╡ ╨▓╤Б╤П ╨╕╨╖ ╨┐╤А╨╛╨▒╨╡╨╗╨╛╨▓ *)
         j := 0;
-        LOOP (* Копируем имя файла *)
+        LOOP (* ╨Ъ╨╛╨┐╨╕╤А╤Г╨╡╨╝ ╨╕╨╝╤П ╤Д╨░╨╣╨╗╨░ *)
           IF RedList.buff^[i] IN CHARSET{EL,' ','='} THEN EXIT END;
           RedList.Ap^[RedList.Np].PName[j] := RedList.buff^[i];
           INC(j);
           INC(i);
         END;
-        IF (j = 0) THEN RETURN WrongPattern; END; (* кривой шаблон *)
+        IF (j = 0) THEN RETURN WrongPattern; END; (* ╨║╤А╨╕╨▓╨╛╨╣ ╤И╨░╨▒╨╗╨╛╨╜ *)
         RedList.Ap^[RedList.Np].PName[j] := EL;
-        (* Имя и расширение прочитали *)
+        (* ╨Ш╨╝╤П ╨╕ ╤А╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╨╡ ╨┐╤А╨╛╤З╨╕╤В╨░╨╗╨╕ *)
         SkipBlanks(i);
-        IF RedList.buff^[i] = '=' THEN (* Далее идет список путей поиска *)
+        IF RedList.buff^[i] = '=' THEN (* ╨Ф╨░╨╗╨╡╨╡ ╨╕╨┤╨╡╤В ╤Б╨┐╨╕╤Б╨╛╨║ ╨┐╤Г╤В╨╡╨╣ ╨┐╨╛╨╕╤Б╨║╨░ *)
           INC(i);
           SkipBlanks(i);
           IF (RedList.buff^[i] = EL) THEN RETURN EmptyListPath; END;
-          j := i; (* i на старом месте *)
+          j := i; (* i ╨╜╨░ ╤Б╤В╨░╤А╨╛╨╝ ╨╝╨╡╤Б╤В╨╡ *)
           RedList.Ap^[RedList.Np].Npath := 1;
-          (* Считаем сколько путей в списке *)
+          (* ╨б╤З╨╕╤В╨░╨╡╨╝ ╤Б╨║╨╛╨╗╤М╨║╨╛ ╨┐╤Г╤В╨╡╨╣ ╨▓ ╤Б╨┐╨╕╤Б╨║╨╡ *)
           k := j-1;
           WHILE RedList.buff^[j] <> EL DO
             IF RedList.buff^[j] = ';' THEN
@@ -195,21 +195,21 @@ BEGIN
               k := j;
             END;
             INC(j);
-          END; (* Подсчитали сколько путей *)
+          END; (* ╨Я╨╛╨┤╤Б╤З╨╕╤В╨░╨╗╨╕ ╤Б╨║╨╛╨╗╤М╨║╨╛ ╨┐╤Г╤В╨╡╨╣ *)
           IF RedList.Ap^[RedList.Np].Npath = 0 THEN RETURN EmptyListPath; END;;
-          (* Аллоцировали сколько надо - по числу путей *)
+          (* ╨Р╨╗╨╗╨╛╤Ж╨╕╤А╨╛╨▓╨░╨╗╨╕ ╤Б╨║╨╛╨╗╤М╨║╨╛ ╨╜╨░╨┤╨╛ - ╨┐╨╛ ╤З╨╕╤Б╨╗╤Г ╨┐╤Г╤В╨╡╨╣ *)
           NEW(RedList.Ap^[RedList.Np].Apath,RedList.Ap^[RedList.Np].Npath);
-          (* Теперь вернулись на старое место, т.е. перед списком путей *)
+          (* ╨в╨╡╨┐╨╡╤А╤М ╨▓╨╡╤А╨╜╤Г╨╗╨╕╤Б╤М ╨╜╨░ ╤Б╤В╨░╤А╨╛╨╡ ╨╝╨╡╤Б╤В╨╛, ╤В.╨╡. ╨┐╨╡╤А╨╡╨┤ ╤Б╨┐╨╕╤Б╨║╨╛╨╝ ╨┐╤Г╤В╨╡╨╣ *)
           RedList.Ap^[RedList.Np].Npath := 1;
-          (* Сюда косит первый элемент *)
+          (* ╨б╤О╨┤╨░ ╨║╨╛╤Б╨╕╤В ╨┐╨╡╤А╨▓╤Л╨╣ ╤Н╨╗╨╡╨╝╨╡╨╜╤В *)
           RedList.Ap^[RedList.Np].Apath^[RedList.Ap^[RedList.Np].Npath-1] := sys.ADR(RedList.buff^[i]);
           WHILE RedList.buff^[i] <> EL DO
-            IF RedList.buff^[i] = ';' THEN (* Закончился очередной путь  *)
+            IF RedList.buff^[i] = ';' THEN (* ╨Ч╨░╨║╨╛╨╜╤З╨╕╨╗╤Б╤П ╨╛╤З╨╡╤А╨╡╨┤╨╜╨╛╨╣ ╨┐╤Г╤В╤М  *)
               RedList.buff^[i] := EL;
               INC(i);
               IF RedList.buff^[i] <> EL THEN
-                 SkipBlanks(i); (* Пропустим пробелы *)
-                 (* Суда косит очередной элемент *)
+                 SkipBlanks(i); (* ╨Я╤А╨╛╨┐╤Г╤Б╤В╨╕╨╝ ╨┐╤А╨╛╨▒╨╡╨╗╤Л *)
+                 (* ╨б╤Г╨┤╨░ ╨║╨╛╤Б╨╕╤В ╨╛╤З╨╡╤А╨╡╨┤╨╜╨╛╨╣ ╤Н╨╗╨╡╨╝╨╡╨╜╤В *)
                  RedList.Ap^[RedList.Np].Apath^[RedList.Ap^[RedList.Np].Npath] := sys.ADR(RedList.buff^[i]);
                 INC(RedList.Ap^[RedList.Np].Npath);
               END;
@@ -218,7 +218,7 @@ BEGIN
             END;
           END;
         ELSE
-          RETURN EquivExpected; (* хорошо бы поставить "=" ... *)
+          RETURN EquivExpected; (* ╤Е╨╛╤А╨╛╤И╨╛ ╨▒╤Л ╨┐╨╛╤Б╤В╨░╨▓╨╕╤В╤М "=" ... *)
         END;
         INC(RedList.Np);
       END;
@@ -236,7 +236,7 @@ END Create;
 
 
 CONST
-  red_file_ext = 'RED';  (* Расширение имени red-файла                       *)
+  red_file_ext = 'RED';  (* ╨а╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╨╡ ╨╕╨╝╨╡╨╜╨╕ red-╤Д╨░╨╣╨╗╨░                       *)
 
 PROCEDURE InitRedirection;
 VAR
@@ -244,21 +244,21 @@ VAR
   pro_fname,
   red_fname: xs.String;
 BEGIN
-  arg.ProgramName(pro_fname);                   (* Взять полное имя программы *)
-  fil.ExtractFileName(pro_fname, red_fname);    (* Только имя без пути        *)
-  fil.ChangeExtension(red_fname, red_file_ext); (* Сменить расширение         *)
-  (* Создание red-файла *)
+  arg.ProgramName(pro_fname);                   (* ╨Т╨╖╤П╤В╤М ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л *)
+  fil.ExtractFileName(pro_fname, red_fname);    (* ╨в╨╛╨╗╤М╨║╨╛ ╨╕╨╝╤П ╨▒╨╡╨╖ ╨┐╤Г╤В╨╕        *)
+  fil.ChangeExtension(red_fname, red_file_ext); (* ╨б╨╝╨╡╨╜╨╕╤В╤М ╤А╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╨╡         *)
+  (* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ red-╤Д╨░╨╣╨╗╨░ *)
   res := Create(red_fname);
   MessageCreate(res, red_fname);
 END InitRedirection;
 
 
 PROCEDURE FindMatch(s-:ARRAY OF CHAR; i0:CARDINAL) : CARDINAL;
-(* Поиск шаблона в списке с i0 входа, вернет номер входа, где найден шаблон *)
+(* ╨Я╨╛╨╕╤Б╨║ ╤И╨░╨▒╨╗╨╛╨╜╨░ ╨▓ ╤Б╨┐╨╕╤Б╨║╨╡ ╤Б i0 ╨▓╤Е╨╛╨┤╨░, ╨▓╨╡╤А╨╜╨╡╤В ╨╜╨╛╨╝╨╡╤А ╨▓╤Е╨╛╨┤╨░, ╨│╨┤╨╡ ╨╜╨░╨╣╨┤╨╡╨╜ ╤И╨░╨▒╨╗╨╛╨╜ *)
 VAR
   i : CARDINAL;
 BEGIN
-  (* По всем входам *)
+  (* ╨Я╨╛ ╨▓╤Б╨╡╨╝ ╨▓╤Е╨╛╨┤╨░╨╝ *)
   WITH RedList DO
     FOR i := i0 TO Np-1 DO
       IF xs.Match(s,Ap^[i].PName) THEN RETURN i END;
@@ -288,7 +288,7 @@ BEGIN
   IF RedFilePresent THEN
     i := 0;
     LOOP
-      i1 := FindMatch (fname, i); (* Найти подходящий вход в список *)
+      i1 := FindMatch (fname, i); (* ╨Э╨░╨╣╤В╨╕ ╨┐╨╛╨┤╤Е╨╛╨┤╤П╤Й╨╕╨╣ ╨▓╤Е╨╛╨┤ ╨▓ ╤Б╨┐╨╕╤Б╨╛╨║ *)
       IF i1 >= RedList.Np THEN EXIT; END;
       i := i1;
       FOR j:=0 TO RedList.Ap^[i].Npath-1 DO
@@ -347,7 +347,7 @@ BEGIN
       COPY(fname, fullname);
       RETURN;
     END;
-    i := FindMatch(fname,0); (* Найти подходящий вход в список *)
+    i := FindMatch(fname,0); (* ╨Э╨░╨╣╤В╨╕ ╨┐╨╛╨┤╤Е╨╛╨┤╤П╤Й╨╕╨╣ ╨▓╤Е╨╛╨┤ ╨▓ ╤Б╨┐╨╕╤Б╨╛╨║ *)
     IF i < RedList.Np THEN
       COPY(RedList.Ap^[i].Apath^[0]^, fullname);
       IF LENGTH(fullname) > 0 THEN
@@ -384,7 +384,7 @@ END MessageCreate;
 
 
 BEGIN
-  RedList.Np := 0; (* Пустой! *)
+  RedList.Np := 0; (* ╨Я╤Г╤Б╤В╨╛╨╣! *)
   RedFilePresent := FALSE;
   PathSep := fil.GetFileSepChar ();
 END RedFile.

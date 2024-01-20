@@ -148,10 +148,10 @@ END ConvertToInternal;
 
 
 CONST
-  WHEELING = 3; -- ᪮�쪮 ��ப �ॡ���� ���஫��� �� ����樨 ����ᨪ� ��誨
+  WHEELING = 3; -- сколько строк требуется проскролить при эмуляции колесика мышки
 
 VAR
-  wheeling: INTEGER; -- ��� ����樨 ����ᨪ� ��誨
+  wheeling: INTEGER; -- для эмуляции колесика мышки
 
 PROCEDURE GetEvent(VAR event: EVENT);
 
@@ -187,11 +187,11 @@ PROCEDURE GetEvent(VAR event: EVENT);
       ELSIF (WIN.MOUSE__WHEELED IN dwEventFlags) THEN
         event.kind := KeyEvent;
         IF ((CARDINAL(dwButtonState) AND 0FF000000H) > 0) THEN
-           event.key_code := key.CtrlEnd;  -- ��३� � ����� ��࠭���
-           wheeling := -WHEELING;          -- � ���� ��᪮�쪮 ࠧ
+           event.key_code := key.CtrlEnd;  -- перейти к концу страницы
+           wheeling := -WHEELING;          -- и вниз несколько раз
         ELSE
-           event.key_code := key.CtrlHome; -- ��३� � ��砫� ��࠭���
-           wheeling := WHEELING;           -- � ����� ��᪮�쪮 ࠧ
+           event.key_code := key.CtrlHome; -- перейти в начало страницы
+           wheeling := WHEELING;           -- и вверх несколько раз
         END;
       ELSE
         IF WIN.FROM__LEFT_1ST_BUTTON_PRESSED IN dwButtonState THEN

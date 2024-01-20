@@ -150,7 +150,7 @@ END Get_XCPT_Msg;
 
 
 CONST
-  -- ®­αβ ­βλ ®―ΰ¥¤¥«¥­λ Ά RTS xr\xrn\X2C.def
+  -- ΠΠΎΠ½ΡΡ‚Π°Π½Ρ‚Ρ‹ ΠΎΠΏΡ€ΠµΠ΄ΠµΠ»ΠµΠ½Ρ‹ Π² RTS xr\xrn\X2C.def
 
   X2C_Assert            = 15;
   (* Oberon-2 Exceptions *)

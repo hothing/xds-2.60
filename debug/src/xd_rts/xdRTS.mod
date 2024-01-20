@@ -451,7 +451,7 @@ BEGIN
   interface := FindHandlerByBreakInx (BreakInx, handler_no);
   IF interface # NIL THEN
     -- FIX ME
-    -- нужно достатать параметры исключения - как?
+    -- ╨╜╤Г╨╢╨╜╨╛ ╨┤╨╛╤Б╤В╨░╤В╨░╤В╤М ╨┐╨░╤А╨░╨╝╨╡╤В╤А╤Л ╨╕╤Б╨║╨╗╤О╤З╨╡╨╜╨╕╤П - ╨║╨░╨║?
     WITH interface^.Handlers^[handler_no] DO
       IF CallHandler (Desc.Type, mem.GetIP (), Desc.Message) THEN
         exe.StopExec ();

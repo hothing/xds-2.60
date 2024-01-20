@@ -690,7 +690,7 @@ BEGIN
         get_field(BF_FileName);
         fil.SplitPath(FilName, drive, dir, file);
         IF find_wildcard (FilName) OR (FilName = '') OR (drive # '') OR (dir # '') THEN
-          --  ©¤¥­ë wildcard ¨«¨ ¯ãâì -> ®¡­®¢¨¬ á¯¨á®ª ä ©«®¢
+          -- ÐÐ°Ð¹Ð´ÐµÐ½Ñ‹ wildcard Ð¸Ð»Ð¸ Ð¿ÑƒÑ‚ÑŒ -> Ð¾Ð±Ð½Ð¾Ð²Ð¸Ð¼ ÑÐ¿Ð¸ÑÐ¾Ðº Ñ„Ð°Ð¹Ð»Ð¾Ð²
           IF drive # '' THEN
             COPY(FilName, path);
           ELSIF dir # '' THEN
@@ -705,7 +705,7 @@ BEGIN
           update_field(BF_FileName);
           eve.AddToTail(hwnd, eve.Redraw, 0);
         ELSE
-          -- ¥ ­ è«®áì wildcard -> ä ©« ¢ë¡à ­
+          -- ÐÐµ Ð½Ð°ÑˆÐ»Ð¾ÑÑŒ wildcard -> Ñ„Ð°Ð¹Ð» Ð²Ñ‹Ð±Ñ€Ð°Ð½
           BrowseField := BF_Ok;
           eve.AddToTail(hwnd, eve.KbHit, key.Enter);
         END;

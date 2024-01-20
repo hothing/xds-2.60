@@ -35,19 +35,19 @@ BEGIN
 END SkipBlanks;
 
 
-(* ì·‚†≠†¢´®¢†•‚ ‡•¶®¨ *)
+(* –£—Å—Ç–∞–Ω–∞–≤–ª–∏–≤–∞–µ—Ç —Ä–µ–∂–∏–º *)
 PROCEDURE ModeOn (mode: pt.MODE_FLAGS );
 BEGIN
   INCL(pt.Mode,mode);
 END ModeOn;
 
-(* ÇÎ™´ÓÁ†•‚ ‡•¶®¨ *)
+(* –í—ã–∫–ª—é—á–∞–µ—Ç —Ä–µ–∂–∏–º *)
 PROCEDURE ModeOff (mode: pt.MODE_FLAGS );
 BEGIN
   EXCL(pt.Mode,mode);
 END ModeOff;
 
-(* è‡Æ¢•‡Ô•‚, ¢™´ÓÁ•≠ ´® ‡•¶®¨ *)
+(* –ü—Ä–æ–≤–µ—Ä—è–µ—Ç, –≤–∫–ª—é—á–µ–Ω –ª–∏ —Ä–µ–∂–∏–º *)
 PROCEDURE CheckMode (mode: pt.MODE_FLAGS ) : BOOLEAN;
 BEGIN
   RETURN (mode IN pt.Mode);
@@ -236,35 +236,35 @@ BEGIN
 
 <* IF DEST_K26 THEN *>
 
-  SetModeName (pt.Pak,           'PAK',            'èÄäÖí');
-  SetModeName (pt.Trace,         'TRACE',          'íêÄëëÄ');
-  SetModeName (pt.Put,           'PUT',            'èÖóÄíú');
-  SetModeName (pt.IO,            'IO',             'éÅåÖç');
-  SetModeName (pt.Time_Count,    'TIME',           'ÇêÖåü');
-  SetModeName (pt.Put_Addr,      'ADR',            'ÄÑêÖë');
-  SetModeName (pt.Dump,          'DUMP',           'ÑÄåè');
-  SetModeName (pt.User,          'èéãúá',          'USER');
-  SetModeName (pt.OutMem,        'Çè',             'OUT');
-  SetModeName (pt.WrProt,        'èáì',            'WRPR');
-  SetModeName (pt.ProgInt,       'èê',             'PR');
-  SetModeName (pt.Address,       'ÄÑê',            'ADDR');
-  SetModeName (pt.Write,         'á',              'WRITE');
-  SetModeName (pt.WriteReg,      'á',              'WRITE');
-  SetModeName (pt.Read,          'ó',              'READ');
-  SetModeName (pt.ReadReg,       'ó',              'READ');
-  SetModeName (pt.Call,          'ÇõáéÇ',          'CALL');
-  SetModeName (pt.Ret,           'ÇéáÇêÄí',        'RET');
-  SetModeName (pt.If,            'Öëãà',           'IF');
-  SetModeName (pt.Line,          'ë',              'LINE');
-  SetModeName (pt.IO,            'ÇÇ',             'IO'  );
-  SetModeName (pt.System,        'ëàëíÖåÄ',        'SYSTEM');
-  SetModeName (pt.Storage,       'èÄåüíú',         'STORAGE');
-  SetModeName (pt.StoragePrint,  'èÄåüíú_èÖóÄíú',  'STORAGE_PRINT');
-  SetModeName (pt.CompCreated,   'îÄáÄ',           'COMP' );
-  SetModeName (pt.CompDestroyed, 'îÄáÄìÑ',         'COMPDEL');
-  SetModeName (pt.Test,          'íÖëí',           'TEST');
-  SetModeName (pt.ModelProc,     'èêéñ_èÖóÄíú',    'PROC');
-  SetModeName (pt.DirectStart,   'ëíÄêí',          'START');
+  SetModeName (pt.Pak,           'PAK',            '–ü–ê–ö–ï–¢');
+  SetModeName (pt.Trace,         'TRACE',          '–¢–†–ê–°–°–ê');
+  SetModeName (pt.Put,           'PUT',            '–ü–ï–ß–ê–¢–¨');
+  SetModeName (pt.IO,            'IO',             '–û–ë–ú–ï–ù');
+  SetModeName (pt.Time_Count,    'TIME',           '–í–†–ï–ú–Ø');
+  SetModeName (pt.Put_Addr,      'ADR',            '–ê–î–†–ï–°');
+  SetModeName (pt.Dump,          'DUMP',           '–î–ê–ú–ü');
+  SetModeName (pt.User,          '–ü–û–õ–¨–ó',          'USER');
+  SetModeName (pt.OutMem,        '–í–ü',             'OUT');
+  SetModeName (pt.WrProt,        '–ü–ó–£',            'WRPR');
+  SetModeName (pt.ProgInt,       '–ü–†',             'PR');
+  SetModeName (pt.Address,       '–ê–î–†',            'ADDR');
+  SetModeName (pt.Write,         '–ó',              'WRITE');
+  SetModeName (pt.WriteReg,      '–ó',              'WRITE');
+  SetModeName (pt.Read,          '–ß',              'READ');
+  SetModeName (pt.ReadReg,       '–ß',              'READ');
+  SetModeName (pt.Call,          '–í–´–ó–û–í',          'CALL');
+  SetModeName (pt.Ret,           '–í–û–ó–í–†–ê–¢',        'RET');
+  SetModeName (pt.If,            '–ï–°–õ–ò',           'IF');
+  SetModeName (pt.Line,          '–°',              'LINE');
+  SetModeName (pt.IO,            '–í–í',             'IO'  );
+  SetModeName (pt.System,        '–°–ò–°–¢–ï–ú–ê',        'SYSTEM');
+  SetModeName (pt.Storage,       '–ü–ê–ú–Ø–¢–¨',         'STORAGE');
+  SetModeName (pt.StoragePrint,  '–ü–ê–ú–Ø–¢–¨_–ü–ï–ß–ê–¢–¨',  'STORAGE_PRINT');
+  SetModeName (pt.CompCreated,   '–§–ê–ó–ê',           'COMP' );
+  SetModeName (pt.CompDestroyed, '–§–ê–ó–ê–£–î',         'COMPDEL');
+  SetModeName (pt.Test,          '–¢–ï–°–¢',           'TEST');
+  SetModeName (pt.ModelProc,     '–ü–†–û–¶_–ü–ï–ß–ê–¢–¨',    'PROC');
+  SetModeName (pt.DirectStart,   '–°–¢–ê–†–¢',          'START');
 
   SetIdentName (pt.TraceCode,    'CODE'   );
   SetIdentName (pt.TraceSource,  'SOURCE' );

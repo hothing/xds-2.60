@@ -40,7 +40,7 @@ IMPORT mdl := Model;
 <* END *>
 
 
-(* è‡Æ¢•‡™†, ≠„¶•≠ ´® ‡•¶®¨ Step *)
+(* –ü—Ä–æ–≤–µ—Ä–∫–∞, –Ω—É–∂–µ–Ω –ª–∏ —Ä–µ–∂–∏–º Step *)
 PROCEDURE NeedToStepMode (): BOOLEAN;
 BEGIN
   RETURN bas.CheckMode(pt.Trace) OR brk.NeedToStepMode();
@@ -48,7 +48,7 @@ END NeedToStepMode;
 
 
 
-(* ê•†™Ê®Ô ≠† ®·™´ÓÁ®‚•´Ï≠„Ó ·®‚„†Ê®Ó ¢ Ø‡Æ£‡†¨¨• *)
+(* –†–µ–∞–∫—Ü–∏—è –Ω–∞ –∏—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω—É—é —Å–∏—Ç—É–∞—Ü–∏—é –≤ –ø—Ä–æ–≥—Ä–∞–º–º–µ *)
 PROCEDURE ExceptionReaction (data: erc.DATA); FORWARD;
 
 
@@ -60,7 +60,7 @@ BEGIN
 END SetDefaultExceptionReaction;
 
 
-(* ì§†´•≠®• Æ·‚†≠Æ¢† ØÆ ≠Æ¨•‡„ *)
+(* –£–¥–∞–ª–µ–Ω–∏–µ –æ—Å—Ç–∞–Ω–æ–≤–∞ –ø–æ –Ω–æ–º–µ—Ä—É *)
 PROCEDURE DelBreak (N: CARDINAL) : BOOLEAN;
 VAR
   React   : erc.PREACTION;
@@ -91,7 +91,7 @@ BEGIN
    <* END *>
     END;
     WHILE DelBreak (N) DO
-      -- ¢·• ‚†™®• ‚ÆÁ™® ≠„¶≠Æ „§†´®‚Ï
+      -- –≤—Å–µ —Ç–∞–∫–∏–µ —Ç–æ—á–∫–∏ –Ω—É–∂–Ω–æ —É–¥–∞–ª–∏—Ç—å
     END;
     RETURN TRUE;
   ELSE
@@ -100,7 +100,7 @@ BEGIN
 END DelBreak;
 
 
-(* èÆ®·™ ‡•†™Ê®® ØÆ ≠Æ¨•‡„ *)
+(* –ü–æ–∏—Å–∫ —Ä–µ–∞–∫—Ü–∏–∏ –ø–æ –Ω–æ–º–µ—Ä—É *)
 PROCEDURE FindBreak (        N   : CARDINAL;
                      VAR Event   : eve.EVENT_TYPE;
                      VAR React   : erc.PREACTION;
@@ -228,12 +228,12 @@ END FindBreak;
 
 
 VAR
-  (* è‡•§≠†ß≠†Á•≠Î §´Ô Æ‚Æ°‡†¶•≠®Ô ‚‡†··Î Ø‡Æ£‡†¨¨Î *)
+  (* –ü—Ä–µ–¥–Ω–∞–∑–Ω–∞—á–µ–Ω—ã –¥–ª—è –æ—Ç–æ–±—Ä–∞–∂–µ–Ω–∏—è —Ç—Ä–∞—Å—Å—ã –ø—Ä–æ–≥—Ä–∞–º–º—ã *)
   CurrentCom : CARDINAL;
   CurrentMod : CARDINAL;
   CurrentLine: CARDINAL;
 
-(* è•Á†‚Ï ‚‡†··Î ®·ØÆ´≠•≠®Ô Ø‡Æ£‡†¨¨Î *)
+(* –ü–µ—á–∞—Ç—å —Ç—Ä–∞—Å—Å—ã –∏—Å–ø–æ–ª–Ω–µ–Ω–∏—è –ø—Ä–æ–≥—Ä–∞–º–º—ã *)
 PROCEDURE PrintTraceExecuting (data: erc.DATA);
 VAR
   mssg, buf: xs.String;
@@ -270,7 +270,7 @@ BEGIN
         IF mod # CurrentMod THEN
           ASSERT( tls.ModName (com, mod, mod_ptr) );
           COPY(mod_ptr^, mssg);
-          fmt.print(buf, "     ≥----- %s%s", com_name, mssg);
+          fmt.print(buf, "     ‚îÇ----- %s%s", com_name, mssg);
           pro.WriteMsg(buf, pro.to_screen, pro.to_file);
           CurrentMod := mod;
           CurrentLine := MAX(CARDINAL);
@@ -278,7 +278,7 @@ BEGIN
         IF line # CurrentLine THEN
           mod_ptr := tls.GetSourceLine (com, mod, line-1);
           COPY(mod_ptr^, mssg);
-          fmt.print(buf, "     ≥%5u   %s", line, mssg);
+          fmt.print(buf, "     ‚îÇ%5u   %s", line, mssg);
           pro.WriteMsg(buf, pro.to_screen, pro.to_file);
           CurrentLine := line;
         END;
@@ -293,25 +293,25 @@ BEGIN
 END PrintTraceExecuting;
 
 
-(* ë‚†≠§†‡‚≠Î• §•©·‚¢®Ô Ø‡® Ø•‡•ÂÆ§• ¢ Ø†™•‚ *)
+(* –°—Ç–∞–Ω–¥–∞—Ä—Ç–Ω—ã–µ –¥–µ–π—Å—Ç–≤–∏—è –ø—Ä–∏ –ø–µ—Ä–µ—Ö–æ–¥–µ –≤ –ø–∞–∫–µ—Ç *)
 PROCEDURE BreakProgram (Desc: pt.BREAK_DESCRIPTION; print: BOOLEAN; text-: ARRAY OF CHAR);
 VAR
   com: dt.ComNo;
   mod: dt.ModNo;
   BreakName: xs.String;
 BEGIN
-  -- é·‚†≠Æ¢®‚Ï Ø‡Æ£‡†¨¨„ ® Æ°‡†°Æ‚™„ ‡•†™Ê®©
+  -- –û—Å—Ç–∞–Ω–æ–≤–∏—Ç—å –ø—Ä–æ–≥—Ä–∞–º–º—É –∏ –æ–±—Ä–∞–±–æ—Ç–∫—É —Ä–µ–∞–∫—Ü–∏–π
   erc.StopReact;
   exe.StopExec;
 
-  -- ë°‡Æ·®‚Ï ·‚•™
+  -- –°–±—Ä–æ—Å–∏—Ç—å —Å—Ç–µ–∫
   stk.ResetCallStack;
 
-  -- è•‡•©‚® ¢ Ø†™•‚ ≠† ¨•‚™„
+  -- –ü–µ—Ä–µ–π—Ç–∏ –≤ –ø–∞–∫–µ—Ç –Ω–∞ –º–µ—Ç–∫—É
   pt.CurrPaket := Desc.Paket_No;
   pt.Pakets[pt.CurrPaket].LineNum := Desc.Line_No;
 
-  -- ì·‚†≠Æ¢®‚Ï ‚•™„È®• ™Æ¨ØÆ≠•≠‚„ ® ¨Æ§„´Ï
+  -- –£—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —Ç–µ–∫—É—â–∏–µ –∫–æ–º–ø–æ–Ω–µ–Ω—Ç—É –∏ –º–æ–¥—É–ª—å
   IF tls.FindComponentByAddr (eve.LastEvent.IP, com) THEN
     pt.ActiveComponent := com;
     IF tls.FindModInCompByAddr (com, eve.LastEvent.IP, mod) THEN
@@ -319,7 +319,7 @@ BEGIN
     END;
   END;
 
-  -- Ö·´® Ø•Á†‚Ï ÆØ‡•§•´•≠†
+  -- –ï—Å–ª–∏ –ø–µ—á–∞—Ç—å –æ–ø—Ä–µ–¥–µ–ª–µ–Ω–∞
   IF print THEN
     ASSERT(lst.GetBreakName (BreakName, Desc.Number));
     pro.WriteMsgNo (msg.Break, pro.to_screen, pro.to_file, BreakName, eve.LastEvent.IP, text);
@@ -327,8 +327,8 @@ BEGIN
 END BreakProgram;
 
 
-(* èÆ®·™ ‡•†™Ê®® ≠† ®·™´ÓÁ®‚•´Ï≠„Ó ·®‚„†Ê®Ó ¢ Ø‡Æ£‡†¨¨• *)
-(* ®§•≠‚®‰®™†‚Æ‡„ ®·™´ÓÁ®‚•´Ï≠Æ© ·®‚„†Ê®®               *)
+(* –ü–æ–∏—Å–∫ —Ä–µ–∞–∫—Ü–∏–∏ –Ω–∞ –∏—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω—É—é —Å–∏—Ç—É–∞—Ü–∏—é –≤ –ø—Ä–æ–≥—Ä–∞–º–º–µ *)
+(* –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æ—Ä—É –∏—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–æ–π —Å–∏—Ç—É–∞—Ü–∏–∏               *)
 PROCEDURE FindException (Exception_ID: eve.EXCEPTION_ID): BOOLEAN;
 VAR
   preact: erc.PREACTION;
@@ -349,7 +349,7 @@ BEGIN
 END FindException;
 
 
-(* ê•†™Ê®Ô ≠† ®·™´ÓÁ®‚•´Ï≠„Ó ·®‚„†Ê®Ó ¢ Ø‡Æ£‡†¨¨• *)
+(* –†–µ–∞–∫—Ü–∏—è –Ω–∞ –∏—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω—É—é —Å–∏—Ç—É–∞—Ü–∏—é –≤ –ø—Ä–æ–≥—Ä–∞–º–º–µ *)
 PROCEDURE ExceptionReaction (data: erc.DATA);
 VAR
   pdata: PEXCEPTION;
@@ -375,13 +375,13 @@ BEGIN
     print := FALSE;
     text  := '';
     CASE eve.LastEvent.Exception_ID OF
-    | eve.OutOfMemory     : (* ÑÆ·‚„Ø ØÆ †§‡•·„ ¢≠• §®†Ø†ßÆ≠† †§‡•·Æ¢ *)
+    | eve.OutOfMemory     : (* –î–æ—Å—Ç—É–ø –ø–æ –∞–¥—Ä–µ—Å—É –≤–Ω–µ –¥–∏–∞–ø–∞–∑–æ–Ω–∞ –∞–¥—Ä–µ—Å–æ–≤ *)
       IF bas.CheckMode(pt.OutMem) OR (pdata = NIL) THEN
         print := TRUE;
         pro.GetMsg(msg.BreakOutMem, m);
         fmt.print(text, m, CARDINAL(eve.LastEvent.XCPT_INFO_1));
       END;
-    | eve.ProgramException: (* è‡Æ£‡†¨¨≠Æ• Ø‡•‡Î¢†≠®•                 *)
+    | eve.ProgramException: (* –ü—Ä–æ–≥—Ä–∞–º–º–Ω–æ–µ –ø—Ä–µ—Ä—ã–≤–∞–Ω–∏–µ                 *)
       IF bas.CheckMode(pt.ProgInt) OR (pdata = NIL) THEN
         print := TRUE;
         WITH eve.LastEvent DO
@@ -399,14 +399,14 @@ BEGIN
           END;
         END;
       END;
-    | eve.WriteProtected  : (* á†Ø®·Ï ¢ ß†È®È•≠≠„Ó Æ°´†·‚Ï Ø†¨Ô‚®     *)
+    | eve.WriteProtected  : (* –ó–∞–ø–∏—Å—å –≤ –∑–∞—â–∏—â–µ–Ω–Ω—É—é –æ–±–ª–∞—Å—Ç—å –ø–∞–º—è—Ç–∏     *)
       IF bas.CheckMode(pt.WrProt) OR (pdata = NIL) THEN
         print := TRUE;
         pro.GetMsg(msg.BreakWrProt, m);
         xcp.Get_XCPT_Msg(CARDINAL(eve.LastEvent.XCPT_INFO_4), 0, xcpt);
         fmt.print(text, m, xcpt, CARDINAL(eve.LastEvent.XCPT_INFO_1));
       END;
-    | eve.UserException   : (* à·ØÆ´≠•≠®• Ø‡•‡¢†≠Æ ØÆ´ÏßÆ¢†‚•´•¨      *)
+    | eve.UserException   : (* –ò—Å–ø–æ–ª–Ω–µ–Ω–∏–µ –ø—Ä–µ—Ä–≤–∞–Ω–æ –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–µ–º      *)
       IF bas.CheckMode(pt.User) OR (pdata = NIL) THEN
         pro.GetMsg(msg.User_React_Default,text);
       END;
@@ -436,7 +436,7 @@ BEGIN
 END ExceptionReaction;
 
 
-(* ê•†™Ê®Ô ≠† ®·™´ÓÁ®‚•´Ï≠„Ó ·®‚„†Ê®Ó ¢ Ø‡Æ£‡†¨¨• *)
+(* –†–µ–∞–∫—Ü–∏—è –Ω–∞ –∏—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω—É—é —Å–∏—Ç—É–∞—Ü–∏—é –≤ –ø—Ä–æ–≥—Ä–∞–º–º–µ *)
 PROCEDURE SetExceptionReaction (data: erc.DATA);
 VAR
   preact, tmp: erc.PREACTION;
@@ -457,7 +457,7 @@ BEGIN
 END SetExceptionReaction;
 
 
-(* ê•†™Ê®Ô ≠† ®·ØÆ´≠•≠®• ™Æ¨†≠§Î Call *)
+(* –†–µ–∞–∫—Ü–∏—è –Ω–∞ –∏—Å–ø–æ–ª–Ω–µ–Ω–∏–µ –∫–æ–º–∞–Ω–¥—ã Call *)
 PROCEDURE Call (data: erc.DATA);
 VAR
   pcall: PCALL;
@@ -498,7 +498,7 @@ BEGIN
 END Call;
 
 
-(* ê•†™Ê®Ô ≠† ®·ØÆ´≠•≠®• ™Æ¨†≠§Î Ret *)
+(* –†–µ–∞–∫—Ü–∏—è –Ω–∞ –∏—Å–ø–æ–ª–Ω–µ–Ω–∏–µ –∫–æ–º–∞–Ω–¥—ã Ret *)
 PROCEDURE Return (data: erc.DATA);
 VAR
   pret : PRETURN;
@@ -659,7 +659,7 @@ END CheckBreakInCompDestroyed;
 <* PUSH *>
 <* WOFF301+ *>
 
-(* ê•†™Ê®Ô ≠† ®·™´ÓÁ®‚•´Ï≠„Ó ·®‚„†Ê®Ó ¢ Æ‚´†§Á®™• *)
+(* –†–µ–∞–∫—Ü–∏—è –Ω–∞ –∏—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω—É—é —Å–∏—Ç—É–∞—Ü–∏—é –≤ –æ—Ç–ª–∞–¥—á–∏–∫–µ *)
 PROCEDURE InternalError (data: erc.DATA);
 BEGIN
   ASSERT(eve.LastEvent.Event = eve.InternalError);
@@ -667,7 +667,7 @@ BEGIN
 END InternalError;
 
 
-(* ì·´Æ¢≠Î© Æ·‚†≠Æ¢ *)
+(* –£—Å–ª–æ–≤–Ω—ã–π –æ—Å—Ç–∞–Ω–æ–≤ *)
 PROCEDURE CheckCondition (data: erc.DATA);
 VAR
   text    ,
@@ -690,7 +690,7 @@ BEGIN
         WITH Break DO
           IF (Owner=brk.Paket) AND Active THEN
             IF exp.GetRelation (com, mod, Expr^, result) AND result THEN
-              (* ê•ß„´Ï‚†‚ ØÆ´„Á•≠ ® ¢Î‡†¶•≠®• ®·‚®≠≠Æ *)
+              (* –†–µ–∑—É–ª—å—Ç–∞—Ç –ø–æ–ª—É—á–µ–Ω –∏ –≤—ã—Ä–∞–∂–µ–Ω–∏–µ –∏—Å—Ç–∏–Ω–Ω–æ *)
               IF Pass = 0 THEN
                 text  := '';
                 print := bas.CheckMode(pt.If);
@@ -718,7 +718,7 @@ END CheckCondition;
 
 
 
-(* é·‚†≠Æ¢ ØÆ †§‡•·„ *)
+(* –û—Å—Ç–∞–Ω–æ–≤ –ø–æ –∞–¥—Ä–µ—Å—É *)
 PROCEDURE ProcessingBreakpoints (data: erc.DATA);
 VAR
   text, m   : xs.String;
@@ -781,7 +781,7 @@ BEGIN
 END ProcessingBreakpoints;
 
 
-(* é·‚†≠Æ¢ ØÆ §Æ·‚„Ø„ ™ Ø†¨Ô‚® *)
+(* –û—Å—Ç–∞–Ω–æ–≤ –ø–æ –¥–æ—Å—Ç—É–ø—É –∫ –ø–∞–º—è—Ç–∏ *)
 PROCEDURE MemoryAccess (data: erc.DATA);
 VAR
   text, m   : xs.String;
@@ -905,7 +905,7 @@ BEGIN
 END MemoryAccess;
 
 
-(* èÆ®·™ ‡•†™Ê®® ≠† §Æ·‚„Ø *)
+(* –ü–æ–∏—Å–∫ —Ä–µ–∞–∫—Ü–∏–∏ –Ω–∞ –¥–æ—Å—Ç—É–ø *)
 PROCEDURE FindAccess (Access: brk.ACCESS_BREAK): BOOLEAN;
 VAR
   i: CARDINAL;
@@ -938,7 +938,7 @@ END FindAccess;
 
 <* IF DEST_K26 THEN *>
 
-(* é·‚†≠Æ¢ ØÆ §Æ·‚„Ø„ ™ ‡•£®·‚‡†¨ *)
+(* –û—Å—Ç–∞–Ω–æ–≤ –ø–æ –¥–æ—Å—Ç—É–ø—É –∫ —Ä–µ–≥–∏—Å—Ç—Ä–∞–º *)
 PROCEDURE RegisterAccess (data: erc.DATA);
 VAR
   text, m   : xs.String;
@@ -1028,7 +1028,7 @@ BEGIN
 END RegisterAccess;
 
 
-(* ê•†™Ê®Ô ≠† Æ°‡†È•≠®• ™ ØÆ‡‚„ *)
+(* –†–µ–∞–∫—Ü–∏—è –Ω–∞ –æ–±—Ä–∞—â–µ–Ω–∏–µ –∫ –ø–æ—Ä—Ç—É *)
 PROCEDURE DeviceAccess (data: erc.DATA);
 VAR
   text    : xs.String;

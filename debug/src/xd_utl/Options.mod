@@ -1,5 +1,5 @@
 IMPLEMENTATION MODULE Options;
-(* Набор переменных, определяющих режим работы отладчика *)
+(* ╨Э╨░╨▒╨╛╤А ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е, ╨╛╨┐╤А╨╡╨┤╨╡╨╗╤П╤О╤Й╨╕╤Е ╤А╨╡╨╢╨╕╨╝ ╤А╨░╨▒╨╛╤В╤Л ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨░ *)
 
 <* IF DEST_XDS THEN *>
 
@@ -12,16 +12,16 @@ IMPORT Translit;
 <* IF DEFINED (xd_debug) & xd_debug THEN *>
 
 VAR
-  Debug_Info : DEBUG_INFO;   (* Выдавать отладочную информацию *)
+  Debug_Info : DEBUG_INFO;   (* ╨Т╤Л╨┤╨░╨▓╨░╤В╤М ╨╛╤В╨╗╨░╨┤╨╛╤З╨╜╤Г╤О ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╤О *)
 
 
-PROCEDURE DebugOn (d: DEBUG_MODE); (* Включить режим *)
+PROCEDURE DebugOn (d: DEBUG_MODE); (* ╨Т╨║╨╗╤О╤З╨╕╤В╤М ╤А╨╡╨╢╨╕╨╝ *)
 BEGIN
   INCL(Debug_Info, d);
 END DebugOn;
 
 
-PROCEDURE Debug (d: DEBUG_MODE) : BOOLEAN; (* Включен ли режим? *)
+PROCEDURE Debug (d: DEBUG_MODE) : BOOLEAN; (* ╨Т╨║╨╗╤О╤З╨╡╨╜ ╨╗╨╕ ╤А╨╡╨╢╨╕╨╝? *)
 BEGIN
   RETURN d IN Debug_Info;
 END Debug;
@@ -36,7 +36,7 @@ END SetXY;
 
 
 BEGIN
-  DialogMode  := FALSE; (* по умолчанию пакетный режим *)
+  DialogMode  := FALSE; (* ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О ╨┐╨░╨║╨╡╤В╨╜╤Л╨╣ ╤А╨╡╨╢╨╕╨╝ *)
   tst_name    := '';
   prog_name   := '';
   prog_args   := '';
@@ -63,7 +63,7 @@ BEGIN
   StopImmediately:= FALSE;
   SkipDisasm       := TRUE;
 
-  ShowModuleWithoutSource  := TRUE; (* Показывать модули без исходного текста *)
+  ShowModuleWithoutSource  := TRUE; (* ╨Я╨╛╨║╨░╨╖╤Л╨▓╨░╤В╤М ╨╝╨╛╨┤╤Г╨╗╨╕ ╨▒╨╡╨╖ ╨╕╤Б╤Е╨╛╨┤╨╜╨╛╨│╨╛ ╤В╨╡╨║╤Б╤В╨░ *)
   DisplayDerefencePointer  := FALSE;
   CatchExceptInternalError := TRUE;
   UseSingleStructureWindow := TRUE;
@@ -72,7 +72,7 @@ BEGIN
 <* IF DEST_K26 THEN *>
 
   DisasmMode           := FALSE;
-  ConvertVar2Ref       := FALSE;   (* Представление переменной как ссылки (см. Expr.def) *)
+  ConvertVar2Ref       := FALSE;   (* ╨Я╤А╨╡╨┤╤Б╤В╨░╨▓╨╗╨╡╨╜╨╕╨╡ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨╛╨╣ ╨║╨░╨║ ╤Б╤Б╤Л╨╗╨║╨╕ (╤Б╨╝. Expr.def) *)
   TableModel           := FALSE;
   TraceRegisters       := TRUE;
   IgnoreWriteProtected := FALSE;
@@ -98,7 +98,7 @@ BEGIN
 
   IgnoreWriteProtected := TRUE;
   KernelInRemoteMode   := FALSE;
-  AutoDetectActualType := TRUE; (* Определять настоящий тип обьектов      *)
+  AutoDetectActualType := TRUE; (* ╨Ю╨┐╤А╨╡╨┤╨╡╨╗╤П╤В╤М ╨╜╨░╤Б╤В╨╛╤П╤Й╨╕╨╣ ╤В╨╕╨┐ ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓      *)
 
 <* END *>
 

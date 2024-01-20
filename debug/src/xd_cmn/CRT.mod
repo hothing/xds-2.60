@@ -51,16 +51,16 @@ TYPE
 
 VAR
   X,Y  : CARDINAL;
-  BufferSize: CARDINAL;  (* ê†ß¨•‡ Ì™‡†≠≠Æ£Æ °„‰•‡† ¢ °†©‚†Â *)
+  BufferSize: CARDINAL;  (* –†–∞–∑–º–µ—Ä —ç–∫—Ä–∞–Ω–Ω–æ–≥–æ –±—É—Ñ–µ—Ä–∞ –≤ –±–∞–π—Ç–∞—Ö *)
 
-  Scr : SCREEN;          (* ï‡†≠•≠®• ‚•™„È•£Æ ·Æ·‚ÆÔ≠®Ô Ì™‡†≠†       *)
-  Map : MAP;             (* é·≠Æ¢≠†Ô ™†‡‚† ‚•™„È•£Æ ·Æ·‚ÆÔ≠®Ô Ì™‡†≠† *)
+  Scr : SCREEN;          (* –•—Ä–∞–Ω–µ–Ω–∏–µ —Ç–µ–∫—É—â–µ–≥–æ —Å–æ—Å—Ç–æ—è–Ω–∏—è —ç–∫—Ä–∞–Ω–∞       *)
+  Map : MAP;             (* –û—Å–Ω–æ–≤–Ω–∞—è –∫–∞—Ä—Ç–∞ —Ç–µ–∫—É—â–µ–≥–æ —Å–æ—Å—Ç–æ—è–Ω–∏—è —ç–∫—Ä–∞–Ω–∞ *)
 
-  ChangingWindow: SCREEN;(* ù™‡†≠, ® ™†‡‚†, ¢ ™Æ‚Æ‡ÎÂ •·‚Ï Æ™≠Æ      *)
-  ChangingMap   :    MAP;(* „ ™Æ‚Æ‡Æ£Æ ¨•≠Ô•‚·Ô ¨•·‚Æ/‡†ß¨•‡         *)
+  ChangingWindow: SCREEN;(* –≠–∫—Ä–∞–Ω, –∏ –∫–∞—Ä—Ç–∞, –≤ –∫–æ—Ç–æ—Ä—ã—Ö –µ—Å—Ç—å –æ–∫–Ω–æ      *)
+  ChangingMap   :    MAP;(* —É –∫–æ—Ç–æ—Ä–æ–≥–æ –º–µ–Ω—è–µ—Ç—Å—è –º–µ—Å—Ç–æ/—Ä–∞–∑–º–µ—Ä         *)
 
-  StaticWindows: SCREEN; (* ù™‡†≠, ® ™†‡‚†, ¢ ™Æ‚Æ‡ÎÂ Æ™≠Æ           *)
-  StaticMap:    MAP;     (* „ ™Æ‚Æ‡Æ£Æ ¨•≠Ô•‚·Ô ¨•·‚Æ/‡†ß¨•‡ áÄäêõíé *)
+  StaticWindows: SCREEN; (* –≠–∫—Ä–∞–Ω, –∏ –∫–∞—Ä—Ç–∞, –≤ –∫–æ—Ç–æ—Ä—ã—Ö –æ–∫–Ω–æ           *)
+  StaticMap:    MAP;     (* —É –∫–æ—Ç–æ—Ä–æ–≥–æ –º–µ–Ω—è–µ—Ç—Å—è –º–µ—Å—Ç–æ/—Ä–∞–∑–º–µ—Ä –ó–ê–ö–†–´–¢–û *)
 
 
 PROCEDURE PutSymbol(x,y: CARDINAL; ch:CHAR; attr: ATTR);
@@ -241,7 +241,7 @@ BEGIN
   FOR y:=0 TO Ymax-1 DO
     FOR x:=0 TO Xmax-1 DO
       Map^[pos] := win.Invalid_H;
-      Scr^[pos].ch   :=  '±';
+      Scr^[pos].ch   :=  '‚ñí';
       Scr^[pos].attr := Attr(Blue,LightGray);
       INC(pos);
     END;
@@ -420,7 +420,7 @@ TYPE
 
 CONST
   WndCtrls = WND_CTRLS { ""    -- WinCtrl_None
-                       , "[˛]" -- WinCtrl_System
+                       , "[‚ñ†]" -- WinCtrl_System
                        , "[r]" -- WinCtrl_Restore
                        , "[m]" -- WinCtrl_Move
                        , "[s]" -- WinCtrl_Size
@@ -855,8 +855,8 @@ BEGIN
 <* END *>
 
 
-  Frames := ALL_FRAMES{ FRAME_IMAGE{'⁄',   'ƒ',  'ø',  '≥', 260C,  '≥',  '¿',  'ƒ',  'Ÿ', 0C}
-                      , FRAME_IMAGE{'…',   'Õ',  'ª',  '∫', 260C,  '∫',  '»',  'Õ',  'º', 0C}
+  Frames := ALL_FRAMES{ FRAME_IMAGE{'‚îå',   '‚îÄ',  '‚îê',  '‚îÇ', 260C,  '‚îÇ',  '‚îî',  '‚îÄ',  '‚îò', 0C}
+                      , FRAME_IMAGE{'‚ïî',   '‚ïê',  '‚ïó',  '‚ïë', 260C,  '‚ïë',  '‚ïö',  '‚ïê',  '‚ïù', 0C}
                       , FRAME_IMAGE{333C, 337C, 333C, 333C, 260C, 333C, 333C, 334C, 333C, 0C} };
 
   X := 0;
@@ -965,8 +965,8 @@ BEGIN
   PopupWindow [ Popup_Inactive     ] := Attr(DarkGray,  Blue);
   PopupWindow [ Popup_CurrInactive ] := Attr(DarkGray,  Black);
 
-  -- Ä‚‡®°„‚Î Ì´•¨•≠‚Æ¢ Ê¢•‚Æ¢Æ© ·Â•¨Î §´Ô Æ™Æ≠
-  -- ·‚‡„™‚„‡≠ÎÂ Ø•‡•¨•≠≠ÎÂ ØÆ „¨Æ´Á†≠®Ó
+  -- –ê—Ç—Ä–∏–±—É—Ç—ã —ç–ª–µ–º–µ–Ω—Ç–æ–≤ —Ü–≤–µ—Ç–æ–≤–æ–π —Å—Ö–µ–º—ã –¥–ª—è –æ–∫–æ–Ω
+  -- —Å—Ç—Ä—É–∫—Ç—É—Ä–Ω—ã—Ö –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö –ø–æ —É–º–æ–ª—á–∞–Ω–∏—é
   StructAttr[ Struct_Background    ] := Attr(White, Black);
   StructAttr[ Struct_Frame         ] := Attr(White, Black);
   StructAttr[ Struct_Header        ] := Attr(White, Black);
@@ -975,8 +975,8 @@ BEGIN
   StructAttr[ Struct_CurrentLine   ] := Attr(White, Blue);
   StructAttr[ Struct_AlternateLine ] := Attr(White, Black);
 
-  -- Ä‚‡®°„‚Î Ì´•¨•≠‚Æ¢ Ê¢•‚Æ¢Æ© ·Â•¨Î §´Ô
-  -- §®†´Æ£Æ¢ÎÂ Æ™Æ≠ ØÆ „¨Æ´Á†≠®Ó
+  -- –ê—Ç—Ä–∏–±—É—Ç—ã —ç–ª–µ–º–µ–Ω—Ç–æ–≤ —Ü–≤–µ—Ç–æ–≤–æ–π —Å—Ö–µ–º—ã –¥–ª—è
+  -- –¥–∏–∞–ª–æ–≥–æ–≤—ã—Ö –æ–∫–æ–Ω –ø–æ —É–º–æ–ª—á–∞–Ω–∏—é
   DialogAttr[ Dialog_Background     ] := Attr(White,     Blue);
   DialogAttr[ Dialog_ActiveEditor   ] := Attr(White,     Black);
   DialogAttr[ Dialog_InactiveEditor ] := Attr(Black,     LightGray);
@@ -996,20 +996,20 @@ BEGIN
 
   NEW(Pallette, 14);
 
-  Pallette^[00] := PALLETTE_ITEM{ 'Pulldown'         , 'é·≠Æ¢≠Æ• ¨•≠Ó'         , ORD(HIGH(Pulldown))+1    , sys.ADR(Pulldown)    , sys.ADR(Pull_Names)   };
-  Pallette^[01] := PALLETTE_ITEM{ 'Menus'            , 'å•≠Ó ¢‚Æ‡Æ£Æ „‡Æ¢≠Ô'   , ORD(HIGH(Menu))+1        , sys.ADR(Menu)        , sys.ADR(Menu_Names)   };
-  Pallette^[02] := PALLETTE_ITEM{ 'Source_Window'    , 'à·ÂÆ§≠Î© ‚•™·‚'        , ORD(HIGH(Src))+1         , sys.ADR(Src)         , sys.ADR(Src_Names)    };
-  Pallette^[03] := PALLETTE_ITEM{ 'List_Window'      , 'ëØ®·™®'                , ORD(HIGH(List))+1        , sys.ADR(List)        , sys.ADR(List_Names)   };
-  Pallette^[04] := PALLETTE_ITEM{ 'Error_Window'     , 'é™≠Æ ÆË®°Æ™'           , ORD(HIGH(Error))+1       , sys.ADR(Error)       , sys.ADR(Msg_Names)    };
-  Pallette^[05] := PALLETTE_ITEM{ 'Message_Window'   , 'é™≠Æ Ø‡•§„Ø‡•¶§•≠®©'   , ORD(HIGH(Msg))+1         , sys.ADR(Msg)         , sys.ADR(Msg_Names)    };
-  Pallette^[06] := PALLETTE_ITEM{ 'Info_Window'      , 'é™≠Æ ·ÆÆ°È•≠®©'        , ORD(HIGH(Info))+1        , sys.ADR(Info)        , sys.ADR(Msg_Names)    };
-  Pallette^[07] := PALLETTE_ITEM{ 'Register_Window'  , 'é™≠Æ ‡•£®·‚‡Æ¢'        , ORD(HIGH(Reg))+1         , sys.ADR(Reg)         , sys.ADR(Reg_Names)    };
-  Pallette^[08] := PALLETTE_ITEM{ 'Dump_Window'      , 'é™≠Æ §†¨Ø† Ø†¨Ô‚®'     , ORD(HIGH(Dump))+1        , sys.ADR(Dump)        , sys.ADR(Dump_Names)   };
-  Pallette^[09] := PALLETTE_ITEM{ 'Stack_Window'     , 'é™≠Æ ·‚•™†'            , ORD(HIGH(Stack))+1       , sys.ADR(Stack)       , sys.ADR(Dump_Names)   };
-  Pallette^[10] := PALLETTE_ITEM{ 'Popup_Window'     , 'Ñ•©·‚¢®Ô'              , ORD(HIGH(PopupWindow))+1 , sys.ADR(PopupWindow) , sys.ADR(Popup_Names)  };
-  Pallette^[11] := PALLETTE_ITEM{ 'Struct_Var_Window', 'ë‚‡„™‚„‡≠Î• Ø•‡•¨•≠≠Î•', ORD(HIGH(StructAttr))+1  , sys.ADR(StructAttr)  , sys.ADR(Struct_Names) };
-  Pallette^[12] := PALLETTE_ITEM{ 'Dialog_Window'    , 'Ñ®†´Æ£Æ¢Î• Æ™≠†'       , ORD(HIGH(DialogAttr))+1  , sys.ADR(DialogAttr)  , sys.ADR(Dialog_Names) };
-  Pallette^[13] := PALLETTE_ITEM{ 'IO_Model_Window'  , 'é™≠Æ ¨Æ§•´®‡Æ¢†≠®Ô'    , ORD(HIGH(Model))+1       , sys.ADR(Model)       , sys.ADR(IO_Names)     };
+  Pallette^[00] := PALLETTE_ITEM{ 'Pulldown'         , '–û—Å–Ω–æ–≤–Ω–æ–µ –º–µ–Ω—é'         , ORD(HIGH(Pulldown))+1    , sys.ADR(Pulldown)    , sys.ADR(Pull_Names)   };
+  Pallette^[01] := PALLETTE_ITEM{ 'Menus'            , '–ú–µ–Ω—é –≤—Ç–æ—Ä–æ–≥–æ —É—Ä–æ–≤–Ω—è'   , ORD(HIGH(Menu))+1        , sys.ADR(Menu)        , sys.ADR(Menu_Names)   };
+  Pallette^[02] := PALLETTE_ITEM{ 'Source_Window'    , '–ò—Å—Ö–æ–¥–Ω—ã–π —Ç–µ–∫—Å—Ç'        , ORD(HIGH(Src))+1         , sys.ADR(Src)         , sys.ADR(Src_Names)    };
+  Pallette^[03] := PALLETTE_ITEM{ 'List_Window'      , '–°–ø–∏—Å–∫–∏'                , ORD(HIGH(List))+1        , sys.ADR(List)        , sys.ADR(List_Names)   };
+  Pallette^[04] := PALLETTE_ITEM{ 'Error_Window'     , '–û–∫–Ω–æ –æ—à–∏–±–æ–∫'           , ORD(HIGH(Error))+1       , sys.ADR(Error)       , sys.ADR(Msg_Names)    };
+  Pallette^[05] := PALLETTE_ITEM{ 'Message_Window'   , '–û–∫–Ω–æ –ø—Ä–µ–¥—É–ø—Ä–µ–∂–¥–µ–Ω–∏–π'   , ORD(HIGH(Msg))+1         , sys.ADR(Msg)         , sys.ADR(Msg_Names)    };
+  Pallette^[06] := PALLETTE_ITEM{ 'Info_Window'      , '–û–∫–Ω–æ —Å–æ–æ–±—â–µ–Ω–∏–π'        , ORD(HIGH(Info))+1        , sys.ADR(Info)        , sys.ADR(Msg_Names)    };
+  Pallette^[07] := PALLETTE_ITEM{ 'Register_Window'  , '–û–∫–Ω–æ —Ä–µ–≥–∏—Å—Ç—Ä–æ–≤'        , ORD(HIGH(Reg))+1         , sys.ADR(Reg)         , sys.ADR(Reg_Names)    };
+  Pallette^[08] := PALLETTE_ITEM{ 'Dump_Window'      , '–û–∫–Ω–æ –¥–∞–º–ø–∞ –ø–∞–º—è—Ç–∏'     , ORD(HIGH(Dump))+1        , sys.ADR(Dump)        , sys.ADR(Dump_Names)   };
+  Pallette^[09] := PALLETTE_ITEM{ 'Stack_Window'     , '–û–∫–Ω–æ —Å—Ç–µ–∫–∞'            , ORD(HIGH(Stack))+1       , sys.ADR(Stack)       , sys.ADR(Dump_Names)   };
+  Pallette^[10] := PALLETTE_ITEM{ 'Popup_Window'     , '–î–µ–π—Å—Ç–≤–∏—è'              , ORD(HIGH(PopupWindow))+1 , sys.ADR(PopupWindow) , sys.ADR(Popup_Names)  };
+  Pallette^[11] := PALLETTE_ITEM{ 'Struct_Var_Window', '–°—Ç—Ä—É–∫—Ç—É—Ä–Ω—ã–µ –ø–µ—Ä–µ–º–µ–Ω–Ω—ã–µ', ORD(HIGH(StructAttr))+1  , sys.ADR(StructAttr)  , sys.ADR(Struct_Names) };
+  Pallette^[12] := PALLETTE_ITEM{ 'Dialog_Window'    , '–î–∏–∞–ª–æ–≥–æ–≤—ã–µ –æ–∫–Ω–∞'       , ORD(HIGH(DialogAttr))+1  , sys.ADR(DialogAttr)  , sys.ADR(Dialog_Names) };
+  Pallette^[13] := PALLETTE_ITEM{ 'IO_Model_Window'  , '–û–∫–Ω–æ –º–æ–¥–µ–ª–∏—Ä–æ–≤–∞–Ω–∏—è'    , ORD(HIGH(Model))+1       , sys.ADR(Model)       , sys.ADR(IO_Names)     };
 
 <* ELSE *>
 

@@ -19,7 +19,7 @@ FROM Krn_Dasm IMPORT ResolveAddr, ResolveEA;
 
 <* END *>
 
--------------------------------- Ñ®ß†··•¨°´•‡ -----------------------------
+-------------------------------- –î–∏–∑–∞—Å—Å–µ–º–±–ª–µ—Ä -----------------------------
                                 --------------
 TYPE
   FMT_STR = ARRAY [0..15] OF CHAR;
@@ -43,7 +43,7 @@ BEGIN
   exc.RAISE(DisasmSource, MAX(CARDINAL), '');
 END DisasmError;
 
-CONST (* Æ°È®• ‡•£®·‚‡Î - ØÆ´• reg *)
+CONST (* –æ–±—â–∏–µ —Ä–µ–≥–∏—Å—Ç—Ä—ã - –ø–æ–ª–µ reg *)
 
   al = 0;       ax = al;       eax = ax;
   cl = 1;       cx = cl;       ecx = cx;
@@ -67,10 +67,10 @@ VAR
 
    n : CARDINAL;
 
-   mod, reg, rm: CARDINAL;      -- Á†·‚® °†©‚† mod/reg/rm
-   sc, index, base: CARDINAL;     -- Á†·‚® °†©‚† s-i-b
+   mod, reg, rm: CARDINAL;      -- —á–∞—Å—Ç–∏ –±–∞–π—Ç–∞ mod/reg/rm
+   sc, index, base: CARDINAL;     -- —á–∞—Å—Ç–∏ –±–∞–π—Ç–∞ s-i-b
 
-   second_arg : BOOLEAN;         -- ¢‚Æ‡Æ© †‡£„¨•≠‚ ™Æ¨†≠§Î
+   second_arg : BOOLEAN;         -- –≤—Ç–æ—Ä–æ–π –∞—Ä–≥—É–º–µ–Ω—Ç –∫–æ–º–∞–Ω–¥—ã
 
    displ    : INTEGER;
    displ_pos: CARDINAL;
@@ -82,18 +82,18 @@ VAR
    cpos    : kt.ADDRESS;
    bpos    : kt.ADDRESS;
 
-   prefix: BOOLEAN;          -- Ø‡®ß≠†™ ≠•Æ™Æ≠Á•≠≠Æ·‚® ™Æ¨†≠§Î
+   prefix: BOOLEAN;          -- –ø—Ä–∏–∑–Ω–∞–∫ –Ω–µ–æ–∫–æ–Ω—á–µ–Ω–Ω–æ—Å—Ç–∏ –∫–æ–º–∞–Ω–¥—ã
 
-   size32, addr32: BOOLEAN;  -- ‡†ß¨•‡ ÆØ•‡†≠§† ® †§‡•·† °•ß „Á•‚† Ø‡•‰®™·†
-   s32     : BOOLEAN;        -- ‡†ß¨•‡ ÆØ•‡†≠§† · „Á•‚Æ¨ Ø‡•‰®™·†
-   a32     : BOOLEAN;        -- ‡†ß¨•‡ †§‡•·† · „Á•‚Æ¨ Ø‡•‰®™·†
-   opsize  : BOOLEAN;        -- ≠†´®Á®• Ø‡•‰®™·† OPSIZE
-   addrsize: BOOLEAN;        -- ≠†´®Á®• Ø‡•‰®™·† ADDRSIZE;
+   size32, addr32: BOOLEAN;  -- —Ä–∞–∑–º–µ—Ä –æ–ø–µ—Ä–∞–Ω–¥–∞ –∏ –∞–¥—Ä–µ—Å–∞ –±–µ–∑ —É—á–µ—Ç–∞ –ø—Ä–µ—Ñ–∏–∫—Å–∞
+   s32     : BOOLEAN;        -- —Ä–∞–∑–º–µ—Ä –æ–ø–µ—Ä–∞–Ω–¥–∞ —Å —É—á–µ—Ç–æ–º –ø—Ä–µ—Ñ–∏–∫—Å–∞
+   a32     : BOOLEAN;        -- —Ä–∞–∑–º–µ—Ä –∞–¥—Ä–µ—Å–∞ —Å —É—á–µ—Ç–æ–º –ø—Ä–µ—Ñ–∏–∫—Å–∞
+   opsize  : BOOLEAN;        -- –Ω–∞–ª–∏—á–∏–µ –ø—Ä–µ—Ñ–∏–∫—Å–∞ OPSIZE
+   addrsize: BOOLEAN;        -- –Ω–∞–ª–∏—á–∏–µ –ø—Ä–µ—Ñ–∏–∫—Å–∞ ADDRSIZE;
    was_error:BOOLEAN;
 
    segm_override: (none, _cs, _ds, _ss, _fs, _es, _gs);
 
-   us, ua, useg : BOOLEAN;   -- °Î´Æ ´® ®·ØÆ´ÏßÆ¢†≠Æ ADRSIZ, OPSIZ, SEG
+   us, ua, useg : BOOLEAN;   -- –±—ã–ª–æ –ª–∏ –∏—Å–ø–æ–ª—å–∑–æ–≤–∞–Ω–æ ADRSIZ, OPSIZ, SEG
 
 <* PUSH *>
 <* WOFF304+ *>
@@ -211,14 +211,14 @@ BEGIN
           END;
     | 1H: IF (rm = 4H) THEN sib ELSE disp8; END;
     | 2H: IF (rm = 4H) THEN sib ELSE disp32; END;
-    | 3H: (* ≠®Á•£Æ *)
+    | 3H: (* –Ω–∏—á–µ–≥–æ *)
     END;
   ELSE
     CASE mod OF
     | 0H: IF (rm = 6H) THEN disp16; END;
     | 1H: disp8;
     | 2H: disp16;
-    | 3H: (* ≠®Á•£Æ *)
+    | 3H: (* –Ω–∏—á–µ–≥–æ *)
     END;
   END;
 END ea;
@@ -357,11 +357,11 @@ BEGIN
   ua := TRUE;
   IF a32 THEN
     CASE mod OF
-    | 3H: (* ≠®Á•£Æ *)
+    | 3H: (* –Ω–∏—á–µ–≥–æ *)
     END;
   ELSE
     CASE mod OF
-    | 3H: (* ≠®Á•£Æ *)
+    | 3H: (* –Ω–∏—á–µ–≥–æ *)
     END;
   END;
 END n_reg;
@@ -1918,9 +1918,9 @@ EXCEPT
   IF exc.IsCurrentSource(DisasmSource) THEN RETURN FALSE; END;
 END IsRet;
 
-(* Ñ®·†··•¨°´®‡Æ¢†≠®• ™Æ¨†≠§Î ØÆ †§‡•·„, ‡•ß„´Ï‚†‚ - ®ßÆ°‡†¶•≠®•   *)
-(* ™Æ¨†≠§Î ® •• §´®≠†. è‡® „·Ø•Ë≠Æ¨ §®·†··•¨°´®‡Æ¢†≠®® ¢•‡≠•‚ TRUE *)
-(* Ø‡® ≠•¢Æß¨Æ¶≠Æ·‚® - FALSE                                       *)
+(* –î–∏—Å–∞—Å—Å–µ–º–±–ª–∏—Ä–æ–≤–∞–Ω–∏–µ –∫–æ–º–∞–Ω–¥—ã –ø–æ –∞–¥—Ä–µ—Å—É, —Ä–µ–∑—É–ª—å—Ç–∞—Ç - –∏–∑–æ–±—Ä–∞–∂–µ–Ω–∏–µ   *)
+(* –∫–æ–º–∞–Ω–¥—ã –∏ –µ–µ –¥–ª–∏–Ω–∞. –ü—Ä–∏ —É—Å–ø–µ—à–Ω–æ–º –¥–∏—Å–∞—Å—Å–µ–º–±–ª–∏—Ä–æ–≤–∞–Ω–∏–∏ –≤–µ—Ä–Ω–µ—Ç TRUE *)
+(* –ø—Ä–∏ –Ω–µ–≤–æ–∑–º–æ–∂–Ω–æ—Å—Ç–∏ - FALSE                                       *)
 
 PROCEDURE Disasm( addr: kt.ADDRESS; curr: BOOLEAN; VAR asm, info: ARRAY OF CHAR; VAR ln: CARDINAL; get_prefix_only := FALSE: BOOLEAN): BOOLEAN;
 BEGIN

@@ -47,10 +47,10 @@ END ReadError;
 
 
 CONST
-  msg_file_ext = 'MSG'; (* Расширение имени msg-файла *)
+  msg_file_ext = 'MSG'; (* ╨а╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╨╡ ╨╕╨╝╨╡╨╜╨╕ msg-╤Д╨░╨╣╨╗╨░ *)
 
-  msg_offs = 4;         (* смещение текста сообщения от начала строки *)
-  msg_max  = 1000;      (* Зависит от msg_offs, "999"                 *)
+  msg_offs = 4;         (* ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╤В╨╡╨║╤Б╤В╨░ ╤Б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╤П ╨╛╤В ╨╜╨░╤З╨░╨╗╨░ ╤Б╤В╤А╨╛╨║╨╕ *)
+  msg_max  = 1000;      (* ╨Ч╨░╨▓╨╕╤Б╨╕╤В ╨╛╤В msg_offs, "999"                 *)
 
   unknown  = "Text message is not available";
 
@@ -72,14 +72,14 @@ TYPE
   MSG_STR = ARRAY [0..msg_max-1] OF xStr.txt_ptr;
 
 VAR
-  msgText: txt.TEXT;           (* Текст сообщений *)
-  msgStr : POINTER TO MSG_STR; (* Сообщения       *)
+  msgText: txt.TEXT;           (* ╨в╨╡╨║╤Б╤В ╤Б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╨╣ *)
+  msgStr : POINTER TO MSG_STR; (* ╨б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╤П       *)
 
-  proto_name: xStr.STRING;     (* имя файла для протокола         *)
-  Proto_File : ioc.ChanId;     (* файл протокола                  *)
-  open : BOOLEAN;              (* открыт ли файл протокола        *)
-  safe : BOOLEAN;              (* режим работы с файлом протокола *)
-  unknown_str: xStr.txt_ptr;   (* неизвестное сообщение           *)
+  proto_name: xStr.STRING;     (* ╨╕╨╝╤П ╤Д╨░╨╣╨╗╨░ ╨┤╨╗╤П ╨┐╤А╨╛╤В╨╛╨║╨╛╨╗╨░         *)
+  Proto_File : ioc.ChanId;     (* ╤Д╨░╨╣╨╗ ╨┐╤А╨╛╤В╨╛╨║╨╛╨╗╨░                  *)
+  open : BOOLEAN;              (* ╨╛╤В╨║╤А╤Л╤В ╨╗╨╕ ╤Д╨░╨╣╨╗ ╨┐╤А╨╛╤В╨╛╨║╨╛╨╗╨░        *)
+  safe : BOOLEAN;              (* ╤А╨╡╨╢╨╕╨╝ ╤А╨░╨▒╨╛╤В╤Л ╤Б ╤Д╨░╨╣╨╗╨╛╨╝ ╨┐╤А╨╛╤В╨╛╨║╨╛╨╗╨░ *)
+  unknown_str: xStr.txt_ptr;   (* ╨╜╨╡╨╕╨╖╨▓╨╡╤Б╤В╨╜╨╛╨╡ ╤Б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╨╡           *)
 
   sys_not_init_str: xStr.txt_ptr;
   sys_not_init: BOOLEAN;
@@ -103,10 +103,10 @@ BEGIN
       k := 0;
       LOOP
         ch := str^[k];
-        IF (ch<'0') OR ('9'<ch) THEN EXIT; END; (* Пока цифры *)
+        IF (ch<'0') OR ('9'<ch) THEN EXIT; END; (* ╨Я╨╛╨║╨░ ╤Ж╨╕╤Д╤А╤Л *)
         n := n * 10 + ORD(ch) - ORD('0');
         INC(k);
-        IF k = msg_offs THEN EXIT; END;         (* Уже строка *)
+        IF k = msg_offs THEN EXIT; END;         (* ╨г╨╢╨╡ ╤Б╤В╤А╨╛╨║╨░ *)
       END;
       IF (n#0) AND (n <= msg_max) THEN
         msgStr^[n-1] := sys.ADDADR(str, msg_offs);
@@ -130,7 +130,7 @@ BEGIN
 END Get;
 
 PROCEDURE GetMsg (no: CARDINAL; VAR s:ARRAY OF CHAR);
-(* Возвращает сообщение по номеру *)
+(* ╨Т╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В ╤Б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╨╡ ╨┐╨╛ ╨╜╨╛╨╝╨╡╤А╤Г *)
 VAR
   m : xStr.txt_ptr;
 BEGIN
@@ -156,7 +156,7 @@ BEGIN
   NEW(proto_name, LENGTH(f_name)+1);
   IF (proto_name # NIL) THEN
     COPY(f_name,proto_name^);
-    (* создаем файл для выдачи протокола *)
+    (* ╤Б╨╛╨╖╨┤╨░╨╡╨╝ ╤Д╨░╨╣╨╗ ╨┤╨╗╤П ╨▓╤Л╨┤╨░╤З╨╕ ╨┐╤А╨╛╤В╨╛╨║╨╛╨╗╨░ *)
     rnd.OpenClean(Proto_File,proto_name^,seq.text+seq.write+seq.old, res);
     open := (res=cc.opened);
     IF NOT open THEN
@@ -178,7 +178,7 @@ PROCEDURE dummy_pre; BEGIN END dummy_pre;
 PROCEDURE dummy_post; BEGIN END dummy_post;
 
 
-(* Создание файла для протокола по умолчанию *)
+(* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╤Д╨░╨╣╨╗╨░ ╨┤╨╗╤П ╨┐╤А╨╛╤В╨╛╨║╨╛╨╗╨░ ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О *)
 PROCEDURE MakeDefaultProtocolName (VAR name: ARRAY OF CHAR);
 VAR
   fname: xStr.String;
@@ -203,7 +203,7 @@ VAR
   crach             : xStr.txt_ptr;
 BEGIN
 
-  pre_msg; (* Процедура, вызываемая до печати *)
+  pre_msg; (* ╨Я╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░, ╨▓╤Л╨╖╤Л╨▓╨░╨╡╨╝╨░╤П ╨┤╨╛ ╨┐╨╡╤З╨░╤В╨╕ *)
 
   IF screen THEN
     tio.WriteString(std.OutChan(),text);
@@ -246,7 +246,7 @@ BEGIN
     END;
   END;
 
-  post_msg; (* Процедура, вызываемяа после печати *)
+  post_msg; (* ╨Я╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░, ╨▓╤Л╨╖╤Л╨▓╨░╨╡╨╝╤П╨░ ╨┐╨╛╤Б╨╗╨╡ ╨┐╨╡╤З╨░╤В╨╕ *)
 
 EXCEPT
   IF ioc.IsChanException() THEN
@@ -256,7 +256,7 @@ EXCEPT
 END WriteMsg;
 
 PROCEDURE WriteMsgNo(no:CARDINAL; screen,file:BOOLEAN; SEQ arg:sys.BYTE);
-(* Выводит текст сообщения в указаное место (на экран, в файл) по номеру *)
+(* ╨Т╤Л╨▓╨╛╨┤╨╕╤В ╤В╨╡╨║╤Б╤В ╤Б╨╛╨╛╨▒╤Й╨╡╨╜╨╕╤П ╨▓ ╤Г╨║╨░╨╖╨░╨╜╨╛╨╡ ╨╝╨╡╤Б╤В╨╛ (╨╜╨░ ╤Н╨║╤А╨░╨╜, ╨▓ ╤Д╨░╨╣╨╗) ╨┐╨╛ ╨╜╨╛╨╝╨╡╤А╤Г *)
 VAR
   buf, format: xStr.String;
 BEGIN

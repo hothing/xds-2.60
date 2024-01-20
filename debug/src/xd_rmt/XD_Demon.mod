@@ -111,10 +111,10 @@ BEGIN
    k := arg.ArgNumber();
    IF k = 0 THEN Help; END;
    i := 0;
-   LOOP                                   (* ê†ß°Æ‡ ÆØÊ®© *)
+   LOOP                                   (* –†–∞–∑–±–æ—Ä –æ–ø—Ü–∏–π *)
      IF (i = k) THEN EXIT; END;
      arg.GetArg(i, a);
-     IF (a[0] = '/') OR (a[0] = '-') THEN (* éØÊ®® ≠†Á®≠†Ó‚·Ô · '-' ®´® '/' *)
+     IF (a[0] = '/') OR (a[0] = '-') THEN (* –û–ø—Ü–∏–∏ –Ω–∞—á–∏–Ω–∞—é—Ç—Å—è —Å '-' –∏–ª–∏ '/' *)
        IF NOT Options (a) THEN Help; END;
      ELSE
        EXIT;

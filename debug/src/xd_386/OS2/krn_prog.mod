@@ -514,7 +514,7 @@ BEGIN
   RETURN len = info.DebugInfoSize;
 END GetDebugInfo;
 
-(* �����⮢��� �믮������ �ணࠬ�� � 㪠������ "�窨 �室�" *)
+(* Подготовить выполнение программы с указанной "точки входа" *)
 PROCEDURE RestartProgram (): BOOLEAN;
 VAR
   pid : OS2.PID;

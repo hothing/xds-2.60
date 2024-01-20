@@ -1,4 +1,4 @@
--- Главный модуль компоненты xd_srv: сервер для удаленной отладки
+-- ╨У╨╗╨░╨▓╨╜╤Л╨╣ ╨╝╨╛╨┤╤Г╨╗╤М ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╤Л xd_srv: ╤Б╨╡╤А╨▓╨╡╤А ╨┤╨╗╤П ╤Г╨┤╨░╨╗╨╡╨╜╨╜╨╛╨╣ ╨╛╤В╨╗╨░╨┤╨║╨╕
 
 MODULE XD_Serv;
 
@@ -74,7 +74,7 @@ BEGIN
   WriteLog := FALSE;
   MasterListen := TRUE;
   Channel := rmt.INVALID_CHANNEL;
-  -- так как сейчас целевой исполнитель будет работать на сервере
+  -- ╤В╨░╨║ ╨║╨░╨║ ╤Б╨╡╨╣╤З╨░╤Б ╤Ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╕╤Б╨┐╨╛╨╗╨╜╨╕╤В╨╡╨╗╤М ╨▒╤Г╨┤╨╡╤В ╤А╨░╨▒╨╛╤В╨░╤В╤М ╨╜╨░ ╤Б╨╡╤А╨▓╨╡╤А╨╡
   opt.KernelInRemoteMode := TRUE;
   FOR command := MIN(rmt.COMMAND) TO MAX(rmt.COMMAND) DO
     Commands[command] := 0;
@@ -179,10 +179,10 @@ BEGIN
    k := arg.ArgNumber();
    IF k = 0 THEN Help; END;
    i := 0;
-   LOOP                                   (* Разбор опций *)
+   LOOP                                   (* ╨а╨░╨╖╨▒╨╛╤А ╨╛╨┐╤Ж╨╕╨╣ *)
      IF (i = k) THEN EXIT; END;
      arg.GetArg(i, a);
-     IF (a[0] = '/') OR (a[0] = '-') THEN (* Опции начинаются с '-' или '/' *)
+     IF (a[0] = '/') OR (a[0] = '-') THEN (* ╨Ю╨┐╤Ж╨╕╨╕ ╨╜╨░╤З╨╕╨╜╨░╤О╤В╤Б╤П ╤Б '-' ╨╕╨╗╨╕ '/' *)
        IF NOT Options (a) THEN Help; END;
      ELSE
        EXIT;

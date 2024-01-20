@@ -10,7 +10,7 @@ IMPORT sys := SYSTEM;
 IMPORT str := Strings;
 
 
-(* ëÆß§†•‚ ≠Æ¢„Ó ·‚‡Æ™„ ß†§†≠≠Æ© §´®≠Î *)
+(* –°–æ–∑–¥–∞–µ—Ç –Ω–æ–≤—É—é —Å—Ç—Ä–æ–∫—É –∑–∞–¥–∞–Ω–Ω–æ–π –¥–ª–∏–Ω—ã *)
 PROCEDURE alloc_str(VAR s: STRING; len: CARDINAL);
 BEGIN
   IF len > 0 THEN
@@ -22,7 +22,7 @@ BEGIN
 END alloc_str;
 
 
-(* ëÆß§†•‚ ® ™ÆØ®‡„•‚ ¢ ·‚‡Æ™„ ·Æ§•‡¶®¨Æ• buf *)
+(* –°–æ–∑–¥–∞–µ—Ç –∏ –∫–æ–ø–∏—Ä—É–µ—Ç –≤ —Å—Ç—Ä–æ–∫—É —Å–æ–¥–µ—Ä–∂–∏–º–æ–µ buf *)
 PROCEDURE alloc_from(VAR s: STRING; buf-:ARRAY OF CHAR);
 BEGIN
   alloc_str(s, LENGTH(buf)+1);
@@ -30,7 +30,7 @@ BEGIN
 END alloc_from;
 
 
-(* ì≠®Á‚Æ¶†•‚ ·‚‡Æ™„ *)
+(* –£–Ω–∏—á—Ç–æ–∂–∞–µ—Ç —Å—Ç—Ä–æ–∫—É *)
 PROCEDURE dealloc_str(VAR s: STRING);
 BEGIN
   IF s = NIL THEN
@@ -136,9 +136,9 @@ END ReplaceChar;
 PROCEDURE UpChar (ch:CHAR) : CHAR;
 BEGIN
 <* IF DEST_K26 THEN *>
-  IF (('a' <= ch) AND (ch <= 'z')) OR (('†' <= ch) AND (ch <= 'Ø')) THEN
+  IF (('a' <= ch) AND (ch <= 'z')) OR (('–∞' <= ch) AND (ch <= '–ø')) THEN
     RETURN CHAR(sys.CARD8(ch)-32);
-  ELSIF ('‡' <= ch) AND (ch <= 'Ô') THEN
+  ELSIF ('—Ä' <= ch) AND (ch <= '—è') THEN
     RETURN CHAR(sys.CARD8(ch)-80);
   ELSE
     RETURN ch;
@@ -162,7 +162,7 @@ BEGIN
 END Uppercase;
 
 
-(* ì§†´Ô•‚ ¢·• ¢•§„È®• Ø‡Æ°•´Î ® ¢Î§•´Ô•‚ Ø•‡¢Æ• ·´Æ¢Æ ¢ ·‚‡Æ™• *)
+(* –£–¥–∞–ª—è–µ—Ç –≤—Å–µ –≤–µ–¥—É—â–∏–µ –ø—Ä–æ–±–µ–ª—ã –∏ –≤—ã–¥–µ–ª—è–µ—Ç –ø–µ—Ä–≤–æ–µ —Å–ª–æ–≤–æ –≤ —Å—Ç—Ä–æ–∫–µ *)
 PROCEDURE StripWord (str-: ARRAY OF CHAR; VAR word: ARRAY OF CHAR);
 VAR
   i,j: CARDINAL;

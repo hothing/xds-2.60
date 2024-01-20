@@ -31,7 +31,7 @@ VAR
   CurrComponent: POINTER TO COMPONENT;
   CurrCom: CARDINAL;
 
-  CurrMod  : CARDINAL; (* í•™„È®© ß†£‡„¶†•¨Î© ¨Æ§„´Ï *)
+  CurrMod  : CARDINAL; (* –¢–µ–∫—É—â–∏–π –∑–∞–≥—Ä—É–∂–∞–µ–º—ã–π –º–æ–¥—É–ª—å *)
   source   : exc.ExceptionSource;
 
 
@@ -48,7 +48,7 @@ END Error;
 
 
 
-(* ê†ß¨•È•≠®• ≠Æ¢ÎÂ ¨Æ§„´•© *)
+(* –†–∞–∑–º–µ—â–µ–Ω–∏–µ –Ω–æ–≤—ã—Ö –º–æ–¥—É–ª–µ–π *)
 PROCEDURE AllocateModules (no: CARDINAL);
 
 VAR
@@ -224,7 +224,7 @@ BEGIN
 END Read_sstModules;
 
 
---------------------- ó‚•≠®• ‚®ØÆ¢ -------------------------
+--------------------- –ß—Ç–µ–Ω–∏–µ —Ç–∏–ø–æ–≤ -------------------------
 
 CONST
   N_IMAGE_ITEM = 64;
@@ -389,7 +389,7 @@ VAR
     i: CARDINAL;
   BEGIN
     WITH According^[CurrentIndex-512] DO
-      IF Flag THEN                 (* í®Ø •È• ≠• ÆØ®·†≠, ≠Æ ≠•£Æ •·‚Ï ··Î´™®! *)
+      IF Flag THEN                 (* –¢–∏–ø –µ—â–µ –Ω–µ –æ–ø–∏—Å–∞–Ω, –Ω–æ –Ω–µ–≥–æ –µ—Å—Ç—å —Å—Å—ã–ª–∫–∏! *)
         new := Index;
         REPEAT
           ASSERT(new # MAX(INTERNAL_INDEX));
@@ -419,7 +419,7 @@ BEGIN
 <* POP *>
 
   beg := rpos;
-  CurrentIndex := 511;             (* è•‡¢Î© ≠•Ø‡®¨®‚®¢≠Î© ‚®Ø ®¨••‚ ®≠§•™· 512 *)
+  CurrentIndex := 511;             (* –ü–µ—Ä–≤—ã–π –Ω–µ–ø—Ä–∏–º–∏—Ç–∏–≤–Ω—ã–π —Ç–∏–ø –∏–º–µ–µ—Ç –∏–Ω–¥–µ–∫—Å 512 *)
   WHILE size > rpos - beg DO
     INC(CurrentIndex);
     INC(rpos, 2);
@@ -518,9 +518,9 @@ BEGIN
         Fields := get2();
         AllocateItems (dt.Record, Fields);   (* Allocate for fields *)
         ASSERT( get1() = 083H );
-        ASSERT( CurrentIndex+1 = get2() );   (* à≠§•™· ‚®ØÆ¢                 *)
+        ASSERT( CurrentIndex+1 = get2() );   (* –ò–Ω–¥–µ–∫—Å —Ç–∏–ø–æ–≤                 *)
         ASSERT( get1() = 083H );
-        ASSERT( CurrentIndex+2 = get2() );   (* à≠§•™· ®¨•≠                  *)
+        ASSERT( CurrentIndex+2 = get2() );   (* –ò–Ω–¥–µ–∫—Å –∏–º–µ–Ω                  *)
         ASSERT( get1() = 082H );
         get_name(name);
         TypeData.Name := bld.AddName (CurrCom, name);
@@ -557,7 +557,7 @@ BEGIN
         MyMembers := get2();
         AllMembers := MyMembers;
         AllocateItems (dt.Class, MyMembers);
-        ASSERT( CurrentIndex+1 = get2() );   (* à≠§•™· Ì´•¨•≠‚Æ¢ ™´†··†      *)
+        ASSERT( CurrentIndex+1 = get2() );   (* –ò–Ω–¥–µ–∫—Å —ç–ª–µ–º–µ–Ω—Ç–æ–≤ –∫–ª–∞—Å—Å–∞      *)
         get_name(name);
         TypeData.Name := bld.AddName (CurrCom, name);
         INC(rpos, 2);
@@ -894,8 +894,8 @@ BEGIN
             Object.Tag  := dt.Sy_Register;
             type        := get2();
             Object.Type := GetType(type);
-            RegNo       := get1();         (* NB ¢≠„‚‡•≠≠ÔÔ ≠„¨•‡†Ê®Ô ‡•£®·‚‡Æ¢ *)
-                                           (* ·Æ¢Ø†§†•‚ · ≠„¨•‡†Ê®•© ‰Æ‡¨†‚†    *)
+            RegNo       := get1();         (* NB –≤–Ω—É—Ç—Ä–µ–Ω–Ω—è—è –Ω—É–º–µ—Ä–∞—Ü–∏—è —Ä–µ–≥–∏—Å—Ç—Ä–æ–≤ *)
+                                           (* —Å–æ–≤–ø–∞–¥–∞–µ—Ç —Å –Ω—É–º–µ—Ä–∞—Ü–∏–µ–π —Ñ–æ—Ä–º–∞—Ç–∞    *)
             get_name(name);
             Attrib := dt.SYM_ATTRIB{};
             IF (NOT Skipped) AND (name # '') THEN
@@ -1044,10 +1044,10 @@ BEGIN
 
   save := rpos;
 
-  (* ë‚‡Æ®¨ ·‚‡„™‚„‡„ · ®≠‰Æ‡¨†Ê®•© Æ ¨Æ§„´ÔÂ *)
+  (* –°—Ç—Ä–æ–∏–º —Å—Ç—Ä—É–∫—Ç—É—Ä—É —Å –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏–µ–π –æ –º–æ–¥—É–ª—è—Ö *)
 
   N_mod := 0;
-  (* Ø•‡¢Î© Ø‡ÆÂÆ§: ØÆ§·Á•‚ Á®·´† ¨Æ§„´•©. *)
+  (* –ø–µ—Ä–≤—ã–π –ø—Ä–æ—Ö–æ–¥: –ø–æ–¥—Å—á–µ—Ç —á–∏—Å–ª–∞ –º–æ–¥—É–ª–µ–π. *)
   FOR i := 0 TO N-1 DO
     getN(entry);
     IF entry.type = 101H THEN INC(N_mod); END;
@@ -1056,7 +1056,7 @@ BEGIN
 
   AllocateModules(N_mod);
 
-  (* ¢‚Æ‡Æ© Ø‡ÆÂÆ§. ß†ØÆ´≠•≠®• ·‚‡„™‚„‡„ ®≠‰Æ‡¨†Ê®® Æ ¨Æ§„´ÔÂ *)
+  (* –≤—Ç–æ—Ä–æ–π –ø—Ä–æ—Ö–æ–¥. –∑–∞–ø–æ–ª–Ω–µ–Ω–∏–µ —Å—Ç—Ä—É–∫—Ç—É—Ä—É –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏–∏ –æ –º–æ–¥—É–ª—è—Ö *)
   IF mode = mode_full THEN
     NEW(According, MAX(INTERNAL_INDEX)-512+1);
     CurrentIndex := HIGH(According^)+1;
@@ -1091,11 +1091,11 @@ BEGIN
     rpos := save;
   END;
 
-  (* è‡Æ¢•‡™† Ê•´Æ·‚≠Æ·‚® ‚†°´®ÊÎ Æ°Ï•™‚Æ¢ ™Æ¨ØÆ≠•≠‚Î *)
+  (* –ü—Ä–æ–≤–µ—Ä–∫–∞ —Ü–µ–ª–æ—Å—Ç–Ω–æ—Å—Ç–∏ —Ç–∞–±–ª–∏—Ü—ã –æ–±—å–µ–∫—Ç–æ–≤ –∫–æ–º–ø–æ–Ω–µ–Ω—Ç—ã *)
   ASSERT(bld.ScanSymbols (CurrCom, 0));
-  (* ëÆß§†≠®• ™´ÓÁ•© ØÆ ¨Æ§„´Ô¨ *)
+  (* –°–æ–∑–¥–∞–Ω–∏–µ –∫–ª—é—á–µ–π –ø–æ –º–æ–¥—É–ª—è–º *)
   bld.CreateKeysByModules (CurrCom);
-  (* ëÆß§†≠®• ™´ÓÁ† §´Ô ‚†°´®ÊÎ ·•£¨•≠‚Æ¢ *)
+  (* –°–æ–∑–¥–∞–Ω–∏–µ –∫–ª—é—á–∞ –¥–ª—è —Ç–∞–±–ª–∏—Ü—ã —Å–µ–≥–º–µ–Ω—Ç–æ–≤ *)
   bld.CreateKGroupSegments (CurrCom);
 
   IF According # NIL THEN DISPOSE(According); END;

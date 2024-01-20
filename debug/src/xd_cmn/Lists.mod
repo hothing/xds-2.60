@@ -82,11 +82,11 @@ TYPE
 
 
 VAR
-  Labels      : LabelsRec;       (* ���᮪ ��⮪                        *)
-  Calls       : CallsRec;        (* �⥪ �맮��� ����ணࠬ � ��ਠ�⮢ *)
-  EquNames    : EquNamesRec;     (* ���᮪ ���. ����                    *)
-  JumpByErrors: JumpByErrorsRec; (* ���᮪ ���ᮢ ���室�� �� �訡��  *)
-  BreaksInfo  : BREAKS_INFO;     (* ���᮪ �祪 ��⠭���               *)
+  Labels      : LabelsRec;       (* Список меток                        *)
+  Calls       : CallsRec;        (* Стек вызовов подпрограм и вариантов *)
+  EquNames    : EquNamesRec;     (* Список экв. имен                    *)
+  JumpByErrors: JumpByErrorsRec; (* Список адресов переходов по ошибке  *)
+  BreaksInfo  : BREAKS_INFO;     (* Список точек останова               *)
   Arguments   : ARGUMENTS;
 
 
@@ -378,7 +378,7 @@ END PutEquName;
 
 
 
-(* ��楤��� ��� ࠡ��� � ���室��� �� �訡�� *)
+(* Процедуры для работы с переходами по ошибке *)
 PROCEDURE GetJumpByError (N: CARDINAL; VAR paket,line: CARDINAL) : BOOLEAN;
 VAR
   p : CARDINAL;
@@ -444,7 +444,7 @@ BEGIN
 END DelJumpByError;
 
 
-(* ��楤��� ��� ࠡ��� � �窠�� ��⠭��� *)
+(* Процедуры для работы с точками останова *)
 PROCEDURE PutBreak (name: ARRAY OF CHAR; N: CARDINAL);
 VAR
   tmp: PABREAK_INFO;
@@ -526,7 +526,7 @@ BEGIN
 END DelBreak;
 
 
-(* ��楤��� ��� ࠡ��� � ��㬥�⠬� ����⭮�� �⫠�稪� *)
+(* Процедуры для работы с аргументами пакетного отладчика *)
 PROCEDURE PutArg (name: ARRAY OF CHAR);
 VAR
   tmp: PAARGUMENTS;

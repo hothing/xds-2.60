@@ -1,4 +1,4 @@
--- ����樨 ��� 64-���묨 楫묨 �᫠��
+-- Операции над 64-битными целыми числами
 
 IMPLEMENTATION MODULE Int2Str;
 
@@ -34,7 +34,7 @@ CONST
                           , Int64.INT64 { 089E80000H , 08AC72304H } };
 
 
--- �८�ࠧ������ �᫠ � ��ப�
+-- Преобразование числа в строку
 PROCEDURE IntToStr (signed: BOOLEAN; HI, LO: CARDINAL; VAR s: ARRAY OF CHAR);
 VAR
   POWER, COUNT, BASE_HI, BASE_LO: CARDINAL;

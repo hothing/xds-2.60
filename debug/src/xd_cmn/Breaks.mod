@@ -18,7 +18,7 @@ IMPORT dt  := DI_Types;
 
 
 
-(* Сравнение двух остановов, если "равны" вернет TRUE *)
+(* ╨б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╨┤╨▓╤Г╤Е ╨╛╤Б╤В╨░╨╜╨╛╨▓╨╛╨▓, ╨╡╤Б╨╗╨╕ "╤А╨░╨▓╨╜╤Л" ╨▓╨╡╤А╨╜╨╡╤В TRUE *)
 PROCEDURE CompareBreaks (break1, break2: BREAK): BOOLEAN;
 BEGIN
   RETURN (break1.Active = break2.Active) AND
@@ -29,7 +29,7 @@ BEGIN
 END CompareBreaks;
 
 
-(* Сравнение двух точек останова, если "равны" вернет TRUE *)
+(* ╨б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╨┤╨▓╤Г╤Е ╤В╨╛╤З╨╡╨║ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░, ╨╡╤Б╨╗╨╕ "╤А╨░╨▓╨╜╤Л" ╨▓╨╡╤А╨╜╨╡╤В TRUE *)
 PROCEDURE CompareBreakpoints (breakpoint1, breakpoint2: BREAKPOINT): BOOLEAN;
 BEGIN
   RETURN CompareBreaks(breakpoint1.Break, breakpoint2.Break) AND
@@ -48,7 +48,7 @@ CONST
   HN = 16;
 
 VAR
-  HasModuleCount: CARDINAL; (* Количество точек останова, имеющий модуль *)
+  HasModuleCount: CARDINAL; (* ╨Ъ╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╤В╨╛╤З╨╡╨║ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░, ╨╕╨╝╨╡╤О╤Й╨╕╨╣ ╨╝╨╛╨┤╤Г╨╗╤М *)
 
 
 PROCEDURE Add_Breakpoint (BP: BREAKPOINT; replace: BOOLEAN; VAR index: CARDINAL): BOOLEAN;
@@ -429,8 +429,8 @@ BEGIN
             ASSERT( Access_ID = Memory );
             IF Break.Active THEN
               ASSERT(kmem.RemoveTrace (Break.Index));
-              -- если Break.Active = TRUE, то после рестарта в процедуре
-              -- Refresh такие точки останова будет востанновлены
+              -- ╨╡╤Б╨╗╨╕ Break.Active = TRUE, ╤В╨╛ ╨┐╨╛╤Б╨╗╨╡ ╤А╨╡╤Б╤В╨░╤А╤В╨░ ╨▓ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨╡
+              -- Refresh ╤В╨░╨║╨╕╨╡ ╤В╨╛╤З╨║╨╕ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░ ╨▒╤Г╨┤╨╡╤В ╨▓╨╛╤Б╤В╨░╨╜╨╜╨╛╨▓╨╗╨╡╨╜╤Л
             END;
           END;
         END;
@@ -552,7 +552,7 @@ BEGIN
 END NeedToStop;
 
 
-(* Проверяет необходимость включения пошагового исполнения *)
+(* ╨Я╤А╨╛╨▓╨╡╤А╤П╨╡╤В ╨╜╨╡╨╛╨▒╤Е╨╛╨┤╨╕╨╝╨╛╤Б╤В╤М ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╤П ╨┐╨╛╤И╨░╨│╨╛╨▓╨╛╨│╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П *)
 PROCEDURE NeedToStepMode (): BOOLEAN;
 VAR
   i: CARDINAL;
@@ -704,9 +704,9 @@ END ClearBreaks;
 
 
 BEGIN
-  Breakpoints     := BREAKPOINTS{ NIL, 0};        (* Точки останова                 *)
-  AccessBreaks    := ACCESS_BREAKS{ NIL, 0};      (* Остановы по доступу            *)
-  ConditionBreaks := CONDITION_BREAKS{ NIL, 0};   (* Условные остановы              *)
-  ComponentBreaks := COMPONENT_BREAKS{ NIL, 0};   (* Остановы по загрузке компонент *)
+  Breakpoints     := BREAKPOINTS{ NIL, 0};        (* ╨в╨╛╤З╨║╨╕ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨░                 *)
+  AccessBreaks    := ACCESS_BREAKS{ NIL, 0};      (* ╨Ю╤Б╤В╨░╨╜╨╛╨▓╤Л ╨┐╨╛ ╨┤╨╛╤Б╤В╤Г╨┐╤Г            *)
+  ConditionBreaks := CONDITION_BREAKS{ NIL, 0};   (* ╨г╤Б╨╗╨╛╨▓╨╜╤Л╨╡ ╨╛╤Б╤В╨░╨╜╨╛╨▓╤Л              *)
+  ComponentBreaks := COMPONENT_BREAKS{ NIL, 0};   (* ╨Ю╤Б╤В╨░╨╜╨╛╨▓╤Л ╨┐╨╛ ╨╖╨░╨│╤А╤Г╨╖╨║╨╡ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В *)
 END Breaks.
 `

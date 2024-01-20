@@ -90,7 +90,7 @@ BEGIN
 END CreateHelp;
 
 
-(* �ᥣ� ᥪ権 � Help! *)
+(* Всего секций в Help! *)
 PROCEDURE GetNSection (): CARDINAL;
 VAR
   N: CARDINAL;
@@ -103,7 +103,7 @@ BEGIN
 END GetNSection;
 
 
-(* �뤠�� ������⢮ ��ப � ᥪ樨 *)
+(* Выдать количество строк в секции *)
 PROCEDURE GetNLine (N: CARDINAL): CARDINAL;
 VAR
   n: CARDINAL;
@@ -122,8 +122,8 @@ BEGIN
 END GetNLine;
 
 
-(* �뤠�� i ��ப� ᥪ樨, �᫨ i=0 - ��୥� ��� ᥪ樨 *)
-(* ����� ��ப  - [1..GetNLine]                        *)
+(* Выдать i строку секции, если i=0 - вернет имя секции *)
+(* Номера строк  - [1..GetNLine]                        *)
 PROCEDURE GetLine (N,i: CARDINAL): xStr.txt_ptr;
 CONST
   empty = "";

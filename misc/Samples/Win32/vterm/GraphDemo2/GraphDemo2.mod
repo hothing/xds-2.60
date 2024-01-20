@@ -277,7 +277,7 @@ VAR
 BEGIN
   x:=0.0;
   y:=0.0;
-  VTerm.RawOutText(400,20,14,"Папоротник");
+  VTerm.RawOutText(400,20,14,"в•§СЂСЏСЋРЃСЋР„СЌС€СЉ");
   RANDOMIZE;
   LOOP
    r:=RAND();

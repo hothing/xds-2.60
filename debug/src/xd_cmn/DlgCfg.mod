@@ -88,7 +88,7 @@ TYPE
 
   OPTION_TYPE = ( WholeEq, StrEq, BoolEq);
 
-  -- Action() ¢·•£§† ‡†°Æ‚†•‚ · *.new !!!
+  -- Action() –≤—Å–µ–≥–¥–∞ —Ä–∞–±–æ—Ç–∞–µ—Ç —Å *.new !!!
   OPTION_ACTION = PROCEDURE (): BOOLEAN;
 
   OPTION = RECORD
@@ -110,7 +110,7 @@ TYPE
                line_new: std.MESSAGE;
              END;
              display: BOOLEAN;
-             -- Action() ¢·•£§† ‡†°Æ‚†•‚ · *.new !!!
+             -- Action() –≤—Å–µ–≥–¥–∞ —Ä–∞–±–æ—Ç–∞–µ—Ç —Å *.new !!!
              Action : OPTION_ACTION;
            END;
 
@@ -123,7 +123,7 @@ TYPE
 
 
 VAR
-  CurrentOptions: OPTIONS; -- í•™„È®• ß≠†Á•≠®Ô ÆØÊ®©
+  CurrentOptions: OPTIONS; -- –¢–µ–∫—É—â–∏–µ –∑–Ω–∞—á–µ–Ω–∏—è –æ–ø—Ü–∏–π
 
   Shown_Options    : CARDINAL;
   Shown_Options_Len: CARDINAL;
@@ -139,7 +139,7 @@ CONST
 
 
 
-(* ëÆÂ‡†≠®‚Ï ≠†·‚‡Æ©™„ ™´†¢®†‚„‡Î. *)
+(* –°–æ—Ö—Ä–∞–Ω–∏—Ç—å –Ω–∞—Å—Ç—Ä–æ–π–∫—É –∫–ª–∞–≤–∏–∞—Ç—É—Ä—ã. *)
 
 PROCEDURE SaveKbd (filename-: ARRAY OF CHAR);
 VAR
@@ -202,7 +202,7 @@ BEGIN
 END Raise;
 
 
-(* á†£‡„ß®‚Ï ≠†·‚‡Æ©™„ ™´†¢®†‚„‡Î. *)
+(* –ó–∞–≥—Ä—É–∑–∏—Ç—å –Ω–∞—Å—Ç—Ä–æ–π–∫—É –∫–ª–∞–≤–∏–∞—Ç—É—Ä—ã. *)
 PROCEDURE LoadKbd (name-: ARRAY OF CHAR): BOOLEAN;
 VAR
   f   : ioc.ChanId;
@@ -342,7 +342,7 @@ BEGIN
     END;
   END;
 
-  (* á†Ø®·Ï ·Æ§•‡¶®¨Æ£Æ Æ™≠† ·´•¶•≠®Ô *)
+  (* –ó–∞–ø–∏—Å—å —Å–æ–¥–µ—Ä–∂–∏–º–æ–≥–æ –æ–∫–Ω–∞ —Å–ª–µ–∂–µ–Ω–∏—è *)
   tio.WriteString(f, '[ Watches ]');
   tio.WriteLn(f);
   IF NOT cfg THEN
@@ -358,7 +358,7 @@ BEGIN
     END;
   END;
 
-  (* á†Ø®·Ï †´®†·Æ¢ *)
+  (* –ó–∞–ø–∏—Å—å –∞–ª–∏–∞—Å–æ–≤ *)
   tio.WriteString(f, '[ Aliases ]');
   tio.WriteLn(f);
   IF NOT cfg THEN
@@ -397,7 +397,7 @@ BEGIN
   END;
 
   IF NOT cfg THEN
-    (* á†Ø®·Ï ¢·•Â Æ‚™‡Î‚ÎÂ §†¨ØÆ¢ *)
+    (* –ó–∞–ø–∏—Å—å –≤—Å–µ—Ö –æ—Ç–∫—Ä—ã—Ç—ã—Ö –¥–∞–º–ø–æ–≤ *)
     dump_hwnd := dmm.FindOpenedDumpWindow (win.Invalid_H);
     WHILE dump_hwnd # win.Invalid_H DO
       tio.WriteString(f, '   [ Dump_Window ]');
@@ -421,9 +421,9 @@ BEGIN
   IF cfg THEN SaveKbd(opt.KbdFile); END;
 END SaveConfig;
 
-(* ¢Æ·‚‚†≠†¢´®¢†•‚ ·Æ·‚ÆÔ≠®Ô Æ™Æ≠ ® §p„£®• ≠†·‚‡Æ©™® ®ß opt ‰†©´† · ®¨•≠•¨,
-   ·Æ¢Ø†§†ÓÈ®¨ · ß†£p„¶†•¨Î¨ abs ‰†©´Æ¨. Ö·´® ‚†™Æ£Æ ≠• ·„È•·‚¢„•‚, °•p•‚·Ô
-   dvx.opt. Ö·´® ® •£Æ ≠•‚, ‚Æ °„§„‚ „¨Æ´Á†‚•´Ï≠Î• ß≠†Á•≠®Ô ¢p•¨•≠® ™Æ¨Ø®´Ô„®® *)
+(* –≤–æ—Å—Ç—Ç–∞–Ω–∞–≤–ª–∏–≤–∞–µ—Ç —Å–æ—Å—Ç–æ—è–Ω–∏—è –æ–∫–æ–Ω –∏ –¥p—É–≥–∏–µ –Ω–∞—Å—Ç—Ä–æ–π–∫–∏ –∏–∑ opt —Ñ–∞–π–ª–∞ —Å –∏–º–µ–Ω–µ–º,
+   —Å–æ–≤–ø–∞–¥–∞—é—â–∏–º —Å –∑–∞–≥p—É–∂–∞–µ–º—ã–º abs —Ñ–∞–π–ª–æ–º. –ï—Å–ª–∏ —Ç–∞–∫–æ–≥–æ –Ω–µ —Å—É—â–µ—Å—Ç–≤—É–µ—Ç, –±–µp–µ—Ç—Å—è
+   dvx.opt. –ï—Å–ª–∏ –∏ –µ–≥–æ –Ω–µ—Ç, —Ç–æ –±—É–¥—É—Ç —É–º–æ–ª—á–∞—Ç–µ–ª—å–Ω—ã–µ –∑–Ω–∞—á–µ–Ω–∏—è –≤p–µ–º–µ–Ω–∏ –∫–æ–º–ø–∏–ª—è—É–∏–∏ *)
 
 PROCEDURE LoadConfig (name: ARRAY OF CHAR);
 VAR
@@ -490,7 +490,7 @@ BEGIN
   tio.SkipLine(f);
   Line := 2;
   LOOP
-    tio.ReadToken(f, buf); -- ®¨Ô ÆØÊ®®
+    tio.ReadToken(f, buf); -- –∏–º—è –æ–ø—Ü–∏–∏
     IF (ioc.ReadResult(f) # icc.allRight) OR (buf = '.') THEN
       seq.Close(f);
       RETURN;
@@ -526,7 +526,7 @@ BEGIN
         END;
         cond_new := cond^;
       | StrEq:
-        -- ¢Æß¨Æ¶≠Æ, Ø‡®•¨≠®™ ≠• ·¨Æ¶•‚ Ø‡®≠Ô‚Ï ·´®Ë™Æ¨ §´®≠≠„Ó ·‚‡Æ™„
+        -- –≤–æ–∑–º–æ–∂–Ω–æ, –ø—Ä–∏–µ–º–Ω–∏–∫ –Ω–µ —Å–º–æ–∂–µ—Ç –ø—Ä–∏–Ω—è—Ç—å —Å–ª–∏—à–∫–æ–º –¥–ª–∏–Ω–Ω—É—é —Å—Ç—Ä–æ–∫—É
         IF HIGH(buf) >= line_len THEN
           buf[line_len] := 0C;
         END;
@@ -539,7 +539,7 @@ BEGIN
     INC(Line);
   END;
 
-  -- buf „¶• ·Æ§•‡¶®‚ ·´•§„ÓÈ„Ó ·‚‡Æ™„ ß† ÆØÊ®Ô¨®
+  -- buf —É–∂–µ —Å–æ–¥–µ—Ä–∂–∏—Ç —Å–ª–µ–¥—É—é—â—É—é —Å—Ç—Ä–æ–∫—É –∑–∞ –æ–ø—Ü–∏—è–º–∏
   Raise (buf = '[', Line);
   tio.ReadString(f, buf);
   Raise (buf = ' Colors ]', Line);
@@ -983,7 +983,7 @@ CONST
                          , 07    -- ShowAllModules
                          , 17    -- WarningBell
                          , 16    -- UseSingleStructWindow
-                         , 99    -- DumpType -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
+                         , 99    -- DumpType -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
                          , 08    -- ShowModuleWithoutSource
                          , 13    -- DisplayDereferencePointer
                          , 03    -- StopOnHardwareExceptionFirstChance
@@ -993,11 +993,11 @@ CONST
                          , 05    -- StripPathFromFullName
                          , 06    -- StripPathFromPartialName
                          , 15    -- AutoDetectActualType
-                         , 99    -- FrameImageSingle    -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
-                         , 99    -- FrameImageDouble    -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
-                         , 99    -- FrameImageMove      -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
-                         , 99    -- TransliterateFromTo -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
-                         , 99    -- MergeEqualTypes     -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
+                         , 99    -- FrameImageSingle    -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
+                         , 99    -- FrameImageDouble    -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
+                         , 99    -- FrameImageMove      -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
+                         , 99    -- TransliterateFromTo -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
+                         , 99    -- MergeEqualTypes     -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
                          };
 
 
@@ -1073,7 +1073,7 @@ END ActionTranslitFromTo;
 CONST
   Opt2Line = OPTION2LINE { 00    -- Traced_Run_Delay
                          , 02    -- HilighCode
-                         , 99    -- HilighCall -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
+                         , 99    -- HilighCall -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
                          , 03    -- FullDisasm
                          , 04    -- DumpDisplay
                          , 08    -- Save_Opt_File
@@ -1082,14 +1082,14 @@ CONST
                          , 01    -- ShowAllModules
                          , 07    -- WarningBell
                          , 06    -- UseSingleStructWindow
-                         , 99    -- DumpType                  -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
-                         , 99    -- ShowModuleWithoutSource   -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
-                         , 99    -- DisplayDereferencePointer -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
+                         , 99    -- DumpType                  -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
+                         , 99    -- ShowModuleWithoutSource   -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
+                         , 99    -- DisplayDereferencePointer -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
                          , 05    -- Trace registers
                          , 12    -- IntStateSystem
                          , 13    -- IntStateTest
                          , 14    -- IntStateStart
-                         , 99    -- MergeEqualTypes           -- ≠•‚ ·ÆÆ‚¢•‚·‚¢®Ô
+                         , 99    -- MergeEqualTypes           -- –Ω–µ—Ç —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏—è
                          };
 
 
@@ -1127,7 +1127,7 @@ END ToggleInterpretatorState;
 <* END *>
 
 
-(* èÆ™†ßÎ¢†‚Ï ¢·• ¨Æ§„´® *)
+(* –ü–æ–∫–∞–∑—ã–≤–∞—Ç—å –≤—Å–µ –º–æ–¥—É–ª–∏ *)
 PROCEDURE ActionShowAllModules(): BOOLEAN;
 BEGIN
   mod.RefreshModulesKey;
@@ -1135,7 +1135,7 @@ BEGIN
 END ActionShowAllModules;
 
 
-(* á†£‡„ß™† ‰†©´† ‡†·™´†§™® ™´†¢®†‚„‡Î *)
+(* –ó–∞–≥—Ä—É–∑–∫–∞ —Ñ–∞–π–ª–∞ —Ä–∞—Å–∫–ª–∞–¥–∫–∏ –∫–ª–∞–≤–∏–∞—Ç—É—Ä—ã *)
 PROCEDURE ActionKbdFile (): BOOLEAN;
 BEGIN
   RETURN LoadKbd (CurrentOptions^[KbdFile].line_new);
@@ -1160,14 +1160,14 @@ END ActionUpdateCallStack;
 
 <* END *>
 
-(* é°≠Æ¢´Ô•‚ §®†´Æ£Æ¢Î• Æ™≠Æ · ÆØÊ®Ô¨® *)
+(* –û–±–Ω–æ–≤–ª—è–µ—Ç –¥–∏–∞–ª–æ–≥–æ–≤—ã–µ –æ–∫–Ω–æ —Å –æ–ø—Ü–∏—è–º–∏ *)
 PROCEDURE UpdateOptions;
 BEGIN
   eve.AddToTail (OptionsDialog, eve.Redraw, 0);
 END UpdateOptions;
 
 
-(* ì·‚†≠†¢´®¢†•‚ ÆØÊ®Ó WholeHex ¢ ·ÆÆ‚¢•‚·‚¢®® · Ø•‡•™´ÓÁ†‚•´•¨ *)
+(* –£—Å—Ç–∞–Ω–∞–≤–ª–∏–≤–∞–µ—Ç –æ–ø—Ü–∏—é WholeHex –≤ —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏–∏ —Å –ø–µ—Ä–µ–∫–ª—é—á–∞—Ç–µ–ª–µ–º *)
 PROCEDURE ToggleWholeHexOption;
 VAR
   p: std.PDIALOG;
@@ -1181,7 +1181,7 @@ END ToggleWholeHexOption;
 VAR
   UseKbdOption: BOOLEAN;
 
-(* ì·‚†≠†¢´®¢†•‚ ÆØÊ®Ó KbdFile ¢ ·ÆÆ‚¢•‚·‚¢®® ·Æ ß≠†Á•≠®•¨ Ø•‡•™´ÓÁ†‚•´Ô *)
+(* –£—Å—Ç–∞–Ω–∞–≤–ª–∏–≤–∞–µ—Ç –æ–ø—Ü–∏—é KbdFile –≤ —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏–∏ —Å–æ –∑–Ω–∞—á–µ–Ω–∏–µ–º –ø–µ—Ä–µ–∫–ª—é—á–∞—Ç–µ–ª—è *)
 PROCEDURE ToggleKbdLayoutOption;
 VAR
   p: std.PDIALOG;
@@ -1201,7 +1201,7 @@ BEGIN
 END ToggleKbdLayoutOption;
 
 
-(* è‡Æ¢•‡™† ·Æ·‚ÆÔ≠®Ô ÆØÊ®© *)
+(* –ü—Ä–æ–≤–µ—Ä–∫–∞ —Å–æ—Å—Ç–æ—è–Ω–∏—è –æ–ø—Ü–∏–π *)
 PROCEDURE CheckOptions (VAR error: OPTION_ELEM): BOOLEAN;
 VAR
   curr: OPTION_ELEM;
@@ -1231,7 +1231,7 @@ BEGIN
 END CheckOptions;
 
 
-(* ëÆÂ‡†≠Ô•‚ ÆØÊ®® *)
+(* –°–æ—Ö—Ä–∞–Ω—è–µ—Ç –æ–ø—Ü–∏–∏ *)
 PROCEDURE SaveOptions;
 VAR
   curr: OPTION_ELEM;
@@ -1259,7 +1259,7 @@ BEGIN
 END SaveOptions;
 
 
-(* ÇÎ§†•‚ ·ÆÆ°È•≠®• Æ ≠•Ø‡†¢®´Ï≠Æ¨ ·ÆÆ‚ÆÔ≠®® ÆØÊ®® *)
+(* –í—ã–¥–∞–µ—Ç —Å–æ–æ–±—â–µ–Ω–∏–µ –æ –Ω–µ–ø—Ä–∞–≤–∏–ª—å–Ω–æ–º —Å–æ–æ—Ç–æ—è–Ω–∏–∏ –æ–ø—Ü–∏–∏ *)
 PROCEDURE InvalidOption (curr: OPTION_ELEM);
 VAR
   p: std.PDIALOG;
@@ -1274,18 +1274,18 @@ BEGIN
 END InvalidOption;
 
 
-(* è‡Æ¢•‡Ô•‚ ·Æ·‚ÆÔ≠®• ÆØÊ®© ® ¢ ·´„Á†• ÆË®°™® ¢Î§†•‚ ·ÆÆ°È•≠®• *)
-(* ëÆÂ‡†≠Ô•‚ ß†§†≠Î• ß≠†Á•≠®Ô ÆØÊ®© ™†™ ‚•™„È®•                 *)
+(* –ü—Ä–æ–≤–µ—Ä—è–µ—Ç —Å–æ—Å—Ç–æ—è–Ω–∏–µ –æ–ø—Ü–∏–π –∏ –≤ —Å–ª—É—á–∞–µ –æ—à–∏–±–∫–∏ –≤—ã–¥–∞–µ—Ç —Å–æ–æ–±—â–µ–Ω–∏–µ *)
+(* –°–æ—Ö—Ä–∞–Ω—è–µ—Ç –∑–∞–¥–∞–Ω—ã–µ –∑–Ω–∞—á–µ–Ω–∏—è –æ–ø—Ü–∏–π –∫–∞–∫ —Ç–µ–∫—É—â–∏–µ                 *)
 PROCEDURE SaveCurrentOptions (hwnd: win.HWND): BOOLEAN;
 VAR
   curr: OPTION_ELEM;
 BEGIN
-  -- è‡Æ¢•‡™† ·Æ·‚ÆÔ≠®Ô ÆØÊ®©
+  -- –ü—Ä–æ–≤–µ—Ä–∫–∞ —Å–æ—Å—Ç–æ—è–Ω–∏—è –æ–ø—Ü–∏–π
   IF NOT CheckOptions (curr) THEN
     InvalidOption (curr);
     RETURN FALSE;
   END;
-  -- ëÆÂ‡†≠•≠®• ß†§†≠≠ÎÂ ß≠†Á•≠®©
+  -- –°–æ—Ö—Ä–∞–Ω–µ–Ω–∏–µ –∑–∞–¥–∞–Ω–Ω—ã—Ö –∑–Ω–∞—á–µ–Ω–∏–π
   SaveOptions;
   eve.AddToTail(hwnd, eve.Hide, 0);
   eve.AddToTail(eve.AllWindows, eve.Redraw, 0);
@@ -1340,12 +1340,12 @@ PROCEDURE SaveConfigFromOptionsDialog;
 VAR
   curr: OPTION_ELEM;
 BEGIN
-  -- è‡Æ¢•‡™† ·Æ·‚ÆÔ≠®Ô ÆØÊ®©
+  -- –ü—Ä–æ–≤–µ—Ä–∫–∞ —Å–æ—Å—Ç–æ—è–Ω–∏—è –æ–ø—Ü–∏–π
   IF NOT CheckOptions (curr) THEN
     InvalidOption (curr);
     RETURN;
   END;
-  -- ëÆÂ‡†≠•≠®• ß†§†≠≠ÎÂ ß≠†Á•≠®©
+  -- –°–æ—Ö—Ä–∞–Ω–µ–Ω–∏–µ –∑–∞–¥–∞–Ω–Ω—ã—Ö –∑–Ω–∞—á–µ–Ω–∏–π
   SaveOptions;
   act.ExecuteAction (act.SaveConfig, act.mode_loud);
   UpdateOptions;
@@ -1417,7 +1417,7 @@ BEGIN
       NEW (Radix, 2);
       Radix^[0] := std.RADIO{27, 11, 'Hex', 1, key.AltH };
       Radix^[1] := std.RADIO{37, 11, 'Dec', 2, key.AltE };
-      Lines^[Opt2Line[WholeHex]] := std.LINE{4, 11, std.radio , 'ë®·‚•¨† ·Á®·´•≠®Ô', 0, 0, 0, 0, Radix, ToggleWholeHexOption, std.d_enabled};
+      Lines^[Opt2Line[WholeHex]] := std.LINE{4, 11, std.radio , '–°–∏—Å—Ç–µ–º–∞ —Å—á–∏—Å–ª–µ–Ω–∏—è', 0, 0, 0, 0, Radix, ToggleWholeHexOption, std.d_enabled};
       -- Use keyboard layout
       WITH CurrentOptions^[KbdFile] DO
         Lines^[Opt2Line[KbdFile]] := std.LINE{ 2, 12, std.check , NameR, sys.ADR(UseKbdOption), ToggleKbdLayoutOption, 1, key.AltB, std.d_disabled};
@@ -1437,7 +1437,7 @@ BEGIN
         Lines^[Opt2Line[IntStateStart]] := std.LINE{ 2, 16, std.check, NameR, sys.ADR(cond_new), UpdateOptions, 27, key.AltU, std.d_enabled};
       END;
       -- Reset to default
-      Lines^[15] := std.LINE{ 9, 18, std.button, 'á≠†Á•≠®Ô ØÆ-„¨Æ´Á†≠®Ó', ResetToDefault, 2, key.AltY, std.d_enabled };
+      Lines^[15] := std.LINE{ 9, 18, std.button, '–ó–Ω–∞—á–µ–Ω–∏—è –ø–æ-—É–º–æ–ª—á–∞–Ω–∏—é', ResetToDefault, 2, key.AltY, std.d_enabled };
       -- Prompts
       Lines^[16] := std.LINE{ 6, 2, std.msg, CurrentOptions^[Traced_Run_Delay].NameR, std.d_enabled };
 
@@ -1589,7 +1589,7 @@ BEGIN
       p^.action   := SaveCurrentOptions;
     END;
 
-    -- à≠®Ê®†´®ß†Ê®Ô ‚•™„È®Â ß≠†Á•≠®©
+    -- –ò–Ω–∏—Ü–∏–∞–ª–∏–∑–∞—Ü–∏—è —Ç–µ–∫—É—â–∏—Ö –∑–Ω–∞—á–µ–Ω–∏–π
     FOR curr := MIN(OPTION_ELEM) TO MAX(OPTION_ELEM) DO
       WITH CurrentOptions^[curr] DO
         CASE opt OF
@@ -1702,24 +1702,24 @@ BEGIN
 
  <* IF DEST_K26 THEN *>
   NEW(CurrentOptions);
-  CurrentOptions^[ Traced_Run_Delay         ] := OPTION{'Traced_Run_Delay',         'á†§•‡¶™† ‚‡†··Î, ¨·',       WholeEq, sys.ADR(dv.Delay)                     , dv.Delay                     , ""    , TRUE,  NIL                  };
-  CurrentOptions^[ HilighCode               ] := OPTION{'HilighCode',               'ÇÎ§•´•≠®• ™Æ§†',                  BoolEq,  sys.ADR(opt.CodeHilight)              , opt.CodeHilight              , FALSE , TRUE,  NIL                  };
-  CurrentOptions^[ HilighCall               ] := OPTION{'HilighCall',               'ÇÎ§•´•≠®• ¢ÎßÆ¢Æ¢ Ø‡ÆÊ•§„‡',      BoolEq,  sys.ADR(opt.CallHilight)              , opt.CallHilight              , FALSE , TRUE,  NIL };
-  CurrentOptions^[ FullDisasm               ] := OPTION{'FullDisasm',               'èÆ´≠Î© §®ß†··•¨°´•‡',                BoolEq,  sys.ADR(opt.DisasmMode)               , opt.DisasmMode               , FALSE , TRUE,  NIL                  };
-  CurrentOptions^[ DumpDisplay              ] := OPTION{'DumpDisplay',              'Ñ®ß†··•¨°´•‡ · §†¨ØÆ¨',       BoolEq,  sys.ADR(opt.Code)                     , opt.Code                     , FALSE , TRUE,  NIL                  };
-  CurrentOptions^[ Save_Opt_File            ] := OPTION{'Save_Opt_File',            'ëÆÂ‡†≠Ô‚Ï ‰†©´ ·•†≠·† Æ‚´†§™®',       BoolEq,  sys.ADR(opt.SaveOpt)                  , opt.SaveOpt                  , FALSE , TRUE,  NIL                  };
-  CurrentOptions^[ WholeHex                 ] := OPTION{'WholeHex',                 'ñ•´Î• ¢ 16 ·/·',         BoolEq,  sys.ADR(opt.WholeHex)                 , opt.WholeHex                 , FALSE , TRUE,  NIL                  };
-  CurrentOptions^[ KbdFile                  ] := OPTION{'KbdFile',                  'à·ØÆ´ÏßÆ¢†‚Ï ‰†©´ ≠†·‚‡Æ©™® ™´†¢®†‚„‡Î',             StrEq,   sys.ADR(opt.KbdFile), HIGH(opt.KbdFile)+1, std.MESSAGE(opt.KbdFile), ""    , TRUE,  ActionKbdFile        };
-  CurrentOptions^[ TraceRegisters           ] := OPTION{'TraceRegisters',           'í‡†··®‡Æ¢™† ‡•£®·‚‡Æ¢',                       BoolEq,  sys.ADR(opt.TraceRegisters), opt.TraceRegisters, opt.TraceRegisters,   TRUE,  TraceRegistersAction };
-  CurrentOptions^[ IntStateSystem           ] := OPTION{'IntStateSystem',           'ë®·‚•¨≠Î© ‡•¶®¨',                  BoolEq,  sys.ADR(StateSystem), FALSE, FALSE, TRUE, ToggleInterpretatorState };
-  CurrentOptions^[ IntStateTest             ] := OPTION{'IntStateTest',             'í•·‚Æ¢Î© ‡•¶®¨',                   BoolEq,  sys.ADR(StateTest),   FALSE, FALSE, TRUE, ToggleInterpretatorState };
-  CurrentOptions^[ IntStateStart            ] := OPTION{'IntStateStart',            'ç•ØÆ·‡•§·‚¢•≠≠Î© ·‚†‡‚ Ø‡Æ£‡†¨¨Î', BoolEq,  sys.ADR(StateStart),  FALSE, FALSE, TRUE, ToggleInterpretatorState };
-  CurrentOptions^[ ShowAllModules           ] := OPTION{'ShowAllModules',           'èÆ™†ßÎ¢†‚Ï ¢·• ¨Æ§„´®',                BoolEq,  sys.ADR(opt.ShowAllModules)           , opt.ShowAllModules           , FALSE , TRUE,  ActionShowAllModules };
-  CurrentOptions^[ WarningBell              ] := OPTION{'WarningBell',              'á¢„™Æ¢Æ© ·®£≠†´',                    BoolEq,  sys.ADR(opt.WarningBell)              , opt.WarningBell              , FALSE , TRUE,  NIL                  };
-  CurrentOptions^[ UseSingleStructWindow    ] := OPTION{'UseSingleStructWindow',    'é§≠Æ Æ™≠Æ §´Ô ·‚‡„™‚„‡',         BoolEq,  sys.ADR(opt.UseSingleStructureWindow) , opt.UseSingleStructureWindow , FALSE , TRUE,  NIL                  };
-  CurrentOptions^[ DumpType                 ] := OPTION{'DumpType',                 'à≠®Ê®†´®ß†Ê®Ô §†¨ØÆ¢',                       WholeEq, sys.ADR(opt.InitDumpType)             , opt.InitDumpType             , ""    , FALSE, NIL                  };
-  CurrentOptions^[ ShowModuleWithoutSource  ] := OPTION{'ShowModuleWithoutSource',  'èÆ™†ßÎ¢†‚Ï ¨Æ§„´® °•ß ®·ÂÆ§≠ÎÂ ‚•™·‚Æ¢', BoolEq, sys.ADR(opt.ShowModuleWithoutSource), opt.ShowModuleWithoutSource, FALSE, FALSE, NIL };
-  CurrentOptions^[ DisplayDereferencePointer] := OPTION{'DisplayDereferencePointer','ê†ßÎ¨•≠Æ¢†≠®• „™†ß†‚•´•©',            BoolEq,  sys.ADR(opt.DisplayDerefencePointer)  , opt.DisplayDerefencePointer  , FALSE , TRUE,  NIL                  };
+  CurrentOptions^[ Traced_Run_Delay         ] := OPTION{'Traced_Run_Delay',         '–ó–∞–¥–µ—Ä–∂–∫–∞ —Ç—Ä–∞—Å—Å—ã, –º—Å',       WholeEq, sys.ADR(dv.Delay)                     , dv.Delay                     , ""    , TRUE,  NIL                  };
+  CurrentOptions^[ HilighCode               ] := OPTION{'HilighCode',               '–í—ã–¥–µ–ª–µ–Ω–∏–µ –∫–æ–¥–∞',                  BoolEq,  sys.ADR(opt.CodeHilight)              , opt.CodeHilight              , FALSE , TRUE,  NIL                  };
+  CurrentOptions^[ HilighCall               ] := OPTION{'HilighCall',               '–í—ã–¥–µ–ª–µ–Ω–∏–µ –≤—ã–∑–æ–≤–æ–≤ –ø—Ä–æ—Ü–µ–¥—É—Ä',      BoolEq,  sys.ADR(opt.CallHilight)              , opt.CallHilight              , FALSE , TRUE,  NIL };
+  CurrentOptions^[ FullDisasm               ] := OPTION{'FullDisasm',               '–ü–æ–ª–Ω—ã–π –¥–∏–∑–∞—Å—Å–µ–º–±–ª–µ—Ä',                BoolEq,  sys.ADR(opt.DisasmMode)               , opt.DisasmMode               , FALSE , TRUE,  NIL                  };
+  CurrentOptions^[ DumpDisplay              ] := OPTION{'DumpDisplay',              '–î–∏–∑–∞—Å—Å–µ–º–±–ª–µ—Ä —Å –¥–∞–º–ø–æ–º',       BoolEq,  sys.ADR(opt.Code)                     , opt.Code                     , FALSE , TRUE,  NIL                  };
+  CurrentOptions^[ Save_Opt_File            ] := OPTION{'Save_Opt_File',            '–°–æ—Ö—Ä–∞–Ω—è—Ç—å —Ñ–∞–π–ª —Å–µ–∞–Ω—Å–∞ –æ—Ç–ª–∞–¥–∫–∏',       BoolEq,  sys.ADR(opt.SaveOpt)                  , opt.SaveOpt                  , FALSE , TRUE,  NIL                  };
+  CurrentOptions^[ WholeHex                 ] := OPTION{'WholeHex',                 '–¶–µ–ª—ã–µ –≤ 16 —Å/—Å',         BoolEq,  sys.ADR(opt.WholeHex)                 , opt.WholeHex                 , FALSE , TRUE,  NIL                  };
+  CurrentOptions^[ KbdFile                  ] := OPTION{'KbdFile',                  '–ò—Å–ø–æ–ª—å–∑–æ–≤–∞—Ç—å —Ñ–∞–π–ª –Ω–∞—Å—Ç—Ä–æ–π–∫–∏ –∫–ª–∞–≤–∏–∞—Ç—É—Ä—ã',             StrEq,   sys.ADR(opt.KbdFile), HIGH(opt.KbdFile)+1, std.MESSAGE(opt.KbdFile), ""    , TRUE,  ActionKbdFile        };
+  CurrentOptions^[ TraceRegisters           ] := OPTION{'TraceRegisters',           '–¢—Ä–∞—Å—Å–∏—Ä–æ–≤–∫–∞ —Ä–µ–≥–∏—Å—Ç—Ä–æ–≤',                       BoolEq,  sys.ADR(opt.TraceRegisters), opt.TraceRegisters, opt.TraceRegisters,   TRUE,  TraceRegistersAction };
+  CurrentOptions^[ IntStateSystem           ] := OPTION{'IntStateSystem',           '–°–∏—Å—Ç–µ–º–Ω—ã–π —Ä–µ–∂–∏–º',                  BoolEq,  sys.ADR(StateSystem), FALSE, FALSE, TRUE, ToggleInterpretatorState };
+  CurrentOptions^[ IntStateTest             ] := OPTION{'IntStateTest',             '–¢–µ—Å—Ç–æ–≤—ã–π —Ä–µ–∂–∏–º',                   BoolEq,  sys.ADR(StateTest),   FALSE, FALSE, TRUE, ToggleInterpretatorState };
+  CurrentOptions^[ IntStateStart            ] := OPTION{'IntStateStart',            '–ù–µ–ø–æ—Å—Ä–µ–¥—Å—Ç–≤–µ–Ω–Ω—ã–π —Å—Ç–∞—Ä—Ç –ø—Ä–æ–≥—Ä–∞–º–º—ã', BoolEq,  sys.ADR(StateStart),  FALSE, FALSE, TRUE, ToggleInterpretatorState };
+  CurrentOptions^[ ShowAllModules           ] := OPTION{'ShowAllModules',           '–ü–æ–∫–∞–∑—ã–≤–∞—Ç—å –≤—Å–µ –º–æ–¥—É–ª–∏',                BoolEq,  sys.ADR(opt.ShowAllModules)           , opt.ShowAllModules           , FALSE , TRUE,  ActionShowAllModules };
+  CurrentOptions^[ WarningBell              ] := OPTION{'WarningBell',              '–ó–≤—É–∫–æ–≤–æ–π —Å–∏–≥–Ω–∞–ª',                    BoolEq,  sys.ADR(opt.WarningBell)              , opt.WarningBell              , FALSE , TRUE,  NIL                  };
+  CurrentOptions^[ UseSingleStructWindow    ] := OPTION{'UseSingleStructWindow',    '–û–¥–Ω–æ –æ–∫–Ω–æ –¥–ª—è —Å—Ç—Ä—É–∫—Ç—É—Ä',         BoolEq,  sys.ADR(opt.UseSingleStructureWindow) , opt.UseSingleStructureWindow , FALSE , TRUE,  NIL                  };
+  CurrentOptions^[ DumpType                 ] := OPTION{'DumpType',                 '–ò–Ω–∏—Ü–∏–∞–ª–∏–∑–∞—Ü–∏—è –¥–∞–º–ø–æ–≤',                       WholeEq, sys.ADR(opt.InitDumpType)             , opt.InitDumpType             , ""    , FALSE, NIL                  };
+  CurrentOptions^[ ShowModuleWithoutSource  ] := OPTION{'ShowModuleWithoutSource',  '–ü–æ–∫–∞–∑—ã–≤–∞—Ç—å –º–æ–¥—É–ª–∏ –±–µ–∑ –∏—Å—Ö–æ–¥–Ω—ã—Ö —Ç–µ–∫—Å—Ç–æ–≤', BoolEq, sys.ADR(opt.ShowModuleWithoutSource), opt.ShowModuleWithoutSource, FALSE, FALSE, NIL };
+  CurrentOptions^[ DisplayDereferencePointer] := OPTION{'DisplayDereferencePointer','–†–∞–∑—ã–º–µ–Ω–æ–≤–∞–Ω–∏–µ —É–∫–∞–∑–∞—Ç–µ–ª–µ–π',            BoolEq,  sys.ADR(opt.DisplayDerefencePointer)  , opt.DisplayDerefencePointer  , FALSE , TRUE,  NIL                  };
  <* ELSIF DEST_XDS THEN *>
   TransliterateFromToStr := TransliterateFromToTable [Translit.nn];
   NEW(CurrentOptions);

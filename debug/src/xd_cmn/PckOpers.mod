@@ -89,13 +89,13 @@ IMPORT thr := Threads;
 
 
 CONST
-  OperatorLength = 16;                                  (* Длина оператора    *)
+  OperatorLength = 16;                                  (* ╨Ф╨╗╨╕╨╜╨░ ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨░    *)
 
 
 TYPE
-  OPERATOR_NAME = ARRAY [0..OperatorLength] OF CHAR;  (* Имя оператора      *)
+  OPERATOR_NAME = ARRAY [0..OperatorLength] OF CHAR;  (* ╨Ш╨╝╤П ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨░      *)
 
-  OPERATOR_NAMES = RECORD                              (* Оператор           *)
+  OPERATOR_NAMES = RECORD                              (* ╨Ю╨┐╨╡╤А╨░╤В╨╛╤А           *)
                      First : OPERATOR_NAME;
                      Second: OPERATOR_NAME;
                    END;
@@ -116,15 +116,15 @@ TYPE
 VAR
   Operators: OPERATORS;
 
-  TestName : xs.String; (* ╚ь  трЁшрэЄр *)
+  TestName : xs.String; (* тХЪ╤М┬а ╤В╤А╨Б╤И╤А╤Н╨Д╤А *)
 
-  Line  : xs.txt_ptr; (* ╥хъє∙р  ёЄЁюър                 *)
-  PosStr: CARDINAL;     (* ═юьхЁ Єхъє∙хщ яючшЎшш т ёЄЁюъх *)
-  Param : xs.String;  (* ╥хъє∙шщ ярЁрьхЄЁ               *)
+  Line  : xs.txt_ptr; (* тХе╤Е╤К╤ФтИЩ╤А┬а ╤С╨Д╨Б╤О╤К╤А                 *)
+  PosStr: CARDINAL;     (* тХР╤О╤М╤Е╨Б ╨Д╤Е╤К╤ФтИЩ╤Е╤Й ╤П╤О╤З╤И╨О╤И╤И ╤В ╤С╨Д╨Б╤О╤К╤Е *)
+  Param : xs.String;  (* тХе╤Е╤К╤ФтИЩ╤И╤Й ╤П╤А╨Б╤А╤М╤Е╨Д╨Б               *)
 
 
 
-(* Определяет номер оператора *)
+(* ╨Ю╨┐╤А╨╡╨┤╨╡╨╗╤П╨╡╤В ╨╜╨╛╨╝╨╡╤А ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨░ *)
 PROCEDURE OperatorNumber (name-: ARRAY OF CHAR; VAR n: CARDINAL): BOOLEAN;
 VAR
   i: CARDINAL;
@@ -153,7 +153,7 @@ BEGIN
 END IsOperator;
 
 
-(* Переименовать оператор *)
+(* ╨Я╨╡╤А╨╡╨╕╨╝╨╡╨╜╨╛╨▓╨░╤В╤М ╨╛╨┐╨╡╤А╨░╤В╨╛╤А *)
 PROCEDURE RenameOperator (old_name,new_name:ARRAY OF CHAR): BOOLEAN;
 VAR
   i: CARDINAL;
@@ -284,8 +284,8 @@ END SepParam;
 
 
 
-(* Исполнить строку, ее должна содержать Line; RC - код возврата оператора       *)
-(* Вернет TRUE - если строка исполнялась, warning - при наличии лишних парамтров *)
+(* ╨Ш╤Б╨┐╨╛╨╗╨╜╨╕╤В╤М ╤Б╤В╤А╨╛╨║╤Г, ╨╡╨╡ ╨┤╨╛╨╗╨╢╨╜╨░ ╤Б╨╛╨┤╨╡╤А╨╢╨░╤В╤М Line; RC - ╨║╨╛╨┤ ╨▓╨╛╨╖╨▓╤А╨░╤В╨░ ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨░       *)
+(* ╨Т╨╡╤А╨╜╨╡╤В TRUE - ╨╡╤Б╨╗╨╕ ╤Б╤В╤А╨╛╨║╨░ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╗╨░╤Б╤М, warning - ╨┐╤А╨╕ ╨╜╨░╨╗╨╕╤З╨╕╨╕ ╨╗╨╕╤И╨╜╨╕╤Е ╨┐╨░╤А╨░╨╝╤В╤А╨╛╨▓ *)
 PROCEDURE Execute (line-: ARRAY OF CHAR; VAR RC: CARDINAL; VAR warning: BOOLEAN): BOOLEAN;
 VAR
   DoLine: BOOLEAN;
@@ -438,7 +438,7 @@ BEGIN
   RETURN 0; -- Ok
 END CallsForAllThreads;
 
-(* Загрузить программу *)
+(* ╨Ч╨░╨│╤А╤Г╨╖╨╕╤В╤М ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Г *)
 PROCEDURE LoadProgram () : CARDINAL;
 VAR
   ext: BOOLEAN;
@@ -469,7 +469,7 @@ BEGIN
 
   pos := kex.LoadProgram(opt.prog_name, opt.prog_args);
   IF pos = 0 THEN
-    -- Установить текущие компоненту и модуль
+    -- ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╤В╨╡╨║╤Г╤Й╨╕╨╡ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╤Г ╨╕ ╨╝╨╛╨┤╤Г╨╗╤М
     IP := mem.GetIP();
     IF tls.FindComponentByAddr (IP, com) THEN
       pt.ActiveComponent := com;
@@ -488,7 +488,7 @@ END LoadProgram;
 
 
 
-(* Переход по метке в пакете *)
+(* ╨Я╨╡╤А╨╡╤Е╨╛╨┤ ╨┐╨╛ ╨╝╨╡╤В╨║╨╡ ╨▓ ╨┐╨░╨║╨╡╤В╨╡ *)
 PROCEDURE Go_To_Label (VAR ok:BOOLEAN) : CARDINAL;
 VAR
   paket, line : CARDINAL;
@@ -507,7 +507,7 @@ BEGIN
 END Go_To_Label;
 
 
-(* Переход по метке в пакете *)
+(* ╨Я╨╡╤А╨╡╤Е╨╛╨┤ ╨┐╨╛ ╨╝╨╡╤В╨║╨╡ ╨▓ ╨┐╨░╨║╨╡╤В╨╡ *)
 PROCEDURE Goto () : CARDINAL;
 VAR
   ok : BOOLEAN;
@@ -516,7 +516,7 @@ BEGIN
 END Goto;
 
 
-(* Вызов подпрограмм *)
+(* ╨Т╤Л╨╖╨╛╨▓ ╨┐╨╛╨┤╨┐╤А╨╛╨│╤А╨░╨╝╨╝ *)
 PROCEDURE Gosub () : CARDINAL;
 VAR
   ErrCode,
@@ -532,7 +532,7 @@ BEGIN
 END Gosub;
 
 
-(* Возврат из подпрограмм *)
+(* ╨Т╨╛╨╖╨▓╤А╨░╤В ╨╕╨╖ ╨┐╨╛╨┤╨┐╤А╨╛╨│╤А╨░╨╝╨╝ *)
 PROCEDURE Return () : CARDINAL;
 VAR
   paket,
@@ -549,7 +549,7 @@ BEGIN
 END Return;
 
 
-(* Направление вывода протокола *)
+(* ╨Э╨░╨┐╤А╨░╨▓╨╗╨╡╨╜╨╕╨╡ ╨▓╤Л╨▓╨╛╨┤╨░ ╨┐╤А╨╛╤В╨╛╨║╨╛╨╗╨░ *)
 PROCEDURE Dir () : CARDINAL;
 
   PROCEDURE ToScreen (s-:ARRAY OF CHAR) : BOOLEAN;
@@ -557,7 +557,7 @@ PROCEDURE Dir () : CARDINAL;
     ch: CHAR;
   BEGIN
     ch := xs.UpChar(s[0]);
-    IF ((ch='Э') OR (ch='S')) AND (s[1] = 0C) THEN
+    IF ((ch='╨н') OR (ch='S')) AND (s[1] = 0C) THEN
       RETURN TRUE;
     ELSE
       RETURN FALSE;
@@ -593,7 +593,7 @@ BEGIN
 END Dir;
 
 
-(* Завершение работы отладчика *)
+(* ╨Ч╨░╨▓╨╡╤А╤И╨╡╨╜╨╕╨╡ ╤А╨░╨▒╨╛╤В╤Л ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨░ *)
 PROCEDURE End () : CARDINAL;
 BEGIN
   opt.Stop_Pack := TRUE;
@@ -610,7 +610,7 @@ BEGIN
 END End;
 
 
-(* Пауза, до нажатия клавиши либо по времени *)
+(* ╨Я╨░╤Г╨╖╨░, ╨┤╨╛ ╨╜╨░╨╢╨░╤В╨╕╤П ╨║╨╗╨░╨▓╨╕╤И╨╕ ╨╗╨╕╨▒╨╛ ╨┐╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ *)
 PROCEDURE Pause () : CARDINAL;
 VAR
   value: LONGCARD;
@@ -633,7 +633,7 @@ BEGIN
 END Pause;
 
 
-(* Задание эквивалентных имен: операторов, выражений, строк модулей *)
+(* ╨Ч╨░╨┤╨░╨╜╨╕╨╡ ╤Н╨║╨▓╨╕╨▓╨░╨╗╨╡╨╜╤В╨╜╤Л╤Е ╨╕╨╝╨╡╨╜: ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╛╨▓, ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╨╣, ╤Б╤В╤А╨╛╨║ ╨╝╨╛╨┤╤Г╨╗╨╡╨╣ *)
 PROCEDURE Equiv (): CARDINAL;
 CONST
   MODE = exp.CHARSET { 'S', 'L', 'O' };
@@ -648,7 +648,7 @@ VAR
 
 BEGIN
   IF NOT GetParam() THEN RETURN msg.Expected_equnamel; END;
-  COPY(Param, Name); (* Получить имя *)
+  COPY(Param, Name); (* ╨Я╨╛╨╗╤Г╤З╨╕╤В╤М ╨╕╨╝╤П *)
   IF NOT (exp.CheckName(Name,TRUE) OR exp.CheckName(Name,FALSE)) THEN RETURN msg.Incorrect_equiv_name; END;
   IF SkipBlanks() THEN
     IF lst.IsEquName(Name) THEN
@@ -683,7 +683,7 @@ BEGIN
 END Equiv;
 
 
-(* Переход по ошибке *)
+(* ╨Я╨╡╤А╨╡╤Е╨╛╨┤ ╨┐╨╛ ╨╛╤И╨╕╨▒╨║╨╡ *)
 PROCEDURE JumpByError (): CARDINAL;
 VAR
   Add   : BOOLEAN;
@@ -718,7 +718,7 @@ BEGIN
   RETURN 0;
 END JumpByError;
 
-(* Завершение исполнения программы, возврат на продолжение варианта *)
+(* ╨Ч╨░╨▓╨╡╤А╤И╨╡╨╜╨╕╨╡ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л, ╨▓╨╛╨╖╨▓╤А╨░╤В ╨╜╨░ ╨┐╤А╨╛╨┤╨╛╨╗╨╢╨╡╨╜╨╕╨╡ ╨▓╨░╤А╨╕╨░╨╜╤В╨░ *)
 PROCEDURE GoBack (): CARDINAL;
 VAR
   paket,
@@ -739,7 +739,7 @@ BEGIN
 END GoBack;
 
 
-(* Вызов диалогового отладчика *)
+(* ╨Т╤Л╨╖╨╛╨▓ ╨┤╨╕╨░╨╗╨╛╨│╨╛╨▓╨╛╨│╨╛ ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨░ *)
 PROCEDURE Dialog (): CARDINAL;
 
   MODULE SaveRestore;
@@ -778,7 +778,7 @@ END Dialog;
 
 
 
-(* Задание режимов работы отладчика *)
+(* ╨Ч╨░╨┤╨░╨╜╨╕╨╡ ╤А╨╡╨╢╨╕╨╝╨╛╨▓ ╤А╨░╨▒╨╛╤В╤Л ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨░ *)
 PROCEDURE List () : CARDINAL;
 
 VAR
@@ -938,7 +938,7 @@ VAR
   CurrentBreakNumber: CARDINAL;
 
 
-(* Задание остановов *)
+(* ╨Ч╨░╨┤╨░╨╜╨╕╨╡ ╨╛╤Б╤В╨░╨╜╨╛╨▓╨╛╨▓ *)
 PROCEDURE Break (): CARDINAL;
 CONST
   Exceptions = pt.SET_MODE_FLAGS { pt.OutMem, pt.WrProt, pt.ProgInt, pt.User };
@@ -1492,7 +1492,7 @@ BEGIN
 END Break;
 
 
-(* Удалить останов по номеру *)
+(* ╨г╨┤╨░╨╗╨╕╤В╤М ╨╛╤Б╤В╨░╨╜╨╛╨▓ ╨┐╨╛ ╨╜╨╛╨╝╨╡╤А╤Г *)
 PROCEDURE Del(): CARDINAL;
 VAR
   number: LONGCARD;
@@ -1514,7 +1514,7 @@ BEGIN
 END Del;
 
 
-(* Оператор условного перехода *)
+(* ╨Ю╨┐╨╡╤А╨░╤В╨╛╤А ╤Г╤Б╨╗╨╛╨▓╨╜╨╛╨│╨╛ ╨┐╨╡╤А╨╡╤Е╨╛╨┤╨░ *)
 PROCEDURE If (): CARDINAL;
 VAR
   jump: BOOLEAN;
@@ -1538,7 +1538,7 @@ END If;
 
 
 
-(* Добавить выражение в окно слежения для просмотра в диалоге *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╕╤В╤М ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╨╡ ╨▓ ╨╛╨║╨╜╨╛ ╤Б╨╗╨╡╨╢╨╡╨╜╨╕╤П ╨┤╨╗╤П ╨┐╤А╨╛╤Б╨╝╨╛╤В╤А╨░ ╨▓ ╨┤╨╕╨░╨╗╨╛╨│╨╡ *)
 PROCEDURE Watch (): CARDINAL;
 VAR
   res : exp.ExprRes;
@@ -1566,7 +1566,7 @@ BEGIN
 END Watch;
 
 
-(* Определение активного модуля *)
+(* ╨Ю╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╨╡ ╨░╨║╤В╨╕╨▓╨╜╨╛╨│╨╛ ╨╝╨╛╨┤╤Г╨╗╤П *)
 PROCEDURE SetActiveModule (): CARDINAL;
 VAR
   com: dt.ComNo;
@@ -1589,7 +1589,7 @@ BEGIN
       RETURN msg.Incorrect_parameter;
     END;
   ELSE
-    -- Установить текущие компоненту и модуль
+    -- ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╤В╨╡╨║╤Г╤Й╨╕╨╡ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╤Г ╨╕ ╨╝╨╛╨┤╤Г╨╗╤М
     IP := mem.GetIP();
     IF tls.FindComponentByAddr (IP, com) THEN
       pt.ActiveComponent := com;
@@ -1611,7 +1611,7 @@ END SetActiveModule;
 CONST
   FREE_FORMAT = 'n';
 
-(* Оператор вывода данных *)
+(* ╨Ю╨┐╨╡╤А╨░╤В╨╛╤А ╨▓╤Л╨▓╨╛╨┤╨░ ╨┤╨░╨╜╨╜╤Л╤Е *)
 PROCEDURE Put (): CARDINAL;
 
 TYPE
@@ -1639,20 +1639,20 @@ CONST
   MaxLen = 72;
 
 VAR
-  stroka  : xs.String;  (* исходная строка *)
+  stroka  : xs.String;  (* ╨╕╤Б╤Е╨╛╨┤╨╜╨░╤П ╤Б╤В╤А╨╛╨║╨░ *)
   st, st1 : xs.String;
   st2, st3: xs.String;
-  text    : xs.String;  (* текст для вывода *)
-  format  : xs.String;  (* формат *)
-  len     : CARDINAL;   (* Длина stroka *)
-  base    : CHAR;       (* база *)
+  text    : xs.String;  (* ╤В╨╡╨║╤Б╤В ╨┤╨╗╤П ╨▓╤Л╨▓╨╛╨┤╨░ *)
+  format  : xs.String;  (* ╤Д╨╛╤А╨╝╨░╤В *)
+  len     : CARDINAL;   (* ╨Ф╨╗╨╕╨╜╨░ stroka *)
+  base    : CHAR;       (* ╨▒╨░╨╖╨░ *)
   smodif  : SMODIFICATOR;
   width   : CARDINAL;
   precis  : CARDINAL;
-  Addr    : kt.ADDRESS; (* адрес начала поля или переменной *)
-  CurrAddr: kt.ADDRESS; (* адрес начала текущего кванта поля *)
-  LnPole  : CARDINAL;   (* длина поля при указании LКонстанта *)
-  LnElem  : CARDINAL;   (*длина элемента поля, заданная, возможно, KКонстанта *)
+  Addr    : kt.ADDRESS; (* ╨░╨┤╤А╨╡╤Б ╨╜╨░╤З╨░╨╗╨░ ╨┐╨╛╨╗╤П ╨╕╨╗╨╕ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨╛╨╣ *)
+  CurrAddr: kt.ADDRESS; (* ╨░╨┤╤А╨╡╤Б ╨╜╨░╤З╨░╨╗╨░ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨║╨▓╨░╨╜╤В╨░ ╨┐╨╛╨╗╤П *)
+  LnPole  : CARDINAL;   (* ╨┤╨╗╨╕╨╜╨░ ╨┐╨╛╨╗╤П ╨┐╤А╨╕ ╤Г╨║╨░╨╖╨░╨╜╨╕╨╕ L╨Ъ╨╛╨╜╤Б╤В╨░╨╜╤В╨░ *)
+  LnElem  : CARDINAL;   (*╨┤╨╗╨╕╨╜╨░ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨░ ╨┐╨╛╨╗╤П, ╨╖╨░╨┤╨░╨╜╨╜╨░╤П, ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛, K╨Ъ╨╛╨╜╤Б╤В╨░╨╜╤В╨░ *)
 
 
   PROCEDURE check_print;
@@ -1806,10 +1806,10 @@ VAR
                         IF exp.GetCardValue(pt.ActiveComponent, pt.ActiveModule, st, value) THEN
                           LnElem := VAL(CARDINAL,value);
                         ELSE
-                          i:=p1-1; (* Вернемся назад - в константе ошибка *)
+                          i:=p1-1; (* ╨Т╨╡╤А╨╜╨╡╨╝╤Б╤П ╨╜╨░╨╖╨░╨┤ - ╨▓ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╨╡ ╨╛╤И╨╕╨▒╨║╨░ *)
                         END;
                       ELSE
-                        i:=p1-1; (* Вернемся назад - 'K' начало след. текста *)
+                        i:=p1-1; (* ╨Т╨╡╤А╨╜╨╡╨╝╤Б╤П ╨╜╨░╨╖╨░╨┤ - 'K' ╨╜╨░╤З╨░╨╗╨╛ ╤Б╨╗╨╡╨┤. ╤В╨╡╨║╤Б╤В╨░ *)
                       END;
                     END;
                   END;
@@ -1823,10 +1823,10 @@ VAR
                         IF exp.GetCardValue(pt.ActiveComponent, pt.ActiveModule, st, value) THEN
                           LnPole := VAL(CARDINAL,value);
                         ELSE
-                          i:=p1-1; (* Вернемся назад - в константе ошибка *)
+                          i:=p1-1; (* ╨Т╨╡╤А╨╜╨╡╨╝╤Б╤П ╨╜╨░╨╖╨░╨┤ - ╨▓ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╨╡ ╨╛╤И╨╕╨▒╨║╨░ *)
                         END;
                       ELSE
-                        i:=p1-1; (* Вернемся назад - 'K' начало след. текста *)
+                        i:=p1-1; (* ╨Т╨╡╤А╨╜╨╡╨╝╤Б╤П ╨╜╨░╨╖╨░╨┤ - 'K' ╨╜╨░╤З╨░╨╗╨╛ ╤Б╨╗╨╡╨┤. ╤В╨╡╨║╤Б╤В╨░ *)
                       END;
                     END;
                   END;
@@ -1899,15 +1899,15 @@ BEGIN
   len := p3-p2;
   xs.Extract(Line^,p2,len,stroka);
   PosStr := p3+1;
-  text := ''; (* текст для вывода *)
-  i := 0; (* конец текущего формата *)
+  text := ''; (* ╤В╨╡╨║╤Б╤В ╨┤╨╗╤П ╨▓╤Л╨▓╨╛╨┤╨░ *)
+  i := 0; (* ╨║╨╛╨╜╨╡╤Ж ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Д╨╛╤А╨╝╨░╤В╨░ *)
   i1 := 0;
   LOOP
     LnPole := 0;
     LnElem := 0;
-    i0 := i; (* начало текста до текущего формата *)
+    i0 := i; (* ╨╜╨░╤З╨░╨╗╨╛ ╤В╨╡╨║╤Б╤В╨░ ╨┤╨╛ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Д╨╛╤А╨╝╨░╤В╨░ *)
     get_format (stroka, i, i1);
-    (* i1 - на начале формата, i - после, т.е. на начале след. текста *)
+    (* i1 - ╨╜╨░ ╨╜╨░╤З╨░╨╗╨╡ ╤Д╨╛╤А╨╝╨░╤В╨░, i - ╨┐╨╛╤Б╨╗╨╡, ╤В.╨╡. ╨╜╨░ ╨╜╨░╤З╨░╨╗╨╡ ╤Б╨╗╨╡╨┤. ╤В╨╡╨║╤Б╤В╨░ *)
     xs.Extract(stroka,i0,i1-i0,st);
     fmt.print (st1, st);
     xs.Append (st1, text);
@@ -1922,7 +1922,7 @@ BEGIN
     IF NOT GetParam() THEN RETURN msg.Expected_expression; END;
     exp.GetLeftValue(pt.ActiveComponent, pt.ActiveModule, Param, ExprRes);
     IF (exp.error#0) OR NOT exp.dfn THEN RETURN exp.error; END;
-    IF IsMemoryRegion(base) THEN (* Поле байт *)
+    IF IsMemoryRegion(base) THEN (* ╨Я╨╛╨╗╨╡ ╨▒╨░╨╣╤В *)
       flag := FALSE;
       WITH ExprRes DO
         CASE sort OF
@@ -1956,14 +1956,14 @@ BEGIN
       END;
       IF flag THEN
         p1 := 0;
-        p2 := 0; -- Возможно, здесь будет LOOP по форматам внутри миниформатной строки
+        p2 := 0; -- ╨Т╨╛╨╖╨╝╨╛╨╢╨╜╨╛, ╨╖╨┤╨╡╤Б╤М ╨▒╤Г╨┤╨╡╤В LOOP ╨┐╨╛ ╤Д╨╛╤А╨╝╨░╤В╨░╨╝ ╨▓╨╜╤Г╤В╤А╨╕ ╨╝╨╕╨╜╨╕╤Д╨╛╤А╨╝╨░╤В╨╜╨╛╨╣ ╤Б╤В╤А╨╛╨║╨╕
         p3 := p1;
-        COPY (format, st1); -- st1 миниформатная строка
+        COPY (format, st1); -- st1 ╨╝╨╕╨╜╨╕╤Д╨╛╤А╨╝╨░╤В╨╜╨░╤П ╤Б╤В╤А╨╛╨║╨░
         get_format (st1, p1, p2);
         xs.Extract (st1, 0, p2, st2);
         fmt.print (prev_text, st2);
-        p4 := 0; (* Номер текущего кванта *)
-        IF text # '' THEN (* Печать предварительного текста *)
+        p4 := 0; (* ╨Э╨╛╨╝╨╡╤А ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨║╨▓╨░╨╜╤В╨░ *)
+        IF text # '' THEN (* ╨Я╨╡╤З╨░╤В╤М ╨┐╤А╨╡╨┤╨▓╨░╤А╨╕╤В╨╡╨╗╤М╨╜╨╛╨│╨╛ ╤В╨╡╨║╤Б╤В╨░ *)
           pro.WriteMsg (text, pro.to_screen, pro.to_file);
           COPY ("", text);
         END;
@@ -2181,7 +2181,7 @@ END Examine;
 
 
 
-(* Задание значение переменным*)
+(* ╨Ч╨░╨┤╨░╨╜╨╕╨╡ ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╨╝*)
 PROCEDURE Set () : CARDINAL;
 VAR
   ExprResL: exp.ExprRes;
@@ -2209,7 +2209,7 @@ VAR
   Registers: REGISTERS;
 
 
-(* Оператор заполнения фоном *)
+(* ╨Ю╨┐╨╡╤А╨░╤В╨╛╤А ╨╖╨░╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П ╤Д╨╛╨╜╨╛╨╝ *)
 PROCEDURE Fon (): CARDINAL;
 VAR
   Addr : kt.ADDRESS;
@@ -2243,7 +2243,7 @@ BEGIN
     FOR i := 0 TO HIGH(Registers) DO
       ASSERT( mem.GetReg(kt.Registers[i].reg_no, Registers[i]) );
     END;
-    N := (HIGH(Registers)-k+1) * 4; (* Макс. кол-во пересылаемых байт *)
+    N := (HIGH(Registers)-k+1) * 4; (* ╨Ь╨░╨║╤Б. ╨║╨╛╨╗-╨▓╨╛ ╨┐╨╡╤А╨╡╤Б╤Л╨╗╨░╨╡╨╝╤Л╤Е ╨▒╨░╨╣╤В *)
     IF N > Ln THEN N := Ln; END;
     FOR i := 0 TO N-1 DO
       sys.MOVE( pbyte, sys.ADDADR(sys.ADR(Registers[k]),i), 1);
@@ -2263,7 +2263,7 @@ BEGIN
 END Fon;
 
 
-(* Пересылка с адреса на адрес сколько-то байт *)
+(* ╨Я╨╡╤А╨╡╤Б╤Л╨╗╨║╨░ ╤Б ╨░╨┤╤А╨╡╤Б╨░ ╨╜╨░ ╨░╨┤╤А╨╡╤Б ╤Б╨║╨╛╨╗╤М╨║╨╛-╤В╨╛ ╨▒╨░╨╣╤В *)
 PROCEDURE Move (): CARDINAL;
 
 <* IF DEST_K26 THEN *>
@@ -2302,7 +2302,7 @@ BEGIN
   IF NOT SepParam() THEN RETURN msg.Expected_separator; END;
   IF NOT GetParam() THEN RETURN msg.Expected_address; END;
   IF NOT exp.GetSource(pt.ActiveComponent, pt.ActiveModule, Param, LC, Source) THEN RETURN msg.Incorrect_parameter; END;
-  IF LC.len = 0 THEN (* Справа адрес *)
+  IF LC.len = 0 THEN (* ╨б╨┐╤А╨░╨▓╨░ ╨░╨┤╤А╨╡╤Б *)
     IF Source.sort = exp.Address THEN
       IF RegNoDest = MAX(CARDINAL) THEN
         IF ((Source.address<Dest) AND (Source.address+Ln>Dest)) OR
@@ -2330,7 +2330,7 @@ BEGIN
         FOR i := 0 TO HIGH(Registers) DO
           ASSERT( mem.GetReg(kt.Registers[i].reg_no, Registers[i]) );
         END;
-        N := (HIGH(Registers)-k+1) * 4; (* Макс. кол-во пересылаемых байт *)
+        N := (HIGH(Registers)-k+1) * 4; (* ╨Ь╨░╨║╤Б. ╨║╨╛╨╗-╨▓╨╛ ╨┐╨╡╤А╨╡╤Б╤Л╨╗╨░╨╡╨╝╤Л╤Е ╨▒╨░╨╣╤В *)
         IF N > Ln THEN N := Ln; END;
         FOR i := 0 TO N-1 DO
           IF NOT mem.Get(Source.address+i, sys.ADDADR(sys.ADR(Registers[k]),i), 1) THEN
@@ -2362,7 +2362,7 @@ BEGIN
           ASSERT( mem.GetReg(kt.Registers[i].reg_no, Registers[i]) );
         END;
         Registers2 := Registers;
-        N := (HIGH(Registers)-n+1) * 4; (* Макс. кол-во пересылаемых байт *)
+        N := (HIGH(Registers)-n+1) * 4; (* ╨Ь╨░╨║╤Б. ╨║╨╛╨╗-╨▓╨╛ ╨┐╨╡╤А╨╡╤Б╤Л╨╗╨░╨╡╨╝╤Л╤Е ╨▒╨░╨╣╤В *)
         i := (HIGH(Registers)-k+1) * 4;
         IF N > i THEN N := i; END;
         IF N > Ln THEN N := Ln; END;
@@ -2377,7 +2377,7 @@ BEGIN
     ELSE
       RETURN msg.Incorrect_parameter;
     END;
-  ELSE (* Справа константа *)
+  ELSE (* ╨б╨┐╤А╨░╨▓╨░ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╨░ *)
     IF Ln > LC.len THEN
       err.Warning(msg.Length_GR_const, Ln, LC.len);
       Ln := LC.len;
@@ -2399,7 +2399,7 @@ BEGIN
       FOR i := 0 TO HIGH(Registers) DO
         ASSERT( mem.GetReg(kt.Registers[i].reg_no, Registers[i]) );
       END;
-      N := (HIGH(Registers)-k+1) * 4; (* Макс. кол-во пересылаемых байт *)
+      N := (HIGH(Registers)-k+1) * 4; (* ╨Ь╨░╨║╤Б. ╨║╨╛╨╗-╨▓╨╛ ╨┐╨╡╤А╨╡╤Б╤Л╨╗╨░╨╡╨╝╤Л╤Е ╨▒╨░╨╣╤В *)
       IF N > Ln THEN N := Ln; END;
       FOR i := 0 TO N-1 DO
         sys.MOVE( sys.ADR(LC.ptr^[i]), sys.ADDADR(sys.ADR(Registers[k]),i), 1);
@@ -2439,7 +2439,7 @@ BEGIN
 END Move;
 
 
-(* Начало варианта исполнения фрагмента программы *)
+(* ╨Э╨░╤З╨░╨╗╨╛ ╨▓╨░╤А╨╕╨░╨╜╤В╨░ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П ╤Д╤А╨░╨│╨╝╨╡╨╜╤В╨░ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л *)
 PROCEDURE TestBegin () : CARDINAL;
 BEGIN
   IF TestName <> '' THEN RETURN msg.Test_begin_duplicate; END;
@@ -2491,13 +2491,13 @@ BEGIN
       RETURN msg.IncorrectEntryPoint;
     END;
   ELSE
-    IF NOT kpr.RestartProgram() THEN   -- Вызываем сразу конечный исполнитель
-      RETURN msg.ProgramCantRestarted; -- но не из KrnExec, иначе программа
-    END;                               -- будет отгружена и загружена вновь
-    -- а теперь нужно выполнить программу, иначе
-    -- мы не уйдем с точки входа после пускалки
-    exe.JumpToMainEntry := TRUE;    -- остановиться, если есть отладочная информация
-    exe.JumpToProgramEntry := TRUE; -- остановиться, если есть точка входа
+    IF NOT kpr.RestartProgram() THEN   -- ╨Т╤Л╨╖╤Л╨▓╨░╨╡╨╝ ╤Б╤А╨░╨╖╤Г ╨║╨╛╨╜╨╡╤З╨╜╤Л╨╣ ╨╕╤Б╨┐╨╛╨╗╨╜╨╕╤В╨╡╨╗╤М
+      RETURN msg.ProgramCantRestarted; -- ╨╜╨╛ ╨╜╨╡ ╨╕╨╖ KrnExec, ╨╕╨╜╨░╤З╨╡ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨░
+    END;                               -- ╨▒╤Г╨┤╨╡╤В ╨╛╤В╨│╤А╤Г╨╢╨╡╨╜╨░ ╨╕ ╨╖╨░╨│╤А╤Г╨╢╨╡╨╜╨░ ╨▓╨╜╨╛╨▓╤М
+    -- ╨░ ╤В╨╡╨┐╨╡╤А╤М ╨╜╤Г╨╢╨╜╨╛ ╨▓╤Л╨┐╨╛╨╗╨╜╨╕╤В╤М ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Г, ╨╕╨╜╨░╤З╨╡
+    -- ╨╝╤Л ╨╜╨╡ ╤Г╨╣╨┤╨╡╨╝ ╤Б ╤В╨╛╤З╨║╨╕ ╨▓╤Е╨╛╨┤╨░ ╨┐╨╛╤Б╨╗╨╡ ╨┐╤Г╤Б╨║╨░╨╗╨║╨╕
+    exe.JumpToMainEntry := TRUE;    -- ╨╛╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М╤Б╤П, ╨╡╤Б╨╗╨╕ ╨╡╤Б╤В╤М ╨╛╤В╨╗╨░╨┤╨╛╤З╨╜╨░╤П ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╤П
+    exe.JumpToProgramEntry := TRUE; -- ╨╛╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М╤Б╤П, ╨╡╤Б╨╗╨╕ ╨╡╤Б╤В╤М ╤В╨╛╤З╨║╨░ ╨▓╤Е╨╛╨┤╨░
     exe.SkipToMain;
   END;
   kex.ProgramContextOk := TRUE;
@@ -2505,7 +2505,7 @@ BEGIN
 END Restart;
 
 
-(* Запуск программы *)
+(* ╨Ч╨░╨┐╤Г╤Б╨║ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л *)
 PROCEDURE Go (): CARDINAL;
 VAR
   paket: CARDINAL;
@@ -2533,7 +2533,7 @@ BEGIN
 END Go;
 
 
-(* Продолжение исполнения программы *)
+(* ╨Я╤А╨╛╨┤╨╛╨╗╨╢╨╡╨╜╨╕╨╡ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л *)
 PROCEDURE Goon (): CARDINAL;
 VAR
   entry: kt.ADDRESS;
@@ -2554,7 +2554,7 @@ BEGIN
 END Goon;
 
 
-(* Подсчет и выдача тактов исполнения *)
+(* ╨Я╨╛╨┤╤Б╤З╨╡╤В ╨╕ ╨▓╤Л╨┤╨░╤З╨░ ╤В╨░╨║╤В╨╛╨▓ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П *)
 PROCEDURE Ticks () : CARDINAL;
 BEGIN
   IF bas.CheckMode(pt.Time_Count) THEN
@@ -2565,7 +2565,7 @@ BEGIN
 END Ticks;
 
 
-(* Окончание варианта исполнения *)
+(* ╨Ю╨║╨╛╨╜╤З╨░╨╜╨╕╨╡ ╨▓╨░╤А╨╕╨░╨╜╤В╨░ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П *)
 PROCEDURE TestEnd () : CARDINAL;
 BEGIN
   IF TestName = '' THEN RETURN msg.Expected_test_begin; END;
@@ -2577,7 +2577,7 @@ BEGIN
 END TestEnd;
 
 
-(* Задание данных для табличной модели *)
+(* ╨Ч╨░╨┤╨░╨╜╨╕╨╡ ╨┤╨░╨╜╨╜╤Л╤Е ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤З╨╜╨╛╨╣ ╨╝╨╛╨┤╨╡╨╗╨╕ *)
 PROCEDURE Data (): CARDINAL;
 VAR
   device: CARDINAL;
@@ -2608,7 +2608,7 @@ BEGIN
 END Data;
 
 
-(* Определение модели для устройства *)
+(* ╨Ю╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╨╡ ╨╝╨╛╨┤╨╡╨╗╨╕ ╨┤╨╗╤П ╤Г╤Б╤В╤А╨╛╨╣╤Б╤В╨▓╨░ *)
 PROCEDURE Model (): CARDINAL;
 VAR
   ext   : BOOLEAN;
@@ -2633,7 +2633,7 @@ END Model;
 
 
 
-(* Определение таблицы описания устройств *)
+(* ╨Ю╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╨╡ ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╨╛╨┐╨╕╤Б╨░╨╜╨╕╤П ╤Г╤Б╤В╤А╨╛╨╣╤Б╤В╨▓ *)
 PROCEDURE Kod () : CARDINAL;
 VAR
   ext: BOOLEAN;
@@ -2648,7 +2648,7 @@ BEGIN
 END Kod;
 
 
-(* Заполнение регистров фоновым значением *)
+(* ╨Ч╨░╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡ ╤А╨╡╨│╨╕╤Б╤В╤А╨╛╨▓ ╤Д╨╛╨╜╨╛╨▓╤Л╨╝ ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡╨╝ *)
 PROCEDURE Regfon (): CARDINAL;
 VAR
   Reg : ARRAY [0..SIZE(kt.REG_VALUE)-1] OF sys.CARD8;
@@ -2759,7 +2759,7 @@ BEGIN
 END Deallocate;
 
 
-(* Засылка константы в память *)
+(* ╨Ч╨░╤Б╤Л╨╗╨║╨░ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╤Л ╨▓ ╨┐╨░╨╝╤П╤В╤М *)
 PROCEDURE Transfer (): CARDINAL;
 VAR
   Source: exp.ExprRes;
@@ -2771,14 +2771,14 @@ BEGIN
   IF NOT kex.Loaded THEN
     RETURN msg.Load_must_be_first;
   END;
-  -- получить адрес приемника
+  -- ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М ╨░╨┤╤А╨╡╤Б ╨┐╤А╨╕╨╡╨╝╨╜╨╕╨║╨░
   IF NOT GetParam() THEN
     RETURN msg.Expected_address;
   END;
   IF NOT exp.GetAddress (pt.ActiveComponent, pt.ActiveModule, Param, Dest) THEN
     RETURN msg.Incorrect_parameter;
   END;
-  -- получить длину заполняемого блока
+  -- ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М ╨┤╨╗╨╕╨╜╤Г ╨╖╨░╨┐╨╛╨╗╨╜╤П╨╡╨╝╨╛╨│╨╛ ╨▒╨╗╨╛╨║╨░
   IF NOT SepParam() THEN
     RETURN msg.Expected_separator;
   END;
@@ -2788,7 +2788,7 @@ BEGIN
   IF NOT exp.GetCardValue (pt.ActiveComponent, pt.ActiveModule, Param, Ln) OR (Ln=0) THEN
     RETURN msg.Incorrect_length;
   END;
-  -- получить константы для заполнения
+  -- ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╤Л ╨┤╨╗╤П ╨╖╨░╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П
   sum := 0;
   LOOP
     IF NOT SepParam() THEN
@@ -2883,7 +2883,7 @@ BEGIN
   RETURN 0;
 END Restart;
 
-(* Запуск программы *)
+(* ╨Ч╨░╨┐╤Г╤Б╨║ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л *)
 PROCEDURE Start (): CARDINAL;
 (*
 VAR
@@ -2916,7 +2916,7 @@ BEGIN
 END Start;
 
 
-(* Продолжение исполнения программы *)
+(* ╨Я╤А╨╛╨┤╨╛╨╗╨╢╨╡╨╜╨╕╨╡ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л *)
 PROCEDURE Resume (): CARDINAL;
 BEGIN
   IF NOT kex.Loaded THEN
@@ -2941,7 +2941,7 @@ END Resume;
 <* IF SCHERN_K26 THEN *>
 (*                                             CHERN      *)
 
-(*  Режим времени исполнения процедур *)
+(*  ╨а╨╡╨╢╨╕╨╝ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А *)
 PROCEDURE Init_PrcTime():CARDINAL;
 BEGIN
      IF tpc.Init_Time_proc(act.prf_4,FALSE) THEN
@@ -2951,12 +2951,12 @@ END Init_PrcTime;
 
 
 (*    ____________________________________________________________________ CHERN *)
-(*                       Контроль тестированности программы                   *)
+(*                       ╨Ъ╨╛╨╜╤В╤А╨╛╨╗╤М ╤В╨╡╤Б╤В╨╕╤А╨╛╨▓╨░╨╜╨╜╨╛╤Б╤В╨╕ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л                   *)
 
 
-(*                       Критерий НПО ПМ по данным             *)
+(*                       ╨Ъ╤А╨╕╤В╨╡╤А╨╕╨╣ ╨Э╨Я╨Ю ╨Я╨Ь ╨┐╨╛ ╨┤╨░╨╜╨╜╤Л╨╝             *)
 
-PROCEDURE Init_ID():CARDINAL; (* загружает файлы используемые для контроля *)
+PROCEDURE Init_ID():CARDINAL; (* ╨╖╨░╨│╤А╤Г╨╢╨░╨╡╤В ╤Д╨░╨╣╨╗╤Л ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝╤Л╨╡ ╨┤╨╗╤П ╨║╨╛╨╜╤В╤А╨╛╨╗╤П *)
 VAR
 BEGIN
   IF NOT kex.Loaded THEN RETURN msg.Load_must_be_first END;
@@ -2965,7 +2965,7 @@ BEGIN
   END;
 END Init_ID;
 
-PROCEDURE End_ID():CARDINAL; (* записывает файлы используемые для контроля *)
+PROCEDURE End_ID():CARDINAL; (* ╨╖╨░╨┐╨╕╤Б╤Л╨▓╨░╨╡╤В ╤Д╨░╨╣╨╗╤Л ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝╤Л╨╡ ╨┤╨╗╤П ╨║╨╛╨╜╤В╤А╨╛╨╗╤П *)
 VAR
 BEGIN
     RETURN ncr.Write_Idata();
@@ -2976,7 +2976,7 @@ END End_ID;
 VAR A_all_logs : OctLog.ALL_LOGS;
 
 
-PROCEDURE Init_Cov():CARDINAL; (* очищает файлы используемые для контроля *)
+PROCEDURE Init_Cov():CARDINAL; (* ╨╛╤З╨╕╤Й╨░╨╡╤В ╤Д╨░╨╣╨╗╤Л ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝╤Л╨╡ ╨┤╨╗╤П ╨║╨╛╨╜╤В╤А╨╛╨╗╤П *)
 VAR
       recl,recr: exp.ExprRes;
       mod : dt.ModNo;
@@ -2986,13 +2986,13 @@ VAR
 --      pt : exe.PType;
 --      pv : exe.PVar;
 BEGIN
-      l :=SIZE(OctLog.ALL_LOGS_REC);  (* размер памяти для *)
+      l :=SIZE(OctLog.ALL_LOGS_REC);  (* ╤А╨░╨╖╨╝╨╡╤А ╨┐╨░╨╝╤П╤В╨╕ ╨┤╨╗╤П *)
       ime.GetMem(l,Vax_all_logs);
       IF int.ok#0 THEN RETURN 6;END;
--- проверка ок
+-- ╨┐╤А╨╛╨▓╨╡╤А╨║╨░ ╨╛╨║
       A_all_logs := iad.ADPC(Vax_all_logs);
-      LogIO.read_logs(A_all_logs,TRUE); (*  пустые структуры для сохранения *)
-                  (* информации о тестированности программы *)
+      LogIO.read_logs(A_all_logs,TRUE); (*  ╨┐╤Г╤Б╤В╤Л╨╡ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╤Л ╨┤╨╗╤П ╤Б╨╛╤Е╤А╨░╨╜╨╡╨╜╨╕╤П *)
+                  (* ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╕ ╨╛ ╤В╨╡╤Б╤В╨╕╤А╨╛╨▓╨░╨╜╨╜╨╛╤Б╤В╨╕ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л *)
 
      IF tls.FindMod('OctLog',com,mod) THEN
       exp.GetLeftValue(com,mod, 'all_logs', recl);
@@ -3011,9 +3011,9 @@ BEGIN
      END;
 END Init_Cov;
 
-PROCEDURE Read_Cov():CARDINAL; (* Включается режим  контроля тестированности*)
-         (* Считываются нужные для этого файлы и адрес этой информации *)
-         (* передается исполняемой программе                           *)
+PROCEDURE Read_Cov():CARDINAL; (* ╨Т╨║╨╗╤О╤З╨░╨╡╤В╤Б╤П ╤А╨╡╨╢╨╕╨╝  ╨║╨╛╨╜╤В╤А╨╛╨╗╤П ╤В╨╡╤Б╤В╨╕╤А╨╛╨▓╨░╨╜╨╜╨╛╤Б╤В╨╕*)
+         (* ╨б╤З╨╕╤В╤Л╨▓╨░╤О╤В╤Б╤П ╨╜╤Г╨╢╨╜╤Л╨╡ ╨┤╨╗╤П ╤Н╤В╨╛╨│╨╛ ╤Д╨░╨╣╨╗╤Л ╨╕ ╨░╨┤╤А╨╡╤Б ╤Н╤В╨╛╨╣ ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╕ *)
+         (* ╨┐╨╡╤А╨╡╨┤╨░╨╡╤В╤Б╤П ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╨╛╨╣ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨╡                           *)
 VAR
       recl,recr: exp.ExprRes;
       mod : dt.ModNo;
@@ -3022,14 +3022,14 @@ VAR
       Vax_all_logs : kt.ADDRESS;
 
 BEGIN
-      l :=SIZE(OctLog.ALL_LOGS_REC);  (* размер памяти для *)
+      l :=SIZE(OctLog.ALL_LOGS_REC);  (* ╤А╨░╨╖╨╝╨╡╤А ╨┐╨░╨╝╤П╤В╨╕ ╨┤╨╗╤П *)
       ime.GetMem(l,Vax_all_logs);
       IF int.ok#0 THEN RETURN 6;END;
--- проверка ок
+-- ╨┐╤А╨╛╨▓╨╡╤А╨║╨░ ╨╛╨║
       A_all_logs := iad.ADPC(Vax_all_logs);
 
-      LogIO.read_logs(A_all_logs,FALSE); (* считываются структуры для сохранения *)
-(* информации о тестированности программы с имеющейся в них информацией *)
+      LogIO.read_logs(A_all_logs,FALSE); (* ╤Б╤З╨╕╤В╤Л╨▓╨░╤О╤В╤Б╤П ╤Б╤В╤А╤Г╨║╤В╤Г╤А╤Л ╨┤╨╗╤П ╤Б╨╛╤Е╤А╨░╨╜╨╡╨╜╨╕╤П *)
+(* ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╕ ╨╛ ╤В╨╡╤Б╤В╨╕╤А╨╛╨▓╨░╨╜╨╜╨╛╤Б╤В╨╕ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л ╤Б ╨╕╨╝╨╡╤О╤Й╨╡╨╣╤Б╤П ╨▓ ╨╜╨╕╤Е ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╡╨╣ *)
     IF tls.FindMod('OctLog',com,mod) THEN
       exp.GetLeftValue(com,mod, 'all_logs', recl);
       recr.sort := exp.Address;
@@ -3043,18 +3043,18 @@ BEGIN
 
 END Read_Cov;
 
-PROCEDURE Save_Cov():CARDINAL; (* Отключается режим  контроля тестированности*)
-                        (* Сохраняются собранные массивы информации в файлах *)
+PROCEDURE Save_Cov():CARDINAL; (* ╨Ю╤В╨║╨╗╤О╤З╨░╨╡╤В╤Б╤П ╤А╨╡╨╢╨╕╨╝  ╨║╨╛╨╜╤В╤А╨╛╨╗╤П ╤В╨╡╤Б╤В╨╕╤А╨╛╨▓╨░╨╜╨╜╨╛╤Б╤В╨╕*)
+                        (* ╨б╨╛╤Е╤А╨░╨╜╤П╤О╤В╤Б╤П ╤Б╨╛╨▒╤А╨░╨╜╨╜╤Л╨╡ ╨╝╨░╤Б╤Б╨╕╨▓╤Л ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╕ ╨▓ ╤Д╨░╨╣╨╗╨░╤Е *)
 BEGIN
 
      LogIO.write_logs(A_all_logs); RETURN 0;
 END Save_Cov;
 
 
-(*▒▒▒▒▒▒▒▒▒ Профилирование программы ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*)
+(*тЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТ ╨Я╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л тЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТтЦТ*)
 
 
-(* Получить параметр из строки st, начиная с позиции p     *)
+(* ╨Я╨╛╨╗╤Г╤З╨╕╤В╤М ╨┐╨░╤А╨░╨╝╨╡╤В╤А ╨╕╨╖ ╤Б╤В╤А╨╛╨║╨╕ st, ╨╜╨░╤З╨╕╨╜╨░╤П ╤Б ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ p     *)
 PROCEDURE GetParamSt(st-:ARRAY OF CHAR; rp : CHAR; VAR p:CARDINAL; VAR dest:ARRAY OF CHAR);
 VAR
   p0 : CARDINAL;
@@ -3109,7 +3109,7 @@ BEGIN
 END IndVar;
 
 PROCEDURE VarName(s: xs.String;u: dt.ModNo): BOOLEAN;
-                      (*  ОБработка параметра ПЕР=(имя пер1|имя пер2|...   )*)
+                      (*  ╨Ю╨С╤А╨░╨▒╨╛╤В╨║╨░ ╨┐╨░╤А╨░╨╝╨╡╤В╤А╨░ ╨Я╨Х╨а=(╨╕╨╝╤П ╨┐╨╡╤А1|╨╕╨╝╤П ╨┐╨╡╤А2|...   )*)
                       (*                      VAR=(  |   |     |          ) *)
 
 VAR  st,st1,st2: xs.String;
@@ -3121,14 +3121,14 @@ VAR  st,st1,st2: xs.String;
      ind, res,res1 : exp.ExprRes;
 BEGIN    fvar:=FALSE;
       prv.Init;
---      k := exe.VarQuantity(u);    (* число переменных *)
+--      k := exe.VarQuantity(u);    (* ╤З╨╕╤Б╨╗╨╛ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е *)
       s[LENGTH(s)-1]:=0C;
-      IF (((s[0]='П')AND(s[1]='Е')AND(s[2]='Р'))
+      IF (((s[0]='╨Я')AND(s[1]='╨Х')AND(s[2]='╨а'))
                  OR ((s[0]='V')AND(s[1]='A')AND(s[2]='R')))AND(s[3]='=')
       THEN
          pos := 5;
          WHILE s[pos]#0C DO
-           GetParamSt(s,'|',pos,st); (* имя выделили но могут быть индексы*)
+           GetParamSt(s,'|',pos,st); (* ╨╕╨╝╤П ╨▓╤Л╨┤╨╡╨╗╨╕╨╗╨╕ ╨╜╨╛ ╨╝╨╛╨│╤Г╤В ╨▒╤Л╤В╤М ╨╕╨╜╨┤╨╡╨║╤Б╤Л*)
            p:=0;depth :=0;
 --          WHILE st[p]#0C DO
             GetPat(st,p,st1);
@@ -3150,7 +3150,7 @@ BEGIN    fvar:=FALSE;
                 --  INC(p);
                   CASE st[p] OF
                   |0C :
-                  |'.': INC(depth); INC(p);  (* st2 - поле 1-записи p -на вторую точку *)
+                  |'.': INC(depth); INC(p);  (* st2 - ╨┐╨╛╨╗╨╡ 1-╨╖╨░╨┐╨╕╤Б╨╕ p -╨╜╨░ ╨▓╤В╨╛╤А╤Г╤О ╤В╨╛╤З╨║╤Г *)
                          FOR i:=0 TO p-1 DO
                            st2[i]:=st[i];
                          END; st2[p]:=0C;
@@ -3235,9 +3235,9 @@ BEGIN    fvar:=FALSE;
   RETURN TRUE;
 END VarName;
 PROCEDURE Profil(): CARDINAL;
-VAR                 (* пока обрабатываем команду ПРОФИЛЬ MD=<имя файла>,VAR=(;) *)
+VAR                 (* ╨┐╨╛╨║╨░ ╨╛╨▒╤А╨░╨▒╨░╤В╤Л╨▓╨░╨╡╨╝ ╨║╨╛╨╝╨░╨╜╨┤╤Г ╨Я╨а╨Ю╨д╨Ш╨Ы╨м MD=<╨╕╨╝╤П ╤Д╨░╨╣╨╗╨░>,VAR=(;) *)
   mod,com  : CARDINAL;
-  st1     :xs.String;        (*     PJ= <имя файла> *)
+  st1     :xs.String;        (*     PJ= <╨╕╨╝╤П ╤Д╨░╨╣╨╗╨░> *)
 BEGIN
   IF NOT kex.Loaded THEN RETURN msg.Load_must_be_first END;
   IF NOT GetParam() THEN
@@ -3247,16 +3247,16 @@ BEGIN
         RETURN msg.ExpectedModuleName;
        END;
   ELSE
-(* отработка режима - ВСЕ или ALL - профилирование всех операторов
-        или всех процедур всех модулей*)
+(* ╨╛╤В╤А╨░╨▒╨╛╤В╨║╨░ ╤А╨╡╨╢╨╕╨╝╨░ - ╨Т╨б╨Х ╨╕╨╗╨╕ ALL - ╨┐╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨▓╤Б╨╡╤Е ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╛╨▓
+        ╨╕╨╗╨╕ ╨▓╤Б╨╡╤Е ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А ╨▓╤Б╨╡╤Е ╨╝╨╛╨┤╤Г╨╗╨╡╨╣*)
 (* PROFIL ALL[,PROC] *)
     IF (((Param[0]='A')AND(Param[1]='L')AND(Param[2]='L'))
-           OR ((Param[0]='В')AND(Param[1]='С')AND(Param[2]='Е')))
+           OR ((Param[0]='╨Т')AND(Param[1]='╨б')AND(Param[2]='╨Х')))
     THEN
     IF SepParam() THEN
      IF GetParam() THEN
        IF (((Param[0]='P')AND(Param[1]='R')AND(Param[2]='C'))
-           OR ((Param[0]='П')AND(Param[1]='Р')AND(Param[2]='Ц')))
+           OR ((Param[0]='╨Я')AND(Param[1]='╨а')AND(Param[2]='╨ж')))
        THEN
             lpr.MarkAllProcAllMod(pt.ActiveComponent); RETURN 0;
        ELSE
@@ -3268,7 +3268,7 @@ BEGIN
     END;
     END;
     IF (((Param[0]='P')AND(Param[1]='R')AND(Param[2]='C'))
-           OR ((Param[0]='П')AND(Param[1]='Р')AND(Param[2]='Ц')))
+           OR ((Param[0]='╨Я')AND(Param[1]='╨а')AND(Param[2]='╨ж')))
     THEN
        IF pt.ActiveModule # 0 THEN
             lpr.MAllProcMod(pt.ActiveComponent,pt.ActiveModule); RETURN 0;
@@ -3276,16 +3276,16 @@ BEGIN
         RETURN msg.ExpectedModuleName;
        END;
     END;
-    IF (((Param[0]='M')AND(Param[1]='D')) OR ((Param[0]='М')AND(Param[1]='Д')))
+    IF (((Param[0]='M')AND(Param[1]='D')) OR ((Param[0]='╨Ь')AND(Param[1]='╨Ф')))
      AND(Param[2]='=') THEN
-     str.Extract(Param,3,250,st1);  (* имя модуля *)
+     str.Extract(Param,3,250,st1);  (* ╨╕╨╝╤П ╨╝╨╛╨┤╤Г╨╗╤П *)
      IF NOT tls.FindMod(st1,com,mod) THEN
-     (* Не найден *) RETURN msg.Module_not_found;
+     (* ╨Э╨╡ ╨╜╨░╨╣╨┤╨╡╨╜ *) RETURN msg.Module_not_found;
      ELSE pt.ActiveModule := mod; pt.ActiveComponent:=com;
       IF SepParam() THEN
        IF GetParam() THEN
         IF (((Param[0]='P')AND(Param[1]='R')AND(Param[2]='C'))
-           OR ((Param[0]='П')AND(Param[1]='Р')AND(Param[2]='Ц')))
+           OR ((Param[0]='╨Я')AND(Param[1]='╨а')AND(Param[2]='╨ж')))
         THEN
           lpr.MAllProcMod(pt.ActiveComponent,pt.ActiveModule); RETURN 0;
         END;
@@ -3304,14 +3304,14 @@ BEGIN
 --     IF EndParam() THEN RETURN 0
      END;
     END;
-    IF (((Param[0]='Р')AND(Param[1]='Ж')) OR ((Param[0]='P')AND(Param[1]='J')))
+    IF (((Param[0]='╨а')AND(Param[1]='╨Ц')) OR ((Param[0]='P')AND(Param[1]='J')))
      AND(Param[2]='=') THEN
-     str.Extract(Param,3,250,st1);  (* имя модуля *)
-                                 (* st1 - имя файла с режимом профилирования *)
+     str.Extract(Param,3,250,st1);  (* ╨╕╨╝╤П ╨╝╨╛╨┤╤Г╨╗╤П *)
+                                 (* st1 - ╨╕╨╝╤П ╤Д╨░╨╣╨╗╨░ ╤Б ╤А╨╡╨╢╨╕╨╝╨╛╨╝ ╨┐╤А╨╛╤Д╨╕╨╗╨╕╤А╨╛╨▓╨░╨╜╨╕╤П *)
      asp.CheckCond_pack;
      RETURN  wsp.ExtReadFile(st1);
     END;
-    IF (((Param[0]='П')AND(Param[1]='Е')AND(Param[2]='Р'))
+    IF (((Param[0]='╨Я')AND(Param[1]='╨Х')AND(Param[2]='╨а'))
         OR ((Param[0]='V')AND(Param[1]='A')AND(Param[2]='R')))AND(Param[3]='=')
     THEN
          IF pt.ActiveModule # 0 THEN
@@ -3328,7 +3328,7 @@ BEGIN
  RETURN msg.Incorrect_parameter;
 END Profil;
 
-PROCEDURE SavProf(): CARDINAL;   (* Сохранить профиль в файле *)
+PROCEDURE SavProf(): CARDINAL;   (* ╨б╨╛╤Е╤А╨░╨╜╨╕╤В╤М ╨┐╤А╨╛╤Д╨╕╨╗╤М ╨▓ ╤Д╨░╨╣╨╗╨╡ *)
 VAR f : BOOLEAN;
 BEGIN
  IF GetParam() THEN  RETURN msg.Expected_end_param  END;
@@ -3349,56 +3349,56 @@ BEGIN
   TestName := '';
   CurrentBreakNumber := 0;
  <* IF DEST_K26 THEN *>
-  AddOperator( 'ИЗМЕНИТЬ',        'SET',        Set);
-  AddOperator( 'ПЕЧАТЬ',          'PUT',        Put);
-  AddOperator( 'ВЫПОЛНИТЬ',       'GO',         Go);
-  AddOperator( 'ОСТАНОВ',         'BREAK',      Break);
-  AddOperator( 'УДАЛИТЬ',         'DEL',        Del);
-  AddOperator( 'ВЫЗОВ',           'GOSUB',      Gosub);
-  AddOperator( 'ВОЗВРАТ',         'RETURN',     Return);
-  AddOperator( 'ПЕРЕЙТИ',         'GOTO',       Goto);
-  AddOperator( 'ВЫВОД',           'DIR',        Dir);
-  AddOperator( 'РЕЖИМ',           'LIST',       List);
-  AddOperator( 'ВРЕМЯ',           'TIME',       Ticks);
-  AddOperator( 'НАЧАЛО_ВАРИАНТА', 'TEST_BEGIN', TestBegin);
-  AddOperator( 'КОНЕЦ_ВАРИАНТА',  'TEST_END',   TestEnd);
-  AddOperator( 'ДИАЛОГ',          'DIAL',       Dialog);
-  AddOperator( 'ФОН',             'FON',        Fon);
-  AddOperator( 'РЕГФОН',          'REGFON',     Regfon);
-  AddOperator( 'ПАУЗА',           'PAUSE',      Pause);
-  AddOperator( 'ЗАГРУЗИТЬ',       'LOAD',       LoadProgram);
-  AddOperator( 'ТЕМА',            'KOD',        Kod);
-  AddOperator( 'КОНЕЦ',           'END',        End);
-  AddOperator( 'ПРОДОЛЖИТЬ',      'GOON',       Goon);
-  AddOperator( 'В_ПАКЕТ',         'GOBACK',     GoBack);
-  AddOperator( 'ЕСЛИ',            'IF',         If);
-  AddOperator( 'ЭКВ',             'EQU',        Equiv);
-  AddOperator( 'ДАННЫЕ',          'DATA',       Data);
-  AddOperator( 'МОДЕЛЬ',          'MODEL',      Model);
-  AddOperator( 'ПЕРЕСЛАТЬ',       'MOVE',       Move);
-  AddOperator( 'ЗАПОЛНИТЬ',       'TRANSFER',   Transfer);
-  AddOperator( 'ПО_ОШИБКЕ',       'ON_ERROR',   JumpByError);
-  AddOperator( 'СЛЕДИТЬ',         'WATCH',      Watch);
-  AddOperator( 'МОДУЛЬ',          'MODULE',     SetActiveModule);
-  AddOperator( 'СИГНАЛ',          'BEEP',       Beep);
-  AddOperator( 'ПРЕРЫВАНИЕ',      'INTER',      SetInterrupt);
-  AddOperator( 'КОНТРОЛЬ',        'ASSERT',     Assert);
-  AddOperator( 'РЕСТАРТ',         'RESTART',    Restart);
-  AddOperator( 'ПРОЦ',            'PROC',       ProcModel);
-  AddOperator( 'ВЫДЕЛИТЬ',        'ALLOCATE',   Allocate);
-  AddOperator( 'ОСВОБОДИТЬ',      'DEALLOCATE', Deallocate);
-  AddOperator( 'ВЫЧИСЛИТЬ',       'EXAMINE',    Examine);
-  AddOperator( 'ПРОГРАММА',       'ABOUT',      About);
-  AddOperator( 'СТЕК',            'CALLS',      Calls);
+  AddOperator( '╨Ш╨Ч╨Ь╨Х╨Э╨Ш╨в╨м',        'SET',        Set);
+  AddOperator( '╨Я╨Х╨з╨Р╨в╨м',          'PUT',        Put);
+  AddOperator( '╨Т╨л╨Я╨Ю╨Ы╨Э╨Ш╨в╨м',       'GO',         Go);
+  AddOperator( '╨Ю╨б╨в╨Р╨Э╨Ю╨Т',         'BREAK',      Break);
+  AddOperator( '╨г╨Ф╨Р╨Ы╨Ш╨в╨м',         'DEL',        Del);
+  AddOperator( '╨Т╨л╨Ч╨Ю╨Т',           'GOSUB',      Gosub);
+  AddOperator( '╨Т╨Ю╨Ч╨Т╨а╨Р╨в',         'RETURN',     Return);
+  AddOperator( '╨Я╨Х╨а╨Х╨Щ╨в╨Ш',         'GOTO',       Goto);
+  AddOperator( '╨Т╨л╨Т╨Ю╨Ф',           'DIR',        Dir);
+  AddOperator( '╨а╨Х╨Ц╨Ш╨Ь',           'LIST',       List);
+  AddOperator( '╨Т╨а╨Х╨Ь╨п',           'TIME',       Ticks);
+  AddOperator( '╨Э╨Р╨з╨Р╨Ы╨Ю_╨Т╨Р╨а╨Ш╨Р╨Э╨в╨Р', 'TEST_BEGIN', TestBegin);
+  AddOperator( '╨Ъ╨Ю╨Э╨Х╨ж_╨Т╨Р╨а╨Ш╨Р╨Э╨в╨Р',  'TEST_END',   TestEnd);
+  AddOperator( '╨Ф╨Ш╨Р╨Ы╨Ю╨У',          'DIAL',       Dialog);
+  AddOperator( '╨д╨Ю╨Э',             'FON',        Fon);
+  AddOperator( '╨а╨Х╨У╨д╨Ю╨Э',          'REGFON',     Regfon);
+  AddOperator( '╨Я╨Р╨г╨Ч╨Р',           'PAUSE',      Pause);
+  AddOperator( '╨Ч╨Р╨У╨а╨г╨Ч╨Ш╨в╨м',       'LOAD',       LoadProgram);
+  AddOperator( '╨в╨Х╨Ь╨Р',            'KOD',        Kod);
+  AddOperator( '╨Ъ╨Ю╨Э╨Х╨ж',           'END',        End);
+  AddOperator( '╨Я╨а╨Ю╨Ф╨Ю╨Ы╨Ц╨Ш╨в╨м',      'GOON',       Goon);
+  AddOperator( '╨Т_╨Я╨Р╨Ъ╨Х╨в',         'GOBACK',     GoBack);
+  AddOperator( '╨Х╨б╨Ы╨Ш',            'IF',         If);
+  AddOperator( '╨н╨Ъ╨Т',             'EQU',        Equiv);
+  AddOperator( '╨Ф╨Р╨Э╨Э╨л╨Х',          'DATA',       Data);
+  AddOperator( '╨Ь╨Ю╨Ф╨Х╨Ы╨м',          'MODEL',      Model);
+  AddOperator( '╨Я╨Х╨а╨Х╨б╨Ы╨Р╨в╨м',       'MOVE',       Move);
+  AddOperator( '╨Ч╨Р╨Я╨Ю╨Ы╨Э╨Ш╨в╨м',       'TRANSFER',   Transfer);
+  AddOperator( '╨Я╨Ю_╨Ю╨и╨Ш╨С╨Ъ╨Х',       'ON_ERROR',   JumpByError);
+  AddOperator( '╨б╨Ы╨Х╨Ф╨Ш╨в╨м',         'WATCH',      Watch);
+  AddOperator( '╨Ь╨Ю╨Ф╨г╨Ы╨м',          'MODULE',     SetActiveModule);
+  AddOperator( '╨б╨Ш╨У╨Э╨Р╨Ы',          'BEEP',       Beep);
+  AddOperator( '╨Я╨а╨Х╨а╨л╨Т╨Р╨Э╨Ш╨Х',      'INTER',      SetInterrupt);
+  AddOperator( '╨Ъ╨Ю╨Э╨в╨а╨Ю╨Ы╨м',        'ASSERT',     Assert);
+  AddOperator( '╨а╨Х╨б╨в╨Р╨а╨в',         'RESTART',    Restart);
+  AddOperator( '╨Я╨а╨Ю╨ж',            'PROC',       ProcModel);
+  AddOperator( '╨Т╨л╨Ф╨Х╨Ы╨Ш╨в╨м',        'ALLOCATE',   Allocate);
+  AddOperator( '╨Ю╨б╨Т╨Ю╨С╨Ю╨Ф╨Ш╨в╨м',      'DEALLOCATE', Deallocate);
+  AddOperator( '╨Т╨л╨з╨Ш╨б╨Ы╨Ш╨в╨м',       'EXAMINE',    Examine);
+  AddOperator( '╨Я╨а╨Ю╨У╨а╨Р╨Ь╨Ь╨Р',       'ABOUT',      About);
+  AddOperator( '╨б╨в╨Х╨Ъ',            'CALLS',      Calls);
  <* IF SCHERN_K26 THEN *>
-  AddOperator( 'ПРОФИЛЬ',         'PROFIL',     Profil);
-  AddOperator( 'ЗАП_ПРОФ',        'SAV_PRF',    SavProf);
-  AddOperator( 'НАЧАЛО_КОНТРОЛЯ', 'INIT_COV',   Init_Cov);
-  AddOperator( 'КОНТРОЛЬ_ТЕСТИР', 'READ_COV',   Read_Cov);
-  AddOperator( 'КОНЕЦ_КОНТРОЛЯ',  'SAVE_COV',   Save_Cov);
-  AddOperator( 'ТЕСТ_ИД',         'TEST_ID',    Init_ID);
-  AddOperator( 'ЗАП_ИД',          'SAV_ID',     End_ID);
-  AddOperator( 'ВРЕМЯ_ПРЦ',       'TIME_PRC',   Init_PrcTime);
+  AddOperator( '╨Я╨а╨Ю╨д╨Ш╨Ы╨м',         'PROFIL',     Profil);
+  AddOperator( '╨Ч╨Р╨Я_╨Я╨а╨Ю╨д',        'SAV_PRF',    SavProf);
+  AddOperator( '╨Э╨Р╨з╨Р╨Ы╨Ю_╨Ъ╨Ю╨Э╨в╨а╨Ю╨Ы╨п', 'INIT_COV',   Init_Cov);
+  AddOperator( '╨Ъ╨Ю╨Э╨в╨а╨Ю╨Ы╨м_╨в╨Х╨б╨в╨Ш╨а', 'READ_COV',   Read_Cov);
+  AddOperator( '╨Ъ╨Ю╨Э╨Х╨ж_╨Ъ╨Ю╨Э╨в╨а╨Ю╨Ы╨п',  'SAVE_COV',   Save_Cov);
+  AddOperator( '╨в╨Х╨б╨в_╨Ш╨Ф',         'TEST_ID',    Init_ID);
+  AddOperator( '╨Ч╨Р╨Я_╨Ш╨Ф',          'SAV_ID',     End_ID);
+  AddOperator( '╨Т╨а╨Х╨Ь╨п_╨Я╨а╨ж',       'TIME_PRC',   Init_PrcTime);
  <* END *>
  <* ELSIF DEST_XDS THEN *>
   AddOperator( 'SET',             'set',        Set);

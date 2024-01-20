@@ -42,13 +42,13 @@ TYPE
 
 
 VAR
-  (* ���᪨ ॠ�権 ��� ��� ᮡ�⨩, ���������� �� ������樨 *)
+  (* Списки реакций для всех событий, возникающих при интерпретации *)
   ReactArr: AllReactions;
 
   stop_react: BOOLEAN;
 
 
-(* ������ ॠ��� ��⨢��� *)
+(* Делает реакцию активной *)
 PROCEDURE ReadyReaction (preact: PREACTION);
 BEGIN
   ASSERT (preact # NIL);
@@ -56,7 +56,7 @@ BEGIN
 END ReadyReaction;
 
 
-(* ������ �� ॠ�樨 ��⨢�묨 *)
+(* Делает все реакции активными *)
 PROCEDURE Ready;
 VAR
   ev    : eve.EVENT_TYPE; 
@@ -74,7 +74,7 @@ BEGIN
 END Ready;
 
 
-(* ����㦤��� ॠ�樨, ��稭�� � 㪠������ *)
+(* Возбуждает реакции, начиная с указанной *)
 PROCEDURE Raise (preact: PREACTION);
 BEGIN
   stop_react := FALSE;
@@ -91,7 +91,7 @@ BEGIN
 END Raise;
 
 
-(* �४���� �믮������ ��᫥����� ॠ�権 *)
+(* Прекратить выполнение последующих реакций *)
 PROCEDURE StopReact;
 BEGIN
   stop_react := TRUE;
@@ -104,17 +104,17 @@ END IsStopReact;
 
 
 PROCEDURE CancelReact;
-(* �४���� �믮������ 楯�窨 ॠ�権 �� ⥪�饥 ᮡ�⨥ *)
+(* Прекратить выполнение цепочки реакций на текущее событие *)
 BEGIN
   NextReaction := NIL;
 END CancelReact;
 
 
 
-(* ��楤��� ��� ࠡ��� � ॠ��ﬨ �� ᮡ��� *)
+(* Процедуры для работы с реакциями на события *)
 
 
-(* �������� �� ���� ॠ��� �� ᮡ�⨥ *)
+(* Добавляет еще одну реакцию на событие *)
 PROCEDURE AddAction (ev: eve.EVENT_TYPE; data: DATA; do: DO_PROC);
 VAR
   new, preact: PREACTION;
@@ -135,7 +135,7 @@ BEGIN
   END;
 END AddAction;
 
-(* ��⠢��� ����� ॠ��� newR ��। 㦥 ����襩�� oldR *)
+(* Вставляет новую реакцию newR перед уже имевшейся oldR *)
 PROCEDURE InsAction(ev: eve.EVENT_TYPE; data: DATA; do: DO_PROC; old: PREACTION);
 VAR
   new, act0, act1: PREACTION;
@@ -162,14 +162,14 @@ BEGIN
 END InsAction;
 
 
-(* ��⠢��� ����� ॠ��� ��ࢮ� ��। 㦥 ����騬��� *)
+(* Вставляет новую реакцию первой перед уже имеющимися *)
 PROCEDURE InsActionFirst (ev: eve.EVENT_TYPE; data: DATA; do: DO_PROC);
 BEGIN
    InsAction (ev, data, do, FirstReaction (ev));
 END InsActionFirst;
 
 
-(* �������� �� ���� ॠ��� �� ᮡ�⨥, �ய��⨢ �����, �᫨ ���� *)
+(* Добавляет еще одну реакцию на событие, пропустив первую, если есть *)
 PROCEDURE AddActionSecond (ev: eve.EVENT_TYPE; data: DATA; do: DO_PROC);
 VAR
   reaction: PREACTION;
@@ -184,7 +184,7 @@ END AddActionSecond;
 
 
 
-(* ������ ॠ��� �� ᮡ�⨥ *)
+(* Удаляет реакцию на событие *)
 PROCEDURE RemAction(ev: eve.EVENT_TYPE; R: PREACTION);
 VAR
  act0: PREACTION;
@@ -204,14 +204,14 @@ BEGIN
 END RemAction;
 
 
-(* ��ࢠ� ॠ��� �� ᮡ�⨥ *)
+(* Первая реакция на событие *)
 PROCEDURE FirstReaction (ev: eve.EVENT_TYPE): PREACTION;
 BEGIN
   RETURN ReactArr[ev];
 END FirstReaction;
 
 
-(* ���� ॠ�樨 do ��稭�� � first*)
+(* Поиск реакции do начиная с first*)
 PROCEDURE FindReaction (first: PREACTION; do: DO_PROC): PREACTION;
 BEGIN
   LOOP
@@ -331,7 +331,7 @@ BEGIN
       IF dri.CheckDebugInfoVersion(EI) THEN
        <* IF DEST_XDS AND (TARGET_OS = "WINNT") THEN *>
         IF opt.RemoteMode THEN
-          -- ��᪮��� ���������� ᬠ��஢��� 䠩� �� 㤠������ ��設�
+          -- поскольку невозможно смапировать файл на удаленной машине
           NEW (raw, EI.DebugInfoSize);
           IF kprg.GetDebugInfo(EI, sys.ADR(raw^)) THEN
             sys.EVAL (dri.ProcessDebugInfo(Count-1, Components^[Count-1]));

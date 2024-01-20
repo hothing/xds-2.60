@@ -378,14 +378,14 @@ BEGIN
     RETURN;
   END;
   CASE eve.LastEvent.Exception_ID OF
-  | eve.OutOfMemory     : (* ÑÆ·‚„Ø ØÆ †§‡•·„ ¢≠• §®†Ø†ßÆ≠† †§‡•·Æ¢ *)
+  | eve.OutOfMemory     : (* –î–æ—Å—Ç—É–ø –ø–æ –∞–¥—Ä–µ—Å—É –≤–Ω–µ –¥–∏–∞–ø–∞–∑–æ–Ω–∞ –∞–¥—Ä–µ—Å–æ–≤ *)
     pro.GetMsg(msg.BreakOutMem, m);
     fmt.print(text, m, CARDINAL(eve.LastEvent.XCPT_INFO_1));
-  | eve.ProgramException: (* è‡Æ£‡†¨¨≠Æ• Ø‡•‡Î¢†≠®•                 *)
+  | eve.ProgramException: (* –ü—Ä–æ–≥—Ä–∞–º–º–Ω–æ–µ –ø—Ä–µ—Ä—ã–≤–∞–Ω–∏–µ                 *)
     WITH eve.LastEvent DO
       IF CARDINAL(XCPT_INFO_1) = 0 THEN
        <* IF DEST_K26 THEN *>
-        fmt.print(text, 'è‡Æ£‡†¨¨† ß†¢•‡Ë®´†·Ï');
+        fmt.print(text, '–ü—Ä–æ–≥—Ä–∞–º–º–∞ –∑–∞–≤–µ—Ä—à–∏–ª–∞—Å—å');
        <* ELSE *>
         fmt.print(text, 'Program finished');
        <* END *>
@@ -395,11 +395,11 @@ BEGIN
         fmt.print(text, m, xcpt, CARDINAL(XCPT_INFO_2));
       END;
     END;
-  | eve.WriteProtected  : (* á†Ø®·Ï ¢ ß†È®È•≠≠„Ó Æ°´†·‚Ï Ø†¨Ô‚®     *)
+  | eve.WriteProtected  : (* –ó–∞–ø–∏—Å—å –≤ –∑–∞—â–∏—â–µ–Ω–Ω—É—é –æ–±–ª–∞—Å—Ç—å –ø–∞–º—è—Ç–∏     *)
     pro.GetMsg(msg.BreakWrProt, m);
     xcp.Get_XCPT_Msg(CARDINAL(eve.LastEvent.XCPT_INFO_4), 0, xcpt);
     fmt.print(text, m, xcpt, CARDINAL(eve.LastEvent.XCPT_INFO_1));
-  | eve.UserException   : (* à·ØÆ´≠•≠®• Ø‡•‡¢†≠Æ ØÆ´ÏßÆ¢†‚•´•¨      *)
+  | eve.UserException   : (* –ò—Å–ø–æ–ª–Ω–µ–Ω–∏–µ –ø—Ä–µ—Ä–≤–∞–Ω–æ –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–µ–º      *)
     pro.GetMsg(msg.User_React_Default,text);
   END;
   pro.GetMsg (msg.Last_address, m);

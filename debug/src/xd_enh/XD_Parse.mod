@@ -16,7 +16,7 @@ IMPORT lst := Lists;
 
 
 VAR
-  OptMode : (nothing, paket, dialog); (* ê•¶®¨, ß†§†≠≠Î© ¢ ™Æ¨†≠§≠Æ© ·‚‡Æ™• *)
+  OptMode : (nothing, paket, dialog); (* –†–µ–∂–∏–º, –∑–∞–¥–∞–Ω–Ω—ã–π –≤ –∫–æ–º–∞–Ω–¥–Ω–æ–π —Å—Ç—Ä–æ–∫–µ *)
 
 PROCEDURE Options (s-:ARRAY OF CHAR; VAR help, debugee: BOOLEAN): BOOLEAN;
 VAR
@@ -31,28 +31,28 @@ BEGIN
   ErrorInOptions := FALSE;
   len := LENGTH(s);
   CASE CAP(s[1]) OF
-  |'A': debugee := TRUE;          (* ë‡†ß„ ß† Ì‚Æ© ÆØÊ®•© ·´•§„•‚ ™Æ¨†≠§≠†Ô ·‚‡Æ™† *)
-  |'B': opt.DialogMode := FALSE;  (* è†™•‚≠Î© ‡•¶®¨                 *)
+  |'A': debugee := TRUE;          (* –°—Ä–∞–∑—É –∑–∞ —ç—Ç–æ–π –æ–ø—Ü–∏–µ–π —Å–ª–µ–¥—É–µ—Ç –∫–æ–º–∞–Ω–¥–Ω–∞—è —Å—Ç—Ä–æ–∫–∞ *)
+  |'B': opt.DialogMode := FALSE;  (* –ü–∞–∫–µ—Ç–Ω—ã–π —Ä–µ–∂–∏–º                 *)
         OptMode        := paket;
         ErrorInOptions := (len # 2);
 
-  |'D': opt.DialogMode := TRUE;   (* Ñ®†´Æ£Æ¢Î© ‡•¶®¨               *)
+  |'D': opt.DialogMode := TRUE;   (* –î–∏–∞–ª–æ–≥–æ–≤—ã–π —Ä–µ–∂–∏–º               *)
         OptMode        := dialog;
         ErrorInOptions := (len # 2);
 
-  |'E': opt.CatchExceptInternalError := FALSE; (* ãÆ¢®‚Ï EXCEPT Æ‚ MainLoop *)
+  |'E': opt.CatchExceptInternalError := FALSE; (* –õ–æ–≤–∏—Ç—å EXCEPT –æ—Ç MainLoop *)
         ErrorInOptions := (len # 2);
 
-  |'J': pro.SetSafeMode();        (* "Å•ßÆØ†·≠Î©" Ø‡Æ‚Æ™Æ´          *)
+  |'J': pro.SetSafeMode();        (* "–ë–µ–∑–æ–ø–∞—Å–Ω—ã–π" –ø—Ä–æ—Ç–æ–∫–æ–ª          *)
         ErrorInOptions := (len # 2);
 
-  |'H': help := TRUE;             (* Help! ÇÎ§†‚Ï ØÆ´≠„Ó ·Ø‡†¢™„    *)
+  |'H': help := TRUE;             (* Help! –í—ã–¥–∞—Ç—å –ø–æ–ª–Ω—É—é —Å–ø—Ä–∞–≤–∫—É    *)
         ErrorInOptions := (len # 2);
 
-  |'N': opt.name_only := TRUE;    (* ÇÎ§†¢†‚Ï ‚Æ´Ï™Æ ®¨•≠† ‰†©´Æ¢   *)
+  |'N': opt.name_only := TRUE;    (* –í—ã–¥–∞–≤–∞—Ç—å —Ç–æ–ª—å–∫–æ –∏–º–µ–Ω–∞ —Ñ–∞–π–ª–æ–≤   *)
         ErrorInOptions := (len # 2);
 
-  |'L': pro.DefaultProtocol;      (* è‡Æ‚Æ™Æ´ · ®¨•≠•¨ ØÆ „¨Æ´Á†≠®Ó *)
+  |'L': pro.DefaultProtocol;      (* –ü—Ä–æ—Ç–æ–∫–æ–ª —Å –∏–º–µ–Ω–µ–º –ø–æ —É–º–æ–ª—á–∞–Ω–∏—é *)
         ErrorInOptions := (len # 2);
 
   |'R': ErrorInOptions := TRUE;
@@ -130,10 +130,10 @@ BEGIN
    debugee := FALSE;
    IF k = 0 THEN RETURN TRUE; END;
    i := 0;
-   LOOP                                   (* ê†ß°Æ‡ ÆØÊ®© *)
+   LOOP                                   (* –†–∞–∑–±–æ—Ä –æ–ø—Ü–∏–π *)
      IF (i = k) THEN EXIT; END;
      arg.GetArg(i, a);
-     IF NOT debugee AND ((a[0] = '/') OR (a[0] = '-')) THEN (* éØÊ®® ≠†Á®≠†Ó‚·Ô · '-' ®´® '/' *)
+     IF NOT debugee AND ((a[0] = '/') OR (a[0] = '-')) THEN (* –û–ø—Ü–∏–∏ –Ω–∞—á–∏–Ω–∞—é—Ç—Å—è —Å '-' –∏–ª–∏ '/' *)
        IF NOT Options(a, help, debugee) THEN RETURN FALSE; END;
        IF help THEN RETURN TRUE; END;
      ELSE

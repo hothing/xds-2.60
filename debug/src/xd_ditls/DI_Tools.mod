@@ -259,7 +259,7 @@ BEGIN
 END GetComNo;
 
 
-(* ÇÎ§†•‚ ®§•≠‚®‰®™†‚Æ‡ ÔßÎ™† ™Æ¨ØÆ≠•‚Î *)
+(* –í—ã–¥–∞–µ—Ç –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æ—Ä —è–∑—ã–∫–∞ –∫–æ–º–ø–æ–Ω–µ—Ç—ã *)
 PROCEDURE ComLanguage (com: dt.ComNo): dt.LANGUAGE;
 BEGIN
   RETURN dt.Components.Components^[com].DI.Language;
@@ -280,14 +280,14 @@ BEGIN
 END IsDataValid;
 
 
-(* è‡Æ¢•‡Ô•‚, ¨Æ¶≠Æ ´® ®·ØÆ´ÏßÆ¢†‚Ï ß†§†≠≠„Ó ØÆß®Ê®Ó *)
+(* –ü—Ä–æ–≤–µ—Ä—è–µ—Ç, –º–æ–∂–Ω–æ –ª–∏ –∏—Å–ø–æ–ª—å–∑–æ–≤–∞—Ç—å –∑–∞–¥–∞–Ω–Ω—É—é –ø–æ–∑–∏—Ü–∏—é *)
 PROCEDURE IsPosValid (pos: dt.POS): BOOLEAN;
 BEGIN
   RETURN IsDataValid (pos.ComN, pos.ModN);
 END IsPosValid;
 
 
-(* ë§•´†‚Ï ··Î´™„ ≠† Æ°Ï•™‚Î *)
+(* –°–¥–µ–ª–∞—Ç—å —Å—Å—ã–ª–∫—É –Ω–∞ –æ–±—å–µ–∫—Ç—ã *)
 PROCEDURE MakePObjects (com: dt.ComNo; mod: dt.ModNo): dt.POBJECTS;
 BEGIN
   IF IsDataValid (com, mod) THEN
@@ -302,14 +302,14 @@ BEGIN
 END MakePObjects;
 
 
-(* ë§•´†‚Ï ··Î´™„ ≠† Æ°Ï•™‚Î ØÆ Æ°Ï•™‚„ *)
+(* –°–¥–µ–ª–∞—Ç—å —Å—Å—ã–ª–∫—É –Ω–∞ –æ–±—å–µ–∫—Ç—ã –ø–æ –æ–±—å–µ–∫—Ç—É *)
 PROCEDURE MakeObjPObjects (obj: dt.OBJECT): dt.POBJECTS;
 BEGIN
   RETURN MakePObjects (obj.com, obj.mod);
 END MakeObjPObjects;
 
 
-(* ÇÎ§†•‚ ØÆ Æ°Ï•™‚„ •£Æ Ø‡•§·‚†¢´•≠®• *)
+(* –í—ã–¥–∞–µ—Ç –ø–æ –æ–±—å–µ–∫—Ç—É –µ–≥–æ –ø—Ä–µ–¥—Å—Ç–∞–≤–ª–µ–Ω–∏–µ *)
 PROCEDURE MakeObjPRawObject (obj: dt.OBJECT; VAR praw_obj: dt.PRAW_OBJECT): BOOLEAN;
 VAR
   PObjects: dt.POBJECTS;
@@ -330,7 +330,7 @@ BEGIN
 END MakeObjPRawObject;
 
 
-(* ÇÎ§†•‚ ØÆ Æ°Ï•™‚„ •£Æ Ø‡•§·‚†¢´•≠®• *)
+(* –í—ã–¥–∞–µ—Ç –ø–æ –æ–±—å–µ–∫—Ç—É –µ–≥–æ –ø—Ä–µ–¥—Å—Ç–∞–≤–ª–µ–Ω–∏–µ *)
 PROCEDURE MakeObjRawObject (obj: dt.OBJECT; VAR raw_obj: dt.RAW_OBJECT): BOOLEAN;
 VAR
   praw_obj: dt.PRAW_OBJECT;
@@ -360,19 +360,19 @@ END MakeObject;
 
 VAR
   CurrCom       : dt.ComNo;
-  CurrMod       : dt.ModNo;    (* í•™„È®© ≠Æ¨•‡ ¨Æ§„´Ô §´Ô ØÆ®·™†    *)
-  CurrName      : xs.String; (* à¨Ô §´Ô ØÆ®·™†                     *)
-  CurrAddr      : kt.ADDRESS;  (* Ä§‡•· §´Ô ØÆ®·™†                   *)
-  CurrKey       : dt.KEY;      (* ä´ÓÁ ØÆ Æ°Ï•™‚†¨                   *)
-  CurrLeftIndex : CARDINAL;    (* ‚•™„È•• ·¨•È•≠®• ¢ ™´ÓÁ• ØÆ ®¨•≠†¨ *)
-  FindExactly   : BOOLEAN;     (* íÆÁ≠Æ• ·ÆÆ‚¢•‚·‚¢®• †§‡•·Æ¢        *)
-  EmptyString   : sys.ADDRESS; (* è„·‚†Ô ·‚‡ÆÁ™†                     *)
+  CurrMod       : dt.ModNo;    (* –¢–µ–∫—É—â–∏–π –Ω–æ–º–µ—Ä –º–æ–¥—É–ª—è –¥–ª—è –ø–æ–∏—Å–∫–∞    *)
+  CurrName      : xs.String; (* –ò–º—è –¥–ª—è –ø–æ–∏—Å–∫–∞                     *)
+  CurrAddr      : kt.ADDRESS;  (* –ê–¥—Ä–µ—Å –¥–ª—è –ø–æ–∏—Å–∫–∞                   *)
+  CurrKey       : dt.KEY;      (* –ö–ª—é—á –ø–æ –æ–±—å–µ–∫—Ç–∞–º                   *)
+  CurrLeftIndex : CARDINAL;    (* —Ç–µ–∫—É—â–µ–µ —Å–º–µ—â–µ–Ω–∏–µ –≤ –∫–ª—é—á–µ –ø–æ –∏–º–µ–Ω–∞–º *)
+  FindExactly   : BOOLEAN;     (* –¢–æ—á–Ω–æ–µ —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤–∏–µ –∞–¥—Ä–µ—Å–æ–≤        *)
+  EmptyString   : sys.ADDRESS; (* –ü—É—Å—Ç–∞—è —Å—Ç—Ä–æ—á–∫–∞                     *)
 
   String        : ARRAY [0..0] OF CHAR;
 
 
 
-(* èÆ´„Á®‚Ï ®¨Ô ®ß ‚†°´®ÊÎ ®¨•≠ ¨Æ§„´Ô *)
+(* –ü–æ–ª—É—á–∏—Ç—å –∏–º—è –∏–∑ —Ç–∞–±–ª–∏—Ü—ã –∏–º–µ–Ω –º–æ–¥—É–ª—è *)
 PROCEDURE GetName ( rname: CARDINAL): xs.txt_ptr;
 VAR
      image: Ud.IMAGE;
@@ -484,7 +484,7 @@ BEGIN
           RETURN FALSE;
         END;
         IF DI.KModules = NIL THEN
-          -- ëÆß§†≠®• ™´ÓÁ•© ØÆ ¨Æ§„´Ô¨
+          -- –°–æ–∑–¥–∞–Ω–∏–µ –∫–ª—é—á–µ–π –ø–æ –º–æ–¥—É–ª—è–º
           bld.CreateKeysByModules (CurrCom);
         END;
         CurrKey := DI.KModules;
@@ -568,9 +568,9 @@ BEGIN
 END FindModByAddr;
 
 
-(* Ö·´® ‚®Ø ¨Æ§„´Ô ≠•®ß¢•·‚•≠ ®ß ¢≠•Ë≠•£Æ Ø‡•§·‚†¢´•≠®Ô Æ‚´†§ÆÁ≠Æ© *)
-(* ®≠‰Æ‡¨†Ê®®, ¨Æ¶≠Æ ØÆØÎ‚†‚Ï·Ô ¢ÎÔ·≠®‚Ï ‚®Ø ØÆ ‡†·Ë®‡•≠®Ó ®¨•≠®   *)
-(* ‰†©´†, ·Æ§•‡¶†È•£Æ ‚•™·‚ ®·ÂÆ§Æ£Æ ¨Æ§„´Ô.                       *)
+(* –ï—Å–ª–∏ —Ç–∏–ø –º–æ–¥—É–ª—è –Ω–µ–∏–∑–≤–µ—Å—Ç–µ–Ω –∏–∑ –≤–Ω–µ—à–Ω–µ–≥–æ –ø—Ä–µ–¥—Å—Ç–∞–≤–ª–µ–Ω–∏—è –æ—Ç–ª–∞–¥–æ—á–Ω–æ–π *)
+(* –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏–∏, –º–æ–∂–Ω–æ –ø–æ–ø—ã—Ç–∞—Ç—å—Å—è –≤—ã—è—Å–Ω–∏—Ç—å —Ç–∏–ø –ø–æ —Ä–∞—Å—à–∏—Ä–µ–Ω–∏—é –∏–º–µ–Ω–∏   *)
+(* —Ñ–∞–π–ª–∞, —Å–æ–¥–µ—Ä–∂–∞—â–µ–≥–æ —Ç–µ–∫—Å—Ç –∏—Å—Ö–æ–¥–æ–≥–æ –º–æ–¥—É–ª—è.                       *)
 PROCEDURE TryDetectModLang (src_fname-: ARRAY OF CHAR): dt.LANGUAGE;
 VAR
   ext: ARRAY [0..7] OF CHAR;
@@ -587,7 +587,7 @@ BEGIN
 END TryDetectModLang;
 
 
-(* ÇÎ§†•‚ ®§•≠‚®‰®™†‚Æ‡ ¨Æ§„´Ô *)
+(* –í—ã–¥–∞–µ—Ç –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æ—Ä –º–æ–¥—É–ª—è *)
 PROCEDURE ModLanguage (com: dt.ComNo; mod: dt.ModNo): dt.LANGUAGE;
 BEGIN
   IF CheckDebugInfoForModule (com, mod) AND (mod # dt.Fake_Module) THEN
@@ -771,10 +771,10 @@ BEGIN
 END GetSegmentInfo;
 
 
--- å•‚™® --
+-- –ú–µ—Ç–∫–∏ --
   -------
 
-(* èÆ †§‡•·„ ¢Æß¢‡†È†•‚ Æ°Ï•™‚ *)
+(* –ü–æ –∞–¥—Ä–µ—Å—É –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç –æ–±—å–µ–∫—Ç *)
 PROCEDURE FindObjectByAddr (com: dt.ComNo; mod: dt.ModNo; addr: kt.ADDRESS; exactly: BOOLEAN): dt.OBJECT;
 VAR
   k: CARDINAL;
@@ -805,7 +805,7 @@ BEGIN
 END FindObjectByAddr;
 
 
-(* èÆ †§‡•·„ ¢Æß¢‡†È†•‚, •·´® •·‚Ï, ¨•‚™„ *)
+(* –ü–æ –∞–¥—Ä–µ—Å—É –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç, –µ—Å–ª–∏ –µ—Å—Ç—å, –º–µ—Ç–∫—É *)
 PROCEDURE FindLabelByAddr (com: dt.ComNo; mod: dt.ModNo; addr: kt.ADDRESS): dt.OBJECT;
 VAR
   object : dt.OBJECT;
@@ -822,7 +822,7 @@ BEGIN
 END FindLabelByAddr;
 
 
-(* èÆ †§‡•·„ ¢Æß¢‡†È†•‚, •·´® •·‚Ï, ¨•‚™„ *)
+(* –ü–æ –∞–¥—Ä–µ—Å—É –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç, –µ—Å–ª–∏ –µ—Å—Ç—å, –º–µ—Ç–∫—É *)
 PROCEDURE FindProcByAddr (com: dt.ComNo; mod: dt.ModNo; addr: kt.ADDRESS): dt.OBJECT;
 VAR
   object : dt.OBJECT;
@@ -848,7 +848,7 @@ BEGIN
 END IsLabelOnAddr;
 
 
-(* äÆ´®Á•·‚¢Æ ¨•‚Æ™ ¢ ¨Æ§„´•. Ñ´Ô ≠•™Æ‡‡•™‚≠Æ£Æ ≠Æ¨•‡† ¨Æ§„´Ô ¢Æß¢‡†È†•‚ 0 *)
+(* –ö–æ–ª–∏—á–µ—Å—Ç–≤–æ –º–µ—Ç–æ–∫ –≤ –º–æ–¥—É–ª–µ. –î–ª—è –Ω–µ–∫–æ—Ä—Ä–µ–∫—Ç–Ω–æ–≥–æ –Ω–æ–º–µ—Ä–∞ –º–æ–¥—É–ª—è –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç 0 *)
 PROCEDURE LabelsNo (com: dt.ComNo; mod: dt.ModNo): CARDINAL;
 VAR
   PObjects: dt.POBJECTS;
@@ -871,7 +871,7 @@ BEGIN
 END LabelsNo;
 
 
-(* ÇÆß¢‡†È†•‚ i ¨•‚™„ ¢ ´•™·®™Æ£‡†‰®Á•·™Æ¨ ØÆ‡Ô§™• ®Â ®¨•≠ *)
+(* –í–æ–∑–≤—Ä–∞—â–∞–µ—Ç i –º–µ—Ç–∫—É –≤ –ª–µ–∫—Å–∏–∫–æ–≥—Ä–∞—Ñ–∏—á–µ—Å–∫–æ–º –ø–æ—Ä—è–¥–∫–µ –∏—Ö –∏–º–µ–Ω *)
 PROCEDURE GetLabel (com: dt.ComNo; mod: dt.ModNo; i: CARDINAL): dt.OBJECT;
 VAR
   PObjects: dt.POBJECTS;
@@ -917,7 +917,7 @@ BEGIN
 END PrevBasePointCompare;
 
 
-(* èÆ †§‡•·„ ¢Î§†•‚ †§‡•·, ¨•≠ÏË®© ® °´®¶†©Ë®© ™ ß†§†≠Æ¨„ *)
+(* –ü–æ –∞–¥—Ä–µ—Å—É –≤—ã–¥–∞–µ—Ç –∞–¥—Ä–µ—Å, –º–µ–Ω—å—à–∏–π –∏ –±–ª–∏–∂–∞–π—à–∏–π –∫ –∑–∞–¥–∞–Ω–æ–º—É *)
 PROCEDURE PrevBasePoint (com: dt.ComNo; mod: dt.ModNo; addr: kt.ADDRESS; VAR prev: kt.ADDRESS): BOOLEAN;
 VAR
   k: CARDINAL;
@@ -1163,7 +1163,7 @@ BEGIN
   RETURN public.len;
 END GetPublicLen;
 
-(* èÆ´„Á®‚Ï Ø†°´®™ ØÆ ≠Æ¨•‡„ (Æ‚·Æ‡‚®‡Æ¢†≠Î ØÆ ®¨•≠†¨) *)
+(* –ü–æ–ª—É—á–∏—Ç—å –ø–∞–±–ª–∏–∫ –ø–æ –Ω–æ–º–µ—Ä—É (–æ—Ç—Å–æ—Ä—Ç–∏—Ä–æ–≤–∞–Ω—ã –ø–æ –∏–º–µ–Ω–∞–º) *)
 PROCEDURE GetPublicName (com: dt.ComNo; i: CARDINAL): xs.txt_ptr;
 VAR
   public: dt.PUBLIC;
@@ -1183,7 +1183,7 @@ END GetPublicAddr;
 
 
 
--- è•‡•¨•≠≠Î• --
+-- –ü–µ—Ä–µ–º–µ–Ω–Ω—ã–µ --
   ------------
 
 PROCEDURE FindVarByAddrInMod (com: dt.ComNo; mod: dt.ModNo; addr: kt.ADDRESS; exactly: BOOLEAN): dt.OBJECT;
@@ -1223,7 +1223,7 @@ BEGIN
 END FindVarByAddr;
 
 
-(* äÆ´®Á•·‚¢Æ Ø•‡•¨•≠≠ÎÂ ¢ ¨Æ§„´•. Ñ´Ô ≠•™Æ‡‡•™‚≠Æ£Æ ≠Æ¨•‡† ¨Æ§„´Ô ¢Æß¢‡†È†•‚ 0 *)
+(* –ö–æ–ª–∏—á–µ—Å—Ç–≤–æ –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö –≤ –º–æ–¥—É–ª–µ. –î–ª—è –Ω–µ–∫–æ—Ä—Ä–µ–∫—Ç–Ω–æ–≥–æ –Ω–æ–º–µ—Ä–∞ –º–æ–¥—É–ª—è –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç 0 *)
 PROCEDURE VarsNo (com: dt.ComNo; mod: dt.ModNo): CARDINAL;
 VAR
   PObjects: dt.POBJECTS;
@@ -1276,7 +1276,7 @@ BEGIN
 END ParamVarsNo;
 
 
-(* äÆ´®Á•·‚¢Æ Ø‡ÆÊ•§„‡ §´Ô Æ°Ï•™‚† ‚®Ø† Ø‡ÆÊ•§„‡† *)
+(* –ö–æ–ª–∏—á–µ—Å—Ç–≤–æ –ø—Ä–æ—Ü–µ–¥—É—Ä –¥–ª—è –æ–±—å–µ–∫—Ç–∞ —Ç–∏–ø–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä–∞ *)
 PROCEDURE LocalProcsNo (proc_obj: dt.OBJECT) : CARDINAL;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -1339,7 +1339,7 @@ BEGIN
 END GetLocalVar;
 
 
-(* ÇÆß¢‡†È†•‚ i [0..N-1] Ø†‡†¨•‚‡ §´Ô Ø‡ÆÊ•§„‡Î *)
+(* –í–æ–∑–≤—Ä–∞—â–∞–µ—Ç i [0..N-1] –ø–∞—Ä–∞–º–µ—Ç—Ä –¥–ª—è –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
 PROCEDURE GetParamVar (proc_obj: dt.OBJECT; i: CARDINAL): dt.OBJECT;
 VAR
   PObjects: dt.POBJECTS;
@@ -1363,16 +1363,16 @@ END GetParamVar;
 
 
 
-(* ÇÎ§†•‚ ØÆ ß†§†≠≠Æ¨„ ™Æ≠‚•™·‚„ ´Æ™†´Ï≠Î© Æ°Ï•™‚ ® •£Æ ™Æ≠‚•™·‚ *)
-(* §´Ô i ®ß §®†Ø†ßÆ≠† [0..P+L-1], £§• P - ™Æ´®Á•‚¢Æ Ø†‡†¨•‚‡Æ¢,  *)
-(* L - ™Æ´®Á•·‚¢Æ ´Æ™†´Æ¢, ®≠†Á• ¢Î§†•‚ ÆË®°™„                   *)
+(* –í—ã–¥–∞–µ—Ç –ø–æ –∑–∞–¥–∞–Ω–Ω–æ–º—É –∫–æ–Ω—Ç–µ–∫—Å—Ç—É –ª–æ–∫–∞–ª—å–Ω—ã–π –æ–±—å–µ–∫—Ç –∏ –µ–≥–æ –∫–æ–Ω—Ç–µ–∫—Å—Ç *)
+(* –¥–ª—è i –∏–∑ –¥–∏–∞–ø–∞–∑–æ–Ω–∞ [0..P+L-1], –≥–¥–µ P - –∫–æ–ª–∏—á–µ—Ç–≤–æ –ø–∞—Ä–∞–º–µ—Ç—Ä–æ–≤,  *)
+(* L - –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ –ª–æ–∫–∞–ª–æ–≤, –∏–Ω–∞—á–µ –≤—ã–¥–∞–µ—Ç –æ—à–∏–±–∫—É                   *)
 PROCEDURE GetLocalObj (parent: dt.OBJECT; i: CARDINAL; VAR child, obj: dt.OBJECT);
 VAR
   params: CARDINAL;
   locals: CARDINAL;
   N: CARDINAL;
 BEGIN
-  -- Æ°ÂÆ§ ¢·•Â Æ°Í•¨´ÓÈ®Â °´Æ™Æ¢
+  -- –æ–±—Ö–æ–¥ –≤—Å–µ—Ö –æ–±—ä–µ–º–ª—é—â–∏—Ö –±–ª–æ–∫–æ–≤
   child := parent;
   LOOP
     params := ParamVarsNo (child);
@@ -1393,7 +1393,7 @@ BEGIN
 END GetLocalObj;
 
 
-(* ì‡Æ¢•≠Ï ¢´Æ¶•≠≠Æ·‚® Æ°Ï•™‚† Æ‚≠Æ·®‚•´Ï≠Æ §‡„£Æ£Æ             *)
+(* –£—Ä–æ–≤–µ–Ω—å –≤–ª–æ–∂–µ–Ω–Ω–æ—Å—Ç–∏ –æ–±—å–µ–∫—Ç–∞ –æ—Ç–Ω–æ—Å–∏—Ç–µ–ª—å–Ω–æ –¥—Ä—É–≥–æ–≥–æ             *)
 (* parent=dt.Invalid_Object, child=dt.Invalid_Object -> level=0 *)
 (* parent=dt.Invalid_Object, child#dt.Invalid_Object -> level=N *)
 (* parent#dt.Invalid_Object, child=dt.Invalid_Object -> FALSE   *)
@@ -1424,7 +1424,7 @@ BEGIN
 END ObjectLevel;
 
 
-(* ÇÆß¢‡†È†•‚ i [0..N-1] Ø‡ÆÊ•§„‡„ §´Ô Ø‡ÆÊ•§„‡Î *)
+(* –í–æ–∑–≤—Ä–∞—â–∞–µ—Ç i [0..N-1] –ø—Ä–æ—Ü–µ–¥—É—Ä—É –¥–ª—è –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
 PROCEDURE GetLocalProc (proc_obj: dt.OBJECT; i: CARDINAL): dt.OBJECT;
 VAR
   PObjects: dt.POBJECTS;
@@ -1538,12 +1538,12 @@ END FindLocalVar;
 
 
 -------------------------------------------------------------------------
------------------- ê†°Æ‚† · ®·ÂÆ§≠Î¨ ‚•™·‚Æ¨ Ø‡Æ£‡†¨¨Î ------------------
+------------------ –†–∞–±–æ—Ç–∞ —Å –∏—Å—Ö–æ–¥–Ω—ã–º —Ç–µ–∫—Å—Ç–æ–º –ø—Ä–æ–≥—Ä–∞–º–º—ã ------------------
                   -------------------------------------
 
 PROCEDURE AddrBySource (com: dt.ComNo; mod: dt.ModNo; line: CARDINAL; VAR addr: kt.ADDRESS): BOOLEAN;
-(* èÆ §†≠≠Æ¨„ ¨Æ§„´Ó ® ≠Æ¨•‡„ ·‚‡Æ™® ¢Î§†•‚ †§‡•· ¢ ™Æ§• Æ‚´†¶®¢†•¨Æ© Ø‡Æ£‡†¨¨Î. *)
-(* ç„¨•‡†Ê®Ô ·‚‡Æ™ - · 1..N                                                      *)
+(* –ü–æ –¥–∞–Ω–Ω–æ–º—É –º–æ–¥—É–ª—é –∏ –Ω–æ–º–µ—Ä—É —Å—Ç—Ä–æ–∫–∏ –≤—ã–¥–∞–µ—Ç –∞–¥—Ä–µ—Å –≤ –∫–æ–¥–µ –æ—Ç–ª–∞–∂–∏–≤–∞–µ–º–æ–π –ø—Ä–æ–≥—Ä–∞–º–º—ã. *)
+(* –ù—É–º–µ—Ä–∞—Ü–∏—è —Å—Ç—Ä–æ–∫ - —Å 1..N                                                      *)
 VAR
   ln: CARDINAL;
 BEGIN
@@ -1635,12 +1635,12 @@ BEGIN
     DEC(mod);
     WITH dt.Components.Components^[com].DI.Modules^[mod].CLTable DO
       first := KCLTableLine^[line-1];
-      IF first # MAX(CARDINAL) THEN         (* Ö·‚Ï ´® §´Ô Ì‚Æ© ·‚‡Æ™® ™Æ§? *)
+      IF first # MAX(CARDINAL) THEN         (* –ï—Å—Ç—å –ª–∏ –¥–ª—è —ç—Ç–æ–π —Å—Ç—Ä–æ–∫–∏ –∫–æ–¥? *)
         N := 1;
         LOOP
-          IF first + N > HIGH(CLTable^) THEN EXIT; END; (* ÅÆ´ÏË• ≠•‚ ·‚‡Æ™ *)
+          IF first + N > HIGH(CLTable^) THEN EXIT; END; (* –ë–æ–ª—å—à–µ –Ω–µ—Ç —Å—Ç—Ä–æ–∫ *)
           IF CLTable^[first].Line # CLTable^[first + N].Line THEN
-            EXIT;                           (* çÆ¨•‡ ·‚‡Æ™® ®ß¨•≠®´·Ô       *)
+            EXIT;                           (* –ù–æ–º–µ—Ä —Å—Ç—Ä–æ–∫–∏ –∏–∑–º–µ–Ω–∏–ª—Å—è       *)
           END;
           INC(N);
         END;
@@ -1766,7 +1766,7 @@ END GetSourceLine;
 
 
 
--- ≠†©§•≠ ®·ÂÆ§≠Î© ‚•™·‚
+-- –Ω–∞–π–¥–µ–Ω –∏—Å—Ö–æ–¥–Ω—ã–π —Ç–µ–∫—Å—Ç
 PROCEDURE ModHaveSource (com: dt.ComNo; mod: dt.ModNo): BOOLEAN;
 BEGIN
    RETURN OpenSource (com, mod);
@@ -1801,7 +1801,7 @@ BEGIN
 END EqualObjects;
 
 
-(* ÇÎ§†‚Ï ®¨Ô Æ°Í•™‚† *)
+(* –í—ã–¥–∞—Ç—å –∏–º—è –æ–±—ä–µ–∫—Ç–∞ *)
 PROCEDURE Object_pName (object: dt.OBJECT; VAR name: xs.txt_ptr);
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -1824,14 +1824,14 @@ BEGIN
 END ObjectName;
 
 
-(* ÇÎ§†‚Ï ®§•≠‚®‰®™†‚Æ‡ ¨Æ§„´Ô, ¢ ™Æ‚Æ‡Æ¨ ÆØ‡•§•´•≠ Æ°Í•™‚ *)
+(* –í—ã–¥–∞—Ç—å –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æ—Ä –º–æ–¥—É–ª—è, –≤ –∫–æ—Ç–æ—Ä–æ–º –æ–ø—Ä–µ–¥–µ–ª–µ–Ω –æ–±—ä–µ–∫—Ç *)
 PROCEDURE ObjectLanguage (object: dt.OBJECT): dt.LANGUAGE;
 BEGIN
   RETURN ModLanguage (ObjectCom (object), ObjectMod (object));
 END ObjectLanguage;
 
 
-(* ÇÎ§†•‚ †‚‡®°„‚Î Æ°Ï•™‚† *)
+(* –í—ã–¥–∞–µ—Ç –∞—Ç—Ä–∏–±—É—Ç—ã –æ–±—å–µ–∫—Ç–∞ *)
 PROCEDURE ObjectAttr (object: dt.OBJECT; VAR attr: dt.SYM_ATTRIB): BOOLEAN;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -1854,7 +1854,7 @@ BEGIN
 END ObjectAttr;
 
 
-(* ÇÎ§†•‚ †§‡•· ÆÍ•™‚†, ≠† ™Æ‡‡•™‚≠Æ·‚Ï Ø‡Æ¢•‡Ô•‚·Ô  *)
+(* –í—ã–¥–∞–µ—Ç –∞–¥—Ä–µ—Å –æ—ä–µ–∫—Ç–∞, –Ω–∞ –∫–æ—Ä—Ä–µ–∫—Ç–Ω–æ—Å—Ç—å –ø—Ä–æ–≤–µ—Ä—è–µ—Ç—Å—è  *)
 PROCEDURE ObjectAddr (object: dt.OBJECT; VAR addr: kt.ADDRESS): BOOLEAN;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -1877,7 +1877,7 @@ BEGIN
 END ObjectAddr;
 
 
-(* ÇÎ§†•‚ ‡†ß¨•‡ Æ°Í•™‚† ¢ °†©‚†Â                       *)
+(* –í—ã–¥–∞–µ—Ç —Ä–∞–∑–º–µ—Ä –æ–±—ä–µ–∫—Ç–∞ –≤ –±–∞–π—Ç–∞—Ö                       *)
 PROCEDURE ObjectSize (object: dt.OBJECT; VAR size: CARDINAL): BOOLEAN;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -1902,7 +1902,7 @@ BEGIN
 END ObjectSize;
 
 
-(* ÇÎ§†•‚ ‚®Ø Æ°Í•™‚†: ‚Æ´Ï™Æ §´Ô Ø•‡•¨•≠≠ÎÂ ® Ø‡ÆÊ•§„‡ *)
+(* –í—ã–¥–∞–µ—Ç —Ç–∏–ø –æ–±—ä–µ–∫—Ç–∞: —Ç–æ–ª—å–∫–æ –¥–ª—è –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö –∏ –ø—Ä–æ—Ü–µ–¥—É—Ä *)
 PROCEDURE ObjectType (object: dt.OBJECT; VAR type: dt.PTYPE): BOOLEAN;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -1916,7 +1916,7 @@ BEGIN
 END ObjectType;
 
 
-(* ÇÎ§†•‚ ‚®Ø ¢Î¢Æ§† Æ°Í•™‚† *)
+(* –í—ã–¥–∞–µ—Ç —Ç–∏–ø –≤—ã–≤–æ–¥–∞ –æ–±—ä–µ–∫—Ç–∞ *)
 PROCEDURE ObjectSymTypeID (object: dt.OBJECT; VAR st_id: dt.SYM_TYPE_ID): BOOLEAN;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -1943,7 +1943,7 @@ BEGIN
 END SetObjectSymTypeID;
 
 
-(* ÇÎ§†•‚ ‚®Ø Æ°Ï™‚† *)
+(* –í—ã–¥–∞–µ—Ç —Ç–∏–ø –æ–±—å–∫—Ç–∞ *)
 PROCEDURE ObjectTag (object: dt.OBJECT; VAR tag:dt.SYM_TAG): BOOLEAN;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -1957,21 +1957,21 @@ BEGIN
 END ObjectTag;
 
 
-(* ÇÎ§†•‚ ™Æ¨ØÆ≠•≠‚„ Æ°Í•™‚† *)
+(* –í—ã–¥–∞–µ—Ç –∫–æ–º–ø–æ–Ω–µ–Ω—Ç—É –æ–±—ä–µ–∫—Ç–∞ *)
 PROCEDURE ObjectCom (object: dt.OBJECT): dt.ComNo;
 BEGIN
   RETURN object.com;
 END ObjectCom;
 
 
-(* ÇÎ§†•‚ ≠Æ¨•‡ ß†Ø®·® Æ°Í•™‚† *)
+(* –í—ã–¥–∞–µ—Ç –Ω–æ–º–µ—Ä –∑–∞–ø–∏—Å–∏ –æ–±—ä–µ–∫—Ç–∞ *)
 PROCEDURE ObjectRec (object: dt.OBJECT): CARDINAL;
 BEGIN
   RETURN object.rec;
 END ObjectRec;
 
 
-(* ÇÎ§†•‚ ¨Æ§„´Ï Æ°Í•™‚† *)
+(* –í—ã–¥–∞–µ—Ç –º–æ–¥—É–ª—å –æ–±—ä–µ–∫—Ç–∞ *)
 PROCEDURE ObjectMod (object: dt.OBJECT): dt.ModNo;
 BEGIN
   RETURN object.mod;
@@ -1986,7 +1986,7 @@ BEGIN
 END IsParameter;
 
 
-(* èÆ Æ°Ï•™‚„ (´Æ™†´Ï≠Æ¨„) ¢Î§†•‚ ·¨•È•≠®•/‡•£®·‚‡ *)
+(* –ü–æ –æ–±—å–µ–∫—Ç—É (–ª–æ–∫–∞–ª—å–Ω–æ–º—É) –≤—ã–¥–∞–µ—Ç —Å–º–µ—â–µ–Ω–∏–µ/—Ä–µ–≥–∏—Å—Ç—Ä *)
 PROCEDURE GetLocalObject_Addr (object: dt.OBJECT; rel_reg_value: kt.ADDRESS; VAR addr: kt.ADDRESS): BOOLEAN;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -2038,7 +2038,7 @@ BEGIN
 END GetLocalObject_Reg;
 
 
-(* èÆ Æ°Ï•™‚„ ¢Î§†•‚ Æ°Ï•¨´ÓÈ®© °´Æ™ *)
+(* –ü–æ –æ–±—å–µ–∫—Ç—É –≤—ã–¥–∞–µ—Ç –æ–±—å–µ–º–ª—é—â–∏–π –±–ª–æ–∫ *)
 PROCEDURE ObjectParentScope (object: dt.OBJECT): dt.OBJECT;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -2054,7 +2054,7 @@ BEGIN
 END ObjectParentScope;
 
 
-(* èÆ Æ°Ï•™‚„ ‚®Ø† Ø‡ÆÊ•§„‡† ¢Î§†•‚ †§‡•· ≠†Á†´† Ø‡Æ´Æ£† ® ÌØ®´Æ£† *)
+(* –ü–æ –æ–±—å–µ–∫—Ç—É —Ç–∏–ø–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä–∞ –≤—ã–¥–∞–µ—Ç –∞–¥—Ä–µ—Å –Ω–∞—á–∞–ª–∞ –ø—Ä–æ–ª–æ–≥–∞ –∏ —ç–ø–∏–ª–æ–≥–∞ *)
 PROCEDURE ProcAttr (proc: dt.OBJECT; VAR start, end: kt.ADDRESS);
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -2079,7 +2079,7 @@ BEGIN
 END AddrInProcBody;
 
 
-(* èÆ Æ°Ï•™‚„ ‚®Ø† Ø‡ÆÊ•§„‡† Ø‡Æ¢•‡Ô•‚, ·ÆÂ‡†≠Ô•‚·Ô ´® ™†§‡ Ø‡® ¢ÎßÆ¢•  *)
+(* –ü–æ –æ–±—å–µ–∫—Ç—É —Ç–∏–ø–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä–∞ –ø—Ä–æ–≤–µ—Ä—è–µ—Ç, —Å–æ—Ö—Ä–∞–Ω—è–µ—Ç—Å—è –ª–∏ –∫–∞–¥—Ä –ø—Ä–∏ –≤—ã–∑–æ–≤–µ  *)
 PROCEDURE ProcHasFrame (proc: dt.OBJECT): BOOLEAN;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -2092,7 +2092,7 @@ BEGIN
 END ProcHasFrame;
 
 
-(* èÆ Æ°Ï•™‚„ ‚®Ø† Ø‡ÆÊ•§„‡† ¢Î§†•‚ ‡†ß¨•‡ ≠†Á†´Ï≠Æ£Æ ™†§‡ *)
+(* –ü–æ –æ–±—å–µ–∫—Ç—É —Ç–∏–ø–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä–∞ –≤—ã–¥–∞–µ—Ç —Ä–∞–∑–º–µ—Ä –Ω–∞—á–∞–ª—å–Ω–æ–≥–æ –∫–∞–¥—Ä *)
 PROCEDURE ProcFrameSize (proc: dt.OBJECT): CARDINAL;
 VAR
   raw_object: dt.RAW_OBJECT;
@@ -2107,7 +2107,7 @@ END ProcFrameSize;
 
 
 
-(* è‡Æ¢•‡™† ‚®Ø† ≠† ™Æ‡‡•™‚≠Æ·‚Ï                        *)
+(* –ü—Ä–æ–≤–µ—Ä–∫–∞ —Ç–∏–ø–∞ –Ω–∞ –∫–æ—Ä—Ä–µ–∫—Ç–Ω–æ—Å—Ç—å                        *)
 PROCEDURE IsTypeValid (type: dt.PTYPE) : BOOLEAN;
 BEGIN
   IF type = dt.Invalid_Type THEN
@@ -2122,7 +2122,7 @@ BEGIN
 END IsTypeValid;
 
 
-(* Ä§‡•· Æ°‡†ß† ≠• Ø‡®¨®‚®¢≠Æ£Æ ‚®Ø† *)
+(* –ê–¥—Ä–µ—Å –æ–±—Ä–∞–∑–∞ –Ω–µ –ø—Ä–∏–º–∏—Ç–∏–≤–Ω–æ–≥–æ —Ç–∏–ø–∞ *)
 PROCEDURE TypeImage (type: dt.PTYPE): sys.ADDRESS;
 BEGIN
   IF IsTypePrimitive (type) THEN
@@ -2135,7 +2135,7 @@ BEGIN
 END TypeImage;
 
 
-(* äÆ´®Á•·‚¢Æ ‚®ØÆ¢ *)
+(* –ö–æ–ª–∏—á–µ—Å—Ç–≤–æ —Ç–∏–ø–æ–≤ *)
 PROCEDURE TypesNo (com: dt.ComNo; mod: dt.ModNo): CARDINAL;
 BEGIN
   IF CheckDebugInfoForModule (com, mod) AND (mod # dt.Fake_Module) THEN
@@ -2151,7 +2151,7 @@ BEGIN
 END TypesNo;
 
 
-(* ÇÆß¢‡†È†•‚ i-Î© ‚®Ø §´Ô ®¨•≠≠Æ¢†≠≠ÎÂ ‚®ØÆ¢ *)
+(* –í–æ–∑–≤—Ä–∞—â–∞–µ—Ç i-—ã–π —Ç–∏–ø –¥–ª—è –∏–º–µ–Ω–Ω–æ–≤–∞–Ω–Ω—ã—Ö —Ç–∏–ø–æ–≤ *)
 PROCEDURE GetType (com: dt.ComNo; mod: dt.ModNo; i: CARDINAL): dt.PTYPE;
 BEGIN
   IF CheckDebugInfoForModule (com, mod) THEN
@@ -2162,14 +2162,14 @@ BEGIN
 END GetType;
 
 
-(* à§•≠‚®‰®™†‚Æ‡ ‚®Ø† ‚®Ø† *)
+(* –ò–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æ—Ä —Ç–∏–ø–∞ —Ç–∏–ø–∞ *)
 PROCEDURE TypeTagName (tag: dt.TYPE_TAG; VAR name: ARRAY OF CHAR);
 BEGIN
   COPY (dt.TypeTagNames[tag], name);
 END TypeTagName;
 
 
-(* Å†ßÆ¢Î© Ø‡®¨®‚®¢≠Î© ‚®Ø *)
+(* –ë–∞–∑–æ–≤—ã–π –ø—Ä–∏–º–∏—Ç–∏–≤–Ω—ã–π —Ç–∏–ø *)
 PROCEDURE IsTypeBasePrimitive (type: dt.PTYPE): BOOLEAN;
 BEGIN
 <* PUSH *>
@@ -2178,13 +2178,13 @@ BEGIN
 <* POP *>
 END IsTypeBasePrimitive;
 
-(* ì™†ß†‚•´Ï ≠† °†ßÆ¢Î© Ø‡®¨®‚®¢≠Î© ‚®Ø *)
+(* –£–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –±–∞–∑–æ–≤—ã–π –ø—Ä–∏–º–∏—Ç–∏–≤–Ω—ã–π —Ç–∏–ø *)
 PROCEDURE IsTypePointerPrimitive (type: dt.PTYPE): BOOLEAN;
 BEGIN
   RETURN (dt.FIRST_POINTERS_TYPES <= type) AND (type < dt.FIRST_NONPRIMITIVE);
 END IsTypePointerPrimitive;
 
-(* è‡®¨®‚®¢≠Î© ‚®Ø *)
+(* –ü—Ä–∏–º–∏—Ç–∏–≤–Ω—ã–π —Ç–∏–ø *)
 PROCEDURE IsTypePrimitive (type: dt.PTYPE): BOOLEAN;
 BEGIN
   RETURN IsTypeBasePrimitive (type) OR IsTypePointerPrimitive (type);
@@ -2192,7 +2192,7 @@ END IsTypePrimitive;
 
 
 
-(* èÆ´„Á®‚Ï ®¨Ô ‚®Ø† *)
+(* –ü–æ–ª—É—á–∏—Ç—å –∏–º—è —Ç–∏–ø–∞ *)
 PROCEDURE TypeName (type: dt.PTYPE; VAR name: xs.txt_ptr): BOOLEAN;
 VAR
   data: dt.PTYPE_DATA;
@@ -2211,7 +2211,7 @@ BEGIN
 END TypeName;
 
 
-(* è•‡•®¨•≠Æ¢†‚Ï ‚®Ø *)
+(* –ü–µ—Ä–µ–∏–º–µ–Ω–æ–≤–∞—Ç—å —Ç–∏–ø *)
 PROCEDURE RenameType (type: dt.PTYPE; name-: ARRAY OF CHAR): BOOLEAN;
 VAR
   data: dt.PTYPE_DATA;
@@ -2226,7 +2226,7 @@ BEGIN
 END RenameType;
 
 
-(* ÇÎ§†‚Ï ‚®Ø ‚®Ø† *)
+(* –í—ã–¥–∞—Ç—å —Ç–∏–ø —Ç–∏–ø–∞ *)
 PROCEDURE TypeTag (type: dt.PTYPE; VAR tag:dt.TYPE_TAG): BOOLEAN;
 VAR
   data: dt.PTYPE_DATA;
@@ -2264,9 +2264,9 @@ END TypeCom;
 
 
 
-(* èÆ®·™ ‚®Ø† ØÆ ®¨•≠®, ¢ ‚Æ¨ Á®·´• ·‡•§® ·‚†≠§†‡‚≠ÎÂ *)
+(* –ü–æ–∏—Å–∫ —Ç–∏–ø–∞ –ø–æ –∏–º–µ–Ω–∏, –≤ —Ç–æ–º —á–∏—Å–ª–µ —Å—Ä–µ–¥–∏ —Å—Ç–∞–Ω–¥–∞—Ä—Ç–Ω—ã—Ö *)
 VAR
-  Name  : xs.txt_ptr; (* à·™Æ¨Æ• ®¨Ô *)
+  Name  : xs.txt_ptr; (* –ò—Å–∫–æ–º–æ–µ –∏–º—è *)
 
 PROCEDURE CompareStdTypeName (i:CARDINAL): INTEGER;
 VAR
@@ -2362,7 +2362,7 @@ BEGIN
 END OpenArrayTypeDescription;
 
 
-(* ‡†ß¨•‡ ‚®Ø† ¢ °†©‚†Â                                   *)
+(* —Ä–∞–∑–º–µ—Ä —Ç–∏–ø–∞ –≤ –±–∞–π—Ç–∞—Ö                                   *)
 PROCEDURE TypeSize (type: dt.PTYPE): CARDINAL;
 VAR
   ptag: POINTER TO dt.TYPE_TAG;
@@ -2430,8 +2430,8 @@ END TypeSize;
 
 
 
-(* §´®≠† ‚®Ø† - §´Ô †‚Æ¨†‡≠ÎÂ ‚®ØÆ¢: ‡†ß¨•‡ ¢ °†©‚†Â      *)
-(*              §´Ô ·‚‡„™‚„‡≠ÎÂ:     ™Æ´®Á•·‚¢Æ Ì´•¨•≠‚Æ¢ *)
+(* –¥–ª–∏–Ω–∞ —Ç–∏–ø–∞ - –¥–ª—è –∞—Ç–æ–º–∞—Ä–Ω—ã—Ö —Ç–∏–ø–æ–≤: —Ä–∞–∑–º–µ—Ä –≤ –±–∞–π—Ç–∞—Ö      *)
+(*              –¥–ª—è —Å—Ç—Ä—É–∫—Ç—É—Ä–Ω—ã—Ö:     –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ —ç–ª–µ–º–µ–Ω—Ç–æ–≤ *)
 PROCEDURE TypeLen (type: dt.PTYPE): CARDINAL;
 VAR
   ptag: POINTER TO dt.TYPE_TAG;
@@ -2513,17 +2513,17 @@ END TypeLen;
 
 
 
-(* ÇÎ§†•‚ °†ßÆ¢Î© ‚®Ø. Å†ßÆ¢Î© ‚®Ø ®¨••‚·Ô „ ·´•§„ÓÈ®Â: *)
+(* –í—ã–¥–∞–µ—Ç –±–∞–∑–æ–≤—ã–π —Ç–∏–ø. –ë–∞–∑–æ–≤—ã–π —Ç–∏–ø –∏–º–µ–µ—Ç—Å—è —É —Å–ª–µ–¥—É—é—â–∏—Ö: *)
 
-(* ARRAY OF BaseType       - Æ‚™‡Î‚Î© ¨†··®¢            *)
-(* ARRAY Index OF BaseType - ¨†··®¢                     *)
-(* POINTER TO BaseType     - „™†ß†‚•´Ï                  *)
-(* REFERENCE TO BaseType   - ··Î´™†                     *)
-(* SET OF BaseType         - ¨≠Æ¶•·‚¢Æ                  *)
-(* [ BaseType ]            - §®†Ø†ßÆ≠                   *)
-(* Enumeration on BaseType - Ø•‡•Á®·´®¨Î© ≠† °†ßÆ¢Æ¨    *)
-(* PROCEDURE: BaseType     - ‚®Ø ‡•ß„´Ï‚†‚† Ø‡ÆÊ•§„‡Î   *)
-(* CLASS ( BaseType )      - °†ßÆ¢Î© ™´†··              *)
+(* ARRAY OF BaseType       - –æ—Ç–∫—Ä—ã—Ç—ã–π –º–∞—Å—Å–∏–≤            *)
+(* ARRAY Index OF BaseType - –º–∞—Å—Å–∏–≤                     *)
+(* POINTER TO BaseType     - —É–∫–∞–∑–∞—Ç–µ–ª—å                  *)
+(* REFERENCE TO BaseType   - —Å—Å—ã–ª–∫–∞                     *)
+(* SET OF BaseType         - –º–Ω–æ–∂–µ—Å—Ç–≤–æ                  *)
+(* [ BaseType ]            - –¥–∏–∞–ø–∞–∑–æ–Ω                   *)
+(* Enumeration on BaseType - –ø–µ—Ä–µ—á–∏—Å–ª–∏–º—ã–π –Ω–∞ –±–∞–∑–æ–≤–æ–º    *)
+(* PROCEDURE: BaseType     - —Ç–∏–ø —Ä–µ–∑—É–ª—å—Ç–∞—Ç–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä—ã   *)
+(* CLASS ( BaseType )      - –±–∞–∑–æ–≤—ã–π –∫–ª–∞—Å—Å              *)
 
 PROCEDURE SubType (type: dt.PTYPE; VAR subtype: dt.PTYPE);
 VAR
@@ -2596,7 +2596,7 @@ BEGIN
 END SubType;
 
 
-(* ÇÎ§†•‚ ‚®Ø ®≠§•™·† ¨†··®¢†  *)
+(* –í—ã–¥–∞–µ—Ç —Ç–∏–ø –∏–Ω–¥–µ–∫—Å–∞ –º–∞—Å—Å–∏–≤–∞  *)
 (* ARRAY Index OF ...          *)
 PROCEDURE ArrayIndexType (type: dt.PTYPE; VAR index: dt.PTYPE);
 VAR
@@ -2616,8 +2616,8 @@ BEGIN
 END ArrayIndexType;
 
 
-(* Ñ´Ô ‚®Ø† RECORD ®´® CLASS ØÆ ≠Æ¨•‡„ ØÆ´Ô ¢ ß†Ø®·®       *)
-(* ®ß §®†Ø†ßÆ≠† 1..TypeLen(type) ¢Î§†•‚ ®≠‰Æ‡¨†Ê®Ó Æ ØÆ´•  *)
+(* –î–ª—è —Ç–∏–ø–∞ RECORD –∏–ª–∏ CLASS –ø–æ –Ω–æ–º–µ—Ä—É –ø–æ–ª—è –≤ –∑–∞–ø–∏—Å–∏       *)
+(* –∏–∑ –¥–∏–∞–ø–∞–∑–æ–Ω–∞ 1..TypeLen(type) –≤—ã–¥–∞–µ—Ç –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏—é –æ –ø–æ–ª–µ  *)
 PROCEDURE Field (type: dt.PTYPE; no: CARDINAL; VAR field: dt.TYPE_RECORD_FIELD);
 
 VAR
@@ -2653,7 +2653,7 @@ BEGIN
 END Field;
 
 
-(* ì·‚†≠†¢´®¢†•‚ §´Ô ØÆ´Ô ‚®Ø† ≠„¶≠Î© ‰Æ‡¨†‚ Æ‚Æ°‡†¶•≠®Ô *)
+(* –£—Å—Ç–∞–Ω–∞–≤–ª–∏–≤–∞–µ—Ç –¥–ª—è –ø–æ–ª—è —Ç–∏–ø–∞ –Ω—É–∂–Ω—ã–π —Ñ–æ—Ä–º–∞—Ç –æ—Ç–æ–±—Ä–∞–∂–µ–Ω–∏—è *)
 PROCEDURE SetFieldSTID (type: dt.PTYPE; no: CARDINAL; st_id: dt.SYM_TYPE_ID);
 VAR
   PTypeData       : POINTER TO dt.TYPE_DATA;
@@ -2687,8 +2687,8 @@ END SetFieldSTID;
 
 
 <* IF DEFINED(SCHERN_K26) AND SCHERN_K26 THEN *>
-(* Ñ´Ô ‚®Ø† RECORD ®´® CLASS ØÆ ®¨•≠® ØÆ´Ô ¢ ß†Ø®·® ¢Î§†•‚    *)
-(* •£Æ ≠Æ¨•‡ ®ß §®†Ø†ßÆ≠† 1..TypeLen(type) ® ®≠‰Æ‡¨†Ê®Ó Æ ≠•¨ *)
+(* –î–ª—è —Ç–∏–ø–∞ RECORD –∏–ª–∏ CLASS –ø–æ –∏–º–µ–Ω–∏ –ø–æ–ª—è –≤ –∑–∞–ø–∏—Å–∏ –≤—ã–¥–∞–µ—Ç    *)
+(* –µ–≥–æ –Ω–æ–º–µ—Ä –∏–∑ –¥–∏–∞–ø–∞–∑–æ–Ω–∞ 1..TypeLen(type) –∏ –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏—é –æ –Ω–µ–º *)
 PROCEDURE Field_no (    type  : dt.PTYPE; name: xs.txt_ptr;
                     VAR no    : CARDINAL;
                     VAR field : dt.TYPE_RECORD_FIELD);
@@ -2752,8 +2752,8 @@ END Field_no;
 <* END *>
 
 
-(* Ñ´Ô ‚®Ø† ¢Î§†•‚ ¨®≠®¨†´Ï≠Æ• ® ¨†™·®¨†´Ï≠Æ• ß≠†Á•≠®•,       *)
-(* §ÆØ„·‚®¨Î• §´Ô Ø•‡•¨•≠ÎÂ Ì‚Æ£Æ ‚®Ø†, Ø‡®¢•§•≠Î• ™ LONGCARD *)
+(* –î–ª—è —Ç–∏–ø–∞ –≤—ã–¥–∞–µ—Ç –º–∏–Ω–∏–º–∞–ª—å–Ω–æ–µ –∏ –º–∞–∫—Å–∏–º–∞–ª—å–Ω–æ–µ –∑–Ω–∞—á–µ–Ω–∏–µ,       *)
+(* –¥–æ–ø—É—Å—Ç–∏–º—ã–µ –¥–ª—è –ø–µ—Ä–µ–º–µ–Ω—ã—Ö —ç—Ç–æ–≥–æ —Ç–∏–ø–∞, –ø—Ä–∏–≤–µ–¥–µ–Ω—ã–µ –∫ LONGCARD *)
 PROCEDURE Index (type: dt.PTYPE; VAR min, max: LONGCARD);
 
   PROCEDURE Max (l: CARDINAL): LONGCARD;
@@ -2842,7 +2842,7 @@ BEGIN
 END Index;
 
 
-(* Ñ´Ô Ø•‡•Á®·´®¨Æ£Æ ‚®Ø† ØÆ ß≠†Á•≠®Ó Ì´•¨•≠‚† ¢Î§†•‚ ®¨Ô Ì´•¨•≠‚† *)
+(* –î–ª—è –ø–µ—Ä–µ—á–∏—Å–ª–∏–º–æ–≥–æ —Ç–∏–ø–∞ –ø–æ –∑–Ω–∞—á–µ–Ω–∏—é —ç–ª–µ–º–µ–Ω—Ç–∞ –≤—ã–¥–∞–µ—Ç –∏–º—è —ç–ª–µ–º–µ–Ω—Ç–∞ *)
 PROCEDURE EnumName (    type : dt.PTYPE;
                         value: CARDINAL;
                     VAR name : ARRAY OF CHAR);
@@ -2873,7 +2873,7 @@ BEGIN
 END EnumName;
 
 
-(* Ñ´Ô Ø•‡•Á®·´®¨Æ£Æ ‚®Ø† ØÆ ®¨•≠® Ì´•¨•≠‚† ¢Î§†•‚ •£Æ ß≠†Á•≠®• *)
+(* –î–ª—è –ø–µ—Ä–µ—á–∏—Å–ª–∏–º–æ–≥–æ —Ç–∏–ø–∞ –ø–æ –∏–º–µ–Ω–∏ —ç–ª–µ–º–µ–Ω—Ç–∞ –≤—ã–¥–∞–µ—Ç –µ–≥–æ –∑–Ω–∞—á–µ–Ω–∏–µ *)
 PROCEDURE EnumValue (    type : dt.PTYPE;
                          name-: ARRAY OF CHAR;
                      VAR value: CARDINAL): BOOLEAN;
@@ -2948,7 +2948,7 @@ END FindValueByEnumeration;
 
 
 
-(* ë‡†¢≠•≠®• ‚®ØÆ¢ *)
+(* –°—Ä–∞–≤–Ω–µ–Ω–∏–µ —Ç–∏–ø–æ–≤ *)
 PROCEDURE TypesCompatible (type1, type2: dt.PTYPE): BOOLEAN;
 VAR
   tag1    : dt.TYPE_TAG;

@@ -1,4 +1,4 @@
--- Конвертор для формата NB09 (CodeView) во внутреннее представление
+-- ╨Ъ╨╛╨╜╨▓╨╡╤А╤В╨╛╤А ╨┤╨╗╤П ╤Д╨╛╤А╨╝╨░╤В╨░ NB09 (CodeView) ╨▓╨╛ ╨▓╨╜╤Г╤В╤А╨╡╨╜╨╜╨╡╨╡ ╨┐╤А╨╡╨┤╤Б╤В╨░╨▓╨╗╨╡╨╜╨╕╨╡
 
 IMPLEMENTATION MODULE DI_NB09;
 
@@ -48,7 +48,7 @@ BEGIN
 END Error;
 
 
-(* Размещение новых модулей *)
+(* ╨а╨░╨╖╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╨╜╨╛╨▓╤Л╤Е ╨╝╨╛╨┤╤Г╨╗╨╡╨╣ *)
 PROCEDURE AllocateModules (no: CARDINAL);
 
 VAR
@@ -177,10 +177,10 @@ CONST
 VAR
   N_types: CARDINAL;
 
-  -- Сохраняет абсолютное смещение записи типа
+  -- ╨б╨╛╤Е╤А╨░╨╜╤П╨╡╤В ╨░╨▒╤Б╨╛╨╗╤О╤В╨╜╨╛╨╡ ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╨╖╨░╨┐╨╕╤Б╨╕ ╤В╨╕╨┐╨░
   TypesOffsets: POINTER TO ARRAY OF dt.R_TYPE;
 
-  -- Сохраняет соответствия внешних и внутренних типов
+  -- ╨б╨╛╤Е╤А╨░╨╜╤П╨╡╤В ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╤В╨▓╨╕╤П ╨▓╨╜╨╡╤И╨╜╨╕╤Е ╨╕ ╨▓╨╜╤Г╤В╤А╨╡╨╜╨╜╨╕╤Е ╤В╨╕╨┐╨╛╨▓
   According: POINTER TO ARRAY OF dt.R_TYPE;
 
 
@@ -275,8 +275,8 @@ TYPE
   RECORD_IMAGE_FIELD = ARRAY [0..MAX_ITEM-1] OF dt.TYPE_RECORD_FIELD;
   ENUM_IMAGE_ITEM    = ARRAY [0..MAX_ITEM-1] OF dt.TYPE_ENUM_ITEM;
 
-  -- НИКОГДА не переопределяйте тип! Он должен соответствовать порядку
-  -- записей в определениях указанных типов в DI_Types.def
+  -- ╨Э╨Ш╨Ъ╨Ю╨У╨Ф╨Р ╨╜╨╡ ╨┐╨╡╤А╨╡╨╛╨┐╤А╨╡╨┤╨╡╨╗╤П╨╣╤В╨╡ ╤В╨╕╨┐! ╨Ю╨╜ ╨┤╨╛╨╗╨╢╨╡╨╜ ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╤В╨▓╨╛╨▓╨░╤В╤М ╨┐╨╛╤А╤П╨┤╨║╤Г
+  -- ╨╖╨░╨┐╨╕╤Б╨╡╨╣ ╨▓ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╤П╤Е ╤Г╨║╨░╨╖╨░╨╜╨╜╤Л╤Е ╤В╨╕╨┐╨╛╨▓ ╨▓ DI_Types.def
  <* PUSH *>
  <* ALIGNMENT = "1" *>
 
@@ -340,7 +340,7 @@ PROCEDURE GetType (mod: CARDINAL; ext_type: CARDINAL): INTERNAL_INDEX;
    i    : CARDINAL;
  BEGIN
    IF Images = NIL THEN
-     -- создать таблицу
+     -- ╤Б╨╛╨╖╨┤╨░╤В╤М ╤В╨░╨▒╨╗╨╕╤Ж╤Г
      ASSERT (Index = 0);
      NEW (Images, EMBEGGING_LEVEL);
      ASSERT (Images # NIL);
@@ -349,7 +349,7 @@ PROCEDURE GetType (mod: CARDINAL; ext_type: CARDINAL): INTERNAL_INDEX;
      END;
      Index := 0;
    ELSIF Index > HIGH(Images^) THEN
-     -- увеличиваем таблицу в два раза
+     -- ╤Г╨▓╨╡╨╗╨╕╤З╨╕╨▓╨░╨╡╨╝ ╤В╨░╨▒╨╗╨╕╤Ж╤Г ╨▓ ╨┤╨▓╨░ ╤А╨░╨╖╨░
      size := HIGH(Images^)+1;
      NEW (tmp, 2*size);
      ASSERT (tmp # NIL);
@@ -702,7 +702,7 @@ BEGIN
                           PClassType := tls.TypeImage (Base);
                           AllMembers := MyMembers + PClassType^.AllMembers;
                         ELSE
-                          -- в Обероне разрешено расширять классы записями
+                          -- ╨▓ ╨Ю╨▒╨╡╤А╨╛╨╜╨╡ ╤А╨░╨╖╤А╨╡╤И╨╡╨╜╨╛ ╤А╨░╤Б╤И╨╕╤А╤П╤В╤М ╨║╨╗╨░╤Б╤Б╤Л ╨╖╨░╨┐╨╕╤Б╤П╨╝╨╕
                           ASSERT (type_tag = dt.Record);
                           PRecordType := tls.TypeImage (Base);
                           AllMembers := MyMembers + PRecordType^.Fields;
@@ -1735,8 +1735,8 @@ END CorrectSourceNames;
 
 
 
-(* Чтение отладочной информации для программы *)
-(* Имя программы нужно указать полное         *)
+(* ╨з╤В╨╡╨╜╨╕╨╡ ╨╛╤В╨╗╨░╨┤╨╛╤З╨╜╨╛╨╣ ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╕ ╨┤╨╗╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л *)
+(* ╨Ш╨╝╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л ╨╜╤Г╨╢╨╜╨╛ ╤Г╨║╨░╨╖╨░╤В╤М ╨┐╨╛╨╗╨╜╨╛╨╡         *)
 PROCEDURE internal_ProcessDebugInfo(com: ComNo; VAR Component: COMPONENT;
                                     mode: PROCESS_MODE): CARDINAL;
 VAR
@@ -1750,10 +1750,10 @@ BEGIN
   Component.DI := dt.EmptyDebugInfo;
   N := PrepareToReadDirectory(com, Component);
 
-  (* Строим структуру с информацией о модулях *)
+  (* ╨б╤В╤А╨╛╨╕╨╝ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╤Г ╤Б ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╡╨╣ ╨╛ ╨╝╨╛╨┤╤Г╨╗╤П╤Е *)
 
-  (* первый проход: подсчет числа модулей. Предполагается, что информация           *)
-  (* о модулях идет единым куском в начале каждой структуры с отладочной информацей *)
+  (* ╨┐╨╡╤А╨▓╤Л╨╣ ╨┐╤А╨╛╤Е╨╛╨┤: ╨┐╨╛╨┤╤Б╤З╨╡╤В ╤З╨╕╤Б╨╗╨░ ╨╝╨╛╨┤╤Г╨╗╨╡╨╣. ╨Я╤А╨╡╨┤╨┐╨╛╨╗╨░╨│╨░╨╡╤В╤Б╤П, ╤З╤В╨╛ ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╤П           *)
+  (* ╨╛ ╨╝╨╛╨┤╤Г╨╗╤П╤Е ╨╕╨┤╨╡╤В ╨╡╨┤╨╕╨╜╤Л╨╝ ╨║╤Г╤Б╨║╨╛╨╝ ╨▓ ╨╜╨░╤З╨░╨╗╨╡ ╨║╨░╨╢╨┤╨╛╨╣ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╤Л ╤Б ╨╛╤В╨╗╨░╨┤╨╛╤З╨╜╨╛╨╣ ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╡╨╣ *)
 
   save := rpos;
 
@@ -1783,7 +1783,7 @@ BEGIN
     IF mode = mode_full THEN
       CASE entry.type OF
       | SubSecMod      : Read_sstModules (entry.modNo-1);
-      | SubSecSrc      : Read_SubSecSrc (entry.modNo-1, TRUE (* читать все данные *));
+      | SubSecSrc      : Read_SubSecSrc (entry.modNo-1, TRUE (* ╤З╨╕╤В╨░╤В╤М ╨▓╤Б╨╡ ╨┤╨░╨╜╨╜╤Л╨╡ *));
       | sstSegMap      : Read_sstSegMap;
       | sstGlobalPub   : Read_sstGlobalPub;
       | sstAlignSym    : Read_sstAlignSym (entry.modNo-1, entry.length, mode_full);
@@ -1800,7 +1800,7 @@ BEGIN
     ELSE -- mode = mode_brief
       CASE entry.type OF
       | SubSecMod      : Read_sstModules (entry.modNo-1);
-      | SubSecSrc      : Read_SubSecSrc (entry.modNo-1, FALSE (* читать только имя исходного файла *));
+      | SubSecSrc      : Read_SubSecSrc (entry.modNo-1, FALSE (* ╤З╨╕╤В╨░╤В╤М ╤В╨╛╨╗╤М╨║╨╛ ╨╕╨╝╤П ╨╕╤Б╤Е╨╛╨┤╨╜╨╛╨│╨╛ ╤Д╨░╨╣╨╗╨░ *));
       | sstSegMap      : -- only at full mode
       | sstGlobalPub   : -- only at full mode
       | sstAlignSym    : -- only at full mode
@@ -1818,13 +1818,13 @@ BEGIN
     rpos := save;
   END;
 
-  (* Изменения имен модулей для отображения и вычислений выражений *)
+  (* ╨Ш╨╖╨╝╨╡╨╜╨╡╨╜╨╕╤П ╨╕╨╝╨╡╨╜ ╨╝╨╛╨┤╤Г╨╗╨╡╨╣ ╨┤╨╗╤П ╨╛╤В╨╛╨▒╤А╨░╨╢╨╡╨╜╨╕╤П ╨╕ ╨▓╤Л╤З╨╕╤Б╨╗╨╡╨╜╨╕╨╣ ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╨╣ *)
   CorrectSourceNames;
-  (* Создание ключей по модулям *)
+  (* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨╗╤О╤З╨╡╨╣ ╨┐╨╛ ╨╝╨╛╨┤╤Г╨╗╤П╨╝ *)
   bld.CreateKeysByModules (CurrCom);
-  (* Создание ключа для таблицы сегментов *)
+  (* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨╗╤О╤З╨░ ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╤Б╨╡╨│╨╝╨╡╨╜╤В╨╛╨▓ *)
   bld.CreateKGroupSegments (CurrCom);
-  (* Установка языка компоненты по модулям *)
+  (* ╨г╤Б╤В╨░╨╜╨╛╨▓╨║╨░ ╤П╨╖╤Л╨║╨░ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╤Л ╨┐╨╛ ╨╝╨╛╨┤╤Г╨╗╤П╨╝ *)
   bld.SetComLanguage (CurrCom);
 
   IF mode = mode_full THEN
@@ -1894,7 +1894,7 @@ BEGIN
     CASE entry.type OF
     | SubSecSrc  :
       IF modno = entry.modNo-1 THEN
-        Read_SubSecSrc (entry.modNo-1, TRUE (* читать все данные *));
+        Read_SubSecSrc (entry.modNo-1, TRUE (* ╤З╨╕╤В╨░╤В╤М ╨▓╤Б╨╡ ╨┤╨░╨╜╨╜╤Л╨╡ *));
         IF Ok THEN
           CurrComponent^.DI.Modules^[modno].HasInfo := TRUE;
           CorrectSourceName (modno+1);

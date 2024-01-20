@@ -87,7 +87,7 @@ VAR
   anykey: dt.KEY;
 
 
-(* Сортировка ключа, обмен *)
+(* ╨б╨╛╤А╤В╨╕╤А╨╛╨▓╨║╨░ ╨║╨╗╤О╤З╨░, ╨╛╨▒╨╝╨╡╨╜ *)
 PROCEDURE Shake (i,j: CARDINAL);
 VAR
   tmp: dt.KEY_INDEX;
@@ -149,7 +149,7 @@ BEGIN
 END IsEqual;
 
 
-(* Добавить имя в таблицу имен модуля *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╕╤В╤М ╨╕╨╝╤П ╨▓ ╤В╨░╨▒╨╗╨╕╤Ж╤Г ╨╕╨╝╨╡╨╜ ╨╝╨╛╨┤╤Г╨╗╤П *)
 PROCEDURE AddName (name-: ARRAY OF CHAR): CARDINAL;
 VAR
   unique: BOOLEAN;
@@ -159,7 +159,7 @@ BEGIN
 END AddName;
 
 
-(* Добавить новое имя в таблицу имен модуля *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╕╤В╤М ╨╜╨╛╨▓╨╛╨╡ ╨╕╨╝╤П ╨▓ ╤В╨░╨▒╨╗╨╕╤Ж╤Г ╨╕╨╝╨╡╨╜ ╨╝╨╛╨┤╤Г╨╗╤П *)
 PROCEDURE AddNewName (name-: ARRAY OF CHAR): CARDINAL;
 VAR
   unique: BOOLEAN;
@@ -169,7 +169,7 @@ BEGIN
 END AddNewName;
 
 
-(* Создание ключей для таблицы соответствия кода и текста *)
+(* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨╗╤О╤З╨╡╨╣ ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╤В╨▓╨╕╤П ╨║╨╛╨┤╨░ ╨╕ ╤В╨╡╨║╤Б╤В╨░ *)
 VAR
   cltable: dt.PACLTABLE;
 
@@ -220,7 +220,7 @@ BEGIN
     IF CLTable # NIL THEN
       cltable := CLTable;
       N := HIGH(CLTable^)+1;
-      (* Сортировка таблицы: вначале сравнение по строкам, затем по адресам *)
+      (* ╨б╨╛╤А╤В╨╕╤А╨╛╨▓╨║╨░ ╤В╨░╨▒╨╗╨╕╤Ж╤Л: ╨▓╨╜╨░╤З╨░╨╗╨╡ ╤Б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╨┐╨╛ ╤Б╤В╤А╨╛╨║╨░╨╝, ╨╖╨░╤В╨╡╨╝ ╨┐╨╛ ╨░╨┤╤А╨╡╤Б╨░╨╝ *)
       sor.Shell(N,CompareTable, ShakeTable);
       i := 0;
       LOOP
@@ -234,21 +234,21 @@ BEGIN
           EXIT;
         END;
       END;
-      (* Ключ по коду *)
+      (* ╨Ъ╨╗╤О╤З ╨┐╨╛ ╨║╨╛╨┤╤Г *)
       NEW(KCLTableAddr, N);
       FOR i := 0 TO N-1 DO
         KCLTableAddr^[i] := i;
       END;
       anykey := KCLTableAddr;
       sor.Shell(N, CompareCodeTable, Shake);
-      (* Ключ по строкам *)
+      (* ╨Ъ╨╗╤О╤З ╨┐╨╛ ╤Б╤В╤А╨╛╨║╨░╨╝ *)
       NEW(KCLTableLine, CLTable^[N-1].Line);
       FOR i := 0 TO HIGH(KCLTableLine^) DO
-        -- инициализация: любая строка не имеет кода
+        -- ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨░╤Ж╨╕╤П: ╨╗╤О╨▒╨░╤П ╤Б╤В╤А╨╛╨║╨░ ╨╜╨╡ ╨╕╨╝╨╡╨╡╤В ╨║╨╛╨┤╨░
         KCLTableLine^[i] := dt.Invalid_Line;
       END;
       FOR i := N-1 TO 0 BY -1 DO
-        -- для всех строк в таблице указываем ссылку на запись
+        -- ╨┤╨╗╤П ╨▓╤Б╨╡╤Е ╤Б╤В╤А╨╛╨║ ╨▓ ╤В╨░╨▒╨╗╨╕╤Ж╨╡ ╤Г╨║╨░╨╖╤Л╨▓╨░╨╡╨╝ ╤Б╤Б╤Л╨╗╨║╤Г ╨╜╨░ ╨╖╨░╨┐╨╕╤Б╤М
         KCLTableLine^[CLTable^[i].Line-1] := i;
       END;
     END;
@@ -257,7 +257,7 @@ END CreateKCLTable;
 
 
 
-(* Создание ключа для таблицы сегментов *)
+(* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨╗╤О╤З╨░ ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╤Б╨╡╨│╨╝╨╡╨╜╤В╨╛╨▓ *)
 VAR
   segments: dt.PASEGMENT;
   CurrCom : dt.ComNo;
@@ -295,7 +295,7 @@ BEGIN
 END CompareSegments;
 
 
-(* Создание ключа для сводной таблицы сегментов программы *)
+(* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨╗╤О╤З╨░ ╨┤╨╗╤П ╤Б╨▓╨╛╨┤╨╜╨╛╨╣ ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╤Б╨╡╨│╨╝╨╡╨╜╤В╨╛╨▓ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л *)
 PROCEDURE CreateKGroupSegments (com: dt.ComNo);
 VAR
   N_Segments, mod, seg, N, i, j: CARDINAL;
@@ -473,7 +473,7 @@ VAR
 BEGIN
   ad1 := a1;
   ad2 := a2;
-  IF ad1^ # ad2^ THEN    (*  теги не совпадают *)
+  IF ad1^ # ad2^ THEN    (*  ╤В╨╡╨│╨╕ ╨╜╨╡ ╤Б╨╛╨▓╨┐╨░╨┤╨░╤О╤В *)
     RETURN FALSE;
   END;
   FOR i := SIZE(dt.TYPE_DATA) TO len-1 DO
@@ -486,14 +486,14 @@ BEGIN
   RETURN TRUE;
 END CompareTypes;
 
-(* Добавить тип в таблицу типов, вернет номер типа *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╕╤В╤М ╤В╨╕╨┐ ╨▓ ╤В╨░╨▒╨╗╨╕╤Ж╤Г ╤В╨╕╨┐╨╛╨▓, ╨▓╨╡╤А╨╜╨╡╤В ╨╜╨╛╨╝╨╡╤А ╤В╨╕╨┐╨░ *)
 PROCEDURE AddType (type-: ARRAY OF sys.LOC; VAR IsUnique: BOOLEAN): dt.R_TYPE;
 BEGIN
   RETURN dt.FIRST_NONPRIMITIVE + Ud.Add(TypesTbl, Ud.IMAGE(sys.ADR(type)), CompareTypes , TypeImageLength, IsUnique);
 END AddType;
 
 
-(* Создание лексикографического ключа для таблицы типов *)
+(* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨╗╨╡╨║╤Б╨╕╨║╨╛╨│╤А╨░╤Д╨╕╤З╨╡╤Б╨║╨╛╨│╨╛ ╨║╨╗╤О╤З╨░ ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╤В╨╕╨┐╨╛╨▓ *)
 VAR
   CurrMod: CARDINAL;
 
@@ -604,7 +604,7 @@ END SortKTName;
 
 
 
-(* Добавить обьект в таблицу обьектов модуля, вернет номер обьекта *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╕╤В╤М ╨╛╨▒╤М╨╡╨║╤В ╨▓ ╤В╨░╨▒╨╗╨╕╤Ж╤Г ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ ╨╝╨╛╨┤╤Г╨╗╤П, ╨▓╨╡╤А╨╜╨╡╤В ╨╜╨╛╨╝╨╡╤А ╨╛╨▒╤М╨╡╨║╤В╨░ *)
 PROCEDURE AddObject (com: dt.ComNo; mod: dt.ModNo; obj: dt.RAW_OBJECT);
 VAR
   PObjects: dt.POBJECTS;
@@ -616,13 +616,13 @@ BEGIN
   WITH PObjects^ DO
     WITH RawObjects DO
       IF RawObjects = NIL THEN
-        (* Создание таблицы *)
+        (* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╤В╨░╨▒╨╗╨╕╤Ж╤Л *)
         ASSERT(Count = 0);
         NEW(RawObjects, HN_Object);
         ASSERT(RawObjects # NIL);
         Count := 0;
       ELSIF Count > HIGH(RawObjects^) THEN
-        (* Места в таблице хватает? *)
+        (* ╨Ь╨╡╤Б╤В╨░ ╨▓ ╤В╨░╨▒╨╗╨╕╤Ж╨╡ ╤Е╨▓╨░╤В╨░╨╡╤В? *)
         l := HIGH(RawObjects^)+1;
         NEW(tmp, 2*l);
        <* IF DEFINED (stats) & stats THEN *>
@@ -633,7 +633,7 @@ BEGIN
         DISPOSE(RawObjects);
         RawObjects := tmp;
       END;
-      (* Записать в таблицу *)
+      (* ╨Ч╨░╨┐╨╕╤Б╨░╤В╤М ╨▓ ╤В╨░╨▒╨╗╨╕╤Ж╤Г *)
       RawObjects^[Count] := obj;
       INC(Count);
     END;
@@ -641,7 +641,7 @@ BEGIN
 END AddObject;
 
 
-(* Создание ключа для таблицы модулей *)
+(* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨╗╤О╤З╨░ ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╨╝╨╛╨┤╤Г╨╗╨╡╨╣ *)
 PROCEDURE CompareModuleName (i,j: CARDINAL): BOOLEAN;
 VAR
   in,  jn : xs.txt_ptr;
@@ -658,7 +658,7 @@ BEGIN
   RETURN iup > jup;
 END CompareModuleName;
 
-(* Создание ключей для таблицы модулей *)
+(* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨╗╤О╤З╨╡╨╣ ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╨╝╨╛╨┤╤Г╨╗╨╡╨╣ *)
 PROCEDURE CreateKeysByModules (com: dt.ComNo);
 VAR
   N, i: CARDINAL;
@@ -675,7 +675,7 @@ BEGIN
 END CreateKeysByModules;
 
 
-(* Добавить паблик в таблицу *)
+(* ╨Ф╨╛╨▒╨░╨▓╨╕╤В╤М ╨┐╨░╨▒╨╗╨╕╨║ ╨▓ ╤В╨░╨▒╨╗╨╕╤Ж╤Г *)
 PROCEDURE AddPublic (com: dt.ComNo; public: dt.PUBLIC);
 VAR
   tmp: dt.PAPUBLIC;
@@ -714,7 +714,7 @@ BEGIN
 END ComparePublicAddress;
 
 
-(* Отсортировать паблики по адресам *)
+(* ╨Ю╤В╤Б╨╛╤А╤В╨╕╤А╨╛╨▓╨░╤В╤М ╨┐╨░╨▒╨╗╨╕╨║╨╕ ╨┐╨╛ ╨░╨┤╤А╨╡╤Б╨░╨╝ *)
 PROCEDURE SortPublicsByAddr (com: dt.ComNo);
 VAR
   i, j, k: CARDINAL;
@@ -1194,12 +1194,12 @@ END ShowSymbol;
 
 
 CONST
-  -- Максимально допустимое количество вложености процедур
+  -- ╨Ь╨░╨║╤Б╨╕╨╝╨░╨╗╤М╨╜╨╛ ╨┤╨╛╨┐╤Г╤Б╤В╨╕╨╝╨╛╨╡ ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╨▓╨╗╨╛╨╢╨╡╨╜╨╛╤Б╤В╨╕ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А
   MAX_PROCEDURE_LEVEL = 255;
 
 TYPE
-  -- Для уровня вложенности содержит ссылку на описание
-  -- вложенных обьектов модуля или процедуры
+  -- ╨Ф╨╗╤П ╤Г╤А╨╛╨▓╨╜╤П ╨▓╨╗╨╛╨╢╨╡╨╜╨╜╨╛╤Б╤В╨╕ ╤Б╨╛╨┤╨╡╤А╨╢╨╕╤В ╤Б╤Б╤Л╨╗╨║╤Г ╨╜╨░ ╨╛╨┐╨╕╤Б╨░╨╜╨╕╨╡
+  -- ╨▓╨╗╨╛╨╢╨╡╨╜╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ ╨╝╨╛╨┤╤Г╨╗╤П ╨╕╨╗╨╕ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л
   LEVEL_DATA = RECORD
                  PNestedObjects: dt.PNESTED_OBJECTS;
                END;
@@ -1210,9 +1210,9 @@ VAR
   LevelNestedObjects: NESTED_LEVELS;
 
 
--- Сортировка ключей для таблицы обьектов
+-- ╨б╨╛╤А╤В╨╕╤А╨╛╨▓╨║╨░ ╨║╨╗╤О╤З╨╡╨╣ ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
 
--- Сравнение по адресам обьектов
+-- ╨б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╨┐╨╛ ╨░╨┤╤А╨╡╤Б╨░╨╝ ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
 PROCEDURE CompareObjAddr (i,j: CARDINAL): BOOLEAN;
 VAR
   in, jn: kt.ADDRESS;
@@ -1227,10 +1227,10 @@ END CompareObjAddr;
 
 
 VAR
-  -- левый индекс в ключе для сортироки
+  -- ╨╗╨╡╨▓╤Л╨╣ ╨╕╨╜╨┤╨╡╨║╤Б ╨▓ ╨║╨╗╤О╤З╨╡ ╨┤╨╗╤П ╤Б╨╛╤А╤В╨╕╤А╨╛╨║╨╕
   LeftIndex: sys.CARD32;
 
--- Сравнение по именам обьектов
+-- ╨б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╨┐╨╛ ╨╕╨╝╨╡╨╜╨░╨╝ ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
 PROCEDURE CompareObjName (i,j: CARDINAL): BOOLEAN;
 VAR
   in, jn: xs.String;
@@ -1243,7 +1243,7 @@ BEGIN
   RETURN in > jn;
 END CompareObjName;
 
--- Обмен ключа по имена  обьектов
+-- ╨Ю╨▒╨╝╨╡╨╜ ╨║╨╗╤О╤З╨░ ╨┐╨╛ ╨╕╨╝╨╡╨╜╨░  ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
 PROCEDURE ShakeObjName (i,j: CARDINAL);
 VAR
   tmp: dt.KEY_INDEX;
@@ -1257,26 +1257,26 @@ END ShakeObjName;
 
 
 
-(* Построение таблицы обьектов                                     *)
-(* Если номер модуля равен dt.Fake_Module - таблица для компоненты *)
+(* ╨Я╨╛╤Б╤В╤А╨╛╨╡╨╜╨╕╨╡ ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓                                     *)
+(* ╨Х╤Б╨╗╨╕ ╨╜╨╛╨╝╨╡╤А ╨╝╨╛╨┤╤Г╨╗╤П ╤А╨░╨▓╨╡╨╜ dt.Fake_Module - ╤В╨░╨▒╨╗╨╕╤Ж╨░ ╨┤╨╗╤П ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╤Л *)
 PROCEDURE ReadObjects (com: dt.ComNo; mod: dt.ModNo);
 VAR
-  PObjects     : dt.POBJECTS;   (* Обьекты                                 *)
-  proc_level   : CARDINAL;      (* Уровень вложености процедур             *)
-  CountObjects : CARDINAL;      (* Всего обьектов                          *)
-  NextFreeIndex: CARDINAL;      (* Свободный индекс для локальных обьектов *)
+  PObjects     : dt.POBJECTS;   (* ╨Ю╨▒╤М╨╡╨║╤В╤Л                                 *)
+  proc_level   : CARDINAL;      (* ╨г╤А╨╛╨▓╨╡╨╜╤М ╨▓╨╗╨╛╨╢╨╡╨╜╨╛╤Б╤В╨╕ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А             *)
+  CountObjects : CARDINAL;      (* ╨Т╤Б╨╡╨│╨╛ ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓                          *)
+  NextFreeIndex: CARDINAL;      (* ╨б╨▓╨╛╨▒╨╛╨┤╨╜╤Л╨╣ ╨╕╨╜╨┤╨╡╨║╤Б ╨┤╨╗╤П ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ *)
 
 
   PROCEDURE AllocNestedObjects;
   BEGIN
     WITH LevelNestedObjects[proc_level].PNestedObjects^ DO
-      VarPos        := NextFreeIndex;      -- индекс переменных
-      ParamPos      := VarPos+VarQuan;     -- индекс параметров
-      ProcPos       := ParamPos+ParamQuan; -- индекс процедур
-      NextFreeIndex := ProcPos+ProcQuan;   -- следующий свободный
-      VarQuan       := 0;                  -- количество переменных
-      ParamQuan     := 0;                  -- количество параметров
-      ProcQuan      := 0;                  -- количество процедур
+      VarPos        := NextFreeIndex;      -- ╨╕╨╜╨┤╨╡╨║╤Б ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
+      ParamPos      := VarPos+VarQuan;     -- ╨╕╨╜╨┤╨╡╨║╤Б ╨┐╨░╤А╨░╨╝╨╡╤В╤А╨╛╨▓
+      ProcPos       := ParamPos+ParamQuan; -- ╨╕╨╜╨┤╨╡╨║╤Б ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А
+      NextFreeIndex := ProcPos+ProcQuan;   -- ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╨╣ ╤Б╨▓╨╛╨▒╨╛╨┤╨╜╤Л╨╣
+      VarQuan       := 0;                  -- ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е
+      ParamQuan     := 0;                  -- ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╨┐╨░╤А╨░╨╝╨╡╤В╤А╨╛╨▓
+      ProcQuan      := 0;                  -- ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А
     END;
   END AllocNestedObjects;
 
@@ -1405,7 +1405,7 @@ VAR
     WITH PObjects^ DO
       CurrCom := com;
       CurrMod := mod;
-      -- подсчитаем количество обьектов, имеющих адрес
+      -- ╨┐╨╛╨┤╤Б╤З╨╕╤В╨░╨╡╨╝ ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓, ╨╕╨╝╨╡╤О╤Й╨╕╤Е ╨░╨┤╤А╨╡╤Б
       N := 0;
       FOR i := 0 TO CountObjects-1 DO
         obj := tls.MakeObject (com, mod, i);
@@ -1414,7 +1414,7 @@ VAR
         END;
       END;
       IF N # 0 THEN
-        -- выделяем ключи по адресам
+        -- ╨▓╤Л╨┤╨╡╨╗╤П╨╡╨╝ ╨║╨╗╤О╤З╨╕ ╨┐╨╛ ╨░╨┤╤А╨╡╤Б╨░╨╝
         NEW(KObjAddr, N);
         ASSERT(KObjAddr#NIL);
         N := 0;
@@ -1425,27 +1425,27 @@ VAR
             INC(N);
           END;
         END;
-        -- сортировка ключа по адресам, для всех обьектов
+        -- ╤Б╨╛╤А╤В╨╕╤А╨╛╨▓╨║╨░ ╨║╨╗╤О╤З╨░ ╨┐╨╛ ╨░╨┤╤А╨╡╤Б╨░╨╝, ╨┤╨╗╤П ╨▓╤Б╨╡╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
         anykey := KObjAddr;
         IF N > 1 THEN
           sor.Shell(N, CompareObjAddr, Shake);
         END;
       END;
-      -- выделяем ключи по локальным именам
+      -- ╨▓╤Л╨┤╨╡╨╗╤П╨╡╨╝ ╨║╨╗╤О╤З╨╕ ╨┐╨╛ ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╨╝ ╨╕╨╝╨╡╨╜╨░╨╝
       NEW(KObjName, CountObjects);
       ASSERT(KObjName#NIL);
       FOR i := 0 TO CountObjects-1 DO
         KObjName^[i] := i;
       END;
-      -- сортировка ключа по именам
+      -- ╤Б╨╛╤А╤В╨╕╤А╨╛╨▓╨║╨░ ╨║╨╗╤О╤З╨░ ╨┐╨╛ ╨╕╨╝╨╡╨╜╨░╨╝
       anykey := KObjName;
       SortNestedObjName (NestedObjects);
-      -- для локальных обьектов модуля
+      -- ╨┤╨╗╤П ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ ╨╝╨╛╨┤╤Г╨╗╤П
       WITH RawObjects DO
         FOR i := 0 TO CountObjects-1 DO
           WITH RawObjects^[KObjects^[i]] DO
             IF Tag = dt.Sy_Proc THEN
-              -- для локальных обьектов модуля
+              -- ╨┤╨╗╤П ╨╗╨╛╨║╨░╨╗╤М╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ ╨╝╨╛╨┤╤Г╨╗╤П
               SortNestedObjName (DataProc.NestedObjects);
             END;
           END;
@@ -1461,18 +1461,18 @@ BEGIN
   PObjects := tls.MakePObjects (com, mod);
   WITH PObjects^ DO
     IF RawObjects.Count = 0 THEN
-      -- нет обьектов в этом модуле
+      -- ╨╜╨╡╤В ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓ ╨▓ ╤Н╤В╨╛╨╝ ╨╝╨╛╨┤╤Г╨╗╨╡
       RETURN;
     END;
-    -- глобальные обьекты, для процедур - собственные
-    -- вложенные обьекты, содержатся в обьекте Sy_Proc
+    -- ╨│╨╗╨╛╨▒╨░╨╗╤М╨╜╤Л╨╡ ╨╛╨▒╤М╨╡╨║╤В╤Л, ╨┤╨╗╤П ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А - ╤Б╨╛╨▒╤Б╤В╨▓╨╡╨╜╨╜╤Л╨╡
+    -- ╨▓╨╗╨╛╨╢╨╡╨╜╨╜╤Л╨╡ ╨╛╨▒╤М╨╡╨║╤В╤Л, ╤Б╨╛╨┤╨╡╤А╨╢╨░╤В╤Б╤П ╨▓ ╨╛╨▒╤М╨╡╨║╤В╨╡ Sy_Proc
     NestedObjects := dt.EmptyNestedObjects;
-    -- нет предшественника и не имеет индекса в ключе
+    -- ╨╜╨╡╤В ╨┐╤А╨╡╨┤╤И╨╡╤Б╤В╨▓╨╡╨╜╨╜╨╕╨║╨░ ╨╕ ╨╜╨╡ ╨╕╨╝╨╡╨╡╤В ╨╕╨╜╨┤╨╡╨║╤Б╨░ ╨▓ ╨║╨╗╤О╤З╨╡
     NestedObjects.LocalIndex := MAX(sys.CARD16);
-    -- подсчитываем число вложенных обьектов
+    -- ╨┐╨╛╨┤╤Б╤З╨╕╤В╤Л╨▓╨░╨╡╨╝ ╤З╨╕╤Б╨╗╨╛ ╨▓╨╗╨╛╨╢╨╡╨╜╨╜╤Л╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
     proc_level := 0;
     LevelNestedObjects[0].PNestedObjects := sys.ADR(NestedObjects);
-    -- подсчитываем число всех обьектов
+    -- ╨┐╨╛╨┤╤Б╤З╨╕╤В╤Л╨▓╨░╨╡╨╝ ╤З╨╕╤Б╨╗╨╛ ╨▓╤Б╨╡╤Е ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
     CountObjects := 0;
     NextFreeIndex := 0;
     FOR i := 0 TO RawObjects.Count-1 DO
@@ -1480,17 +1480,17 @@ BEGIN
     END;
     ASSERT(proc_level = 0);
     IF CountObjects = 0 THEN RETURN; END;
-    -- выделяем ключ
+    -- ╨▓╤Л╨┤╨╡╨╗╤П╨╡╨╝ ╨║╨╗╤О╤З
     NEW(KObjects, CountObjects);
     ASSERT(KObjects#NIL);
-    -- глобальные переменные и процедуры в начале ключа
+    -- ╨│╨╗╨╛╨▒╨░╨╗╤М╨╜╤Л╨╡ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╨╡ ╨╕ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л ╨▓ ╨╜╨░╤З╨░╨╗╨╡ ╨║╨╗╤О╤З╨░
     NextFreeIndex := 0;
     AllocNestedObjects;
-    -- распределяем обьекты по ключу
+    -- ╤А╨░╤Б╨┐╤А╨╡╨┤╨╡╨╗╤П╨╡╨╝ ╨╛╨▒╤М╨╡╨║╤В╤Л ╨┐╨╛ ╨║╨╗╤О╤З╤Г
     FOR i := 0 TO RawObjects.Count-1 DO
       ReadOneObject (TRUE, i);
     END;
-    -- выделение и сортировка ключей для таблицы обьектов
+    -- ╨▓╤Л╨┤╨╡╨╗╨╡╨╜╨╕╨╡ ╨╕ ╤Б╨╛╤А╤В╨╕╤А╨╛╨▓╨║╨░ ╨║╨╗╤О╤З╨╡╨╣ ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╨╛╨▒╤М╨╡╨║╤В╨╛╨▓
     CreateKObjects;
   END;
 END ReadObjects;
@@ -1498,7 +1498,7 @@ END ReadObjects;
 
 
 
----------- Создание таблицы стандартных типов -----------
+---------- ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╤Л╤Е ╤В╨╕╨┐╨╛╨▓ -----------
 PROCEDURE CompareStdTypeName (i,j: CARDINAL): BOOLEAN;
 VAR
   in, jn: xs.txt_ptr;

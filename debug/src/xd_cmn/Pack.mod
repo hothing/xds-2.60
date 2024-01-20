@@ -1,7 +1,7 @@
 <* Storage + *>
 
 IMPLEMENTATION MODULE Pack;
-(* è†™•‚≠Î© Æ‚´†§Á®™ *)
+(* –ü–∞–∫–µ—Ç–Ω—ã–π –æ—Ç–ª–∞–¥—á–∏–∫ *)
 
 IMPORT brk := CtrlC;
 
@@ -35,7 +35,7 @@ IMPORT PckModel;
 VAR
   Line: xStr.txt_ptr;
 
-(*±±±±±±±±±±±±±± ë°Æ‡ ¨•‚Æ™ ® ®Â Ø‡Æ¢•‡™† ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±*)
+(*‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí –°–±–æ—Ä –º–µ—Ç–æ–∫ –∏ –∏—Ö –ø—Ä–æ–≤–µ—Ä–∫–∞ ‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí*)
 PROCEDURE Label_Collect_And_Check;
 VAR
   name1     ,
@@ -49,21 +49,21 @@ VAR
 
 BEGIN
   IF typ.Pakets[typ.CurrPaket].Reference THEN RETURN; END;
-  (* çÆ¨•‡ ØÆ·´•§≠•© ·‚‡Æ™® *)
+  (* –ù–æ–º–µ—Ä –ø–æ—Å–ª–µ–¥–Ω–µ–π —Å—Ç—Ä–æ–∫–∏ *)
   typ.Pakets[typ.CurrPaket].LastLine := txt.LastLine(typ.Pakets[typ.CurrPaket].Paket);
   IF typ.Pakets[typ.CurrPaket].LastLine = 0 THEN RETURN; END;
   DEC(typ.Pakets[typ.CurrPaket].LastLine);
-  (* ç†Á®≠†•¨ · Ø•‡¢Æ© *)
+  (* –ù–∞—á–∏–Ω–∞–µ–º —Å –ø–µ—Ä–≤–æ–π *)
   typ.Pakets[typ.CurrPaket].LineNum := 1;
   LOOP
-    (* è‡ÆÁ´® ¢•·Ï Ø†™•‚? *)
+    (* –ü—Ä–æ—á–ª–∏ –≤–µ—Å—å –ø–∞–∫–µ—Ç? *)
     IF typ.Pakets[typ.CurrPaket].LineNum-1 > typ.Pakets[typ.CurrPaket].LastLine THEN EXIT END;
     txt.GetLine(typ.Pakets[typ.CurrPaket].Paket,typ.Pakets[typ.CurrPaket].LineNum-1, Line);
     PosStr := 0;
     IF NOT bas.SkipBlanks(Line^, PosStr) AND (PosStr = 0) THEN
       ASSERT(bas.GetParam(Line^, PosStr, Param));
       IF (Param[0] = '#') THEN
-        IF (Param = '#IMPORT') OR (Param = '#àåèéêí') THEN
+        IF (Param = '#IMPORT') OR (Param = '#–ò–ú–ü–û–†–¢') THEN
           IF bas.GetParam(Line^, PosStr, Param) THEN
             IF exp.CheckFileName(Param, FileExt) THEN
               xStr.Uppercase(Param);
@@ -141,7 +141,7 @@ END Label_Collect_And_Check;
 
 
 
-(*±±±±±±±±± ÇÎ¢Æ§ ÆØ•‡†‚Æ‡Æ¢ Ø†™•‚† Æ‚´†§™® ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±*)
+(*‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí –í—ã–≤–æ–¥ –æ–ø–µ—Ä–∞—Ç–æ—Ä–æ–≤ –ø–∞–∫–µ—Ç–∞ –æ—Ç–ª–∞–¥–∫–∏ ‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí‚ñí*)
 PROCEDURE PrintStatement;
 VAR
   name1: xStr.String;
@@ -159,20 +159,20 @@ BEGIN
 END PrintStatement;
 
 
-(* à·ØÆ´≠•≠®• Ø†™•‚† Æ‚´†§™® *)
+(* –ò—Å–ø–æ–ª–Ω–µ–Ω–∏–µ –ø–∞–∫–µ—Ç–∞ –æ—Ç–ª–∞–¥–∫–∏ *)
 PROCEDURE Debugger;
 VAR
-  name1  : xStr.txt_ptr;    (* à¨Ô Ø†™•‚†                        *)
-  name2  : xStr.String;     (* à¨Ô Ø†™•‚†                        *)
-  RC     : CARDINAL;       (* äÆ§ ¢Æß¢‡†‚† ¢ÎßÆ¢† ÆØ•‡†‚Æ‡†     *)
-  warning: BOOLEAN;        (* è‡®ß≠†™ ≠†´®Á®Ô ´®Ë≠®Â Ø†‡†¨•‚‡Æ¢ *)
+  name1  : xStr.txt_ptr;    (* –ò–º—è –ø–∞–∫–µ—Ç–∞                        *)
+  name2  : xStr.String;     (* –ò–º—è –ø–∞–∫–µ—Ç–∞                        *)
+  RC     : CARDINAL;       (* –ö–æ–¥ –≤–æ–∑–≤—Ä–∞—Ç–∞ –≤—ã–∑–æ–≤–∞ –æ–ø–µ—Ä–∞—Ç–æ—Ä–∞     *)
+  warning: BOOLEAN;        (* –ü—Ä–∏–∑–Ω–∞–∫ –Ω–∞–ª–∏—á–∏—è –ª–∏—à–Ω–∏—Ö –ø–∞—Ä–∞–º–µ—Ç—Ä–æ–≤ *)
 
 
-  (* è‡Æ¢•‡™† Ø•‡•ÂÆ§† ØÆ ÆË®°™• *)
+  (* –ü—Ä–æ–≤–µ—Ä–∫–∞ –ø–µ—Ä–µ—Ö–æ–¥–∞ –ø–æ –æ—à–∏–±–∫–µ *)
   PROCEDURE JumpByError(): BOOLEAN;
   VAR
-    paket ,               (* çÆ¨•‡ Ø†™•‚†                  *)
-    line  : CARDINAL;     (* ë‚‡Æ™† ¢ Ø†™•‚•               *)
+    paket ,               (* –ù–æ–º–µ—Ä –ø–∞–∫–µ—Ç–∞                  *)
+    line  : CARDINAL;     (* –°—Ç—Ä–æ–∫–∞ –≤ –ø–∞–∫–µ—Ç–µ               *)
   BEGIN
     IF lst.GetJumpByError(RC, paket,line) THEN
       pro.WriteMsgNo(msg.JumpByError, pro.to_screen, pro.to_file, RC);
@@ -188,7 +188,7 @@ VAR
 BEGIN
   LOOP
     WITH typ.Pakets[typ.CurrPaket] DO
-      IF LineNum > LastLine THEN; (* Ö·´® Ø‡ÆÁ´® ¢•·Ï Ø†™•‚. é‚´†§™† ß†™Æ≠Á•≠† *)
+      IF LineNum > LastLine THEN; (* –ï—Å–ª–∏ –ø—Ä–æ—á–ª–∏ –≤–µ—Å—å –ø–∞–∫–µ—Ç. –û—Ç–ª–∞–¥–∫–∞ –∑–∞–∫–æ–Ω—á–µ–Ω–∞ *)
         IF RetPaket # typ.CurrPaket THEN
           txt.GetName(Paket,name1);
           bas.FileName(name1^, name2);
@@ -196,9 +196,9 @@ BEGIN
         END;
         EXIT;
       ELSE
-        (* è‡ÆÁ®‚†‚Ï ÆÁ•‡•§≠„Ó ·‚‡Æ™„ *)
+        (* –ü—Ä–æ—á–∏—Ç–∞—Ç—å –æ—á–µ—Ä–µ–¥–Ω—É—é —Å—Ç—Ä–æ–∫—É *)
         txt.GetLine(Paket,LineNum,Line);
-        (* ë§¢®≠„‚Ï·Ô ≠† ·´•§. ·‚‡Æ™„ *)
+        (* –°–¥–≤–∏–Ω—É—Ç—å—Å—è –Ω–∞ —Å–ª–µ–¥. —Å—Ç—Ä–æ–∫—É *)
         INC(LineNum);
         PrintStatement;
         IF ope.Execute(Line^, RC, warning) THEN
@@ -217,31 +217,31 @@ BEGIN
 END Debugger;
 
 
-(* ë‚†‡‚ Ø†™•‚≠Æ£Æ Æ‚´†§Á®™†                 *)
-(* à¨Ô Ø†™•‚† §Æ´¶≠Æ °Î‚Ï ¢ Options.tst_name *)
+(* –°—Ç–∞—Ä—Ç –ø–∞–∫–µ—Ç–Ω–æ–≥–æ –æ—Ç–ª–∞–¥—á–∏–∫–∞                 *)
+(* –ò–º—è –ø–∞–∫–µ—Ç–∞ –¥–æ–ª–∂–Ω–æ –±—ã—Ç—å –≤ Options.tst_name *)
 PROCEDURE Start;
 VAR
   fname: xStr.txt_ptr;
   tst_name: xStr.String;
   i: CARDINAL;
 BEGIN
-  (* Ç ≠†·‚ÆÔÈ®© ¨Æ¨•≠‚ ‡†°Æ‚†•¨ ¢ Ø†™•‚• *)
+  (* –í –Ω–∞—Å—Ç–æ—è—â–∏–π –º–æ–º–µ–Ω—Ç —Ä–∞–±–æ—Ç–∞–µ–º –≤ –ø–∞–∫–µ—Ç–µ *)
   opt.in_dialog := FALSE;
 
-  (* é‚™‡Î‚Ï ‚•™·‚ Ø†™•‚† *)
+  (* –û—Ç–∫—Ä—ã—Ç—å —Ç–µ–∫—Å—Ç –ø–∞–∫–µ—Ç–∞ *)
   txt.Open(typ.Pakets[typ.CurrPaket].Paket, opt.tst_name);
-  IF typ.Pakets[typ.CurrPaket].Paket <> txt.nil THEN (* é‚™‡Î‚ *)
+  IF typ.Pakets[typ.CurrPaket].Paket <> txt.nil THEN (* –û—Ç–∫—Ä—ã—Ç *)
     txt.GetName(typ.Pakets[typ.CurrPaket].Paket, fname);
     xStr.Uppercase(fname^);
     bas.FileName(fname^, tst_name);
     pro.WriteMsgNo(msg.Paket, TRUE, pro.to_file, tst_name);
     INC(typ.QuantityPaket);
 
-    (* ä•¨ ®¨ØÆ‡‚®‡„•‚·Ô, ≠Æ¨•‡ ®¨ØÆ‡‚®‡„ÓÈ•£Æ Ø†™•‚† *)
-    (* Ö·´® MAX(CARDINAL) - Æ·≠Æ¢≠Æ© Ø†™•‚            *)
+    (* –ö–µ–º –∏–º–ø–æ—Ä—Ç–∏—Ä—É–µ—Ç—Å—è, –Ω–æ–º–µ—Ä –∏–º–ø–æ—Ä—Ç–∏—Ä—É—é—â–µ–≥–æ –ø–∞–∫–µ—Ç–∞ *)
+    (* –ï—Å–ª–∏ MAX(CARDINAL) - –æ—Å–Ω–æ–≤–Ω–æ–π –ø–∞–∫–µ—Ç            *)
     typ.Pakets[typ.CurrPaket].RetPaket := MAX(CARDINAL);
     LOOP
-        (* è‡Æ¢•‡®‚Ï ® ·ÆÂ‡†≠®‚Ï ¨•‚™®, Ø‡® Ì‚Æ¨ ®¨ØÆ‡‚®‡„Ó‚·Ô Ø†™•‚Î *)
+        (* –ü—Ä–æ–≤–µ—Ä–∏—Ç—å –∏ —Å–æ—Ö—Ä–∞–Ω–∏—Ç—å –º–µ—Ç–∫–∏, –ø—Ä–∏ —ç—Ç–æ–º –∏–º–ø–æ—Ä—Ç–∏—Ä—É—é—Ç—Å—è –ø–∞–∫–µ—Ç—ã *)
       Label_Collect_And_Check;
       INC(typ.CurrPaket);
       IF typ.CurrPaket = typ.QuantityPaket THEN EXIT; END;
@@ -253,12 +253,12 @@ BEGIN
         DEC(typ.Pakets[i].RetLineNum);
       END;
     END;
-    (* é·≠Æ¢≠Æ© (£Æ´Æ¢≠Æ©) Ø†™•‚ *)
+    (* –û—Å–Ω–æ–≤–Ω–æ–π (–≥–æ–ª–æ–≤–Ω–æ–π) –ø–∞–∫–µ—Ç *)
     typ.Pakets[0].RetPaket := 0;
   END;
   IF typ.QuantityPaket > 0 THEN
     typ.CurrPaket := 0;
-    (* é·≠Æ¢≠Æ© Ê®™´: ¢•‡‚®¨·Ô, ØÆ™† ≠• ≠†§Æ•·‚... *)
+    (* –û—Å–Ω–æ–≤–Ω–æ–π —Ü–∏–∫–ª: –≤–µ—Ä—Ç–∏–º—Å—è, –ø–æ–∫–∞ –Ω–µ –Ω–∞–¥–æ–µ—Å—Ç... *)
     Debugger;
   END;
 END Start;

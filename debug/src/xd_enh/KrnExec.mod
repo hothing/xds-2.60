@@ -1,8 +1,8 @@
 
 <* Storage+ *>
-(* Загрузка, исполнение, остановы, режимы исполнения, др. *)
-(* Модуль может быть общим для всех проектов системы      *)
-(* Используется ТОЛЬКО через интерфейс исполнителя        *)
+(* ╨Ч╨░╨│╤А╤Г╨╖╨║╨░, ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡, ╨╛╤Б╤В╨░╨╜╨╛╨▓╤Л, ╤А╨╡╨╢╨╕╨╝╤Л ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П, ╨┤╤А. *)
+(* ╨Ь╨╛╨┤╤Г╨╗╤М ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М ╨╛╨▒╤Й╨╕╨╝ ╨┤╨╗╤П ╨▓╤Б╨╡╤Е ╨┐╤А╨╛╨╡╨║╤В╨╛╨▓ ╤Б╨╕╤Б╤В╨╡╨╝╤Л      *)
+(* ╨Ш╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В╤Б╤П ╨в╨Ю╨Ы╨м╨Ъ╨Ю ╤З╨╡╤А╨╡╨╖ ╨╕╨╜╤В╨╡╤А╤Д╨╡╨╣╤Б ╨╕╤Б╨┐╨╛╨╗╨╜╨╕╤В╨╡╨╗╤П        *)
 
 IMPLEMENTATION MODULE KrnExec;
 
@@ -49,7 +49,7 @@ CONST
   NoStartupEntryPoint = MAX(CARDINAL);
 
 
-(* Загрузить программу *)
+(* ╨Ч╨░╨│╤А╤Г╨╖╨╕╤В╤М ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Г *)
 PROCEDURE LoadProgram (name-: ARRAY OF CHAR; args-: ARRAY OF CHAR): CARDINAL;
 
 
@@ -127,14 +127,14 @@ BEGIN
 END UnloadProgram;
 
 
-(* Приостановить выполнение программы по требованию пользователя *)
+(* ╨Я╤А╨╕╨╛╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╨▓╤Л╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л ╨┐╨╛ ╤В╤А╨╡╨▒╨╛╨▓╨░╨╜╨╕╤О ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╤П *)
 PROCEDURE StopByUserBreak;
 BEGIN
 END StopByUserBreak;
 
 
-(* Время исполнения программы в реальном времени, прошедшего с последнего *)
-(* вызова с  mode = RESET.                                                *)
+(* ╨Т╤А╨╡╨╝╤П ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╤П ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л ╨▓ ╤А╨╡╨░╨╗╤М╨╜╨╛╨╝ ╨▓╤А╨╡╨╝╨╡╨╜╨╕, ╨┐╤А╨╛╤И╨╡╨┤╤И╨╡╨│╨╛ ╤Б ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨│╨╛ *)
+(* ╨▓╤Л╨╖╨╛╨▓╨░ ╤Б  mode = RESET.                                                *)
 PROCEDURE Timer (mode: TIMER_MODE): LONGCARD;
 BEGIN
   RETURN 0;
@@ -152,37 +152,37 @@ BEGIN
   ticks := 0;
   CASE mode OF
   | RESET : ticks := 0;
---            СчетчикТиков := 0;
+--            ╨б╤З╨╡╤В╤З╨╕╨║╨в╨╕╨║╨╛╨▓ := 0;
             SleepTicksMode := FALSE;
   | SHOW  : IF SleepTicksMode THEN
               ticks := SleepTicks;
             ELSE
-              ticks := 0; -- := СчетчикТиков;
+              ticks := 0; -- := ╨б╤З╨╡╤В╤З╨╕╨║╨в╨╕╨║╨╛╨▓;
             END;
   | SLEEP : IF SleepTicksMode THEN
---              СчетчикТиков := SleepTicks;
+--              ╨б╤З╨╡╤В╤З╨╕╨║╨в╨╕╨║╨╛╨▓ := SleepTicks;
             ELSE
               SleepTicksMode := TRUE;
-              SleepTicks := 0; -- := СчетчикТиков;
+              SleepTicks := 0; -- := ╨б╤З╨╡╤В╤З╨╕╨║╨в╨╕╨║╨╛╨▓;
             END;
---            ticks := СчетчикТиков;
+--            ticks := ╨б╤З╨╡╤В╤З╨╕╨║╨в╨╕╨║╨╛╨▓;
   | WAKE  : IF SleepTicksMode THEN
               SleepTicksMode := FALSE;
---              СчетчикТиков := SleepTicks;
+--              ╨б╤З╨╡╤В╤З╨╕╨║╨в╨╕╨║╨╛╨▓ := SleepTicks;
             END;
---            ticks := СчетчикТиков;
+--            ticks := ╨б╤З╨╡╤В╤З╨╕╨║╨в╨╕╨║╨╛╨▓;
   END;
   RETURN ticks;
 END Ticks;
 
 
-(* Определена ли точка входа в пользовательский код? *)
+(* ╨Ю╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨░ ╨╗╨╕ ╤В╨╛╤З╨║╨░ ╨▓╤Е╨╛╨┤╨░ ╨▓ ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╤М╤Б╨║╨╕╨╣ ╨║╨╛╨┤? *)
 PROCEDURE ProgramMainEntryFound (): BOOLEAN;
 BEGIN
   RETURN ProgInfo.MainEntry # NoMainEntryPoint;
 END ProgramMainEntryFound;
 
-(* Определена ли точка входа в программу? *)
+(* ╨Ю╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨░ ╨╗╨╕ ╤В╨╛╤З╨║╨░ ╨▓╤Е╨╛╨┤╨░ ╨▓ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Г? *)
 PROCEDURE ProgramStartupEntryFound (): BOOLEAN;
 BEGIN
   RETURN ProgInfo.StartupEntry # NoStartupEntryPoint;

@@ -25,8 +25,8 @@ IMPORT key := Keys;
 
 TYPE
   TEXCEPTION = RECORD
-                 Address: kt.ADDRESS;   -- ���� �᪫��⥫쭮� ���樨
-                 Message: xs.STRING;    -- ����饭��
+                 Address: kt.ADDRESS;   -- Адрес исключительной ситуации
+                 Message: xs.STRING;    -- Сообщение
                END;
 
   PAEXCEPTION = POINTER TO ARRAY OF TEXCEPTION;

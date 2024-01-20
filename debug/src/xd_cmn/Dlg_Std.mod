@@ -513,9 +513,9 @@ BEGIN
       END;
       curr := frame + pos;
     END;
-  | key.CtrlHome : (* В начало страницы *)
+  | key.CtrlHome : (* ╨Т ╨╜╨░╤З╨░╨╗╨╛ ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Л *)
     curr := frame;
-  | key.CtrlPgUp : (* В начало текста *)
+  | key.CtrlPgUp : (* ╨Т ╨╜╨░╤З╨░╨╗╨╛ ╤В╨╡╨║╤Б╤В╨░ *)
     curr  := 0;
     frame := 0;
   | key.CtrlEnd :
@@ -838,11 +838,11 @@ END Move_Resize_mou;
 
 
 CONST
-  PatternSearchRedraw = 10; (* Код Redraw для обработчика ListBox в режиме   *)
-                            (* локатора, см. PatternSearch - шаблон локатора *)
+  PatternSearchRedraw = 10; (* ╨Ъ╨╛╨┤ Redraw ╨┤╨╗╤П ╨╛╨▒╤А╨░╨▒╨╛╤В╤З╨╕╨║╨░ ListBox ╨▓ ╤А╨╡╨╢╨╕╨╝╨╡   *)
+                            (* ╨╗╨╛╨║╨░╤В╨╛╤А╨░, ╤Б╨╝. PatternSearch - ╤И╨░╨▒╨╗╨╛╨╜ ╨╗╨╛╨║╨░╤В╨╛╤А╨░ *)
 
 VAR
-  PatternSearch: xs.String; (* Строка для поиcка: "локатор", по шаблону *)
+  PatternSearch: xs.String; (* ╨б╤В╤А╨╛╨║╨░ ╨┤╨╗╤П ╨┐╨╛╨╕c╨║╨░: "╨╗╨╛╨║╨░╤В╨╛╤А", ╨┐╨╛ ╤И╨░╨▒╨╗╨╛╨╜╤Г *)
 
 
 
@@ -871,7 +871,7 @@ BEGIN
     IF win.ActiveWindow = hwnd THEN
       win.GetHeader(hwnd, header);
       WITH size DO
-        (* Отрисовка локатора *)
+        (* ╨Ю╤В╤А╨╕╤Б╨╛╨▓╨║╨░ ╨╗╨╛╨║╨░╤В╨╛╤А╨░ *)
         lheader := x2-x1-1;
         IF lheader > 1 THEN
           DEC(lheader);
@@ -900,24 +900,24 @@ BEGIN
         IF (locator # NIL) AND (N > 0) THEN
           b := LENGTH(PatternSearch);
           IF PatternSearch = "" THEN
-            locator (hwnd, curr, PatternSearch);  -- текущий элемент списка
+            locator (hwnd, curr, PatternSearch);  -- ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╤Н╨╗╨╡╨╝╨╡╨╜╤В ╤Б╨┐╨╕╤Б╨║╨░
           ELSE
             LOOP
-              l := LENGTH(PatternSearch); -- длина шаблона
+              l := LENGTH(PatternSearch); -- ╨┤╨╗╨╕╨╜╨░ ╤И╨░╨▒╨╗╨╛╨╜╨░
               COPY (PatternSearch, up);
               xs.Uppercase (up);
-              locator (hwnd, curr, tmp);  -- текущий элемент списка
-              ch := tmp[l]; -- очередной символ из текущего элемента списка
+              locator (hwnd, curr, tmp);  -- ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╤Н╨╗╨╡╨╝╨╡╨╜╤В ╤Б╨┐╨╕╤Б╨║╨░
+              ch := tmp[l]; -- ╨╛╤З╨╡╤А╨╡╨┤╨╜╨╛╨╣ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨╕╨╖ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨░ ╤Б╨┐╨╕╤Б╨║╨░
               IF ch = 0C THEN
-                EXIT; -- т.е. шаблон полностью совпадает с текущим элементом списка
+                EXIT; -- ╤В.╨╡. ╤И╨░╨▒╨╗╨╛╨╜ ╨┐╨╛╨╗╨╜╨╛╤Б╤В╤М╤О ╤Б╨╛╨▓╨┐╨░╨┤╨░╨╡╤В ╤Б ╤В╨╡╨║╤Г╤Й╨╕╨╝ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨╛╨╝ ╤Б╨┐╨╕╤Б╨║╨░
               END;
-              -- просматриваем все от текущего элемента вниз по списку
-              -- пытаемся найти элемент, у которого в позиции l не такой же символ
+              -- ╨┐╤А╨╛╤Б╨╝╨░╤В╤А╨╕╨▓╨░╨╡╨╝ ╨▓╤Б╨╡ ╨╛╤В ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨░ ╨▓╨╜╨╕╨╖ ╨┐╨╛ ╤Б╨┐╨╕╤Б╨║╤Г
+              -- ╨┐╤Л╤В╨░╨╡╨╝╤Б╤П ╨╜╨░╨╣╤В╨╕ ╤Н╨╗╨╡╨╝╨╡╨╜╤В, ╤Г ╨║╨╛╤В╨╛╤А╨╛╨│╨╛ ╨▓ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ l ╨╜╨╡ ╤В╨░╨║╨╛╨╣ ╨╢╨╡ ╤Б╨╕╨╝╨▓╨╛╨╗
               stop := FALSE;
               i := curr;
               LOOP
                 IF i = N-1 THEN
-                  add := TRUE; -- просмотрели все, теперь в позицию l можно добавить символ
+                  add := TRUE; -- ╨┐╤А╨╛╤Б╨╝╨╛╤В╤А╨╡╨╗╨╕ ╨▓╤Б╨╡, ╤В╨╡╨┐╨╡╤А╤М ╨▓ ╨┐╨╛╨╖╨╕╤Ж╨╕╤О l ╨╝╨╛╨╢╨╜╨╛ ╨┤╨╛╨▒╨░╨▓╨╕╤В╤М ╤Б╨╕╨╝╨▓╨╛╨╗
                   EXIT;
                 END;
                 INC(i);
@@ -927,15 +927,15 @@ BEGIN
                 IF name = up THEN
                   stop := CAP(ch) # CAP(tmp[l]);
                   IF stop THEN
-                    -- оказалось, что очередные символы в позиции l различны
-                    -- поэтому новый символ в шаблон добавлять нельзя
+                    -- ╨╛╨║╨░╨╖╨░╨╗╨╛╤Б╤М, ╤З╤В╨╛ ╨╛╤З╨╡╤А╨╡╨┤╨╜╤Л╨╡ ╤Б╨╕╨╝╨▓╨╛╨╗╤Л ╨▓ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ l ╤А╨░╨╖╨╗╨╕╤З╨╜╤Л
+                    -- ╨┐╨╛╤Н╤В╨╛╨╝╤Г ╨╜╨╛╨▓╤Л╨╣ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨▓ ╤И╨░╨▒╨╗╨╛╨╜ ╨┤╨╛╨▒╨░╨▓╨╗╤П╤В╤М ╨╜╨╡╨╗╤М╨╖╤П
                     add := FALSE;
                     EXIT;
                   END;
                 END;
               END;
-              -- при просмотре всех элементов списка не нашлось ни одного такого,
-              -- у которого бы в позиции l находился бы отличный от шаблона символ
+              -- ╨┐╤А╨╕ ╨┐╤А╨╛╤Б╨╝╨╛╤В╤А╨╡ ╨▓╤Б╨╡╤Е ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨╛╨▓ ╤Б╨┐╨╕╤Б╨║╨░ ╨╜╨╡ ╨╜╨░╤И╨╗╨╛╤Б╤М ╨╜╨╕ ╨╛╨┤╨╜╨╛╨│╨╛ ╤В╨░╨║╨╛╨│╨╛,
+              -- ╤Г ╨║╨╛╤В╨╛╤А╨╛╨│╨╛ ╨▒╤Л ╨▓ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ l ╨╜╨░╤Е╨╛╨┤╨╕╨╗╤Б╤П ╨▒╤Л ╨╛╤В╨╗╨╕╤З╨╜╤Л╨╣ ╨╛╤В ╤И╨░╨▒╨╗╨╛╨╜╨░ ╤Б╨╕╨╝╨▓╨╛╨╗
               IF add THEN
                 PatternSearch[l] := ch;
                 PatternSearch[l+1] := 0C;
@@ -958,7 +958,7 @@ BEGIN
           l := LENGTH(PatternSearch);
           i := l;
           IF curr < N-1 THEN
-            -- найти совпадающие части со следующим
+            -- ╨╜╨░╨╣╤В╨╕ ╤Б╨╛╨▓╨┐╨░╨┤╨░╤О╤Й╨╕╨╡ ╤З╨░╤Б╤В╨╕ ╤Б╨╛ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╨╝
             locator (hwnd, curr+1, name);
             i := 0;
             LOOP
@@ -1035,7 +1035,7 @@ BEGIN
                 Normalize(size, curr, frame, N);
                 eve.AddToTail (hwnd, eve.Redraw, PatternSearchRedraw);
 --                IF msg.par # key.BackSpace THEN
-                  -- продолжить шаблон на сколько возможно
+                  -- ╨┐╤А╨╛╨┤╨╛╨╗╨╢╨╕╤В╤М ╤И╨░╨▒╨╗╨╛╨╜ ╨╜╨░ ╤Б╨║╨╛╨╗╤М╨║╨╛ ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛
 --                  eve.AddToTail (hwnd, eve.KbHit, key.Tab);
 --                END;
                 RETURN;
@@ -2175,12 +2175,12 @@ BEGIN
   IF UniversalDialog = win.Invalid_H THEN
     NEW(Lines, 6);
 
-    Lines^[0] := LINE{ 2, 1, msg     , '┌── ──────────────────────────────────┐' , d_enabled};
+    Lines^[0] := LINE{ 2, 1, msg     , 'тФМтФАтФА тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФР' , d_enabled};
     Lines^[1] := LINE{ 6, 1, msg     , ''                                        , d_enabled};
-    Lines^[2] := LINE{ 2, 2, msg     , '│'                                       , d_enabled};
+    Lines^[2] := LINE{ 2, 2, msg     , 'тФВ'                                       , d_enabled};
     Lines^[3] := LINE{ 4, 2, edit_str, sys.ADR(result), 35                       , d_enabled};
-    Lines^[4] := LINE{40, 2, msg     ,                                       '│' , d_enabled};
-    Lines^[5] := LINE{ 2, 3, msg     , '└─────────────────────────────────────┘' , d_enabled};
+    Lines^[4] := LINE{40, 2, msg     ,                                       'тФВ' , d_enabled};
+    Lines^[5] := LINE{ 2, 3, msg     , 'тФФтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФШ' , d_enabled};
 
     UniversalDialog := win.RegisterWindow(DialogProc, SIZE(DIALOG));
     ASSERT(UniversalDialog # win.Invalid_H);
@@ -2223,12 +2223,12 @@ BEGIN
 
     pro.GetMsg(mes.Header_SetNewValue, header);
     Lines^[0] := LINE{ 2, 0, msg     , '' , d_enabled};
-    Lines^[1] := LINE{ 2, 1, msg     , '┌──────────────────────────────────┐' , d_enabled};
+    Lines^[1] := LINE{ 2, 1, msg     , 'тФМтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФР' , d_enabled};
     Lines^[2] := LINE{ 5, 1, msg     , header , d_enabled};
-    Lines^[3] := LINE{ 2, 2, msg     , '│' , d_enabled};
+    Lines^[3] := LINE{ 2, 2, msg     , 'тФВ' , d_enabled};
     Lines^[4] := LINE{ 4, 2, edit_str, sys.ADR(NewValue), 32                 , d_enabled};
-    Lines^[5] := LINE{37, 2, msg     ,                                    '│' , d_enabled};
-    Lines^[6] := LINE{ 2, 3, msg     , '└──────────────────────────────────┘' , d_enabled};
+    Lines^[5] := LINE{37, 2, msg     ,                                    'тФВ' , d_enabled};
+    Lines^[6] := LINE{ 2, 3, msg     , 'тФФтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФШ' , d_enabled};
 
     InputDialog := win.RegisterWindow(DialogProc,SIZE(DIALOG));
     ASSERT(InputDialog # win.Invalid_H);
@@ -2349,7 +2349,7 @@ BEGIN
 END GetItem;
 
 
--- по параметру обработчика получить действие и кнопку
+-- ╨┐╨╛ ╨┐╨░╤А╨░╨╝╨╡╤В╤А╤Г ╨╛╨▒╤А╨░╨▒╨╛╤В╤З╨╕╨║╨░ ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М ╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╡ ╨╕ ╨║╨╜╨╛╨┐╨║╤Г
 
 PROCEDURE GetAction (par: CARDINAL): act.ACTION;
 BEGIN

@@ -16,21 +16,21 @@ IMPORT opt := Options;
 
 <* END *>
 
----------------------- ÑÆ·‚„Ø ™ Ø†¨Ô‚® ® ‡•£®·‚‡†¨ -------------------------
+---------------------- –î–æ—Å—Ç—É–ø –∫ –ø–∞–º—è—Ç–∏ –∏ —Ä–µ–≥–∏—Å—Ç—Ä–∞–º -------------------------
                       -----------------------------
 CONST
-  MaxPages     = 32;   (* å†™·®¨†´Ï≠Æ• Á®·´Æ ·‚‡†≠®Ê ¢ ™ÌË• *)
+  MaxPages     = 32;   (* –ú–∞–∫—Å–∏–º–∞–ª—å–Ω–æ–µ —á–∏—Å–ª–æ —Å—Ç—Ä–∞–Ω–∏—Ü –≤ –∫—ç—à–µ *)
   CacheSize    = 4096;
 
 TYPE
   TCacheMem    = ARRAY [0..CacheSize-1] OF sys.CARD8;
   TPage        = RECORD
-                   CacheMem     : TCacheMem; (* è†¨Ô‚Ï ·‚‡†≠®ÊÎ ™ÌË†        *)
+                   CacheMem     : TCacheMem; (* –ü–∞–º—è—Ç—å —Å—Ç—Ä–∞–Ω–∏—Ü—ã –∫—ç—à–∞        *)
                    CacheMemOk   : BOOLEAN;
                    CacheAddr    : CARDINAL;
-                   Calls        : CARDINAL;  (* äÆ´-¢Æ Æ°‡†È•≠®© ™ ·‚‡†≠®Ê• *)
-                   LastTime     : CARDINAL;  (* Ç‡•¨Ô ØÆ·´•§≠•£Æ Æ°‡†È•≠®Ô  *)
-                   Scanned      : BOOLEAN;   (* ë‚‡†≠®Ê† Æ‚·™†≠®‡Æ¢†≠† *)
+                   Calls        : CARDINAL;  (* –ö–æ–ª-–≤–æ –æ–±—Ä–∞—â–µ–Ω–∏–π –∫ —Å—Ç—Ä–∞–Ω–∏—Ü–µ *)
+                   LastTime     : CARDINAL;  (* –í—Ä–µ–º—è –ø–æ—Å–ª–µ–¥–Ω–µ–≥–æ –æ–±—Ä–∞—â–µ–Ω–∏—è  *)
+                   Scanned      : BOOLEAN;   (* –°—Ç—Ä–∞–Ω–∏—Ü–∞ –æ—Ç—Å–∫–∞–Ω–∏—Ä–æ–≤–∞–Ω–∞ *)
                  END;
 
 VAR
@@ -43,9 +43,9 @@ VAR
   FlashedPages : CARDINAL;
   MaxUsedPages : CARDINAL;
 
-  TimeCounter  : sys.CARD32;  (* ëÁ•‚Á®™ ¢‡•¨•≠® *)
+  TimeCounter  : sys.CARD32;  (* –°—á–µ—Ç—á–∏–∫ –≤—Ä–µ–º–µ–Ω–∏ *)
 
-(* ë°‡†·Î¢†•‚ ™ÌË Ø†¨Ô‚® *)
+(* –°–±—Ä–∞—Å—ã–≤–∞–µ—Ç –∫—ç—à –ø–∞–º—è—Ç–∏ *)
 PROCEDURE ClearCaches();
 VAR
   i            : CARDINAL;
@@ -64,7 +64,7 @@ BEGIN
 END GetCaches;
 
 
-(* èÆ´„Á®‚Ï ß≠†Á•≠®• ®ß ‡•£®·‚‡†       *)
+(* –ü–æ–ª—É—á–∏—Ç—å –∑–Ω–∞—á–µ–Ω–∏–µ –∏–∑ —Ä–µ–≥–∏—Å—Ç—Ä–∞       *)
 PROCEDURE GetReg(regno: CARDINAL; VAR value: kt.REG_VALUE): BOOLEAN;
 BEGIN
   IF NOT CacheOk THEN RETURN FALSE; END;
@@ -84,7 +84,7 @@ BEGIN
 END GetReg;
 
 
-(* á†Ø®·†‚Ï ß≠†Á•≠®• ¢ ‡•£®·‚‡         *)
+(* –ó–∞–ø–∏—Å–∞—Ç—å –∑–Ω–∞—á–µ–Ω–∏–µ –≤ —Ä–µ–≥–∏—Å—Ç—Ä         *)
 PROCEDURE SetReg(regno: CARDINAL; value: kt.REG_VALUE): BOOLEAN;
 BEGIN
   CASE regno OF
@@ -108,7 +108,7 @@ END SetReg;
 
 <* IF DEST_XDS AND (TARGET_OS = "WINNT") THEN *>
 
-(* èÆ´„Á®‚Ï §†≠≠Î• Æ Ø´†¢†ÓÈ®Â ‡•£®‚·‚‡†Â *)
+(* –ü–æ–ª—É—á–∏—Ç—å –¥–∞–Ω–Ω—ã–µ –æ –ø–ª–∞–≤–∞—é—â–∏—Ö —Ä–µ–≥–∏—Ç—Å—Ç—Ä–∞—Ö *)
 PROCEDURE GetFloatRegs (VAR FloatRegs: kt.FLOATING_REGISTER_CACHE): BOOLEAN;
 BEGIN
   IF NOT CacheOk THEN RETURN FALSE; END;
@@ -116,7 +116,7 @@ BEGIN
   RETURN TRUE;
 END GetFloatRegs;
 
-(* ì·‚†≠Æ¢®‚Ï ß≠†Á•≠®Ô Ø´†¢†ÓÈ®Â ‡•£®‚·‚‡Æ¢ *)
+(* –£—Å—Ç–∞–Ω–æ–≤–∏—Ç—å –∑–Ω–∞—á–µ–Ω–∏—è –ø–ª–∞–≤–∞—é—â–∏—Ö —Ä–µ–≥–∏—Ç—Å—Ç—Ä–æ–≤ *)
 PROCEDURE SetFloatRegs (FloatRegs: kt.FLOATING_REGISTER_CACHE): BOOLEAN;
 BEGIN
   RegisterCache.FloatingRegisters := FloatRegs;
@@ -216,7 +216,7 @@ BEGIN
   RETURN FALSE;
 END Get_Special;
 
-(*ÇÆß‡†È†•‚ ≠Æ¨•‡ ¢Î‚†´™®¢†•¨Æ© ·‚‡†≠®ÊÎ*)
+(*–í–æ–∑—Ä–∞—â–∞–µ—Ç –Ω–æ–º–µ—Ä –≤—ã—Ç–∞–ª–∫–∏–≤–∞–µ–º–æ–π —Å—Ç—Ä–∞–Ω–∏—Ü—ã*)
 PROCEDURE GetBadPage() : CARDINAL;
 VAR
   i, Page, Min, Time : CARDINAL;
@@ -237,10 +237,10 @@ BEGIN
   RETURN Page;
 END GetBadPage;
 
-(* è‡ÆÁ®‚†‚Ï · †§‡•·† ¢ °„‰•‡ ≠•¨≠Æ£Æ °†©‚Æ¢, ¨•≠ÏË• CacheSize*)
+(* –ü—Ä–æ—á–∏—Ç–∞—Ç—å —Å –∞–¥—Ä–µ—Å–∞ –≤ –±—É—Ñ–µ—Ä –Ω–µ–º–Ω–æ–≥–æ –±–∞–π—Ç–æ–≤, –º–µ–Ω—å—à–µ CacheSize*)
 PROCEDURE GetFromPage(source: kt.ADDRESS; dest: sys.ADDRESS; len: CARDINAL) : BOOLEAN;
 VAR
-  FreePage,                (* çÆ¨•‡ ≠Æ¢Æ© ·‚‡†≠®ÊÎ, •·´® Æ≠† °„§•‚ ·Æß§†¢†‚Ï·Ô *)
+  FreePage,                (* –ù–æ–º–µ—Ä –Ω–æ–≤–æ–π —Å—Ç—Ä–∞–Ω–∏—Ü—ã, –µ—Å–ª–∏ –æ–Ω–∞ –±—É–¥–µ—Ç —Å–æ–∑–¥–∞–≤–∞—Ç—å—Å—è *)
   i, offs                  : CARDINAL;
   addr                     : kt.ADDRESS;
 BEGIN
@@ -272,9 +272,9 @@ BEGIN
 
   WITH Pages[FreePage] DO
     IF NOT GetCacheMem(CacheMem, addr) THEN RETURN FALSE END;
-    CacheAddr:= addr;                             (* ëÆß§†‚Ï ≠Æ¢„Ó ·‚‡†≠®Ê„ *)
+    CacheAddr:= addr;                             (* –°–æ–∑–¥–∞—Ç—å –Ω–æ–≤—É—é —Å—Ç—Ä–∞–Ω–∏—Ü—É *)
     CacheMemOk:= TRUE;
-    Calls:= 1;                                    (*äÆ´-¢Æ ¢ÎßÆ¢Æ¢ ‡†¢≠Æ 1*)
+    Calls:= 1;                                    (*–ö–æ–ª-–≤–æ –≤—ã–∑–æ–≤–æ–≤ —Ä–∞–≤–Ω–æ 1*)
     LastTime:= TimeCounter;
     IF Scan THEN
       ScanForBreaks(sys.ADR(CacheMem), CacheAddr, CacheAddr+(CacheSize-1));
@@ -285,7 +285,7 @@ BEGIN
   RETURN TRUE;
 END GetFromPage;
 
-(* è‡ÆÁ®‚†‚Ï · †§‡•·† ¢ °„‰•‡ °†©‚Î   *)
+(* –ü—Ä–æ—á–∏—Ç–∞—Ç—å —Å –∞–¥—Ä–µ—Å–∞ –≤ –±—É—Ñ–µ—Ä –±–∞–π—Ç—ã   *)
 PROCEDURE Get(source: kt.ADDRESS; dest: sys.ADDRESS; len: CARDINAL): BOOLEAN;
 VAR
   count, offs: CARDINAL;
@@ -316,12 +316,12 @@ BEGIN
 END Get;
 
 
-(* è®·†‚Ï ≠† ·‚‡†≠®Ê„ ™„·ÆÁ•™ ¨•≠ÏË• CacheSize *)
+(* –ü–∏—Å–∞—Ç—å –Ω–∞ —Å—Ç—Ä–∞–Ω–∏—Ü—É –∫—É—Å–æ—á–µ–∫ –º–µ–Ω—å—à–µ CacheSize *)
 PROCEDURE WriteToPage(dest: kt.ADDRESS; source: sys.ADDRESS; len: CARDINAL);
 VAR
   i     :  CARDINAL;
   offs  :  CARDINAL;
-  flag  :  BOOLEAN;    (* ≠†©§•≠† ®´® ≠•‚ ≠„¶≠†Ô ·‚‡†≠®Ê† *)
+  flag  :  BOOLEAN;    (* –Ω–∞–π–¥–µ–Ω–∞ –∏–ª–∏ –Ω–µ—Ç –Ω—É–∂–Ω–∞—è —Å—Ç—Ä–∞–Ω–∏—Ü–∞ *)
 BEGIN
   offs:= dest MOD CacheSize;
   flag:= FALSE;
@@ -337,7 +337,7 @@ BEGIN
   END;
 END WriteToPage;
 
-(* á†Ø®·†‚Ï ¢ ™ÌË *)
+(* –ó–∞–ø–∏—Å–∞—Ç—å –≤ –∫—ç—à *)
 PROCEDURE WriteToCache(dest: kt.ADDRESS; source: sys.ADDRESS; len: CARDINAL);
 VAR
   count, offs: CARDINAL;
@@ -364,7 +364,7 @@ BEGIN
 END WriteToCache;
 
 
-(* á†Ø®·†‚Ï ØÆ †§‡•·„ ®ß °„‰•‡† ≠•¨≠Æ£Æ °†©‚Æ¢ *)
+(* –ó–∞–ø–∏—Å–∞—Ç—å –ø–æ –∞–¥—Ä–µ—Å—É –∏–∑ –±—É—Ñ–µ—Ä–∞ –Ω–µ–º–Ω–æ–≥–æ –±–∞–π—Ç–æ–≤ *)
 PROCEDURE Put(dest: kt.ADDRESS; source: sys.ADDRESS; len: CARDINAL): BOOLEAN;
 VAR
   rc: BOOLEAN;
@@ -376,7 +376,7 @@ BEGIN
   RETURN rc;
 END Put;
 
-(* èÆ´„Á®‚Ï ‚•™„È•• ß≠†Á•≠®• IP *)
+(* –ü–æ–ª—É—á–∏—Ç—å —Ç–µ–∫—É—â–µ–µ –∑–Ω–∞—á–µ–Ω–∏–µ IP *)
 PROCEDURE GetIP (): kt.ADDRESS;
 BEGIN
   IF CacheOk THEN
@@ -395,7 +395,7 @@ BEGIN
   END;
 END GetFrame;
 
-(* èÆ´„Á®‚Ï ‚•™„È•• ß≠†Á•≠®• SP *)
+(* –ü–æ–ª—É—á–∏—Ç—å —Ç–µ–∫—É—â–µ–µ –∑–Ω–∞—á–µ–Ω–∏–µ SP *)
 PROCEDURE GetSP (): kt.ADDRESS;
 BEGIN
   IF CacheOk THEN
@@ -469,7 +469,7 @@ BEGIN
   CacheOk := FALSE;
   ClearCaches;
 
-  (* ë‚†‚®·‚®™† *)
+  (* –°—Ç–∞—Ç–∏—Å—Ç–∏–∫–∞ *)
 <* IF DEFINED (xd_debug) & xd_debug THEN *>
 FINALLY
   IF opt.Debug(opt.InfoCache) THEN

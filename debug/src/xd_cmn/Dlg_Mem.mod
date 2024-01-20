@@ -672,7 +672,7 @@ BEGIN
                 END;
               ELSE
                 WITH p^ DO
-                  IF seg_info THEN -- бум! информация о сегменте есть, а память прочитать нельзя
+                  IF seg_info THEN -- ╨▒╤Г╨╝! ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╤П ╨╛ ╤Б╨╡╨│╨╝╨╡╨╜╤В╨╡ ╨╡╤Б╤В╤М, ╨░ ╨┐╨░╨╝╤П╤В╤М ╨┐╤А╨╛╤З╨╕╤В╨░╤В╤М ╨╜╨╡╨╗╤М╨╖╤П
                     seg_info := FALSE;
                     addr := addr_first;
                     curr := 0;
@@ -680,7 +680,7 @@ BEGIN
                     write:= FALSE;
                     max  := addr_first+10H;
                     Mode := dt.st_byte;
-                    eve.AddToTail (hwnd, msg.ID, msg.par); -- и теперь еще раз тоже самое
+                    eve.AddToTail (hwnd, msg.ID, msg.par); -- ╨╕ ╤В╨╡╨┐╨╡╤А╤М ╨╡╤Й╨╡ ╤А╨░╨╖ ╤В╨╛╨╢╨╡ ╤Б╨░╨╝╨╛╨╡
                     RETURN;
                   END;
                 END;
@@ -1309,7 +1309,7 @@ BEGIN
         pos := x + dt.Types[p^.Mode].s_len;
       END;
       crt.LitePart(hwnd, y + 1, x, pos, crt.Stack[crt.Dump_CurMem])
--- для горизонтальной полосы-курсора на всю ширину окна
+-- ╨┤╨╗╤П ╨│╨╛╤А╨╕╨╖╨╛╨╜╤В╨░╨╗╤М╨╜╨╛╨╣ ╨┐╨╛╨╗╨╛╤Б╤Л-╨║╤Г╤А╤Б╨╛╤А╨░ ╨╜╨░ ╨▓╤Б╤О ╤И╨╕╤А╨╕╨╜╤Г ╨╛╨║╨╜╨░
 --     crt.LitePart (hwnd, y + 1, 1, size.x2-size.x1, crt.Stack[crt.Dump_CurMem])
    END;
     win.GetHeader (hwnd, store);
@@ -1712,7 +1712,7 @@ BEGIN
 END ChangeReg;
 
 
-(* Поиск регистра по собственному индексу диалога *)
+(* ╨Я╨╛╨╕╤Б╨║ ╤А╨╡╨│╨╕╤Б╤В╤А╨░ ╨┐╨╛ ╤Б╨╛╨▒╤Б╤В╨▓╨╡╨╜╨╜╨╛╨╝╤Г ╨╕╨╜╨┤╨╡╨║╤Б╤Г ╨┤╨╕╨░╨╗╨╛╨│╨░ *)
 PROCEDURE FindRegisterByIndex (Index: CARDINAL; VAR RegNo: CARDINAL): BOOLEAN;
 VAR
   i: CARDINAL;
@@ -1741,7 +1741,7 @@ BEGIN
   END;
 END ClearRegsState;
 
-(* Оттображает изменения регистров во внутренней структуре *)
+(* ╨Ю╤В╤В╨╛╨▒╤А╨░╨╢╨░╨╡╤В ╨╕╨╖╨╝╨╡╨╜╨╡╨╜╨╕╤П ╤А╨╡╨│╨╕╤Б╤В╤А╨╛╨▓ ╨▓╨╛ ╨▓╨╜╤Г╤В╤А╨╡╨╜╨╜╨╡╨╣ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╨╡ *)
 PROCEDURE RefreshRegs;
 VAR
   i      : CARDINAL;
@@ -2019,7 +2019,7 @@ BEGIN
       crt.WrStr(hwnd, val_str, attr);
     END;
     crt.SetPos(0, (kt.ShownRegs DIV 2) + 2);
-    crt.WrStr(hwnd, "─────────────────────────────────────────", crt.Reg[crt.Reg_Frame]);
+    crt.WrStr(hwnd, "тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА", crt.Reg[crt.Reg_Frame]);
     fmt.print(val_str, '%$8X', R_Array[kt.ShownRegs - 1].val);
     crt.SetPos( 1 ,  (kt.ShownRegs DIV 2) + 3);
     fmt.print(buf, " %-13.13s", kt.Registers[kt.ShownRegs - 1].name);
@@ -2097,7 +2097,7 @@ BEGIN
     END;
    <* END  *>
     crt.SetPos(0, (kt.UserRegs DIV 2) + 1);
-    crt.WrStr(hwnd, "─────────────────────────────────────────", crt.Reg[crt.Reg_Frame]);
+    crt.WrStr(hwnd, "тФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФАтФА", crt.Reg[crt.Reg_Frame]);
     size := win.GetWindowSize(hwnd);
     attr := crt.Reg[crt.Reg_Frame];
     IF hwnd = win.ActiveWindow THEN
@@ -2296,7 +2296,7 @@ VAR
 BEGIN
   IF exp.GetRealValue (mod.Curr^.Pos.ComN, mod.Curr^.Pos.ModN, std.NewValue, value) THEN
     p := win.GetAMPtr(std.Wnds[std.FloatRegWindow].hwnd);
-    -- программа должна быть загружена
+    -- ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨░ ╨┤╨╛╨╗╨╢╨╜╨░ ╨▒╤Л╤В╤М ╨╖╨░╨│╤А╤Г╨╢╨╡╨╜╨░
     IF NOT mem.GetFloatRegs (FloatRegs) THEN
       std.SetErrorMsg ("Cannot read floating registers");
       RETURN FALSE;
@@ -2332,7 +2332,7 @@ VAR
   BEGIN
     p := win.GetAMPtr(hwnd);
     size := win.GetWindowSize(hwnd);
-    -- поля + разделитель + флажки + регистры
+    -- ╨┐╨╛╨╗╤П + ╤А╨░╨╖╨┤╨╡╨╗╨╕╤В╨╡╨╗╤М + ╤Д╨╗╨░╨╢╨║╨╕ + ╤А╨╡╨│╨╕╤Б╤В╤А╤Л
     p^.N := 6+1+kt.FloatRegs;
     pext := PLIST_EXT_FLOAT_REGISTERS(p^.ext);
     IF kex.Loaded THEN
@@ -2435,7 +2435,7 @@ VAR
         crt.SetPos(2, num-frame+1);
         crt.WrStrFromPos(hwnd, line, Colors^[crt.List_Line], pos);
         IF kex.Loaded THEN
-          -- флажки
+          -- ╤Д╨╗╨░╨╢╨║╨╕
          <* PUSH *>
          <* WOFF902+ *>
           CASE num OF
@@ -2516,7 +2516,7 @@ VAR
         END;
       ELSIF num = first_reg_line-1 THEN
         crt.SetPos (1, num-frame+1);
-        crt.WrNChar (hwnd, size.x2, '─', Colors^[crt.List_Line]);
+        crt.WrNChar (hwnd, size.x2, 'тФА', Colors^[crt.List_Line]);
       ELSE
         COPY("", line);
         IF kex.Loaded THEN
