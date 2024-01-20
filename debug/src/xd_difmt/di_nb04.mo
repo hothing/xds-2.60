@@ -1,4 +1,4 @@
--- Конвертор для формата NB04 (HLL) во внутреннее представление
+-- ╨Ъ╨╛╨╜╨▓╨╡╤А╤В╨╛╤А ╨┤╨╗╤П ╤Д╨╛╤А╨╝╨░╤В╨░ NB04 (HLL) ╨▓╨╛ ╨▓╨╜╤Г╤В╤А╨╡╨╜╨╜╨╡╨╡ ╨┐╤А╨╡╨┤╤Б╤В╨░╨▓╨╗╨╡╨╜╨╕╨╡
 
 <* Storage+ *>
 <* ALIGNMENT="1" *>
@@ -31,7 +31,7 @@ TYPE
 VAR
   CurrComponent: POINTER TO COMPONENT;
   CurrCom: CARDINAL;
-  CurrMod  : CARDINAL; (* Текущий загружаемый модуль *)
+  CurrMod  : CARDINAL; (* ╨в╨╡╨║╤Г╤Й╨╕╨╣ ╨╖╨░╨│╤А╤Г╨╢╨░╨╡╨╝╤Л╨╣ ╨╝╨╛╨┤╤Г╨╗╤М *)
   source   : exc.ExceptionSource;
 
 
@@ -41,7 +41,7 @@ BEGIN
 END Error;
 
 
-(* Размещение новых модулей *)
+(* ╨а╨░╨╖╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╨╜╨╛╨▓╤Л╤Е ╨╝╨╛╨┤╤Г╨╗╨╡╨╣ *)
 PROCEDURE AllocateModules (no: CARDINAL);
 
 VAR
@@ -265,7 +265,7 @@ BEGIN
 END Read_sstModules;
 
 
---------------------- Чтение типов -------------------------
+--------------------- ╨з╤В╨╡╨╜╨╕╨╡ ╤В╨╕╨┐╨╛╨▓ -------------------------
 
 CONST
   N_IMAGE_ITEM = 64;
@@ -296,7 +296,7 @@ VAR
   inx: CARDINAL;
 BEGIN
   IF According = NIL THEN
-    -- заранее выделяется таблица, в большинстве случаев достаточного размера
+    -- ╨╖╨░╤А╨░╨╜╨╡╨╡ ╨▓╤Л╨┤╨╡╨╗╤П╨╡╤В╤Б╤П ╤В╨░╨▒╨╗╨╕╤Ж╨░, ╨▓ ╨▒╨╛╨╗╤М╤И╨╕╨╜╤Б╤В╨▓╨╡ ╤Б╨╗╤Г╤З╨░╨╡╨▓ ╨┤╨╛╤Б╤В╨░╤В╨╛╤З╨╜╨╛╨│╨╛ ╤А╨░╨╖╨╝╨╡╤А╨░
     IF MAX(sys.CARD16)-512+1 < i THEN
       NEW (According, i*2);
     ELSE
@@ -307,7 +307,7 @@ BEGIN
       According^[inx] := EMPTY_RACCORDING;
     END;
   ELSIF HIGH(According^) < i THEN
-    -- заранее выделяется таблица, в большинстве случаев достаточного размера
+    -- ╨╖╨░╤А╨░╨╜╨╡╨╡ ╨▓╤Л╨┤╨╡╨╗╤П╨╡╤В╤Б╤П ╤В╨░╨▒╨╗╨╕╤Ж╨░, ╨▓ ╨▒╨╛╨╗╤М╤И╨╕╨╜╤Б╤В╨▓╨╡ ╤Б╨╗╤Г╤З╨░╨╡╨▓ ╨┤╨╛╤Б╤В╨░╤В╨╛╤З╨╜╨╛╨│╨╛ ╤А╨░╨╖╨╝╨╡╤А╨░
     IF HIGH(According^)*2 < i THEN
       NEW (tmp, i*2);
     ELSE
@@ -475,7 +475,7 @@ VAR
     i: CARDINAL;
   BEGIN
     WITH According^[CurrentIndex-512] DO
-      IF Flag THEN                 (* Тип еще не описан, но него есть ссылки! *)
+      IF Flag THEN                 (* ╨в╨╕╨┐ ╨╡╤Й╨╡ ╨╜╨╡ ╨╛╨┐╨╕╤Б╨░╨╜, ╨╜╨╛ ╨╜╨╡╨│╨╛ ╨╡╤Б╤В╤М ╤Б╤Б╤Л╨╗╨║╨╕! *)
         new := Index;
         REPEAT
           ASSERT (new # MAX(INTERNAL_INDEX));
@@ -500,15 +500,15 @@ BEGIN
 <* CHECKINDEX- *>
 <* CHECKDINDEX- *>
 <* CHECKNIL- *>
-  -- не используем AssignAccording для увеличения скорости
-  -- в следующие разы нужно рассписывать только до последнего занятого типа
+  -- ╨╜╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝ AssignAccording ╨┤╨╗╤П ╤Г╨▓╨╡╨╗╨╕╤З╨╡╨╜╨╕╤П ╤Б╨║╨╛╤А╨╛╤Б╤В╨╕
+  -- ╨▓ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╨╡ ╤А╨░╨╖╤Л ╨╜╤Г╨╢╨╜╨╛ ╤А╨░╤Б╤Б╨┐╨╕╤Б╤Л╨▓╨░╤В╤М ╤В╨╛╨╗╤М╨║╨╛ ╨┤╨╛ ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨│╨╛ ╨╖╨░╨╜╤П╤В╨╛╨│╨╛ ╤В╨╕╨┐╨░
   FOR i := 1 TO CurrentIndex DO
     According^[i-1] := EMPTY_RACCORDING;
   END;
 <* POP *>
 
   beg := rpos;
-  CurrentIndex := 511;             (* Первый непримитивный тип имеет индекс 512 *)
+  CurrentIndex := 511;             (* ╨Я╨╡╤А╨▓╤Л╨╣ ╨╜╨╡╨┐╤А╨╕╨╝╨╕╤В╨╕╨▓╨╜╤Л╨╣ ╤В╨╕╨┐ ╨╕╨╝╨╡╨╡╤В ╨╕╨╜╨┤╨╡╨║╤Б 512 *)
   WHILE size > rpos - beg DO
     INC (CurrentIndex);
     INC (rpos, 2);
@@ -603,9 +603,9 @@ BEGIN
         Fields := get2();
         AllocateItems (dt.Record, Fields);   (* Allocate for fields *)
         ASSERT (get1() = 083H);
-        ASSERT (CurrentIndex+1 = get2());   (* Индекс типов                 *)
+        ASSERT (CurrentIndex+1 = get2());   (* ╨Ш╨╜╨┤╨╡╨║╤Б ╤В╨╕╨┐╨╛╨▓                 *)
         ASSERT (get1() = 083H);
-        ASSERT (CurrentIndex+2 = get2());   (* Индекс имен                  *)
+        ASSERT (CurrentIndex+2 = get2());   (* ╨Ш╨╜╨┤╨╡╨║╤Б ╨╕╨╝╨╡╨╜                  *)
         ASSERT (get1() = 082H);
         get_name(name);
         TypeData.Name := bld.AddName (CurrCom, name);
@@ -642,7 +642,7 @@ BEGIN
         MyMembers := get2();
         AllMembers := MyMembers;
         AllocateItems (dt.Class, MyMembers);
-        ASSERT (CurrentIndex+1 = get2());   (* Индекс элементов класса      *)
+        ASSERT (CurrentIndex+1 = get2());   (* ╨Ш╨╜╨┤╨╡╨║╤Б ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨╛╨▓ ╨║╨╗╨░╤Б╤Б╨░      *)
         get_name(name);
         TypeData.Name := bld.AddName (CurrCom, name);
         INC(rpos, 2);
@@ -992,8 +992,8 @@ BEGIN
             Tag := dt.Sy_Register;
             type := get2();
             Type := GetType(type);
-            DataReg.RegNo := get1(); (* NB внутренняя нумерация регистров *)
-                                     (* совпадает с нумерацией формата    *)
+            DataReg.RegNo := get1(); (* NB ╨▓╨╜╤Г╤В╤А╨╡╨╜╨╜╤П╤П ╨╜╤Г╨╝╨╡╤А╨░╤Ж╨╕╤П ╤А╨╡╨│╨╕╤Б╤В╤А╨╛╨▓ *)
+                                     (* ╤Б╨╛╨▓╨┐╨░╨┤╨░╨╡╤В ╤Б ╨╜╤Г╨╝╨╡╤А╨░╤Ж╨╕╨╡╨╣ ╤Д╨╛╤А╨╝╨░╤В╨░    *)
             get_name(name);
             DataReg.Attrib := dt.SYM_ATTRIB{};
             IF NOT Skip AND (name # '') THEN
@@ -1206,10 +1206,10 @@ BEGIN
 
   save := rpos;
 
-  (* Строим структуру с информацией о модулях *)
+  (* ╨б╤В╤А╨╛╨╕╨╝ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╤Г ╤Б ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╡╨╣ ╨╛ ╨╝╨╛╨┤╤Г╨╗╤П╤Е *)
 
   N_mod := 0;
-  (* первый проход: подсчет числа модулей. *)
+  (* ╨┐╨╡╤А╨▓╤Л╨╣ ╨┐╤А╨╛╤Е╨╛╨┤: ╨┐╨╛╨┤╤Б╤З╨╡╤В ╤З╨╕╤Б╨╗╨░ ╨╝╨╛╨┤╤Г╨╗╨╡╨╣. *)
   FOR i := 0 TO N-1 DO
     getN(entry);
     IF entry.type = 101H THEN
@@ -1220,7 +1220,7 @@ BEGIN
 
   AllocateModules(N_mod);
 
-  (* второй проход. заполнение структуру информации о модулях *)
+  (* ╨▓╤В╨╛╤А╨╛╨╣ ╨┐╤А╨╛╤Е╨╛╨┤. ╨╖╨░╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡ ╤Б╤В╤А╤Г╨║╤В╤Г╤А╤Г ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╕ ╨╛ ╨╝╨╛╨┤╤Г╨╗╤П╤Е *)
   IF mode = mode_full THEN
     AssignAccording (0, EMPTY_RACCORDING);
   ELSE
@@ -1254,11 +1254,11 @@ BEGIN
   END;
 
   CorrectSourceNames;
-  (* Создание ключей по модулям *)
+  (* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨╗╤О╤З╨╡╨╣ ╨┐╨╛ ╨╝╨╛╨┤╤Г╨╗╤П╨╝ *)
   bld.CreateKeysByModules (CurrCom);
-  (* Создание ключа для таблицы сегментов *)
+  (* ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨╗╤О╤З╨░ ╨┤╨╗╤П ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╤Б╨╡╨│╨╝╨╡╨╜╤В╨╛╨▓ *)
   bld.CreateKGroupSegments (CurrCom);
-  (* Установка языка компоненты по модулям *)
+  (* ╨г╤Б╤В╨░╨╜╨╛╨▓╨║╨░ ╤П╨╖╤Л╨║╨░ ╨║╨╛╨╝╨┐╨╛╨╜╨╡╨╜╤В╤Л ╨┐╨╛ ╨╝╨╛╨┤╤Г╨╗╤П╨╝ *)
   bld.SetComLanguage (CurrCom);
 
   IF According # NIL THEN

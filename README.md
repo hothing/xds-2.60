@@ -83,4 +83,4 @@ Unpacked version of the XDS development system is located in the "enduser/xds" d
 
 Released under the Apache 2.0 license, see [LICENSE](LICENSE).
 
-Copyright © 2019 [Excelsior LLC](https://excelsior.ru)
+Copyright Ð¹ 2019 [Excelsior LLC](https://excelsior.ru)
