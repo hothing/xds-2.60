@@ -1,7 +1,7 @@
 \ifenglish
 \section{Substitution variables}
 \else
-\section{Переменные замены}
+\section{╨Я╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╨╡ ╨╖╨░╨╝╨╡╨╜╤Л}
 \fi
 \label{variables}
 \public{xdsmain}
@@ -33,140 +33,140 @@ currently used XDS compiler executable, etc. When configuring
 tools or creating a project, you may use these variables in some of
 the entry fields to have their values to be substituted:
 \else
-Оболочка поддерживает некоторое количество {\em переменных замены},
-содержащих строковые значения, например, полное имя открытого на данный 
-момент файла проекта, директорию в котором он размещается, используемый
-на данный момент исполняемый файл XDS-компилятора, и т.д. При настройке
-утилит или создании проекта вы можете использовать эти переменные в 
-некоторых полях ввода для того, чтобы их значения заменялись: 
+╨Ю╨▒╨╛╨╗╨╛╤З╨║╨░ ╨┐╨╛╨┤╨┤╨╡╤А╨╢╨╕╨▓╨░╨╡╤В ╨╜╨╡╨║╨╛╤В╨╛╤А╨╛╨╡ ╨║╨╛╨╗╨╕╤З╨╡╤Б╤В╨▓╨╛ {\em ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е ╨╖╨░╨╝╨╡╨╜╤Л},
+╤Б╨╛╨┤╨╡╤А╨╢╨░╤Й╨╕╤Е ╤Б╤В╤А╨╛╨║╨╛╨▓╤Л╨╡ ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П, ╨╜╨░╨┐╤А╨╕╨╝╨╡╤А, ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ╨╛╤В╨║╤А╤Л╤В╨╛╨│╨╛ ╨╜╨░ ╨┤╨░╨╜╨╜╤Л╨╣ 
+╨╝╨╛╨╝╨╡╨╜╤В ╤Д╨░╨╣╨╗╨░ ╨┐╤А╨╛╨╡╨║╤В╨░, ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤О ╨▓ ╨║╨╛╤В╨╛╤А╨╛╨╝ ╨╛╨╜ ╤А╨░╨╖╨╝╨╡╤Й╨░╨╡╤В╤Б╤П, ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝╤Л╨╣
+╨╜╨░ ╨┤╨░╨╜╨╜╤Л╨╣ ╨╝╨╛╨╝╨╡╨╜╤В ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╤Л╨╣ ╤Д╨░╨╣╨╗ XDS-╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░, ╨╕ ╤В.╨┤. ╨Я╤А╨╕ ╨╜╨░╤Б╤В╤А╨╛╨╣╨║╨╡
+╤Г╤В╨╕╨╗╨╕╤В ╨╕╨╗╨╕ ╤Б╨╛╨╖╨┤╨░╨╜╨╕╨╕ ╨┐╤А╨╛╨╡╨║╤В╨░ ╨▓╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╤М ╤Н╤В╨╕ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╨╡ ╨▓ 
+╨╜╨╡╨║╨╛╤В╨╛╤А╤Л╤Е ╨┐╨╛╨╗╤П╤Е ╨▓╨▓╨╛╨┤╨░ ╨┤╨╗╤П ╤В╨╛╨│╨╛, ╤З╤В╨╛╨▒╤Л ╨╕╤Е ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П ╨╖╨░╨╝╨╡╨╜╤П╨╗╨╕╤Б╤М: 
 \fi
 \verb'    $(variable-name)'
 
 \ifenglish
 The full list of all variables follows:
 \else
-Ниже приведен полный список всех переменных:
+╨Э╨╕╨╢╨╡ ╨┐╤А╨╕╨▓╨╡╨┤╨╡╨╜ ╨┐╨╛╨╗╨╜╤Л╨╣ ╤Б╨┐╨╕╤Б╨╛╨║ ╨▓╤Б╨╡╤Е ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е:
 \fi
 \begin{description}
 \item[{\tt \$(xdsmain)}] 
  \ifenglish
  XDS compiler executable
  \else
- исполняемый файл XDS компилятора
+ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╤Л╨╣ ╤Д╨░╨╣╨╗ XDS ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░
  \fi
 \item[{\tt \$(xdsname)}] 
  \ifenglish
  its name without directory and extension
  \else
- его имя без директории и расширения
+ ╨╡╨│╨╛ ╨╕╨╝╤П ╨▒╨╡╨╖ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╨╕ ╨╕ ╤А╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╤П
  \fi
 \item[{\tt \$(xdsdir)}] 
  \ifenglish
  its directory
  \else
- его директория
+ ╨╡╨│╨╛ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П
  \fi
 \item[{\tt \$(file)}] 
  \ifenglish
  full file name in current edit window
  \else
- полное имя файла в текущем окне редактирования
+ ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ╤Д╨░╨╣╨╗╨░ ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╝ ╨╛╨║╨╜╨╡ ╤А╨╡╨┤╨░╨║╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╤П
  \fi
 \item[{\tt \$(filedir)}] 
  \ifenglish
  current file directory
  \else
- директория текущего файла
+ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Д╨░╨╣╨╗╨░
  \fi
 \item[{\tt \$(filename)}] 
  \ifenglish
  current file name without path and extension
  \else
- имя текущего файла без директории и расширения
+ ╨╕╨╝╤П ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Д╨░╨╣╨╗╨░ ╨▒╨╡╨╖ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╨╕ ╨╕ ╤А╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╤П
  \fi
 \item[{\tt \$(filewholename)}] 
  \ifenglish
  current file name with extension but without path
  \else
- имя текущего файла с расширением, но без пути 
+ ╨╕╨╝╤П ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Д╨░╨╣╨╗╨░ ╤Б ╤А╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╨╡╨╝, ╨╜╨╛ ╨▒╨╡╨╖ ╨┐╤Г╤В╨╕ 
  \fi
 \item[{\tt \$(fileext)}] 
  \ifenglish
  current file extension
  \else
- расширение теущего файла
+ ╤А╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╨╡ ╤В╨╡╤Г╤Й╨╡╨│╨╛ ╤Д╨░╨╣╨╗╨░
  \fi
 \item[{\tt \$(project)}] 
  \ifenglish
  full project file name
  \else
- полное имя файла проекта
+ ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ╤Д╨░╨╣╨╗╨░ ╨┐╤А╨╛╨╡╨║╤В╨░
  \fi
 \item[{\tt \$(projdir)}] 
  \ifenglish
  project directory
  \else
- директория проекта
+ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П ╨┐╤А╨╛╨╡╨║╤В╨░
  \fi
 \item[{\tt \$(projname)}] 
  \ifenglish
  project name without path and extension
  \else
- имя проекта без пути и расширения
+ ╨╕╨╝╤П ╨┐╤А╨╛╨╡╨║╤В╨░ ╨▒╨╡╨╖ ╨┐╤Г╤В╨╕ ╨╕ ╤А╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╤П
  \fi
 \item[{\tt \$(projwholename)}] 
  \ifenglish
  project name with extension but without path
  \else
- имя проекта с расширением, но без пути
+ ╨╕╨╝╤П ╨┐╤А╨╛╨╡╨║╤В╨░ ╤Б ╤А╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╨╡╨╝, ╨╜╨╛ ╨▒╨╡╨╖ ╨┐╤Г╤В╨╕
  \fi
 \item[{\tt \$(projext)}] 
  \ifenglish
  project file extension
  \else
- расширение файла проекта
+ ╤А╨░╤Б╤И╨╕╤А╨╡╨╜╨╕╨╡ ╤Д╨░╨╣╨╗╨░ ╨┐╤А╨╛╨╡╨║╤В╨░
  \fi
 \item[{\tt \$(projini)}] 
  \ifenglish
  full name of ini file corresponding to project file
  \else
- полное имя ini-файла, соответствующего файлу проекта
+ ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ini-╤Д╨░╨╣╨╗╨░, ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╤В╨▓╤Г╤О╤Й╨╡╨│╨╛ ╤Д╨░╨╣╨╗╤Г ╨┐╤А╨╛╨╡╨║╤В╨░
  \fi
 \item[{\tt \$(homedir)}] 
  \ifenglish
  directory where XDS Environment executable resides
  \else
- директория, где размещается рабочая среда XDS
+ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П, ╨│╨┤╨╡ ╤А╨░╨╖╨╝╨╡╤Й╨░╨╡╤В╤Б╤П ╤А╨░╨▒╨╛╤З╨░╤П ╤Б╤А╨╡╨┤╨░ XDS
  \fi
 \item[{\tt \$(startdir)}] 
  \ifenglish
  the current directory on the Environment startup
  \else
- текущая директория запуска рабочей среды
+ ╤В╨╡╨║╤Г╤Й╨░╤П ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П ╨╖╨░╨┐╤Г╤Б╨║╨░ ╤А╨░╨▒╨╛╤З╨╡╨╣ ╤Б╤А╨╡╨┤╤Л
  \fi
 \item[{\tt \$(inifile)}] 
  \ifenglish
  full name of the Environment ini file
  \else
- полное имя ini-файла рабочей среды
+ ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ini-╤Д╨░╨╣╨╗╨░ ╤А╨░╨▒╨╛╤З╨╡╨╣ ╤Б╤А╨╡╨┤╤Л
  \fi
 \item[{\tt \$(arguments)}] 
  \ifenglish
  command line arguments for user program
   \else
- аргументы командной строки пользовательской программы 
+ ╨░╤А╨│╤Г╨╝╨╡╨╜╤В╤Л ╨║╨╛╨╝╨░╨╜╨┤╨╜╨╛╨╣ ╤Б╤В╤А╨╛╨║╨╕ ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╤М╤Б╨║╨╛╨╣ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л 
  \fi
 \item[{\tt \$(exefile)}] 
  \ifenglish
  full name of the user program executable file
  \else
- полное имя исполняемого файла пользовательской программы
+ ╨┐╨╛╨╗╨╜╨╛╨╡ ╨╕╨╝╤П ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╨╝╨╛╨│╨╛ ╤Д╨░╨╣╨╗╨░ ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╤М╤Б╨║╨╛╨╣ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л
  \fi
 \item[{\tt \$(rundir)}] 
  \ifenglish
  directory to be set current when running user program
  \else
- директория, которую надлежит сделать текущей на время работы пользовательской
- программы  
+ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П, ╨║╨╛╤В╨╛╤А╤Г╤О ╨╜╨░╨┤╨╗╨╡╨╢╨╕╤В ╤Б╨┤╨╡╨╗╨░╤В╤М ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╨╜╨░ ╨▓╤А╨╡╨╝╤П ╤А╨░╨▒╨╛╤В╤Л ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╤М╤Б╨║╨╛╨╣
+ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л  
  \fi
 \end{description}

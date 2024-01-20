@@ -5,175 +5,175 @@
 \ifenglish
 The editor keyboard commands can be split into following groups:
 \else
-Команды редактора, воспринимаемые с клавиатуры, можно разбить на следующие группы:
+╨Ъ╨╛╨╝╨░╨╜╨┤╤Л ╤А╨╡╨┤╨░╨║╤В╨╛╤А╨░, ╨▓╨╛╤Б╨┐╤А╨╕╨╜╨╕╨╝╨░╨╡╨╝╤Л╨╡ ╤Б ╨║╨╗╨░╨▓╨╕╨░╤В╤Г╤А╤Л, ╨╝╨╛╨╢╨╜╨╛ ╤А╨░╨╖╨▒╨╕╤В╤М ╨╜╨░ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╨╡ ╨│╤А╤Г╨┐╨┐╤Л:
 \fi
 \begin{description}
 \item \ifenglish
       \ref[Cursor movement]{CursorMovement}
       \else
-      \ref[Передвижение курсора]{CursorMovement}
+      \ref[╨Я╨╡╤А╨╡╨┤╨▓╨╕╨╢╨╡╨╜╨╕╨╡ ╨║╤Г╤А╤Б╨╛╤А╨░]{CursorMovement}
       \fi
 \item \ifenglish
       \ref[Block selection]{BlockSelection}
       \else
-      \ref[Отметка блока]{BlockSelection}
+      \ref[╨Ю╤В╨╝╨╡╤В╨║╨░ ╨▒╨╗╨╛╨║╨░]{BlockSelection}
       \fi
 \item \ifenglish
       \ref[Typing, editing and deleting text]{Typing}
       \else
-      \ref[Ввод, редактрирование и удаление текста]{Typing}
+      \ref[╨Т╨▓╨╛╨┤, ╤А╨╡╨┤╨░╨║╤В╤А╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨╕ ╤Г╨┤╨░╨╗╨╡╨╜╨╕╨╡ ╤В╨╡╨║╤Б╤В╨░]{Typing}
       \fi
 \item \ifenglish
       \ref[Clipboard operations]{ClipboardOperations}
       \else
-      \ref[Операции с буфером обмена]{ClipboardOperations}
+      \ref[╨Ю╨┐╨╡╤А╨░╤Ж╨╕╨╕ ╤Б ╨▒╤Г╤Д╨╡╤А╨╛╨╝ ╨╛╨▒╨╝╨╡╨╜╨░]{ClipboardOperations}
       \fi
 \item \ifenglish
       \ref[Search and replace]{SearchReplace}
       \else
-      \ref[Поиск и замена]{SearchReplace}
+      \ref[╨Я╨╛╨╕╤Б╨║ ╨╕ ╨╖╨░╨╝╨╡╨╜╨░]{SearchReplace}
       \fi
 \item \ifenglish
       \ref[Miscellaneous]{Miscellaneous}
       \else
-      \ref[Разное]{Miscellaneous}
+      \ref[╨а╨░╨╖╨╜╨╛╨╡]{Miscellaneous}
       \fi
 \item \ifenglish
       \ref[Macros]{Macros} (new in 2.6)
       \else
-      \ref[Макрокоманды]{Macros} (новое в версии 2.6)
+      \ref[╨Ь╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤╤Л]{Macros} (╨╜╨╛╨▓╨╛╨╡ ╨▓ ╨▓╨╡╤А╤Б╨╕╨╕ 2.6)
       \fi
 \end{description}
 
 \ifenglish
 \section{Cursor movement}
 \else
-\section{Передвижение курсора}
+\section{╨Я╨╡╤А╨╡╨┤╨▓╨╕╨╢╨╡╨╜╨╕╨╡ ╨║╤Г╤А╤Б╨╛╤А╨░}
 \fi
 \public{CursorMovement}
 
 \ifenglish
 Following commands move cursor:
 \else
-Курсор передвигается с помощью следующих команд:
+╨Ъ╤Г╤А╤Б╨╛╤А ╨┐╨╡╤А╨╡╨┤╨▓╨╕╨│╨░╨╡╤В╤Б╤П ╤Б ╨┐╨╛╨╝╨╛╤Й╤М╤О ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╤Е ╨║╨╛╨╝╨░╨╜╨┤:
 \fi
 
 {\bf Left} 
 \ifenglish 
 - one character left
 \else
-- на символ влево
+- ╨╜╨░ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨▓╨╗╨╡╨▓╨╛
 \fi
 
 {\bf Right} 
 \ifenglish
 - one character right
 \else
-- на символ вправо
+- ╨╜╨░ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨▓╨┐╤А╨░╨▓╨╛
 \fi
 
 {\bf Up} 
 \ifenglish
 - one line up
 \else
-- на строку вверх
+- ╨╜╨░ ╤Б╤В╤А╨╛╨║╤Г ╨▓╨▓╨╡╤А╤Е
 \fi
 
 {\bf Down} 
 \ifenglish
 - one line down
 \else
-- на строку вниз
+- ╨╜╨░ ╤Б╤В╤А╨╛╨║╤Г ╨▓╨╜╨╕╨╖
 \fi
 
 {\bf Page Up} 
 \ifenglish
 - one page up
 \else
-- на страницу вверх
+- ╨╜╨░ ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Г ╨▓╨▓╨╡╤А╤Е
 \fi
 
 {\bf Page Down} 
 \ifenglish
 - one page down
 \else
-- на страницу вниз
+- ╨╜╨░ ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Г ╨▓╨╜╨╕╨╖
 \fi
 
 {\bf Ctrl+Right} 
 \ifenglish
 - to the beginning of the next word
 \else
-- к началу следующего слова
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░
 \fi
 
 {\bf Ctrl+Left} 
 \ifenglish
 - to the beginning of the previous word
 \else
-- к началу предыдущего слова
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╨┐╤А╨╡╨┤╤Л╨┤╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░
 \fi
 
 {\bf Home} 
 \ifenglish
 - to the beginning of current line
 \else
-- к началу текущей строки
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╕
 \fi
 
 {\bf End} 
 \ifenglish
 - to the end of current line
 \else
-- к концу текущей строки
+- ╨║ ╨║╨╛╨╜╤Ж╤Г ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╕
 \fi
 
 {\bf Ctrl+N}, {\bf Shift+Enter} 
 \ifenglish
 - to the beginning of the next line
 \else
-- к началу следующей строки
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╕
 \fi
 
 {\bf Shift+Tab} 
 \ifenglish
 - to previous tab stop
 \else
-- к предыдущей позиции табуляции
+- ╨║ ╨┐╤А╨╡╨┤╤Л╨┤╤Г╤Й╨╡╨╣ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ ╤В╨░╨▒╤Г╨╗╤П╤Ж╨╕╨╕
 \fi
 
 {\bf Ctrl+Page Up} 
 \ifenglish
 - to the beginning of current page
 \else
-- к началу текущей страницы
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Л
 \fi
 
 {\bf Ctrl+Page Down} 
 \ifenglish
 - to the end of current page
 \else
-- к концу текущей страницы
+- ╨║ ╨║╨╛╨╜╤Ж╤Г ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Л
 \fi
 
 {\bf Ctrl+Home} 
 \ifenglish
 - to the beginning of file
 \else
-- к началу файла
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤Д╨░╨╣╨╗╨░
 \fi
 
 {\bf Ctrl+End} 
 \ifenglish
 - to the end of file
 \else
-- к концу файла
+- ╨║ ╨║╨╛╨╜╤Ж╤Г ╤Д╨░╨╣╨╗╨░
 \fi
 
 \ifenglish
 \section{Block selection}
 \else
-\section{Отметка блока}
+\section{╨Ю╤В╨╝╨╡╤В╨║╨░ ╨▒╨╗╨╛╨║╨░}
 \fi
 \public{BlockSelection}
 
@@ -184,115 +184,115 @@ direction and on the choice of point.
 
 Following commands move block margin:
 \else
-Блок определяется двумя точками. Все перечисленные команды передвигают одну из
-точек к новому положению, тем самым расширяя или сужая блок, в зависимости от
-направления передвижения и выбора точки.
+╨С╨╗╨╛╨║ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╤П╨╡╤В╤Б╤П ╨┤╨▓╤Г╨╝╤П ╤В╨╛╤З╨║╨░╨╝╨╕. ╨Т╤Б╨╡ ╨┐╨╡╤А╨╡╤З╨╕╤Б╨╗╨╡╨╜╨╜╤Л╨╡ ╨║╨╛╨╝╨░╨╜╨┤╤Л ╨┐╨╡╤А╨╡╨┤╨▓╨╕╨│╨░╤О╤В ╨╛╨┤╨╜╤Г ╨╕╨╖
+╤В╨╛╤З╨╡╨║ ╨║ ╨╜╨╛╨▓╨╛╨╝╤Г ╨┐╨╛╨╗╨╛╨╢╨╡╨╜╨╕╤О, ╤В╨╡╨╝ ╤Б╨░╨╝╤Л╨╝ ╤А╨░╤Б╤И╨╕╤А╤П╤П ╨╕╨╗╨╕ ╤Б╤Г╨╢╨░╤П ╨▒╨╗╨╛╨║, ╨▓ ╨╖╨░╨▓╨╕╤Б╨╕╨╝╨╛╤Б╤В╨╕ ╨╛╤В
+╨╜╨░╨┐╤А╨░╨▓╨╗╨╡╨╜╨╕╤П ╨┐╨╡╤А╨╡╨┤╨▓╨╕╨╢╨╡╨╜╨╕╤П ╨╕ ╨▓╤Л╨▒╨╛╤А╨░ ╤В╨╛╤З╨║╨╕.
 
-Следующие команды управляют передвижением ограничителя блока:
+╨б╨╗╨╡╨┤╤Г╤О╤Й╨╕╨╡ ╨║╨╛╨╝╨░╨╜╨┤╤Л ╤Г╨┐╤А╨░╨▓╨╗╤П╤О╤В ╨┐╨╡╤А╨╡╨┤╨▓╨╕╨╢╨╡╨╜╨╕╨╡╨╝ ╨╛╨│╤А╨░╨╜╨╕╤З╨╕╤В╨╡╨╗╤П ╨▒╨╗╨╛╨║╨░:
 \fi
 
 {\bf Shift+Left} 
 \ifenglish
 - one character left
 \else
-- на символ влево
+- ╨╜╨░ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨▓╨╗╨╡╨▓╨╛
 \fi
 
 {\bf Shift+Right} 
 \ifenglish
 - one character right
 \else
-- на символ вправо
+- ╨╜╨░ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨▓╨┐╤А╨░╨▓╨╛
 \fi
 
 {\bf Shift+Up} 
 \ifenglish
 - one line up
 \else
-- на строку вверх
+- ╨╜╨░ ╤Б╤В╤А╨╛╨║╤Г ╨▓╨▓╨╡╤А╤Е
 \fi
 
 {\bf Shift+Down} 
 \ifenglish
 - one line down
 \else
-- на строку вниз
+- ╨╜╨░ ╤Б╤В╤А╨╛╨║╤Г ╨▓╨╜╨╕╨╖
 \fi
 
 {\bf Shift+Page Up} 
 \ifenglish
 - one page up
 \else
-- на страницу вверх
+- ╨╜╨░ ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Г ╨▓╨▓╨╡╤А╤Е
 \fi
 
 {\bf Shift+Page Down} 
 \ifenglish
 - one page down
 \else
-- на страницу вниз
+- ╨╜╨░ ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Г ╨▓╨╜╨╕╨╖
 \fi
 
 {\bf Ctrl+Shift+Right} 
 \ifenglish
 - to the beginning of the next word
 \else
-- к началу следующего слова
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░
 \fi
 
 {\bf Ctrl+Shift+Left} 
 \ifenglish
 - to the beginning of the previous word
 \else
-- к началу предыдущего слова
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╨┐╤А╨╡╨┤╤Л╨┤╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░
 \fi
 
 {\bf Shift+Home} 
 \ifenglish
 - to the beginning of current line
 \else
-- к началу текущей строки
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╕
 \fi
 
 {\bf Shift+End} 
 \ifenglish
 - to the end of current line
 \else
-- к концу текущей строки
+- ╨║ ╨║╨╛╨╜╤Ж╤Г ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╕
 \fi
 
 {\bf Ctrl+Shift+Page Up} 
 \ifenglish
 - to the beginning of current page
 \else
-- к началу текущей страницы
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Л
 \fi
 
 {\bf Ctrl+Shift+Page Down} 
 \ifenglish
 - to the end of current page
 \else
-- к концу текущей страницы
+- ╨║ ╨║╨╛╨╜╤Ж╤Г ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Л
 \fi
 
 {\bf Ctrl+Shift+Home} 
 \ifenglish
 - to the beginning of file
 \else
-- к началу файла
+- ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤Д╨░╨╣╨╗╨░
 \fi
 
 {\bf Ctrl+Shift+End} 
 \ifenglish
 - to the end of file
 \else
-- к концу файла
+- ╨║ ╨║╨╛╨╜╤Ж╤Г ╤Д╨░╨╣╨╗╨░
 \fi
 
 \ifenglish
 \section{Typing, editing and deleting text}
 \else
-\section{Набор, редактирование и удаление текста}
+\section{╨Э╨░╨▒╨╛╤А, ╤А╨╡╨┤╨░╨║╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨╕ ╤Г╨┤╨░╨╗╨╡╨╜╨╕╨╡ ╤В╨╡╨║╤Б╤В╨░}
 \fi
 \public{Typing}
 \nominitoc
@@ -301,83 +301,83 @@ Following commands move block margin:
 \ifenglish
 - toggle insert and overwrite mode
 \else
-- переключить режимы вставки и наложения
+- ╨┐╨╡╤А╨╡╨║╨╗╤О╤З╨╕╤В╤М ╤А╨╡╨╢╨╕╨╝╤Л ╨▓╤Б╤В╨░╨▓╨║╨╕ ╨╕ ╨╜╨░╨╗╨╛╨╢╨╡╨╜╨╕╤П
 \fi
 
 {\bf Delete} 
 \ifenglish
 - delete character to the right from cursor; see \ref[Note]{DeleteNote}
 \else
-- удалить символ справа от курсора; смотрите также \ref[замечание]{DeleteNote}
+- ╤Г╨┤╨░╨╗╨╕╤В╤М ╤Б╨╕╨╝╨▓╨╛╨╗ ╤Б╨┐╤А╨░╨▓╨░ ╨╛╤В ╨║╤Г╤А╤Б╨╛╤А╨░; ╤Б╨╝╨╛╤В╤А╨╕╤В╨╡ ╤В╨░╨║╨╢╨╡ \ref[╨╖╨░╨╝╨╡╤З╨░╨╜╨╕╨╡]{DeleteNote}
 \fi
 
 {\bf BackSpace} 
 \ifenglish
 - delete character to the left from cursor; see \ref[Note]{BSNote}
 \else
-- удалить символ слева от курсора; смотрите также \ref[замечание]{BSNote}
+- ╤Г╨┤╨░╨╗╨╕╤В╤М ╤Б╨╕╨╝╨▓╨╛╨╗ ╤Б╨╗╨╡╨▓╨░ ╨╛╤В ╨║╤Г╤А╤Б╨╛╤А╨░; ╤Б╨╝╨╛╤В╤А╨╕╤В╨╡ ╤В╨░╨║╨╢╨╡ \ref[╨╖╨░╨╝╨╡╤З╨░╨╜╨╕╨╡]{BSNote}
 \fi
 
 {\bf Tab} 
 \ifenglish
 - insert Tab character or expand tab with spaces; see \ref[Note]{Tabulation}
 \else
-- вставить символ табуляции или расширить табуляцию пробелами; смотрите также \ref[замечание]{Tabulation}
+- ╨▓╤Б╤В╨░╨▓╨╕╤В╤М ╤Б╨╕╨╝╨▓╨╛╨╗ ╤В╨░╨▒╤Г╨╗╤П╤Ж╨╕╨╕ ╨╕╨╗╨╕ ╤А╨░╤Б╤И╨╕╤А╨╕╤В╤М ╤В╨░╨▒╤Г╨╗╤П╤Ж╨╕╤О ╨┐╤А╨╛╨▒╨╡╨╗╨░╨╝╨╕; ╤Б╨╝╨╛╤В╤А╨╕╤В╨╡ ╤В╨░╨║╨╢╨╡ \ref[╨╖╨░╨╝╨╡╤З╨░╨╜╨╕╨╡]{Tabulation}
 \fi
 
 {\bf Ctrl+Delete} 
 \ifenglish
 - \ref[delete end of current word]{CtrlDelNote}
 \else
-- \ref[удалить конец текущего слова]{CtrlDelNote}
+- \ref[╤Г╨┤╨░╨╗╨╕╤В╤М ╨║╨╛╨╜╨╡╤Ж ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░]{CtrlDelNote}
 \fi
 
 {\bf Ctrl+BackSpace} 
 \ifenglish
 - \ref[delete beginning of current word]{CtrlBSNote}
 \else
-- \ref[удалить начало текущего слова]{CtrlBSNote}
+- \ref[╤Г╨┤╨░╨╗╨╕╤В╤М ╨╜╨░╤З╨░╨╗╨╛ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░]{CtrlBSNote}
 \fi
 
 {\bf Ctrl+I} 
 \ifenglish
 - insert a line before the current line
 \else
-- вставить строку перед текущей строкой
+- ╨▓╤Б╤В╨░╨▓╨╕╤В╤М ╤Б╤В╤А╨╛╨║╤Г ╨┐╨╡╤А╨╡╨┤ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╛╨╣
 \fi
 
 {\bf Ctrl+S} 
 \ifenglish
 - split a line in two at the cursor position
 \else
-- в месте, где расположен курсор, разбить строку на две  
+- ╨▓ ╨╝╨╡╤Б╤В╨╡, ╨│╨┤╨╡ ╤А╨░╤Б╨┐╨╛╨╗╨╛╨╢╨╡╨╜ ╨║╤Г╤А╤Б╨╛╤А, ╤А╨░╨╖╨▒╨╕╤В╤М ╤Б╤В╤А╨╛╨║╤Г ╨╜╨░ ╨┤╨▓╨╡  
 \fi
 
 {\bf Ctrl+J} 
 \ifenglish
 - join current line with the next line
 \else
-- соединить текущую строку со следующей
+- ╤Б╨╛╨╡╨┤╨╕╨╜╨╕╤В╤М ╤В╨╡╨║╤Г╤Й╤Г╤О ╤Б╤В╤А╨╛╨║╤Г ╤Б╨╛ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨╣
 \fi
 
 {\bf Enter} 
 \ifenglish
 - split a line or go to the next line; see \ref[Note]{CRNote}
 \else
-- разбить строку или перейти к следующей; смотрите также \ref[замечание]{CRNote}
+- ╤А╨░╨╖╨▒╨╕╤В╤М ╤Б╤В╤А╨╛╨║╤Г ╨╕╨╗╨╕ ╨┐╨╡╤А╨╡╨╣╤В╨╕ ╨║ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨╣; ╤Б╨╝╨╛╤В╤А╨╕╤В╨╡ ╤В╨░╨║╨╢╨╡ \ref[╨╖╨░╨╝╨╡╤З╨░╨╜╨╕╨╡]{CRNote}
 \fi
 
 {\bf Ctrl+Y} 
 \ifenglish
 - delete current line
 \else
-- удалить текущую строку 
+- ╤Г╨┤╨░╨╗╨╕╤В╤М ╤В╨╡╨║╤Г╤Й╤Г╤О ╤Б╤В╤А╨╛╨║╤Г 
 \fi
 
 \ifenglish
 \subsection{{\bf Delete} key}
 \else
-\subsection{клавиша {\bf Delete}}
+\subsection{╨║╨╗╨░╨▓╨╕╤И╨░ {\bf Delete}}
 \fi
 \public{DeleteNote}
 
@@ -391,20 +391,20 @@ This behavior can be disabled using \ref[Configure: Editor]{IDM\_CONFIGUREEDITOR
 menu. In this case the editor would ignore {\bf Delete} command when cursor is
 at the end of line or to the right of it.
 \else
-Если клавиша {\bf Delete} нажата, когда курсор находится на конце строки,
-редактор обычно присоединяет к текущей строке следующую, за исключением случая 
-когда текущая строка - последняя. Если курсор расположен справа от конца строки,
-следующая строка добавляется к текущей с сохранением всех пробелов.
+╨Х╤Б╨╗╨╕ ╨║╨╗╨░╨▓╨╕╤И╨░ {\bf Delete} ╨╜╨░╨╢╨░╤В╨░, ╨║╨╛╨│╨┤╨░ ╨║╤Г╤А╤Б╨╛╤А ╨╜╨░╤Е╨╛╨┤╨╕╤В╤Б╤П ╨╜╨░ ╨║╨╛╨╜╤Ж╨╡ ╤Б╤В╤А╨╛╨║╨╕,
+╤А╨╡╨┤╨░╨║╤В╨╛╤А ╨╛╨▒╤Л╤З╨╜╨╛ ╨┐╤А╨╕╤Б╨╛╨╡╨┤╨╕╨╜╤П╨╡╤В ╨║ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╡ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╤Г╤О, ╨╖╨░ ╨╕╤Б╨║╨╗╤О╤З╨╡╨╜╨╕╨╡╨╝ ╤Б╨╗╤Г╤З╨░╤П 
+╨║╨╛╨│╨┤╨░ ╤В╨╡╨║╤Г╤Й╨░╤П ╤Б╤В╤А╨╛╨║╨░ - ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╤П╤П. ╨Х╤Б╨╗╨╕ ╨║╤Г╤А╤Б╨╛╤А ╤А╨░╤Б╨┐╨╛╨╗╨╛╨╢╨╡╨╜ ╤Б╨┐╤А╨░╨▓╨░ ╨╛╤В ╨║╨╛╨╜╤Ж╨░ ╤Б╤В╤А╨╛╨║╨╕,
+╤Б╨╗╨╡╨┤╤Г╤О╤Й╨░╤П ╤Б╤В╤А╨╛╨║╨░ ╨┤╨╛╨▒╨░╨▓╨╗╤П╨╡╤В╤Б╤П ╨║ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б ╤Б╨╛╤Е╤А╨░╨╜╨╡╨╜╨╕╨╡╨╝ ╨▓╤Б╨╡╤Е ╨┐╤А╨╛╨▒╨╡╨╗╨╛╨▓.
 
-Это может быть исправлено с помощью меню \ref[Configure: Editor]{IDM\_CONFIGUREEDITOR}.
-В этом случае редактор проигнорирует команду {\bf Delete}, когда курсор 
-находится в конце строки или справа от него.
+╨н╤В╨╛ ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М ╨╕╤Б╨┐╤А╨░╨▓╨╗╨╡╨╜╨╛ ╤Б ╨┐╨╛╨╝╨╛╤Й╤М╤О ╨╝╨╡╨╜╤О \ref[Configure: Editor]{IDM\_CONFIGUREEDITOR}.
+╨Т ╤Н╤В╨╛╨╝ ╤Б╨╗╤Г╤З╨░╨╡ ╤А╨╡╨┤╨░╨║╤В╨╛╤А ╨┐╤А╨╛╨╕╨│╨╜╨╛╤А╨╕╤А╤Г╨╡╤В ╨║╨╛╨╝╨░╨╜╨┤╤Г {\bf Delete}, ╨║╨╛╨│╨┤╨░ ╨║╤Г╤А╤Б╨╛╤А 
+╨╜╨░╤Е╨╛╨┤╨╕╤В╤Б╤П ╨▓ ╨║╨╛╨╜╤Ж╨╡ ╤Б╤В╤А╨╛╨║╨╕ ╨╕╨╗╨╕ ╤Б╨┐╤А╨░╨▓╨░ ╨╛╤В ╨╜╨╡╨│╨╛.
 \fi
 
 \ifenglish
 \subsection{{\bf BackSpace} key}
 \else
-\subsection{клавиша {\bf BackSpace}}
+\subsection{╨║╨╗╨░╨▓╨╕╤И╨░ {\bf BackSpace}}
 \fi
 \public{BSNote}
 
@@ -417,15 +417,15 @@ This behavior can be disabled using \ref[Configure: Editor]{IDM\_CONFIGUREEDITOR
 menu. In this case the editor would ignore {\bf BackSpace} command when cursor is
 at the beginning of line.
 \else
-Если клавиша {\bf BackSpace} нажата, когда курсор находится в начале строки,
-редактор обычно присоединяет текущую строку к предыдущей, за исключением случая,
-когда текущая строка - первая.
+╨Х╤Б╨╗╨╕ ╨║╨╗╨░╨▓╨╕╤И╨░ {\bf BackSpace} ╨╜╨░╨╢╨░╤В╨░, ╨║╨╛╨│╨┤╨░ ╨║╤Г╤А╤Б╨╛╤А ╨╜╨░╤Е╨╛╨┤╨╕╤В╤Б╤П ╨▓ ╨╜╨░╤З╨░╨╗╨╡ ╤Б╤В╤А╨╛╨║╨╕,
+╤А╨╡╨┤╨░╨║╤В╨╛╤А ╨╛╨▒╤Л╤З╨╜╨╛ ╨┐╤А╨╕╤Б╨╛╨╡╨┤╨╕╨╜╤П╨╡╤В ╤В╨╡╨║╤Г╤Й╤Г╤О ╤Б╤В╤А╨╛╨║╤Г ╨║ ╨┐╤А╨╡╨┤╤Л╨┤╤Г╤Й╨╡╨╣, ╨╖╨░ ╨╕╤Б╨║╨╗╤О╤З╨╡╨╜╨╕╨╡╨╝ ╤Б╨╗╤Г╤З╨░╤П,
+╨║╨╛╨│╨┤╨░ ╤В╨╡╨║╤Г╤Й╨░╤П ╤Б╤В╤А╨╛╨║╨░ - ╨┐╨╡╤А╨▓╨░╤П.
 \fi
 
 \ifenglish
 \subsection{Delete end of current word}
 \else
-\subsection{Удалить конец текущего слова}
+\subsection{╨г╨┤╨░╨╗╨╕╤В╤М ╨║╨╛╨╜╨╡╤Ж ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░}
 \fi
 \public{CtrlDelNote}
 
@@ -435,16 +435,16 @@ deletes everything from the cursor position
 to the end of current word. Otherwise, it deletes everything
 from the cursor position to the beginning of next word.
 \else
-Если курсор находится не на пробеле, команда {\bf Ctrl+Delete}
-удаляет все, начиная от текущего положения курсора и кончая концом 
-текущего слова. Иначе команда удаляет все, начиная от текущего положения курсора
-и кончая началом следующего слова.
+╨Х╤Б╨╗╨╕ ╨║╤Г╤А╤Б╨╛╤А ╨╜╨░╤Е╨╛╨┤╨╕╤В╤Б╤П ╨╜╨╡ ╨╜╨░ ╨┐╤А╨╛╨▒╨╡╨╗╨╡, ╨║╨╛╨╝╨░╨╜╨┤╨░ {\bf Ctrl+Delete}
+╤Г╨┤╨░╨╗╤П╨╡╤В ╨▓╤Б╨╡, ╨╜╨░╤З╨╕╨╜╨░╤П ╨╛╤В ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨┐╨╛╨╗╨╛╨╢╨╡╨╜╨╕╤П ╨║╤Г╤А╤Б╨╛╤А╨░ ╨╕ ╨║╨╛╨╜╤З╨░╤П ╨║╨╛╨╜╤Ж╨╛╨╝ 
+╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░. ╨Ш╨╜╨░╤З╨╡ ╨║╨╛╨╝╨░╨╜╨┤╨░ ╤Г╨┤╨░╨╗╤П╨╡╤В ╨▓╤Б╨╡, ╨╜╨░╤З╨╕╨╜╨░╤П ╨╛╤В ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨┐╨╛╨╗╨╛╨╢╨╡╨╜╨╕╤П ╨║╤Г╤А╤Б╨╛╤А╨░
+╨╕ ╨║╨╛╨╜╤З╨░╤П ╨╜╨░╤З╨░╨╗╨╛╨╝ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░.
 \fi
 
 \ifenglish
 \subsection{Delete beginning of current word}
 \else
-\subsection{Удалить начало текущего слова}
+\subsection{╨г╨┤╨░╨╗╨╕╤В╤М ╨╜╨░╤З╨░╨╗╨╛ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░}
 \fi
 \public{CtrlBSNote}
 
@@ -455,15 +455,15 @@ deletes everything from the beginning of the current word to that character.
 Otherwise, it deletes everything from the end of previous word to mentioned
 character.
 \else
-Если символ справа от курсора -- не пробел, команда {\bf Ctrl+BackSpace} 
-удаляет все от начала текущего слова до этого символа.
-Иначе она удаляет все от конца предыдущего слова до упомянутого символа.
+╨Х╤Б╨╗╨╕ ╤Б╨╕╨╝╨▓╨╛╨╗ ╤Б╨┐╤А╨░╨▓╨░ ╨╛╤В ╨║╤Г╤А╤Б╨╛╤А╨░ -- ╨╜╨╡ ╨┐╤А╨╛╨▒╨╡╨╗, ╨║╨╛╨╝╨░╨╜╨┤╨░ {\bf Ctrl+BackSpace} 
+╤Г╨┤╨░╨╗╤П╨╡╤В ╨▓╤Б╨╡ ╨╛╤В ╨╜╨░╤З╨░╨╗╨░ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░ ╨┤╨╛ ╤Н╤В╨╛╨│╨╛ ╤Б╨╕╨╝╨▓╨╛╨╗╨░.
+╨Ш╨╜╨░╤З╨╡ ╨╛╨╜╨░ ╤Г╨┤╨░╨╗╤П╨╡╤В ╨▓╤Б╨╡ ╨╛╤В ╨║╨╛╨╜╤Ж╨░ ╨┐╤А╨╡╨┤╤Л╨┤╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░ ╨┤╨╛ ╤Г╨┐╨╛╨╝╤П╨╜╤Г╤В╨╛╨│╨╛ ╤Б╨╕╨╝╨▓╨╛╨╗╨░.
 \fi
 
 \ifenglish
 \subsection{{\bf Enter} key}
 \else
-\subsection{клавиша {\bf Enter}}
+\subsection{╨║╨╗╨░╨▓╨╕╤И╨░ {\bf Enter}}
 \fi
 \public{CRNote}
 
@@ -477,20 +477,20 @@ splits a line in two at cursor position. It can be disabled in
 \ref[Configure: Editor]{IDM\_CONFIGUREEDITOR} menu, after which this key
 works like in overwrite mode.
 \else
-В режиме наложения клавиша {\bf Enter} действует так же, как и {\bf Ctrl+N}.
-Курсор передвигается к началу следующей строки, а если курсор находился на
-последней строке, то добавляется пустая.
+╨Т ╤А╨╡╨╢╨╕╨╝╨╡ ╨╜╨░╨╗╨╛╨╢╨╡╨╜╨╕╤П ╨║╨╗╨░╨▓╨╕╤И╨░ {\bf Enter} ╨┤╨╡╨╣╤Б╤В╨▓╤Г╨╡╤В ╤В╨░╨║ ╨╢╨╡, ╨║╨░╨║ ╨╕ {\bf Ctrl+N}.
+╨Ъ╤Г╤А╤Б╨╛╤А ╨┐╨╡╤А╨╡╨┤╨▓╨╕╨│╨░╨╡╤В╤Б╤П ╨║ ╨╜╨░╤З╨░╨╗╤Г ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╕, ╨░ ╨╡╤Б╨╗╨╕ ╨║╤Г╤А╤Б╨╛╤А ╨╜╨░╤Е╨╛╨┤╨╕╨╗╤Б╤П ╨╜╨░
+╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╡, ╤В╨╛ ╨┤╨╛╨▒╨░╨▓╨╗╤П╨╡╤В╤Б╤П ╨┐╤Г╤Б╤В╨░╤П.
 
-В режиме вставки клавиша {\bf Enter} действует так же, как и  {\bf Ctrl+S},
-то есть разбивает строку на две в месте, где находился курсор. Это может быть
-отключено в меню \ref[Configure: Editor]{IDM\_CONFIGUREEDITOR}, после чего
-эта клавиша действует так же, как и в режиме наложения.
+╨Т ╤А╨╡╨╢╨╕╨╝╨╡ ╨▓╤Б╤В╨░╨▓╨║╨╕ ╨║╨╗╨░╨▓╨╕╤И╨░ {\bf Enter} ╨┤╨╡╨╣╤Б╤В╨▓╤Г╨╡╤В ╤В╨░╨║ ╨╢╨╡, ╨║╨░╨║ ╨╕  {\bf Ctrl+S},
+╤В╨╛ ╨╡╤Б╤В╤М ╤А╨░╨╖╨▒╨╕╨▓╨░╨╡╤В ╤Б╤В╤А╨╛╨║╤Г ╨╜╨░ ╨┤╨▓╨╡ ╨▓ ╨╝╨╡╤Б╤В╨╡, ╨│╨┤╨╡ ╨╜╨░╤Е╨╛╨┤╨╕╨╗╤Б╤П ╨║╤Г╤А╤Б╨╛╤А. ╨н╤В╨╛ ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М
+╨╛╤В╨║╨╗╤О╤З╨╡╨╜╨╛ ╨▓ ╨╝╨╡╨╜╤О \ref[Configure: Editor]{IDM\_CONFIGUREEDITOR}, ╨┐╨╛╤Б╨╗╨╡ ╤З╨╡╨│╨╛
+╤Н╤В╨░ ╨║╨╗╨░╨▓╨╕╤И╨░ ╨┤╨╡╨╣╤Б╤В╨▓╤Г╨╡╤В ╤В╨░╨║ ╨╢╨╡, ╨║╨░╨║ ╨╕ ╨▓ ╤А╨╡╨╢╨╕╨╝╨╡ ╨╜╨░╨╗╨╛╨╢╨╡╨╜╨╕╤П.
 \fi
 
 \ifenglish
 \section{Clipboard operations}
 \else
-\section{Операции с буфером обмена}
+\section{╨Ю╨┐╨╡╤А╨░╤Ж╨╕╨╕ ╤Б ╨▒╤Г╤Д╨╡╤А╨╛╨╝ ╨╛╨▒╨╝╨╡╨╜╨░}
 \fi
 \public{ClipboardOperations}
 
@@ -498,41 +498,41 @@ works like in overwrite mode.
 \ifenglish
 - \ref[Copy]{IDM\_COPY}
 \else
-- \ref[Копировать]{IDM\_COPY}
+- \ref[╨Ъ╨╛╨┐╨╕╤А╨╛╨▓╨░╤В╤М]{IDM\_COPY}
 \fi
 
 {\bf Shift+Delete}, {\bf Ctrl+X} 
 \ifenglish
 - \ref[Cut]{IDM\_CUT}
 \else
-- \ref[Вырезать]{IDM\_CUT}
+- \ref[╨Т╤Л╤А╨╡╨╖╨░╤В╤М]{IDM\_CUT}
 \fi
 
 {\bf Ctrl+Insert},  {\bf Ctrl+V} 
  \ifenglish
 - \ref[Paste]{IDM\_PASTE}
 \else
-- \ref[Вклеить]{IDM\_PASTE}
+- \ref[╨Т╨║╨╗╨╡╨╕╤В╤М]{IDM\_PASTE}
 \fi
 
 {\bf Ctrl+Shift+Delete}, {\bf Ctrl+E} 
 \ifenglish
 - \ref[Exchange]{IDM\_EXCHANGE}
 \else
-- \ref[Обменять]{IDM\_EXCHANGE}
+- \ref[╨Ю╨▒╨╝╨╡╨╜╤П╤В╤М]{IDM\_EXCHANGE}
 \fi
 
 {\bf Ctrl+Shift+Insert}, {\bf Ctrl+A} 
 \ifenglish
 - \ref[Add]{IDM\_ADD}
 \else
-- \ref[Добавить]{IDM\_ADD}
+- \ref[╨Ф╨╛╨▒╨░╨▓╨╕╤В╤М]{IDM\_ADD}
 \fi
 
 \ifenglish
 \section{Search and Replace}
 \else
-\section{Поиск и замена}
+\section{╨Я╨╛╨╕╤Б╨║ ╨╕ ╨╖╨░╨╝╨╡╨╜╨░}
 \fi
 \public{SearchReplace}
 
@@ -540,134 +540,134 @@ works like in overwrite mode.
 \ifenglish
 	     - \ref[Find]{IDM\_FIND} text
              \else
-             - \ref[Найти]{IDM\_FIND} текст
+             - \ref[╨Э╨░╨╣╤В╨╕]{IDM\_FIND} ╤В╨╡╨║╤Б╤В
              \fi
 
 {\bf Ctrl+H} \ifenglish
              - Find text and \ref[Replace]{IDM\_REPLACE} it with another text
              \else
-             - Найти текст и \ref[Заменить]{IDM\_REPLACE} его другим текстом
+             - ╨Э╨░╨╣╤В╨╕ ╤В╨╡╨║╤Б╤В ╨╕ \ref[╨Ч╨░╨╝╨╡╨╜╨╕╤В╤М]{IDM\_REPLACE} ╨╡╨│╨╛ ╨┤╤А╤Г╨│╨╕╨╝ ╤В╨╡╨║╤Б╤В╨╛╨╝
 \fi
 
 {\bf Ctrl+L} \ifenglish
              - \ref[Find next]{IDM\_FINDNEXT}
              \else
-             - \ref[Найти следующее]{IDM\_FINDNEXT}
+             - \ref[╨Э╨░╨╣╤В╨╕ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨╡]{IDM\_FINDNEXT}
  \fi
 
 {\bf Ctrl+Shift+L} \ifenglish
                    - \ref[Find previous]{IDM\_FINDPREV}
                    \else 
-                   - \ref[Найти предыдущее]{IDM\_FINDPREV}
+                   - \ref[╨Э╨░╨╣╤В╨╕ ╨┐╤А╨╡╨┤╤Л╨┤╤Г╤Й╨╡╨╡]{IDM\_FINDPREV}
 \fi
 
 {\bf Ctrl+R} \ifenglish
              - \ref[Replace next]{IDM\_REPLACENEXT}
              \else
-             - \ref[Заменить следущее]{IDM\_REPLACENEXT}
+             - \ref[╨Ч╨░╨╝╨╡╨╜╨╕╤В╤М ╤Б╨╗╨╡╨┤╤Г╤Й╨╡╨╡]{IDM\_REPLACENEXT}
 \fi
 
 {\bf Ctrl+Shift+F} \ifenglish
                   - \ref[Find in files]{IDM\_FINDFILES}
                   \else
-                  - \ref[Найти в файлах]{IDM\_FINDFILES}
+                  - \ref[╨Э╨░╨╣╤В╨╕ ╨▓ ╤Д╨░╨╣╨╗╨░╤Е]{IDM\_FINDFILES}
 \fi
 \ifenglish
 \section{Miscellaneous Editing Commands}
 \else
-\section{Разные команды редактирования}
+\section{╨а╨░╨╖╨╜╤Л╨╡ ╨║╨╛╨╝╨░╨╜╨┤╤Л ╤А╨╡╨┤╨░╨║╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╤П}
  \fi
 \public{Miscellaneous}
 
 {\bf Alt+BackSpace}, {\bf Ctrl+Z} \ifenglish
      				  - \ref[Undo]{IDM\_UNDO} last action
      				  \else
-                                  - \ref[Отменить]{IDM\_UNDO} последнее изменение 
+                                  - \ref[╨Ю╤В╨╝╨╡╨╜╨╕╤В╤М]{IDM\_UNDO} ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨╡ ╨╕╨╖╨╝╨╡╨╜╨╡╨╜╨╕╨╡ 
 \fi
 
 {\bf Ctrl+Shift+1}...{\bf Ctrl+Shift+9} 
 \ifenglish
 - set a bookmark with given number at the current cursor position
 \else
-- установить закладку с заданным номером в месте, где находится курсор
+- ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╨╖╨░╨║╨╗╨░╨┤╨║╤Г ╤Б ╨╖╨░╨┤╨░╨╜╨╜╤Л╨╝ ╨╜╨╛╨╝╨╡╤А╨╛╨╝ ╨▓ ╨╝╨╡╤Б╤В╨╡, ╨│╨┤╨╡ ╨╜╨░╤Е╨╛╨┤╨╕╤В╤Б╤П ╨║╤Г╤А╤Б╨╛╤А
 \fi
 
 {\bf Ctrl+1}...{\bf Ctrl+9} 
 \ifenglish
 - move cursor to the bookmark with given number
 \else
-- переместить курсор к закладке с заданным номером
+- ╨┐╨╡╤А╨╡╨╝╨╡╤Б╤В╨╕╤В╤М ╨║╤Г╤А╤Б╨╛╤А ╨║ ╨╖╨░╨║╨╗╨░╨┤╨║╨╡ ╤Б ╨╖╨░╨┤╨░╨╜╨╜╤Л╨╝ ╨╜╨╛╨╝╨╡╤А╨╛╨╝
 \fi
 
 {\bf Alt+Right} 
 \ifenglish
 - Indent current line or block right by one character
 \else
-- сделать отступ в текущей строке или блоке на один символ вправо
+- ╤Б╨┤╨╡╨╗╨░╤В╤М ╨╛╤В╤Б╤В╤Г╨┐ ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╡ ╨╕╨╗╨╕ ╨▒╨╗╨╛╨║╨╡ ╨╜╨░ ╨╛╨┤╨╕╨╜ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨▓╨┐╤А╨░╨▓╨╛
 \fi
 
 {\bf Alt+Left}  
 \ifenglish
 - Indent current line or block left by one character
 \else
-- сделать отступ в текущей строке или блоке на один символ влево
+- ╤Б╨┤╨╡╨╗╨░╤В╤М ╨╛╤В╤Б╤В╤Г╨┐ ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╡ ╨╕╨╗╨╕ ╨▒╨╗╨╛╨║╨╡ ╨╜╨░ ╨╛╨┤╨╕╨╜ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨▓╨╗╨╡╨▓╨╛
 \fi
 
 {\bf Alt+Shift+Right} 
 \ifenglish
 - Indent current line or block right by tab size
 \else
-- сделать отступ в текущей строке или блоке вправо на расстояние 
- табуляции
+- ╤Б╨┤╨╡╨╗╨░╤В╤М ╨╛╤В╤Б╤В╤Г╨┐ ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╡ ╨╕╨╗╨╕ ╨▒╨╗╨╛╨║╨╡ ╨▓╨┐╤А╨░╨▓╨╛ ╨╜╨░ ╤А╨░╤Б╤Б╤В╨╛╤П╨╜╨╕╨╡ 
+ ╤В╨░╨▒╤Г╨╗╤П╤Ж╨╕╨╕
 \fi
 
 {\bf Alt+Shift+Left} 
 \ifenglish
 - Indent current line or block left by tab size
 \else
-- сделать отступ в текущей строке или блоке влево на расстояние 
- табуляции       
+- ╤Б╨┤╨╡╨╗╨░╤В╤М ╨╛╤В╤Б╤В╤Г╨┐ ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╡ ╨╕╨╗╨╕ ╨▒╨╗╨╛╨║╨╡ ╨▓╨╗╨╡╨▓╨╛ ╨╜╨░ ╤А╨░╤Б╤Б╤В╨╛╤П╨╜╨╕╨╡ 
+ ╤В╨░╨▒╤Г╨╗╤П╤Ж╨╕╨╕       
 \fi
 
 {\bf Ctrl+U} 
 \ifenglish
 - Turn current word or block to uppercase
 \else
-- Повысить регистр текущего слова или блока
+- ╨Я╨╛╨▓╤Л╤Б╨╕╤В╤М ╤А╨╡╨│╨╕╤Б╤В╤А ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░ ╨╕╨╗╨╕ ╨▒╨╗╨╛╨║╨░
 \fi
 
 {\bf Ctrl+Shift+U} 
 \ifenglish
 - Change case of the current word or block to opposite
 \else
-- Изменить регистр текущего слова или блока на противоположный
+- ╨Ш╨╖╨╝╨╡╨╜╨╕╤В╤М ╤А╨╡╨│╨╕╤Б╤В╤А ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░ ╨╕╨╗╨╕ ╨▒╨╗╨╛╨║╨░ ╨╜╨░ ╨┐╤А╨╛╤В╨╕╨▓╨╛╨┐╨╛╨╗╨╛╨╢╨╜╤Л╨╣
 \fi
 
 {\bf F1} 
 \ifenglish
 - Display \ref[help]{IDM\_HELPKEYWORD} on current word
 \else
-- Отобразить \ref[подсказку]{IDM\_HELPKEYWORD} по текущему слову
+- ╨Ю╤В╨╛╨▒╤А╨░╨╖╨╕╤В╤М \ref[╨┐╨╛╨┤╤Б╨║╨░╨╖╨║╤Г]{IDM\_HELPKEYWORD} ╨┐╨╛ ╤В╨╡╨║╤Г╤Й╨╡╨╝╤Г ╤Б╨╗╨╛╨▓╤Г
 \fi
 
 {\bf Ctrl+G} 
 \ifenglish
 - \ref[Go to line]{IDM\_GOTOLINE} with given number
 \else
-- \ref[Перейти на строку]{IDM\_GOTOLINE} с заданным номером
+- \ref[╨Я╨╡╤А╨╡╨╣╤В╨╕ ╨╜╨░ ╤Б╤В╤А╨╛╨║╤Г]{IDM\_GOTOLINE} ╤Б ╨╖╨░╨┤╨░╨╜╨╜╤Л╨╝ ╨╜╨╛╨╝╨╡╤А╨╛╨╝
 \fi
 
 \ifenglish
 \section{Macros}
 \else
-\section{Макрокоманды}
+\section{╨Ь╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤╤Л}
  \fi
 \public{Macros}
 
 \ifenglish
 {\bf New in 2.6:}
 \else
-{\bf Новое в версии 2.6:}
+{\bf ╨Э╨╛╨▓╨╛╨╡ ╨▓ ╨▓╨╡╤А╤Б╨╕╨╕ 2.6:}
 \fi
 
 \ifenglish
@@ -676,16 +676,16 @@ To do that, you need to create a {\it macro defiition file} in the \verb'BIN\'
 subdirectory of your XDS installation. 
 You may also create language-specific sets of macros.
 \else
-Вы можете определить свои собственные макрокоманды и назначить им клавиатурные события.
-Для этого нужно создать {\it файл с определениями макрокоманд} в папке \verb'XDS\BIN'.
-Вы также можете создать наборы макрокоманд, специфичные для данного языка 
-программирования.
+╨Т╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╕╤В╤М ╤Б╨▓╨╛╨╕ ╤Б╨╛╨▒╤Б╤В╨▓╨╡╨╜╨╜╤Л╨╡ ╨╝╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤╤Л ╨╕ ╨╜╨░╨╖╨╜╨░╤З╨╕╤В╤М ╨╕╨╝ ╨║╨╗╨░╨▓╨╕╨░╤В╤Г╤А╨╜╤Л╨╡ ╤Б╨╛╨▒╤Л╤В╨╕╤П.
+╨Ф╨╗╤П ╤Н╤В╨╛╨│╨╛ ╨╜╤Г╨╢╨╜╨╛ ╤Б╨╛╨╖╨┤╨░╤В╤М {\it ╤Д╨░╨╣╨╗ ╤Б ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╤П╨╝╨╕ ╨╝╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤} ╨▓ ╨┐╨░╨┐╨║╨╡ \verb'XDS\BIN'.
+╨Т╤Л ╤В╨░╨║╨╢╨╡ ╨╝╨╛╨╢╨╡╤В╨╡ ╤Б╨╛╨╖╨┤╨░╤В╤М ╨╜╨░╨▒╨╛╤А╤Л ╨╝╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤, ╤Б╨┐╨╡╤Ж╨╕╤Д╨╕╤З╨╜╤Л╨╡ ╨┤╨╗╤П ╨┤╨░╨╜╨╜╨╛╨│╨╛ ╤П╨╖╤Л╨║╨░ 
+╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨╕╤А╨╛╨▓╨░╨╜╨╕╤П.
 \fi
 
 \ifenglish
 \subsection{Macro definitions}
 \else
-\subsection{Определения макрокоманд}
+\subsection{╨Ю╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╕╤П ╨╝╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤}
 \fi
 
 \ifenglish
@@ -705,21 +705,21 @@ subdirectory of your XDS installation.)
 
 Examples:
 \else
-Каждый макрос описывается как 
+╨Ъ╨░╨╢╨┤╤Л╨╣ ╨╝╨░╨║╤А╨╛╤Б ╨╛╨┐╨╕╤Б╤Л╨▓╨░╨╡╤В╤Б╤П ╨║╨░╨║ 
 
-\verb'    '{\it Событие}\verb'='{\it Действия}
+\verb'    '{\it ╨б╨╛╨▒╤Л╤В╨╕╨╡}\verb'='{\it ╨Ф╨╡╨╣╤Б╤В╨▓╨╕╤П}
 
-{\it Событие} --- описание клавиатурного события, по которому запускается 
-данная макрокоманда. Оно состоит из кода клавиши и необязательных модификаторов
-\verb'ALT', \verb'CONTROL', и \verb'SHIFT', перечисленных в произвольном порядке 
-через запятую. 
-В качестве кода клавиши можно указать печатный символ в кавычках, или 
-константу Win32 API, обозначающую виртуальную клавишу,
-без префикса ``\verb'VK_''': \verb'F1', \verb'LEFT' и т.д. 
-Полный набор этих констант можно найти в файле \verb'Windows.def' или
-\verb'WinUser.def' в подпапке \verb'DEF\Win32\'.
+{\it ╨б╨╛╨▒╤Л╤В╨╕╨╡} --- ╨╛╨┐╨╕╤Б╨░╨╜╨╕╨╡ ╨║╨╗╨░╨▓╨╕╨░╤В╤Г╤А╨╜╨╛╨│╨╛ ╤Б╨╛╨▒╤Л╤В╨╕╤П, ╨┐╨╛ ╨║╨╛╤В╨╛╤А╨╛╨╝╤Г ╨╖╨░╨┐╤Г╤Б╨║╨░╨╡╤В╤Б╤П 
+╨┤╨░╨╜╨╜╨░╤П ╨╝╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤╨░. ╨Ю╨╜╨╛ ╤Б╨╛╤Б╤В╨╛╨╕╤В ╨╕╨╖ ╨║╨╛╨┤╨░ ╨║╨╗╨░╨▓╨╕╤И╨╕ ╨╕ ╨╜╨╡╨╛╨▒╤П╨╖╨░╤В╨╡╨╗╤М╨╜╤Л╤Е ╨╝╨╛╨┤╨╕╤Д╨╕╨║╨░╤В╨╛╤А╨╛╨▓
+\verb'ALT', \verb'CONTROL', ╨╕ \verb'SHIFT', ╨┐╨╡╤А╨╡╤З╨╕╤Б╨╗╨╡╨╜╨╜╤Л╤Е ╨▓ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨╗╤М╨╜╨╛╨╝ ╨┐╨╛╤А╤П╨┤╨║╨╡ 
+╤З╨╡╤А╨╡╨╖ ╨╖╨░╨┐╤П╤В╤Г╤О. 
+╨Т ╨║╨░╤З╨╡╤Б╤В╨▓╨╡ ╨║╨╛╨┤╨░ ╨║╨╗╨░╨▓╨╕╤И╨╕ ╨╝╨╛╨╢╨╜╨╛ ╤Г╨║╨░╨╖╨░╤В╤М ╨┐╨╡╤З╨░╤В╨╜╤Л╨╣ ╤Б╨╕╨╝╨▓╨╛╨╗ ╨▓ ╨║╨░╨▓╤Л╤З╨║╨░╤Е, ╨╕╨╗╨╕ 
+╨║╨╛╨╜╤Б╤В╨░╨╜╤В╤Г Win32 API, ╨╛╨▒╨╛╨╖╨╜╨░╤З╨░╤О╤Й╤Г╤О ╨▓╨╕╤А╤В╤Г╨░╨╗╤М╨╜╤Г╤О ╨║╨╗╨░╨▓╨╕╤И╤Г,
+╨▒╨╡╨╖ ╨┐╤А╨╡╤Д╨╕╨║╤Б╨░ ``\verb'VK_''': \verb'F1', \verb'LEFT' ╨╕ ╤В.╨┤. 
+╨Я╨╛╨╗╨╜╤Л╨╣ ╨╜╨░╨▒╨╛╤А ╤Н╤В╨╕╤Е ╨║╨╛╨╜╤Б╤В╨░╨╜╤В ╨╝╨╛╨╢╨╜╨╛ ╨╜╨░╨╣╤В╨╕ ╨▓ ╤Д╨░╨╣╨╗╨╡ \verb'Windows.def' ╨╕╨╗╨╕
+\verb'WinUser.def' ╨▓ ╨┐╨╛╨┤╨┐╨░╨┐╨║╨╡ \verb'DEF\Win32\'.
 
-Примеры:
+╨Я╤А╨╕╨╝╨╡╤А╤Л:
 \fi
 
 \begin{verbatim}
@@ -734,19 +734,19 @@ Each action is either a literal string of characters that must be "typed"
 into the current source file, or a \ref[editor command]{EditorCommands}.
 Long lines may be split using backslash ``\verb'\'''.
 \else
-{\it Действия} --- последовательность действий, которые оболочка должна выполнить
-при получении {\it События}, перечисленная через запятую. 
-Каждое действие --- это или строчка в кавычках, 
-которая просто ``впечатывается'' в текущий файл, 
-или \ref[команда редактора]{EditorCommands}. 
-При необходимости можно разбить {\it Действия} на несколько строк, 
-при этом все строки, кроме последней, должны заканчиваться символом ``\verb'\'''.
+{\it ╨Ф╨╡╨╣╤Б╤В╨▓╨╕╤П} --- ╨┐╨╛╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╨╡╨╗╤М╨╜╨╛╤Б╤В╤М ╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╣, ╨║╨╛╤В╨╛╤А╤Л╨╡ ╨╛╨▒╨╛╨╗╨╛╤З╨║╨░ ╨┤╨╛╨╗╨╢╨╜╨░ ╨▓╤Л╨┐╨╛╨╗╨╜╨╕╤В╤М
+╨┐╤А╨╕ ╨┐╨╛╨╗╤Г╤З╨╡╨╜╨╕╨╕ {\it ╨б╨╛╨▒╤Л╤В╨╕╤П}, ╨┐╨╡╤А╨╡╤З╨╕╤Б╨╗╨╡╨╜╨╜╨░╤П ╤З╨╡╤А╨╡╨╖ ╨╖╨░╨┐╤П╤В╤Г╤О. 
+╨Ъ╨░╨╢╨┤╨╛╨╡ ╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╡ --- ╤Н╤В╨╛ ╨╕╨╗╨╕ ╤Б╤В╤А╨╛╤З╨║╨░ ╨▓ ╨║╨░╨▓╤Л╤З╨║╨░╤Е, 
+╨║╨╛╤В╨╛╤А╨░╤П ╨┐╤А╨╛╤Б╤В╨╛ ``╨▓╨┐╨╡╤З╨░╤В╤Л╨▓╨░╨╡╤В╤Б╤П'' ╨▓ ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╤Д╨░╨╣╨╗, 
+╨╕╨╗╨╕ \ref[╨║╨╛╨╝╨░╨╜╨┤╨░ ╤А╨╡╨┤╨░╨║╤В╨╛╤А╨░]{EditorCommands}. 
+╨Я╤А╨╕ ╨╜╨╡╨╛╨▒╤Е╨╛╨┤╨╕╨╝╨╛╤Б╤В╨╕ ╨╝╨╛╨╢╨╜╨╛ ╤А╨░╨╖╨▒╨╕╤В╤М {\it ╨Ф╨╡╨╣╤Б╤В╨▓╨╕╤П} ╨╜╨░ ╨╜╨╡╤Б╨║╨╛╨╗╤М╨║╨╛ ╤Б╤В╤А╨╛╨║, 
+╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ╨▓╤Б╨╡ ╤Б╤В╤А╨╛╨║╨╕, ╨║╤А╨╛╨╝╨╡ ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨╣, ╨┤╨╛╨╗╨╢╨╜╤Л ╨╖╨░╨║╨░╨╜╤З╨╕╨▓╨░╤В╤М╤Б╤П ╤Б╨╕╨╝╨▓╨╛╨╗╨╛╨╝ ``\verb'\'''.
 
-Примечание: кавычки везде имеются в виду Модуловские, то есть открывающая 
-или одинарная или двойная, закрывающая --- такая же, 
-а то, что между ними --- содержимое.
+╨Я╤А╨╕╨╝╨╡╤З╨░╨╜╨╕╨╡: ╨║╨░╨▓╤Л╤З╨║╨╕ ╨▓╨╡╨╖╨┤╨╡ ╨╕╨╝╨╡╤О╤В╤Б╤П ╨▓ ╨▓╨╕╨┤╤Г ╨Ь╨╛╨┤╤Г╨╗╨╛╨▓╤Б╨║╨╕╨╡, ╤В╨╛ ╨╡╤Б╤В╤М ╨╛╤В╨║╤А╤Л╨▓╨░╤О╤Й╨░╤П 
+╨╕╨╗╨╕ ╨╛╨┤╨╕╨╜╨░╤А╨╜╨░╤П ╨╕╨╗╨╕ ╨┤╨▓╨╛╨╣╨╜╨░╤П, ╨╖╨░╨║╤А╤Л╨▓╨░╤О╤Й╨░╤П --- ╤В╨░╨║╨░╤П ╨╢╨╡, 
+╨░ ╤В╨╛, ╤З╤В╨╛ ╨╝╨╡╨╢╨┤╤Г ╨╜╨╕╨╝╨╕ --- ╤Б╨╛╨┤╨╡╤А╨╢╨╕╨╝╨╛╨╡.
 
-Примеры:
+╨Я╤А╨╕╨╝╨╡╤А╤Л:
 \fi
 
 \verb|CONTROL,'W'="WHILE  DO",CR,"END;",UP,LINEEND,LEFTWORD,LEFT| \\
@@ -754,7 +754,7 @@ Long lines may be split using backslash ``\verb'\'''.
 \ifenglish
   creates an empty WHILE-loop and moves the cursor to the condition placeholder
 \else
-  делает болванку while-цикла и ставит каретку в позицию его условия
+  ╨┤╨╡╨╗╨░╨╡╤В ╨▒╨╛╨╗╨▓╨░╨╜╨║╤Г while-╤Ж╨╕╨║╨╗╨░ ╨╕ ╤Б╤В╨░╨▓╨╕╤В ╨║╨░╤А╨╡╤В╨║╤Г ╨▓ ╨┐╨╛╨╖╨╕╤Ж╨╕╤О ╨╡╨│╨╛ ╤Г╤Б╨╗╨╛╨▓╨╕╤П
 \fi
 } % \small
 
@@ -766,21 +766,21 @@ Long lines may be split using backslash ``\verb'\'''.
   creates a definition module template with copyright notice 
   (usage: create a new file, type the desired module name, and press {\bf Ctrl-1}.)
 \else
-  делает болванку DEFINITION-модуля c уведомлением об авторском праве.
+  ╨┤╨╡╨╗╨░╨╡╤В ╨▒╨╛╨╗╨▓╨░╨╜╨║╤Г DEFINITION-╨╝╨╛╨┤╤Г╨╗╤П c ╤Г╨▓╨╡╨┤╨╛╨╝╨╗╨╡╨╜╨╕╨╡╨╝ ╨╛╨▒ ╨░╨▓╤В╨╛╤А╤Б╨║╨╛╨╝ ╨┐╤А╨░╨▓╨╡.
 \fi
 } % \small
 
 \ifenglish
 \subsection{Editor commands}
 \else
-\subsection{Команды редактора}
+\subsection{╨Ъ╨╛╨╝╨░╨╜╨┤╤Л ╤А╨╡╨┤╨░╨║╤В╨╛╤А╨░}
 \fi
 \public{EditorCommands}
 
 \ifenglish
 Cursor movement
 \else
-Перемещения каретки:
+╨Я╨╡╤А╨╡╨╝╨╡╤Й╨╡╨╜╨╕╤П ╨║╨░╤А╨╡╤В╨║╨╕:
 \fi
 
 RIGHT, LEFT, UP, DOWN, PGUP, PGDOWN, LINESTART, LINEEND, PAGESTART, PAGEEND, RIGHTWORD, LEFTWORD
@@ -788,7 +788,7 @@ RIGHT, LEFT, UP, DOWN, PGUP, PGDOWN, LINESTART, LINEEND, PAGESTART, PAGEEND, RIG
 \ifenglish
 Cursor movement with selection (same commands with \verb'BLK' prefix)
 \else
-Перемещения каретки с выделением текста (те же слова, что и предыдущий раздел, но с префиксом BLK):
+╨Я╨╡╤А╨╡╨╝╨╡╤Й╨╡╨╜╨╕╤П ╨║╨░╤А╨╡╤В╨║╨╕ ╤Б ╨▓╤Л╨┤╨╡╨╗╨╡╨╜╨╕╨╡╨╝ ╤В╨╡╨║╤Б╤В╨░ (╤В╨╡ ╨╢╨╡ ╤Б╨╗╨╛╨▓╨░, ╤З╤В╨╛ ╨╕ ╨┐╤А╨╡╨┤╤Л╨┤╤Г╤Й╨╕╨╣ ╤А╨░╨╖╨┤╨╡╨╗, ╨╜╨╛ ╤Б ╨┐╤А╨╡╤Д╨╕╨║╤Б╨╛╨╝ BLK):
 \fi
 
 BLKRIGHT, BLKLEFT, BLKUP, BLKDOWN, BLKPGUP, BLKPGDOWN, BLKLINESTART, BLKLINEEND, BLKPAGESTART, BLKPAGEEND, BLKRIGHTWORD, BLKLEFTWORD
@@ -796,7 +796,7 @@ BLKRIGHT, BLKLEFT, BLKUP, BLKDOWN, BLKPGUP, BLKPGDOWN, BLKLINESTART, BLKLINEEND,
 \ifenglish
 Miscellaneous:
 \else
-Разнообразные действия:
+╨а╨░╨╖╨╜╨╛╨╛╨▒╤А╨░╨╖╨╜╤Л╨╡ ╨┤╨╡╨╣╤Б╤В╨▓╨╕╤П:
 \fi
 
 DEL, BS, TAB, BACKTAB, DELWORD, DELWORDLEFT, FLIPINSERT, NEXTLINE, INSERTLINE, CR, DELLINE, SPLITLINE, JOINLINES, UNDO, UPPERCASE, FLIPCASE
@@ -804,7 +804,7 @@ DEL, BS, TAB, BACKTAB, DELWORD, DELWORDLEFT, FLIPINSERT, NEXTLINE, INSERTLINE, C
 \ifenglish
 Block indenting:
 \else
-Сдвижка блоков:
+╨б╨┤╨▓╨╕╨╢╨║╨░ ╨▒╨╗╨╛╨║╨╛╨▓:
 \fi
 
 INDENTLEFT, INDENTLEFT1, INDENTRIGHT, INDENTRIGHT1
@@ -812,7 +812,7 @@ INDENTLEFT, INDENTLEFT1, INDENTRIGHT, INDENTRIGHT1
 \ifenglish
 Private clipboard operations (each editor window has a private clipboard, only accessible from macros)
 \else
-Взаимодействие с приватным буфером обмена, имеющимся у каждого окна редактирования специально для работы с макросами
+╨Т╨╖╨░╨╕╨╝╨╛╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╡ ╤Б ╨┐╤А╨╕╨▓╨░╤В╨╜╤Л╨╝ ╨▒╤Г╤Д╨╡╤А╨╛╨╝ ╨╛╨▒╨╝╨╡╨╜╨░, ╨╕╨╝╨╡╤О╤Й╨╕╨╝╤Б╤П ╤Г ╨║╨░╨╢╨┤╨╛╨│╨╛ ╨╛╨║╨╜╨░ ╤А╨╡╨┤╨░╨║╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╤П ╤Б╨┐╨╡╤Ж╨╕╨░╨╗╤М╨╜╨╛ ╨┤╨╗╤П ╤А╨░╨▒╨╛╤В╤Л ╤Б ╨╝╨░╨║╤А╨╛╤Б╨░╨╝╨╕
 \fi
 
 COPY, PASTE, CUT, EXCHANGE, ADD
@@ -820,7 +820,7 @@ COPY, PASTE, CUT, EXCHANGE, ADD
 \ifenglish
 System clipboard operations
 \else
-Взаимодействие с системным буфером обмена
+╨Т╨╖╨░╨╕╨╝╨╛╨┤╨╡╨╣╤Б╤В╨▓╨╕╨╡ ╤Б ╤Б╨╕╤Б╤В╨╡╨╝╨╜╤Л╨╝ ╨▒╤Г╤Д╨╡╤А╨╛╨╝ ╨╛╨▒╨╝╨╡╨╜╨░
 \fi
 
 SYSCOPY, SYSPASTE, SYSCUT, SYSEXCHANGE, SYSADD
@@ -828,7 +828,7 @@ SYSCOPY, SYSPASTE, SYSCUT, SYSEXCHANGE, SYSADD
 \ifenglish
 Bookmarks
 \else
-Закладки
+╨Ч╨░╨║╨╗╨░╨┤╨║╨╕
 \fi
 
 SETBOOKMARK1, SETBOOKMARK2..SETBOOKMARK9 \\
@@ -837,7 +837,7 @@ GOTOBOOKMARK1, GOTOBOOKMARK2..GOTOBOOKMARK9
 \ifenglish
 \subsubsection{Example macro definition file for Modula-2}
 \else
-\subsubsection{Пример файла описаний макросов для Модулы-2}
+\subsubsection{╨Я╤А╨╕╨╝╨╡╤А ╤Д╨░╨╣╨╗╨░ ╨╛╨┐╨╕╤Б╨░╨╜╨╕╨╣ ╨╝╨░╨║╤А╨╛╤Б╨╛╨▓ ╨┤╨╗╤П ╨Ь╨╛╨┤╤Г╨╗╤Л-2}
 \fi
 
 \begin{verbatim}
@@ -865,7 +865,7 @@ GOTOBOOKMARK1, GOTOBOOKMARK2..GOTOBOOKMARK9
 \ifenglish
 \subsection{Prefix mode}
 \else
-\subsection{Префиксный режим}
+\subsection{╨Я╤А╨╡╤Д╨╕╨║╤Б╨╜╤Л╨╣ ╤А╨╡╨╢╨╕╨╝}
 \fi
 
 \ifenglish
@@ -874,12 +874,12 @@ the macro toggle key ({\bf F1}) and {\it Event}.
 To enable this mode, insert the following line at the top of your 
 macro definition file:
 \else
-Режим cделан по воспомнинаниям о Кроносе. 
-Макрокоманды в этом режиме запускается не одним событием клавиатуры, 
-а последовательностью из двух --- нажатие {\bf F1} и собственно {\it Cобытие}. 
+╨а╨╡╨╢╨╕╨╝ c╨┤╨╡╨╗╨░╨╜ ╨┐╨╛ ╨▓╨╛╤Б╨┐╨╛╨╝╨╜╨╕╨╜╨░╨╜╨╕╤П╨╝ ╨╛ ╨Ъ╤А╨╛╨╜╨╛╤Б╨╡. 
+╨Ь╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤╤Л ╨▓ ╤Н╤В╨╛╨╝ ╤А╨╡╨╢╨╕╨╝╨╡ ╨╖╨░╨┐╤Г╤Б╨║╨░╨╡╤В╤Б╤П ╨╜╨╡ ╨╛╨┤╨╜╨╕╨╝ ╤Б╨╛╨▒╤Л╤В╨╕╨╡╨╝ ╨║╨╗╨░╨▓╨╕╨░╤В╤Г╤А╤Л, 
+╨░ ╨┐╨╛╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╨╡╨╗╤М╨╜╨╛╤Б╤В╤М╤О ╨╕╨╖ ╨┤╨▓╤Г╤Е --- ╨╜╨░╨╢╨░╤В╨╕╨╡ {\bf F1} ╨╕ ╤Б╨╛╨▒╤Б╤В╨▓╨╡╨╜╨╜╨╛ {\it C╨╛╨▒╤Л╤В╨╕╨╡}. 
 
-Чтобы его этот режим, в соответствующий файл с описаниями макросов 
-надо вставить строчку
+╨з╤В╨╛╨▒╤Л ╨╡╨│╨╛ ╤Н╤В╨╛╤В ╤А╨╡╨╢╨╕╨╝, ╨▓ ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╤В╨▓╤Г╤О╤Й╨╕╨╣ ╤Д╨░╨╣╨╗ ╤Б ╨╛╨┐╨╕╤Б╨░╨╜╨╕╤П╨╝╨╕ ╨╝╨░╨║╤А╨╛╤Б╨╛╨▓ 
+╨╜╨░╨┤╨╛ ╨▓╤Б╤В╨░╨▓╨╕╤В╤М ╤Б╤В╤А╨╛╤З╨║╤Г
 \fi
 
 \verb'    toggleon'
@@ -887,7 +887,7 @@ macro definition file:
 \ifenglish
 Then a macro defined as
 \else
-После чего макрос, описанный как
+╨Я╨╛╤Б╨╗╨╡ ╤З╨╡╨│╨╛ ╨╝╨░╨║╤А╨╛╤Б, ╨╛╨┐╨╕╤Б╨░╨╜╨╜╤Л╨╣ ╨║╨░╨║
 \fi
 
 \verb'    CONTROL,"C"="CHAR"'
@@ -896,7 +896,7 @@ Then a macro defined as
 will not fire each time you press {\bf Ctrl-C}, but only if you press
 {\bf F1} first.
 \else
-будет запускаться не по нажатию {\bf Ctrl-C}, а по последовательности нажатий
+╨▒╤Г╨┤╨╡╤В ╨╖╨░╨┐╤Г╤Б╨║╨░╤В╤М╤Б╤П ╨╜╨╡ ╨┐╨╛ ╨╜╨░╨╢╨░╤В╨╕╤О {\bf Ctrl-C}, ╨░ ╨┐╨╛ ╨┐╨╛╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╨╡╨╗╤М╨╜╨╛╤Б╤В╨╕ ╨╜╨░╨╢╨░╤В╨╕╨╣
 ({\bf F1}, {\bf Ctrl-C}).
 \fi
 
@@ -904,14 +904,14 @@ will not fire each time you press {\bf Ctrl-C}, but only if you press
 {\bf Note:} As you might have guessed, in this mode you need to press 
 {\bf F1} twice to display online help.
 \else
-{\bf Примечание:} В префиксном режиме подсказка вызывается 
-двойным нажатием {\bf F1}.
+{\bf ╨Я╤А╨╕╨╝╨╡╤З╨░╨╜╨╕╨╡:} ╨Т ╨┐╤А╨╡╤Д╨╕╨║╤Б╨╜╨╛╨╝ ╤А╨╡╨╢╨╕╨╝╨╡ ╨┐╨╛╨┤╤Б╨║╨░╨╖╨║╨░ ╨▓╤Л╨╖╤Л╨▓╨░╨╡╤В╤Б╤П 
+╨┤╨▓╨╛╨╣╨╜╤Л╨╝ ╨╜╨░╨╢╨░╤В╨╕╨╡╨╝ {\bf F1}.
 \fi
 
 \ifenglish
 \subsubsection{Example macro definition file for Modula-2 (prefix mode)}
 \else
-\subsubsection{Пример файла описаний макросов для Модулы-2 (префиксный режим)}
+\subsubsection{╨Я╤А╨╕╨╝╨╡╤А ╤Д╨░╨╣╨╗╨░ ╨╛╨┐╨╕╤Б╨░╨╜╨╕╨╣ ╨╝╨░╨║╤А╨╛╤Б╨╛╨▓ ╨┤╨╗╤П ╨Ь╨╛╨┤╤Г╨╗╤Л-2 (╨┐╤А╨╡╤Д╨╕╨║╤Б╨╜╤Л╨╣ ╤А╨╡╨╢╨╕╨╝)}
 \fi
 \begin{verbatim}
     toggleon
@@ -939,7 +939,7 @@ will not fire each time you press {\bf Ctrl-C}, but only if you press
 \ifenglish
 \subsection{Registering macro definition files}
 \else
-\subsection{Регистрация наборов макрокоманд}
+\subsection{╨а╨╡╨│╨╕╤Б╤В╤А╨░╤Ж╨╕╤П ╨╜╨░╨▒╨╛╤А╨╛╨▓ ╨╝╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤}
 \fi
 \public{MacroSets}
 
@@ -951,14 +951,14 @@ which is, in turn, loaded from the file \verb'BIN\xds.mdf'
 by default. To change the name of the default macro definition file,
 add the following line to the \verb'[macro]' section in \verb'BIN\XDS.ini':
 \else
-Оболочка выбирает набор макросов для каждого окна редактора 
-в соответствии с \ref[языком программирования]{Languages}, 
-который в нем используется. Если язык определить не удалось или
-для него не задан отдельный набор макросов, то для этого окна 
-используется умолчательный. Опять же по умолчанию этот набор 
-берется из файла \verb'BIN\xds.mdf' в папке, куда установлена система XDS.
-Чтобы заменить это имя на, скажем, ``\verb'mymacro.file''', нужно в 
-файле \verb'BIN\XDS.ini' завести секцию \verb'[macro]' и в ней написать:
+╨Ю╨▒╨╛╨╗╨╛╤З╨║╨░ ╨▓╤Л╨▒╨╕╤А╨░╨╡╤В ╨╜╨░╨▒╨╛╤А ╨╝╨░╨║╤А╨╛╤Б╨╛╨▓ ╨┤╨╗╤П ╨║╨░╨╢╨┤╨╛╨│╨╛ ╨╛╨║╨╜╨░ ╤А╨╡╨┤╨░╨║╤В╨╛╤А╨░ 
+╨▓ ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╤В╨▓╨╕╨╕ ╤Б \ref[╤П╨╖╤Л╨║╨╛╨╝ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨╕╤А╨╛╨▓╨░╨╜╨╕╤П]{Languages}, 
+╨║╨╛╤В╨╛╤А╤Л╨╣ ╨▓ ╨╜╨╡╨╝ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В╤Б╤П. ╨Х╤Б╨╗╨╕ ╤П╨╖╤Л╨║ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╕╤В╤М ╨╜╨╡ ╤Г╨┤╨░╨╗╨╛╤Б╤М ╨╕╨╗╨╕
+╨┤╨╗╤П ╨╜╨╡╨│╨╛ ╨╜╨╡ ╨╖╨░╨┤╨░╨╜ ╨╛╤В╨┤╨╡╨╗╤М╨╜╤Л╨╣ ╨╜╨░╨▒╨╛╤А ╨╝╨░╨║╤А╨╛╤Б╨╛╨▓, ╤В╨╛ ╨┤╨╗╤П ╤Н╤В╨╛╨│╨╛ ╨╛╨║╨╜╨░ 
+╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В╤Б╤П ╤Г╨╝╨╛╨╗╤З╨░╤В╨╡╨╗╤М╨╜╤Л╨╣. ╨Ю╨┐╤П╤В╤М ╨╢╨╡ ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О ╤Н╤В╨╛╤В ╨╜╨░╨▒╨╛╤А 
+╨▒╨╡╤А╨╡╤В╤Б╤П ╨╕╨╖ ╤Д╨░╨╣╨╗╨░ \verb'BIN\xds.mdf' ╨▓ ╨┐╨░╨┐╨║╨╡, ╨║╤Г╨┤╨░ ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╗╨╡╨╜╨░ ╤Б╨╕╤Б╤В╨╡╨╝╨░ XDS.
+╨з╤В╨╛╨▒╤Л ╨╖╨░╨╝╨╡╨╜╨╕╤В╤М ╤Н╤В╨╛ ╨╕╨╝╤П ╨╜╨░, ╤Б╨║╨░╨╢╨╡╨╝, ``\verb'mymacro.file''', ╨╜╤Г╨╢╨╜╨╛ ╨▓ 
+╤Д╨░╨╣╨╗╨╡ \verb'BIN\XDS.ini' ╨╖╨░╨▓╨╡╤Б╤В╨╕ ╤Б╨╡╨║╤Ж╨╕╤О \verb'[macro]' ╨╕ ╨▓ ╨╜╨╡╨╣ ╨╜╨░╨┐╨╕╤Б╨░╤В╤М:
 \fi
 
 \verb'    default=mymacro.file'
@@ -967,8 +967,8 @@ add the following line to the \verb'[macro]' section in \verb'BIN\XDS.ini':
 For the IDE to load a different macro set for Modula-2 source files
 from file \verb'BIN\m2o2.mdf', add the following line to the same section:
 \else  
-А чтобы для файлов с исходными текстами на Модуле-2 использовался 
-набор макрокоманд из файла "m2o2.mdf", в той же секции ini-файла нужно написать:
+╨Р ╤З╤В╨╛╨▒╤Л ╨┤╨╗╤П ╤Д╨░╨╣╨╗╨╛╨▓ ╤Б ╨╕╤Б╤Е╨╛╨┤╨╜╤Л╨╝╨╕ ╤В╨╡╨║╤Б╤В╨░╨╝╨╕ ╨╜╨░ ╨Ь╨╛╨┤╤Г╨╗╨╡-2 ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╗╤Б╤П 
+╨╜╨░╨▒╨╛╤А ╨╝╨░╨║╤А╨╛╨║╨╛╨╝╨░╨╜╨┤ ╨╕╨╖ ╤Д╨░╨╣╨╗╨░ "m2o2.mdf", ╨▓ ╤В╨╛╨╣ ╨╢╨╡ ╤Б╨╡╨║╤Ж╨╕╨╕ ini-╤Д╨░╨╣╨╗╨░ ╨╜╤Г╨╢╨╜╨╛ ╨╜╨░╨┐╨╕╤Б╨░╤В╤М:
 \fi
 
 \verb'    Modula-2=m2o2.mdf'
@@ -977,14 +977,14 @@ from file \verb'BIN\m2o2.mdf', add the following line to the same section:
 You may add a macro set for any of the languages listed in 
 the \verb'[languages]' section of the same ini-file.
 \else  
-Для других известных оболочке языков все делается аналогично.
-(имена этих языков перечислены в секции \verb'[languages]' того же ini-файла).
+╨Ф╨╗╤П ╨┤╤А╤Г╨│╨╕╤Е ╨╕╨╖╨▓╨╡╤Б╤В╨╜╤Л╤Е ╨╛╨▒╨╛╨╗╨╛╤З╨║╨╡ ╤П╨╖╤Л╨║╨╛╨▓ ╨▓╤Б╨╡ ╨┤╨╡╨╗╨░╨╡╤В╤Б╤П ╨░╨╜╨░╨╗╨╛╨│╨╕╤З╨╜╨╛.
+(╨╕╨╝╨╡╨╜╨░ ╤Н╤В╨╕╤Е ╤П╨╖╤Л╨║╨╛╨▓ ╨┐╨╡╤А╨╡╤З╨╕╤Б╨╗╨╡╨╜╤Л ╨▓ ╤Б╨╡╨║╤Ж╨╕╨╕ \verb'[languages]' ╤В╨╛╨│╨╛ ╨╢╨╡ ini-╤Д╨░╨╣╨╗╨░).
 \fi
 
 \ifenglish
 Example:
 \else  
-Пример:
+╨Я╤А╨╕╨╝╨╡╤А:
 \fi
 
 \begin{verbatim}

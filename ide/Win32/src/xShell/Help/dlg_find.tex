@@ -1,7 +1,7 @@
 \ifenglish
 \section{Find Text dialog}
  \else
-\section{диалог Find Text}
+\section{╨┤╨╕╨░╨╗╨╛╨│ Find Text}
 \fi
 \public{SEARCH\_DIALOG}
 \nominitoc
@@ -12,10 +12,10 @@ or by pressing {\bf Ctrl+F} key.
 
 To search the current file for a certain string:
  \else
-Этот диалог вызывается командой меню \ref[Edit]{M\_EDIT}:\ref[Find]{IDM\_FIND}
-или путем нажатия клавиши {\bf Ctrl+F}.
+╨н╤В╨╛╤В ╨┤╨╕╨░╨╗╨╛╨│ ╨▓╤Л╨╖╤Л╨▓╨░╨╡╤В╤Б╤П ╨║╨╛╨╝╨░╨╜╨┤╨╛╨╣ ╨╝╨╡╨╜╤О \ref[Edit]{M\_EDIT}:\ref[Find]{IDM\_FIND}
+╨╕╨╗╨╕ ╨┐╤Г╤В╨╡╨╝ ╨╜╨░╨╢╨░╤В╨╕╤П ╨║╨╗╨░╨▓╨╕╤И╨╕ {\bf Ctrl+F}.
 
-Чтобы найти в текущем файле определенную строку:
+╨з╤В╨╛╨▒╤Л ╨╜╨░╨╣╤В╨╕ ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╝ ╤Д╨░╨╣╨╗╨╡ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╜╤Г╤О ╤Б╤В╤А╨╛╨║╤Г:
 \fi
 \begin{enumerate}
 \item 
@@ -23,63 +23,63 @@ To search the current file for a certain string:
       Type it in the {\bf Text to find} field or select it from search history
       by pressing down arrow button next to the entry field.
        \else
-      Наберите ее в поле {\bf Text to find} или выберите из архива поиска путем
-      нажатия на кнопку со стрелкой рядом с полем ввода.
+      ╨Э╨░╨▒╨╡╤А╨╕╤В╨╡ ╨╡╨╡ ╨▓ ╨┐╨╛╨╗╨╡ {\bf Text to find} ╨╕╨╗╨╕ ╨▓╤Л╨▒╨╡╤А╨╕╤В╨╡ ╨╕╨╖ ╨░╤А╤Е╨╕╨▓╨░ ╨┐╨╛╨╕╤Б╨║╨░ ╨┐╤Г╤В╨╡╨╝
+      ╨╜╨░╨╢╨░╤В╨╕╤П ╨╜╨░ ╨║╨╜╨╛╨┐╨║╤Г ╤Б╨╛ ╤Б╤В╤А╨╡╨╗╨║╨╛╨╣ ╤А╤П╨┤╨╛╨╝ ╤Б ╨┐╨╛╨╗╨╡╨╝ ╨▓╨▓╨╛╨┤╨░.
       \fi
 \item 
       \ifenglish
       Select in {\bf Find text as} group which occurrences of the text you are interested in.
       Following options are available:
        \else
-      В группе {\bf Find text as} определите, какие вхождения вашей строки вас интересуют
+      ╨Т ╨│╤А╤Г╨┐╨┐╨╡ {\bf Find text as} ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╕╤В╨╡, ╨║╨░╨║╨╕╨╡ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П ╨▓╨░╤И╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╕ ╨▓╨░╤Б ╨╕╨╜╤В╨╡╤А╨╡╤Б╤Г╤О╤В
       \fi
       
       {\bf Any text} 
       \ifenglish
       -- any occurrence is acceptable
       \else
-      -- любое вхождение приемлемо
+      -- ╨╗╤О╨▒╨╛╨╡ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╨╡ ╨┐╤А╨╕╨╡╨╝╨╗╨╡╨╝╨╛
       \fi
       {\bf Word prefix} 
       \ifenglish
       -- word break must precede the text
       \else
-      -- перед текстом должно находиться начало слова
+      -- ╨┐╨╡╤А╨╡╨┤ ╤В╨╡╨║╤Б╤В╨╛╨╝ ╨┤╨╛╨╗╨╢╨╜╨╛ ╨╜╨░╤Е╨╛╨┤╨╕╤В╤М╤Б╤П ╨╜╨░╤З╨░╨╗╨╛ ╤Б╨╗╨╛╨▓╨░
       \fi
       {\bf Word suffix} 
       \ifenglish
       -- word break must follow the text
       \else
-      -- после текста должен следовать конец слова
+      -- ╨┐╨╛╤Б╨╗╨╡ ╤В╨╡╨║╤Б╤В╨░ ╨┤╨╛╨╗╨╢╨╡╨╜ ╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╤М ╨║╨╛╨╜╨╡╤Ж ╤Б╨╗╨╛╨▓╨░
       \fi
       {\bf Whole word}
      \ifenglish 
       -- text must be surrounded by word breaks
       \else
-      -- текст должен быть ограничен промежутками между словами
+      -- ╤В╨╡╨║╤Б╤В ╨┤╨╛╨╗╨╢╨╡╨╜ ╨▒╤Л╤В╤М ╨╛╨│╤А╨░╨╜╨╕╤З╨╡╨╜ ╨┐╤А╨╛╨╝╨╡╨╢╤Г╤В╨║╨░╨╝╨╕ ╨╝╨╡╨╢╨┤╤Г ╤Б╨╗╨╛╨▓╨░╨╝╨╕
       \fi
 \item 
       \ifenglish
       Select the {\bf Case sensitive} checkbox if you want only
       case-matching occurrences of a string to be found
       \else
-      Установите опцию {\bf Case sensitive}, если хотите чтобы отыскивались
-      вхождения вашей строки с точностью до регистра
+      ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Case sensitive}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╤З╤В╨╛╨▒╤Л ╨╛╤В╤Л╤Б╨║╨╕╨▓╨░╨╗╨╕╤Б╤М
+      ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П ╨▓╨░╤И╨╡╨╣ ╤Б╤В╤А╨╛╨║╨╕ ╤Б ╤В╨╛╤З╨╜╨╛╤Б╤В╤М╤О ╨┤╨╛ ╤А╨╡╨│╨╕╤Б╤В╤А╨░
       \fi
 \item 
       \ifenglish
       Choose the {\bf Search Range} and direction. You may search either {\bf From cursor forward}
       or {\bf From cursor backwards} or {\bf In whole text}.
       \else
-      Выберите участок и направление поиска. Вы можете призводить поиск 
-      {\bf впереди позиции курсора}  или {\bf позади позиции курсора} или
-      {\bf во всем тексте}.
+      ╨Т╤Л╨▒╨╡╤А╨╕╤В╨╡ ╤Г╤З╨░╤Б╤В╨╛╨║ ╨╕ ╨╜╨░╨┐╤А╨░╨▓╨╗╨╡╨╜╨╕╨╡ ╨┐╨╛╨╕╤Б╨║╨░. ╨Т╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╨┐╤А╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║ 
+      {\bf ╨▓╨┐╨╡╤А╨╡╨┤╨╕ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ ╨║╤Г╤А╤Б╨╛╤А╨░}  ╨╕╨╗╨╕ {\bf ╨┐╨╛╨╖╨░╨┤╨╕ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ ╨║╤Г╤А╤Б╨╛╤А╨░} ╨╕╨╗╨╕
+      {\bf ╨▓╨╛ ╨▓╤Б╨╡╨╝ ╤В╨╡╨║╤Б╤В╨╡}.
       \fi
 \item 
       \ifenglish
       Select the {\bf OK} pushbutton
       \else
-      Нажмите кнопку {\bf OK}
+      ╨Э╨░╨╢╨╝╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf OK}
       \fi
 \end{enumerate}
 
@@ -94,15 +94,15 @@ menu command or press {\bf Ctrl+L}.
 There is also shortcut for searching for current word. You may press
 {\bf Ctrl+Up} or {\bf Ctrl+Down} to search for current word either up or down.
 \else
-Вы можете установить опцию {\bf insert current word}, чтобы позволить 
-автоматический выбор текущего слова в редакторе в качестве шаблона поиска.
+╨Т╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╨╛╨┐╤Ж╨╕╤О {\bf insert current word}, ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╖╨▓╨╛╨╗╨╕╤В╤М 
+╨░╨▓╤В╨╛╨╝╨░╤В╨╕╤З╨╡╤Б╨║╨╕╨╣ ╨▓╤Л╨▒╨╛╤А ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░ ╨▓ ╤А╨╡╨┤╨░╨║╤В╨╛╤А╨╡ ╨▓ ╨║╨░╤З╨╡╤Б╤В╨▓╨╡ ╤И╨░╨▒╨╗╨╛╨╜╨░ ╨┐╨╛╨╕╤Б╨║╨░.
 
-Если текст найден, он будет отмечен как блок.
-После первого поиска вы можете использовать команду меню \ref[Edit]{M\_EDIT}:\ref[Find Next]{IDM\_FINDNEXT}
-или нажать {\bf Ctrl+L}.
+╨Х╤Б╨╗╨╕ ╤В╨╡╨║╤Б╤В ╨╜╨░╨╣╨┤╨╡╨╜, ╨╛╨╜ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╨╝╨╡╤З╨╡╨╜ ╨║╨░╨║ ╨▒╨╗╨╛╨║.
+╨Я╨╛╤Б╨╗╨╡ ╨┐╨╡╤А╨▓╨╛╨│╨╛ ╨┐╨╛╨╕╤Б╨║╨░ ╨▓╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╤М ╨║╨╛╨╝╨░╨╜╨┤╤Г ╨╝╨╡╨╜╤О \ref[Edit]{M\_EDIT}:\ref[Find Next]{IDM\_FINDNEXT}
+╨╕╨╗╨╕ ╨╜╨░╨╢╨░╤В╤М {\bf Ctrl+L}.
 
-Существует также сокращенный вариант команды поиска. Вы можете нажать
-{\bf Ctrl+Up} или {\bf Ctrl+Down}, чтобы прозвести поиск слова вверх или вниз.
+╨б╤Г╤Й╨╡╤Б╤В╨▓╤Г╨╡╤В ╤В╨░╨║╨╢╨╡ ╤Б╨╛╨║╤А╨░╤Й╨╡╨╜╨╜╤Л╨╣ ╨▓╨░╤А╨╕╨░╨╜╤В ╨║╨╛╨╝╨░╨╜╨┤╤Л ╨┐╨╛╨╕╤Б╨║╨░. ╨Т╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╨╜╨░╨╢╨░╤В╤М
+{\bf Ctrl+Up} ╨╕╨╗╨╕ {\bf Ctrl+Down}, ╤З╤В╨╛╨▒╤Л ╨┐╤А╨╛╨╖╨▓╨╡╤Б╤В╨╕ ╨┐╨╛╨╕╤Б╨║ ╤Б╨╗╨╛╨▓╨░ ╨▓╨▓╨╡╤А╤Е ╨╕╨╗╨╕ ╨▓╨╜╨╕╨╖.
 \fi
  %-----------------------------------------------------------------------
 \begin{popup}
@@ -113,8 +113,8 @@ There is also shortcut for searching for current word. You may press
 When this checkbox is selected the search pattern field is automatically
 initialized with current word from the editor window.
 \else
-Когда эта опция установлена, поле шаблона поиска автоматически инициализируется
-текущим словом в окне редактирования.
+╨Ъ╨╛╨│╨┤╨░ ╤Н╤В╨░ ╨╛╨┐╤Ж╨╕╤П ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╗╨╡╨╜╨░, ╨┐╨╛╨╗╨╡ ╤И╨░╨▒╨╗╨╛╨╜╨░ ╨┐╨╛╨╕╤Б╨║╨░ ╨░╨▓╤В╨╛╨╝╨░╤В╨╕╤З╨╡╤Б╨║╨╕ ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨╕╤А╤Г╨╡╤В╤Б╤П
+╤В╨╡╨║╤Г╤Й╨╕╨╝ ╤Б╨╗╨╛╨▓╨╛╨╝ ╨▓ ╨╛╨║╨╜╨╡ ╤А╨╡╨┤╨░╨║╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╤П.
 \fi
 \end{popup}
 
@@ -128,10 +128,10 @@ entry field. All the strings you type are kept in history list. You may select
 one of previously searched patterns by pressing the down arrow button to the
 right of this field.
 \else
-Наберите строку, которую хотите отыскать - пункт {\em search string} в поле ввода.
-Все строки, которые вы вводите, сохраняются в архивном списке. Вы можете выбрать
-один из изпользованных прежде шаблонов посредством нажатия клавиши со стрелкой
-справа от этого поля.
+╨Э╨░╨▒╨╡╤А╨╕╤В╨╡ ╤Б╤В╤А╨╛╨║╤Г, ╨║╨╛╤В╨╛╤А╤Г╤О ╤Е╨╛╤В╨╕╤В╨╡ ╨╛╤В╤Л╤Б╨║╨░╤В╤М - ╨┐╤Г╨╜╨║╤В {\em search string} ╨▓ ╨┐╨╛╨╗╨╡ ╨▓╨▓╨╛╨┤╨░.
+╨Т╤Б╨╡ ╤Б╤В╤А╨╛╨║╨╕, ╨║╨╛╤В╨╛╤А╤Л╨╡ ╨▓╤Л ╨▓╨▓╨╛╨┤╨╕╤В╨╡, ╤Б╨╛╤Е╤А╨░╨╜╤П╤О╤В╤Б╤П ╨▓ ╨░╤А╤Е╨╕╨▓╨╜╨╛╨╝ ╤Б╨┐╨╕╤Б╨║╨╡. ╨Т╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╨▓╤Л╨▒╤А╨░╤В╤М
+╨╛╨┤╨╕╨╜ ╨╕╨╖ ╨╕╨╖╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╜╤Л╤Е ╨┐╤А╨╡╨╢╨┤╨╡ ╤И╨░╨▒╨╗╨╛╨╜╨╛╨▓ ╨┐╨╛╤Б╤А╨╡╨┤╤Б╤В╨▓╨╛╨╝ ╨╜╨░╨╢╨░╤В╨╕╤П ╨║╨╗╨░╨▓╨╕╤И╨╕ ╤Б╨╛ ╤Б╤В╤А╨╡╨╗╨║╨╛╨╣
+╤Б╨┐╤А╨░╨▓╨░ ╨╛╤В ╤Н╤В╨╛╨│╨╛ ╨┐╨╛╨╗╤П.
 \fi
 \end{popup}
 
@@ -144,9 +144,9 @@ Select the {\bf Case sensitive} checkbox if you want to find only
 case-matching occurrences of a string. For instance, if you search for
 the string {\tt "Win32"}, the string {\tt "WIN32"} will be skipped.
 \else
-Установите опцию {\bf Case sensitive}, если хотите отыскать участки текста, 
-содержащие вашу строку с точностью до регистра. Например, если вы ищете 
-строку {\tt "Win32"}, строка {\tt "WIN32"} будет отброшена.
+╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Case sensitive}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╨╛╤В╤Л╤Б╨║╨░╤В╤М ╤Г╤З╨░╤Б╤В╨║╨╕ ╤В╨╡╨║╤Б╤В╨░, 
+╤Б╨╛╨┤╨╡╤А╨╢╨░╤Й╨╕╨╡ ╨▓╨░╤И╤Г ╤Б╤В╤А╨╛╨║╤Г ╤Б ╤В╨╛╤З╨╜╨╛╤Б╤В╤М╤О ╨┤╨╛ ╤А╨╡╨│╨╕╤Б╤В╤А╨░. ╨Э╨░╨┐╤А╨╕╨╝╨╡╤А, ╨╡╤Б╨╗╨╕ ╨▓╤Л ╨╕╤Й╨╡╤В╨╡ 
+╤Б╤В╤А╨╛╨║╤Г {\tt "Win32"}, ╤Б╤В╤А╨╛╨║╨░ {\tt "WIN32"} ╨▒╤Г╨┤╨╡╤В ╨╛╤В╨▒╤А╨╛╤И╨╡╨╜╨░.
 \fi
 \end{popup}
 
@@ -159,9 +159,9 @@ This option allows searching for all occurrences of a string, either
 as separate words, or within other words. For example, pattern {\tt "ear"} will
 be found in text {\tt "Search"}.
 \else
-Эта опция позволяет отыскивать все вхождения, где строка встречается
-как отдельное слово, или как часть других. К примеру, шаблон {\tt "ear"} 
-будет обнаружен в тексте {\tt "Search"}.
+╨н╤В╨░ ╨╛╨┐╤Ж╨╕╤П ╨┐╨╛╨╖╨▓╨╛╨╗╤П╨╡╤В ╨╛╤В╤Л╤Б╨║╨╕╨▓╨░╤В╤М ╨▓╤Б╨╡ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П, ╨│╨┤╨╡ ╤Б╤В╤А╨╛╨║╨░ ╨▓╤Б╤В╤А╨╡╤З╨░╨╡╤В╤Б╤П
+╨║╨░╨║ ╨╛╤В╨┤╨╡╨╗╤М╨╜╨╛╨╡ ╤Б╨╗╨╛╨▓╨╛, ╨╕╨╗╨╕ ╨║╨░╨║ ╤З╨░╤Б╤В╤М ╨┤╤А╤Г╨│╨╕╤Е. ╨Ъ ╨┐╤А╨╕╨╝╨╡╤А╤Г, ╤И╨░╨▒╨╗╨╛╨╜ {\tt "ear"} 
+╨▒╤Г╨┤╨╡╤В ╨╛╨▒╨╜╨░╤А╤Г╨╢╨╡╨╜ ╨▓ ╤В╨╡╨║╤Б╤В╨╡ {\tt "Search"}.
 \fi
 \end{popup}
 
@@ -174,9 +174,9 @@ Allows the text to be found in the beginning but not in the middle of words
 (that means, requires word break to precede text occurrences). For example,
 pattern {\tt "Wind"} will be found in word {\tt"Windows"}.
 \else
-Позволяет отыскивать текст в начале, но не в середине слов (что означает
-необходимость наличия промежутка между словами перед обнаруженным текстом).
-Например, шаблон {\tt "Wind"} будет найден в слове {\tt"Windows"}. 
+╨Я╨╛╨╖╨▓╨╛╨╗╤П╨╡╤В ╨╛╤В╤Л╤Б╨║╨╕╨▓╨░╤В╤М ╤В╨╡╨║╤Б╤В ╨▓ ╨╜╨░╤З╨░╨╗╨╡, ╨╜╨╛ ╨╜╨╡ ╨▓ ╤Б╨╡╤А╨╡╨┤╨╕╨╜╨╡ ╤Б╨╗╨╛╨▓ (╤З╤В╨╛ ╨╛╨╖╨╜╨░╤З╨░╨╡╤В
+╨╜╨╡╨╛╨▒╤Е╨╛╨┤╨╕╨╝╨╛╤Б╤В╤М ╨╜╨░╨╗╨╕╤З╨╕╤П ╨┐╤А╨╛╨╝╨╡╨╢╤Г╤В╨║╨░ ╨╝╨╡╨╢╨┤╤Г ╤Б╨╗╨╛╨▓╨░╨╝╨╕ ╨┐╨╡╤А╨╡╨┤ ╨╛╨▒╨╜╨░╤А╤Г╨╢╨╡╨╜╨╜╤Л╨╝ ╤В╨╡╨║╤Б╤В╨╛╨╝).
+╨Э╨░╨┐╤А╨╕╨╝╨╡╤А, ╤И╨░╨▒╨╗╨╛╨╜ {\tt "Wind"} ╨▒╤Г╨┤╨╡╤В ╨╜╨░╨╣╨┤╨╡╨╜ ╨▓ ╤Б╨╗╨╛╨▓╨╡ {\tt"Windows"}. 
 \fi
 \end{popup}
 
@@ -189,9 +189,9 @@ Allows the text to be found in the end but not in the middle of words
 (that means, requires word break to follow text occurrences). For example,
 pattern {\tt "fix"} will be found in word {\tt"suffix"}.
 \else
-Позволяет отыскать текст в конце, но не в середине слов (что означает
-требование к промежутку между словами находиться сразу за обнаруженным 
-текстом). Например, шаблон {\tt "fix"} будет найден в {\tt"suffix"}.
+╨Я╨╛╨╖╨▓╨╛╨╗╤П╨╡╤В ╨╛╤В╤Л╤Б╨║╨░╤В╤М ╤В╨╡╨║╤Б╤В ╨▓ ╨║╨╛╨╜╤Ж╨╡, ╨╜╨╛ ╨╜╨╡ ╨▓ ╤Б╨╡╤А╨╡╨┤╨╕╨╜╨╡ ╤Б╨╗╨╛╨▓ (╤З╤В╨╛ ╨╛╨╖╨╜╨░╤З╨░╨╡╤В
+╤В╤А╨╡╨▒╨╛╨▓╨░╨╜╨╕╨╡ ╨║ ╨┐╤А╨╛╨╝╨╡╨╢╤Г╤В╨║╤Г ╨╝╨╡╨╢╨┤╤Г ╤Б╨╗╨╛╨▓╨░╨╝╨╕ ╨╜╨░╤Е╨╛╨┤╨╕╤В╤М╤Б╤П ╤Б╤А╨░╨╖╤Г ╨╖╨░ ╨╛╨▒╨╜╨░╤А╤Г╨╢╨╡╨╜╨╜╤Л╨╝ 
+╤В╨╡╨║╤Б╤В╨╛╨╝). ╨Э╨░╨┐╤А╨╕╨╝╨╡╤А, ╤И╨░╨▒╨╗╨╛╨╜ {\tt "fix"} ╨▒╤Г╨┤╨╡╤В ╨╜╨░╨╣╨┤╨╡╨╜ ╨▓ {\tt"suffix"}.
 \fi
 \end{popup}
 
@@ -206,9 +206,9 @@ string within other words to be skipped during search.
 So neither pattern {\tt "hole"} nor {\tt "ole"} nor letter {\tt "h"}
 will be found in word {\tt "Whole"}.
 \else
-Установите опцию {\bf Whole words}, если хотите, чтобы поиск внутри 
-других слов не велся. Так, ни шаблон {\tt "hole"}, ни {\tt "ole"}, ни буква 
-{\tt "h"} не будут найдены в слове {\tt "Whole"}.
+╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Whole words}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡, ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╕╤Б╨║ ╨▓╨╜╤Г╤В╤А╨╕ 
+╨┤╤А╤Г╨│╨╕╤Е ╤Б╨╗╨╛╨▓ ╨╜╨╡ ╨▓╨╡╨╗╤Б╤П. ╨в╨░╨║, ╨╜╨╕ ╤И╨░╨▒╨╗╨╛╨╜ {\tt "hole"}, ╨╜╨╕ {\tt "ole"}, ╨╜╨╕ ╨▒╤Г╨║╨▓╨░ 
+{\tt "h"} ╨╜╨╡ ╨▒╤Г╨┤╤Г╤В ╨╜╨░╨╣╨┤╨╡╨╜╤Л ╨▓ ╤Б╨╗╨╛╨▓╨╡ {\tt "Whole"}.
 \fi
 \end{popup}
 
@@ -220,8 +220,8 @@ will be found in word {\tt "Whole"}.
 Select this radiobutton if you want search to be performed
 starting from the cursor position to the end of file.
 \else
-Включите этот переключатель, если хотите, чтобы поиск производился 
-от текущей позиции курсора до конца файла. 
+╨Т╨║╨╗╤О╤З╨╕╤В╨╡ ╤Н╤В╨╛╤В ╨┐╨╡╤А╨╡╨║╨╗╤О╤З╨░╤В╨╡╨╗╤М, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡, ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╕╤Б╨║ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╨╗╤Б╤П 
+╨╛╤В ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ ╨║╤Г╤А╤Б╨╛╤А╨░ ╨┤╨╛ ╨║╨╛╨╜╤Ж╨░ ╤Д╨░╨╣╨╗╨░. 
 \fi
 \end{popup}
 
@@ -234,9 +234,9 @@ Select this radiobutton if you want search to be performed
 starting from the cursor position to the beginning of the file.
 The last occurrence (the closest to the cursor) will be found.
 \else
-Включите эту кнопку, если хотите, чтобы поиск производился, начиная от текущей
-позиции курсора до конца файла. Будет обнаружено последнее (ближайшее к 
-курсору) вхождение искомой строки.
+╨Т╨║╨╗╤О╤З╨╕╤В╨╡ ╤Н╤В╤Г ╨║╨╜╨╛╨┐╨║╤Г, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡, ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╕╤Б╨║ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╨╗╤Б╤П, ╨╜╨░╤З╨╕╨╜╨░╤П ╨╛╤В ╤В╨╡╨║╤Г╤Й╨╡╨╣
+╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ ╨║╤Г╤А╤Б╨╛╤А╨░ ╨┤╨╛ ╨║╨╛╨╜╤Ж╨░ ╤Д╨░╨╣╨╗╨░. ╨С╤Г╨┤╨╡╤В ╨╛╨▒╨╜╨░╤А╤Г╨╢╨╡╨╜╨╛ ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨╡ (╨▒╨╗╨╕╨╢╨░╨╣╤И╨╡╨╡ ╨║ 
+╨║╤Г╤А╤Б╨╛╤А╤Г) ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╨╡ ╨╕╤Б╨║╨╛╨╝╨╛╨╣ ╤Б╤В╤А╨╛╨║╨╕.
 \fi
 \end{popup}
 
@@ -248,7 +248,7 @@ The last occurrence (the closest to the cursor) will be found.
 Select this radiobutton if you want search to be started
 from the top of file.
 \else
-Включите эту кнопку, если хотите, чтобы поиск производился от начала файла.
+╨Т╨║╨╗╤О╤З╨╕╤В╨╡ ╤Н╤В╤Г ╨║╨╜╨╛╨┐╨║╤Г, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡, ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╕╤Б╨║ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╨╗╤Б╤П ╨╛╤В ╨╜╨░╤З╨░╨╗╨░ ╤Д╨░╨╣╨╗╨░.
 \fi
 \end{popup}
 
@@ -259,7 +259,7 @@ from the top of file.
 \ifenglish
 Select the {\bf OK} pushbutton to start search.
 \else
-Нажмите кнопку {\bf OK}, чтобы начать поиск.
+╨Э╨░╨╢╨╝╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf OK}, ╤З╤В╨╛╨▒╤Л ╨╜╨░╤З╨░╤В╤М ╨┐╨╛╨╕╤Б╨║.
 \fi
 \end{popup}
 
@@ -271,7 +271,7 @@ Select the {\bf OK} pushbutton to start search.
 Select the {\bf Cancel} pushbutton to dismiss the dialog not performing a
 search.
 \else
-Нажмите кнопку {\bf Cancel}, чтобы отказаться от поиска. 
+╨Э╨░╨╢╨╝╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf Cancel}, ╤З╤В╨╛╨▒╤Л ╨╛╤В╨║╨░╨╖╨░╤В╤М╤Б╤П ╨╛╤В ╨┐╨╛╨╕╤Б╨║╨░. 
 \fi
 \end{popup}
 
@@ -280,7 +280,7 @@ search.
 \ifenglish
 \section{Find and Replace text dialog}
 \else
-\section{диалог Find and Replace text}
+\section{╨┤╨╕╨░╨╗╨╛╨│ Find and Replace text}
 \fi
 \public{REPLACE\_DIALOG}
 
@@ -291,70 +291,70 @@ or by pressing {\bf Ctrl+H} key.
 To search the current file for a certain string and replace it
 with another:
 \else
-Этот диалог вызывается командой меню \ref[Edit]{M\_EDIT}:\ref[Replace]{IDM\_REPLACE}
-или нажатием клавиши {\bf Ctrl+H}.
+╨н╤В╨╛╤В ╨┤╨╕╨░╨╗╨╛╨│ ╨▓╤Л╨╖╤Л╨▓╨░╨╡╤В╤Б╤П ╨║╨╛╨╝╨░╨╜╨┤╨╛╨╣ ╨╝╨╡╨╜╤О \ref[Edit]{M\_EDIT}:\ref[Replace]{IDM\_REPLACE}
+╨╕╨╗╨╕ ╨╜╨░╨╢╨░╤В╨╕╨╡╨╝ ╨║╨╗╨░╨▓╨╕╤И╨╕ {\bf Ctrl+H}.
 
-Чтобы отыскать в текущем файле некоторую строку и заменить ее на другую:
+╨з╤В╨╛╨▒╤Л ╨╛╤В╤Л╤Б╨║╨░╤В╤М ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╝ ╤Д╨░╨╣╨╗╨╡ ╨╜╨╡╨║╨╛╤В╨╛╤А╤Г╤О ╤Б╤В╤А╨╛╨║╤Г ╨╕ ╨╖╨░╨╝╨╡╨╜╨╕╤В╤М ╨╡╨╡ ╨╜╨░ ╨┤╤А╤Г╨│╤Г╤О:
 \fi
 \begin{enumerate}
 \item 
       \ifenglish
       Type a {\em search string} in the {\bf Text to find} field
       \else
-      Введите искомую строку в поле {\bf Text to find}
+      ╨Т╨▓╨╡╨┤╨╕╤В╨╡ ╨╕╤Б╨║╨╛╨╝╤Г╤О ╤Б╤В╤А╨╛╨║╤Г ╨▓ ╨┐╨╛╨╗╨╡ {\bf Text to find}
       \fi
 \item 
       \ifenglish
       Type a {\em replacement string} in the {\bf Text to replace with} field
       \else
-      Введите строку замещения в поле {\bf Text to replace with}
+      ╨Т╨▓╨╡╨┤╨╕╤В╨╡ ╤Б╤В╤А╨╛╨║╤Г ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╤П ╨▓ ╨┐╨╛╨╗╨╡ {\bf Text to replace with}
       \fi
 \item  
       \ifenglish
       Select the {\bf Case sensitive} checkbox if you want only
       case-matching occurrences of a string to be replaced
       \else
-      Установите опцию {\bf Case sensitive}, если вы хотите, чтобы 
-      заменились только вхождения, содержащие искомую строку с точностью до 
-      регистра
+      ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Case sensitive}, ╨╡╤Б╨╗╨╕ ╨▓╤Л ╤Е╨╛╤В╨╕╤В╨╡, ╤З╤В╨╛╨▒╤Л 
+      ╨╖╨░╨╝╨╡╨╜╨╕╨╗╨╕╤Б╤М ╤В╨╛╨╗╤М╨║╨╛ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П, ╤Б╨╛╨┤╨╡╤А╨╢╨░╤Й╨╕╨╡ ╨╕╤Б╨║╨╛╨╝╤Г╤О ╤Б╤В╤А╨╛╨║╤Г ╤Б ╤В╨╛╤З╨╜╨╛╤Б╤В╤М╤О ╨┤╨╛ 
+      ╤А╨╡╨│╨╕╤Б╤В╤А╨░
       \fi
 \item 
       \ifenglish
       Select the {\bf Whole words} checkbox if you want a string not to
       be replaced if it occurs as a substring in a word
       \else
-      Установите опцию {\bf Whole words}, если хотите чтобы ваша строка 
-      не заменялась, в случае если она часть некоторого слова.
+      ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Whole words}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╤З╤В╨╛╨▒╤Л ╨▓╨░╤И╨░ ╤Б╤В╤А╨╛╨║╨░ 
+      ╨╜╨╡ ╨╖╨░╨╝╨╡╨╜╤П╨╗╨░╤Б╤М, ╨▓ ╤Б╨╗╤Г╤З╨░╨╡ ╨╡╤Б╨╗╨╕ ╨╛╨╜╨░ ╤З╨░╤Б╤В╤М ╨╜╨╡╨║╨╛╤В╨╛╤А╨╛╨│╨╛ ╤Б╨╗╨╛╨▓╨░.
       \fi
 \item 
       \ifenglish
       Select the {\bf Replace all} checkbox if you want all occurrences of
       a search string in the search range to be replaced automatically
       \else
-      Установите опцию {\bf Replace all}, если хотите, чтобы замена
-      всех вхождений, содержащих искомую строку, произошла автоматически.
+      ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Replace all}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡, ╤З╤В╨╛╨▒╤Л ╨╖╨░╨╝╨╡╨╜╨░
+      ╨▓╤Б╨╡╤Е ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╨╣, ╤Б╨╛╨┤╨╡╤А╨╢╨░╤Й╨╕╤Е ╨╕╤Б╨║╨╛╨╝╤Г╤О ╤Б╤В╤А╨╛╨║╤Г, ╨┐╤А╨╛╨╕╨╖╨╛╤И╨╗╨░ ╨░╨▓╤В╨╛╨╝╨░╤В╨╕╤З╨╡╤Б╨║╨╕.
       \fi
 \item 
       \ifenglish
       Select the {\bf Prompt user} checkbox if you want to manually
       confirm each replace
       \else
-      Установите опцию {\bf Prompt user}, если хотите подтвердить каждую замену 
-      сами.
+      ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Prompt user}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╨┐╨╛╨┤╤В╨▓╨╡╤А╨┤╨╕╤В╤М ╨║╨░╨╢╨┤╤Г╤О ╨╖╨░╨╝╨╡╨╜╤Г 
+      ╤Б╨░╨╝╨╕.
       \fi
 \item 
        \ifenglish
        Choose the search range by selecting one of the {\bf From cursor},
       {\bf In whole text}, or {\bf In selection} pushbuttons
        \else
-      Выберите участок поиска, нажав кнопки {\bf From cursor} 
-      или {\bf In whole text} или {\bf In selection}.
+      ╨Т╤Л╨▒╨╡╤А╨╕╤В╨╡ ╤Г╤З╨░╤Б╤В╨╛╨║ ╨┐╨╛╨╕╤Б╨║╨░, ╨╜╨░╨╢╨░╨▓ ╨║╨╜╨╛╨┐╨║╨╕ {\bf From cursor} 
+      ╨╕╨╗╨╕ {\bf In whole text} ╨╕╨╗╨╕ {\bf In selection}.
         \fi
 \item 
       \ifenglish
       Select the {\bf OK} pushbutton
       \else
-      Нажмите кнопку {\bf OK}
+      ╨Э╨░╨╢╨╝╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf OK}
       \fi
 \end{enumerate}
 
@@ -366,12 +366,12 @@ If you don't specify {\bf Replace all}, replace will stop after first replacemen
 You may continue replacement from this point by selecting \ref[Replace Next]{IDM\_REPLACENEXT}
 from the \ref[Edit]{M\_EDIT} menu or by pressing {\bf Ctrl+R}.
 \else
-Вы можете установить опцию {\bf insert current word}, чтобы позволить 
-автоматический выбор текущего словав редакторе в качестве шаблона поиска.
+╨Т╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╨╛╨┐╤Ж╨╕╤О {\bf insert current word}, ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╖╨▓╨╛╨╗╨╕╤В╤М 
+╨░╨▓╤В╨╛╨╝╨░╤В╨╕╤З╨╡╤Б╨║╨╕╨╣ ╨▓╤Л╨▒╨╛╤А ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Б╨╗╨╛╨▓╨░╨▓ ╤А╨╡╨┤╨░╨║╤В╨╛╤А╨╡ ╨▓ ╨║╨░╤З╨╡╤Б╤В╨▓╨╡ ╤И╨░╨▒╨╗╨╛╨╜╨░ ╨┐╨╛╨╕╤Б╨║╨░.
 
-Если вы не зададите {\bf Replace all}, то произойдет только одно замещение. 
-Вы можете продолжить замещение с этого момента, выбрав \ref[Replace Next]{IDM\_REPLACENEXT} 
-из меню \ref[Edit]{M\_EDIT} или нажав {\bf Ctrl+R}.
+╨Х╤Б╨╗╨╕ ╨▓╤Л ╨╜╨╡ ╨╖╨░╨┤╨░╨┤╨╕╤В╨╡ {\bf Replace all}, ╤В╨╛ ╨┐╤А╨╛╨╕╨╖╨╛╨╣╨┤╨╡╤В ╤В╨╛╨╗╤М╨║╨╛ ╨╛╨┤╨╜╨╛ ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╨╡. 
+╨Т╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╨┐╤А╨╛╨┤╨╛╨╗╨╢╨╕╤В╤М ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╤Б ╤Н╤В╨╛╨│╨╛ ╨╝╨╛╨╝╨╡╨╜╤В╨░, ╨▓╤Л╨▒╤А╨░╨▓ \ref[Replace Next]{IDM\_REPLACENEXT} 
+╨╕╨╖ ╨╝╨╡╨╜╤О \ref[Edit]{M\_EDIT} ╨╕╨╗╨╕ ╨╜╨░╨╢╨░╨▓ {\bf Ctrl+R}.
 \fi
 %-----------------------------------------------------------------------
 \begin{popup}
@@ -382,8 +382,8 @@ from the \ref[Edit]{M\_EDIT} menu or by pressing {\bf Ctrl+R}.
 When this checkbox is selected the search string field is automatically
 initialized with current word from the editor window.
 \else
-Когда установлена эта опция, поле строки поиска автоматически инициализируется
-текущим словом в окне редактирования.
+╨Ъ╨╛╨│╨┤╨░ ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╗╨╡╨╜╨░ ╤Н╤В╨░ ╨╛╨┐╤Ж╨╕╤П, ╨┐╨╛╨╗╨╡ ╤Б╤В╤А╨╛╨║╨╕ ╨┐╨╛╨╕╤Б╨║╨░ ╨░╨▓╤В╨╛╨╝╨░╤В╨╕╤З╨╡╤Б╨║╨╕ ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨╕╤А╤Г╨╡╤В╤Б╤П
+╤В╨╡╨║╤Г╤Й╨╕╨╝ ╤Б╨╗╨╛╨▓╨╛╨╝ ╨▓ ╨╛╨║╨╜╨╡ ╤А╨╡╨┤╨░╨║╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╤П.
 \fi
 \end{popup}
 
@@ -395,7 +395,7 @@ initialized with current word from the editor window.
 Type the string you want to find -- the {\em search string} in this
 entry field.
 \else
-Введите строку, которую вы хотите найти в этом поле ввода.
+╨Т╨▓╨╡╨┤╨╕╤В╨╡ ╤Б╤В╤А╨╛╨║╤Г, ╨║╨╛╤В╨╛╤А╤Г╤О ╨▓╤Л ╤Е╨╛╤В╨╕╤В╨╡ ╨╜╨░╨╣╤В╨╕ ╨▓ ╤Н╤В╨╛╨╝ ╨┐╨╛╨╗╨╡ ╨▓╨▓╨╛╨┤╨░.
 \fi
 \end{popup}
 
@@ -408,9 +408,9 @@ Type the string with which you want a search string to be replaced --
 the {\em replacement string} in this entry field. Leave this field empty
 to delete occurrences of a search string.
 \else
-В этом поле ввода наберите строку, на которую вы хотите заменить строку 
-поиска -- {\em строку замещения}. Оставьте это поле пустым, если хотите
-удалить вхождения строки поиска.
+╨Т ╤Н╤В╨╛╨╝ ╨┐╨╛╨╗╨╡ ╨▓╨▓╨╛╨┤╨░ ╨╜╨░╨▒╨╡╤А╨╕╤В╨╡ ╤Б╤В╤А╨╛╨║╤Г, ╨╜╨░ ╨║╨╛╤В╨╛╤А╤Г╤О ╨▓╤Л ╤Е╨╛╤В╨╕╤В╨╡ ╨╖╨░╨╝╨╡╨╜╨╕╤В╤М ╤Б╤В╤А╨╛╨║╤Г 
+╨┐╨╛╨╕╤Б╨║╨░ -- {\em ╤Б╤В╤А╨╛╨║╤Г ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╤П}. ╨Ю╤Б╤В╨░╨▓╤М╤В╨╡ ╤Н╤В╨╛ ╨┐╨╛╨╗╨╡ ╨┐╤Г╤Б╤В╤Л╨╝, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡
+╤Г╨┤╨░╨╗╨╕╤В╤М ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П ╤Б╤В╤А╨╛╨║╨╕ ╨┐╨╛╨╕╤Б╨║╨░.
 \fi
 \end{popup}
 
@@ -423,9 +423,9 @@ Select the {\bf Case sensitive} checkbox if you want to find only
 case-matching occurrences of a string. For instance, if you search for
 the string {\tt "Win32"}, the string {\tt "WIN32"} will be skipped.
 \else
-Установите опцию {\bf Case sensitive}, если хотите отыскать вхождения строки 
-с точностью до регистра. Например, если вы ищете строку {\tt "Win32"}, 
-строка {\tt "WIN32"} будет отброшена.
+╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Case sensitive}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╨╛╤В╤Л╤Б╨║╨░╤В╤М ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П ╤Б╤В╤А╨╛╨║╨╕ 
+╤Б ╤В╨╛╤З╨╜╨╛╤Б╤В╤М╤О ╨┤╨╛ ╤А╨╡╨│╨╕╤Б╤В╤А╨░. ╨Э╨░╨┐╤А╨╕╨╝╨╡╤А, ╨╡╤Б╨╗╨╕ ╨▓╤Л ╨╕╤Й╨╡╤В╨╡ ╤Б╤В╤А╨╛╨║╤Г {\tt "Win32"}, 
+╤Б╤В╤А╨╛╨║╨░ {\tt "WIN32"} ╨▒╤Г╨┤╨╡╤В ╨╛╤В╨▒╤А╨╛╤И╨╡╨╜╨░.
 \fi
 \end{popup}
 
@@ -438,8 +438,8 @@ Select the {\bf Whole words} check box if you want occurrences of a search
 string within other words to be skipped during search. For instance,
 {\tt "place"} will not be found in {\tt "replace"}.
 \else
-Установите опцию {\bf Whole words}, если хотите чтобы поиск внутри слов не велся Например
-{\tt "place"} не будет найдена в {\tt "replace"}.
+╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Whole words}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╕╤Б╨║ ╨▓╨╜╤Г╤В╤А╨╕ ╤Б╨╗╨╛╨▓ ╨╜╨╡ ╨▓╨╡╨╗╤Б╤П ╨Э╨░╨┐╤А╨╕╨╝╨╡╤А
+{\tt "place"} ╨╜╨╡ ╨▒╤Г╨┤╨╡╤В ╨╜╨░╨╣╨┤╨╡╨╜╨░ ╨▓ {\tt "replace"}.
 \fi
 \end{popup}
 
@@ -452,9 +452,9 @@ Select the {\bf Replace all} checkbox if you want all occurrences of a search
 string within a search range to be replaced. If this checkbox isn't selected,
 the replacement stops after the first occurrence of a text.
 \else
-Установите опцию {\bf Replace all}, если хотите, чтобы все вхождения строки поиска
-подверглись замещению. Если эта опция не установлена, произойдет только 
-одно замещение.
+╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Replace all}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡, ╤З╤В╨╛╨▒╤Л ╨▓╤Б╨╡ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П ╤Б╤В╤А╨╛╨║╨╕ ╨┐╨╛╨╕╤Б╨║╨░
+╨┐╨╛╨┤╨▓╨╡╤А╨│╨╗╨╕╤Б╤М ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╤О. ╨Х╤Б╨╗╨╕ ╤Н╤В╨░ ╨╛╨┐╤Ж╨╕╤П ╨╜╨╡ ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╗╨╡╨╜╨░, ╨┐╤А╨╛╨╕╨╖╨╛╨╣╨┤╨╡╤В ╤В╨╛╨╗╤М╨║╨╛ 
+╨╛╨┤╨╜╨╛ ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╨╡.
 \fi
 \end{popup}
 
@@ -467,9 +467,9 @@ Select the {\bf Prompt user} checkbox if you want to manually confirm each
 replace. For each occurrence of a text you will be asked if you wish to 
 replace it, to skip it or to cancel the operation.
 \else
-Установите опцию {\bf Prompt user}, если хотите подтверждать каждое замещение 
-вручную. Для каждого вхождения строки поиска вы должны будете подтвердить
-замену, пропустить ее либо отменить операцию.
+╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Prompt user}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╨┐╨╛╨┤╤В╨▓╨╡╤А╨╢╨┤╨░╤В╤М ╨║╨░╨╢╨┤╨╛╨╡ ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╨╡ 
+╨▓╤А╤Г╤З╨╜╤Г╤О. ╨Ф╨╗╤П ╨║╨░╨╢╨┤╨╛╨│╨╛ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П ╤Б╤В╤А╨╛╨║╨╕ ╨┐╨╛╨╕╤Б╨║╨░ ╨▓╤Л ╨┤╨╛╨╗╨╢╨╜╤Л ╨▒╤Г╨┤╨╡╤В╨╡ ╨┐╨╛╨┤╤В╨▓╨╡╤А╨┤╨╕╤В╤М
+╨╖╨░╨╝╨╡╨╜╤Г, ╨┐╤А╨╛╨┐╤Г╤Б╤В╨╕╤В╤М ╨╡╨╡ ╨╗╨╕╨▒╨╛ ╨╛╤В╨╝╨╡╨╜╨╕╤В╤М ╨╛╨┐╨╡╤А╨░╤Ж╨╕╤О.
 \fi
 \end{popup}
 
@@ -481,8 +481,8 @@ replace it, to skip it or to cancel the operation.
 Select the {\bf From cursor} radiobutton if you want replacement to be performed
 starting from the cursor position to the bottom of file.
 \else
-Включите кнопку {\bf From cursor}, если хотите чтобы замещение происходило 
-начиная от текущей позиции курсора до конца файла.
+╨Т╨║╨╗╤О╤З╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf From cursor}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╤З╤В╨╛╨▒╤Л ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╨┐╤А╨╛╨╕╤Б╤Е╨╛╨┤╨╕╨╗╨╛ 
+╨╜╨░╤З╨╕╨╜╨░╤П ╨╛╤В ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ ╨║╤Г╤А╤Б╨╛╤А╨░ ╨┤╨╛ ╨║╨╛╨╜╤Ж╨░ ╤Д╨░╨╣╨╗╨░.
 \fi
 \end{popup}
 
@@ -494,7 +494,7 @@ starting from the cursor position to the bottom of file.
 Select the {\bf In whole text} radiobutton if you want to replace the text in whole
 file.
 \else
-Включите кнопку {\bf In whole text}, если хотите заменить текст во всем файле.
+╨Т╨║╨╗╤О╤З╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf In whole text}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╨╖╨░╨╝╨╡╨╜╨╕╤В╤М ╤В╨╡╨║╤Б╤В ╨▓╨╛ ╨▓╤Б╨╡╨╝ ╤Д╨░╨╣╨╗╨╡.
 \fi
 \end{popup}
 
@@ -506,8 +506,8 @@ file.
 Select the {\bf In selection} radiobutton if you want search to be performed
 within the current selection. This option is disabled if there is no selection.
 \else
-Включите кнопку {\bf In selection}, если хотите чтобы поиск происходил в текущем 
-выделенном блоке. Эта опция не доступна, если выделения нет.
+╨Т╨║╨╗╤О╤З╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf In selection}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╕╤Б╨║ ╨┐╤А╨╛╨╕╤Б╤Е╨╛╨┤╨╕╨╗ ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╝ 
+╨▓╤Л╨┤╨╡╨╗╨╡╨╜╨╜╨╛╨╝ ╨▒╨╗╨╛╨║╨╡. ╨н╤В╨░ ╨╛╨┐╤Ж╨╕╤П ╨╜╨╡ ╨┤╨╛╤Б╤В╤Г╨┐╨╜╨░, ╨╡╤Б╨╗╨╕ ╨▓╤Л╨┤╨╡╨╗╨╡╨╜╨╕╤П ╨╜╨╡╤В.
 \fi
 \end{popup}
 
@@ -518,7 +518,7 @@ within the current selection. This option is disabled if there is no selection.
 \ifenglish
 Select the {\bf OK} pushbutton to start replace.
 \else
-Нажмите кнопку {\bf OK}, чтобы начать замещение.
+╨Э╨░╨╢╨╝╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf OK}, ╤З╤В╨╛╨▒╤Л ╨╜╨░╤З╨░╤В╤М ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╨╡.
 \fi
 \end{popup}
 
@@ -529,7 +529,7 @@ Select the {\bf OK} pushbutton to start replace.
 \ifenglish
 Select the {\bf Cancel} pushbutton if you decided not to replace any text.
 \else
-Нажмите кнопку {\bf Cancel}, если вы решили не производить замещение.
+╨Э╨░╨╢╨╝╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf Cancel}, ╨╡╤Б╨╗╨╕ ╨▓╤Л ╤А╨╡╤И╨╕╨╗╨╕ ╨╜╨╡ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╨╡.
 \fi
 \end{popup}
 
@@ -538,7 +538,7 @@ Select the {\bf Cancel} pushbutton if you decided not to replace any text.
 \ifenglish
 \section{Replace prompt dialog}
 \else
-\section{диалог Replace prompt}
+\section{╨┤╨╕╨░╨╗╨╛╨│ Replace prompt}
 \fi
 \public{REPLACE\_PROMPT\_DIALOG}
 
@@ -546,31 +546,31 @@ Select the {\bf Cancel} pushbutton if you decided not to replace any text.
 This dialog is displayed when a replace action is about to be performed
 and the {\bf Prompt user} mode is enabled. Select:
 \else
-Этот диалог появляется перед произведением замены в случае, если установлена
-опция. Нажмите: 
+╨н╤В╨╛╤В ╨┤╨╕╨░╨╗╨╛╨│ ╨┐╨╛╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨┐╨╡╤А╨╡╨┤ ╨┐╤А╨╛╨╕╨╖╨▓╨╡╨┤╨╡╨╜╨╕╨╡╨╝ ╨╖╨░╨╝╨╡╨╜╤Л ╨▓ ╤Б╨╗╤Г╤З╨░╨╡, ╨╡╤Б╨╗╨╕ ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╗╨╡╨╜╨░
+╨╛╨┐╤Ж╨╕╤П. ╨Э╨░╨╢╨╝╨╕╤В╨╡: 
 \fi
 \begin{description}
 \item \ifenglish
       [{\bf Yes}] to confirm replace of the selected search string
       \else
-      [{\bf Yes}], чтобы подтвердить замену        
+      [{\bf Yes}], ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨┤╤В╨▓╨╡╤А╨┤╨╕╤В╤М ╨╖╨░╨╝╨╡╨╜╤Г        
       \fi
 \item \ifenglish
      [{\bf No}] to skip replace
      \else
-     [{\bf No}], чтобы пропустить замену
+     [{\bf No}], ╤З╤В╨╛╨▒╤Л ╨┐╤А╨╛╨┐╤Г╤Б╤В╨╕╤В╤М ╨╖╨░╨╝╨╡╨╜╤Г
      \fi
 \item \ifenglish
       [{\bf Yes to All}] to replace the remaining occurrences of the
    search string without prompting
      \else
-     [{\bf Yes to All}], чтобы заменить все оставшиеся вхождения
-     строки поиска без запроса
+     [{\bf Yes to All}], ╤З╤В╨╛╨▒╤Л ╨╖╨░╨╝╨╡╨╜╨╕╤В╤М ╨▓╤Б╨╡ ╨╛╤Б╤В╨░╨▓╤И╨╕╨╡╤Б╤П ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П
+     ╤Б╤В╤А╨╛╨║╨╕ ╨┐╨╛╨╕╤Б╨║╨░ ╨▒╨╡╨╖ ╨╖╨░╨┐╤А╨╛╤Б╨░
      \fi
 \item \ifenglish
       [{\bf Cancel}] to terminate the replace action
      \else
-     [{\bf Cancel}], чтобы завершить процесс замены
+     [{\bf Cancel}], ╤З╤В╨╛╨▒╤Л ╨╖╨░╨▓╨╡╤А╤И╨╕╤В╤М ╨┐╤А╨╛╤Ж╨╡╤Б╤Б ╨╖╨░╨╝╨╡╨╜╤Л
      \fi
 \end{description}
 
@@ -582,7 +582,7 @@ and the {\bf Prompt user} mode is enabled. Select:
 \ifenglish
 This is the string you search.
 \else
-Это строка, которую вы ищете.
+╨н╤В╨╛ ╤Б╤В╤А╨╛╨║╨░, ╨║╨╛╤В╨╛╤А╤Г╤О ╨▓╤Л ╨╕╤Й╨╡╤В╨╡.
 \fi
 \end{popup}
 
@@ -593,7 +593,7 @@ This is the string you search.
 \ifenglish
 This is the string you replace the search string with.
 \else
-Это строка, на которую вы заменяете строку поиска.
+╨н╤В╨╛ ╤Б╤В╤А╨╛╨║╨░, ╨╜╨░ ╨║╨╛╤В╨╛╤А╤Г╤О ╨▓╤Л ╨╖╨░╨╝╨╡╨╜╤П╨╡╤В╨╡ ╤Б╤В╤А╨╛╨║╤Г ╨┐╨╛╨╕╤Б╨║╨░.
 \fi
 \end{popup}
 
@@ -603,7 +603,7 @@ This is the string you replace the search string with.
 \ifenglish
 Confirm replacement of this occurrence.
 \else
-Подтвердить замещение данного вхождения.
+╨Я╨╛╨┤╤В╨▓╨╡╤А╨┤╨╕╤В╤М ╨╖╨░╨╝╨╡╤Й╨╡╨╜╨╕╨╡ ╨┤╨░╨╜╨╜╨╛╨│╨╛ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П.
 \fi
 \end{popup}
 
@@ -614,7 +614,7 @@ Confirm replacement of this occurrence.
 \ifenglish
 Skip this occurrence.
 \else
-Пропустить это вхождение.
+╨Я╤А╨╛╨┐╤Г╤Б╤В╨╕╤В╤М ╤Н╤В╨╛ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╨╡.
 \fi
 \end{popup}
 
@@ -625,7 +625,7 @@ Skip this occurrence.
 \ifenglish
 Replace all remaining occurrences without asking.
 \else
-Заменить все оставшиеся вхождения без запроса.
+╨Ч╨░╨╝╨╡╨╜╨╕╤В╤М ╨▓╤Б╨╡ ╨╛╤Б╤В╨░╨▓╤И╨╕╨╡╤Б╤П ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П ╨▒╨╡╨╖ ╨╖╨░╨┐╤А╨╛╤Б╨░.
 \fi
 \end{popup}
 
@@ -635,7 +635,7 @@ Replace all remaining occurrences without asking.
 \ifenglish
 Cancel replacement. Don't replace anything more.
 \else
-Отменить замену. Ничего больше не замещать.
+╨Ю╤В╨╝╨╡╨╜╨╕╤В╤М ╨╖╨░╨╝╨╡╨╜╤Г. ╨Э╨╕╤З╨╡╨│╨╛ ╨▒╨╛╨╗╤М╤И╨╡ ╨╜╨╡ ╨╖╨░╨╝╨╡╤Й╨░╤В╤М.
 \fi
 \end{popup}
 
@@ -649,13 +649,13 @@ This dialog is invoked by \ref[Edit]{M\_EDIT}:\ref[Find in Files]{IDM\_FINDFILES
 or by pressing {\bf Ctrl+Shift+F} key.
 \else
 
-Этот диалог появляется при исполнении команды меню \ref[Edit]{M\_EDIT}:\ref[Find in Files]{IDM\_FINDFILES} 
-или при нажатии клавиши {\bf Ctrl+Shift+F}.
+╨н╤В╨╛╤В ╨┤╨╕╨░╨╗╨╛╨│ ╨┐╨╛╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨┐╤А╨╕ ╨╕╤Б╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╕ ╨║╨╛╨╝╨░╨╜╨┤╤Л ╨╝╨╡╨╜╤О \ref[Edit]{M\_EDIT}:\ref[Find in Files]{IDM\_FINDFILES} 
+╨╕╨╗╨╕ ╨┐╤А╨╕ ╨╜╨░╨╢╨░╤В╨╕╨╕ ╨║╨╗╨░╨▓╨╕╤И╨╕ {\bf Ctrl+Shift+F}.
 \fi
 \ifenglish
 To search the group of files for a certain string:
 \else
-Чтобы найти определенную строку в группе файлов:
+╨з╤В╨╛╨▒╤Л ╨╜╨░╨╣╤В╨╕ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨╜╤Г╤О ╤Б╤В╤А╨╛╨║╤Г ╨▓ ╨│╤А╤Г╨┐╨┐╨╡ ╤Д╨░╨╣╨╗╨╛╨▓:
 \fi
 \begin{enumerate}
 \item 
@@ -665,33 +665,33 @@ To search the group of files for a certain string:
       You may also leave this field blank if you wish just build list of files
       with names that match given pattern.
       \else
-      Наберите ее в поле {\bf Text to find}, или выберите в архиве поиска посредством 
-      нажатия кнопки со стрелкой рядом с полем ввода. 
-      Вы также можете оставить это поле пустым, если вы лишь хотите получить
-      список файлов, имена которых соответствуют данному шаблону.
+      ╨Э╨░╨▒╨╡╤А╨╕╤В╨╡ ╨╡╨╡ ╨▓ ╨┐╨╛╨╗╨╡ {\bf Text to find}, ╨╕╨╗╨╕ ╨▓╤Л╨▒╨╡╤А╨╕╤В╨╡ ╨▓ ╨░╤А╤Е╨╕╨▓╨╡ ╨┐╨╛╨╕╤Б╨║╨░ ╨┐╨╛╤Б╤А╨╡╨┤╤Б╤В╨▓╨╛╨╝ 
+      ╨╜╨░╨╢╨░╤В╨╕╤П ╨║╨╜╨╛╨┐╨║╨╕ ╤Б╨╛ ╤Б╤В╤А╨╡╨╗╨║╨╛╨╣ ╤А╤П╨┤╨╛╨╝ ╤Б ╨┐╨╛╨╗╨╡╨╝ ╨▓╨▓╨╛╨┤╨░. 
+      ╨Т╤Л ╤В╨░╨║╨╢╨╡ ╨╝╨╛╨╢╨╡╤В╨╡ ╨╛╤Б╤В╨░╨▓╨╕╤В╤М ╤Н╤В╨╛ ╨┐╨╛╨╗╨╡ ╨┐╤Г╤Б╤В╤Л╨╝, ╨╡╤Б╨╗╨╕ ╨▓╤Л ╨╗╨╕╤И╤М ╤Е╨╛╤В╨╕╤В╨╡ ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М
+      ╤Б╨┐╨╕╤Б╨╛╨║ ╤Д╨░╨╣╨╗╨╛╨▓, ╨╕╨╝╨╡╨╜╨░ ╨║╨╛╤В╨╛╤А╤Л╤Е ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╤В╨▓╤Г╤О╤В ╨┤╨░╨╜╨╜╨╛╨╝╤Г ╤И╨░╨▒╨╗╨╛╨╜╤Г.
       \fi
 \item 
       \ifenglish
       Specify where you wish to find. Following options are available:
       \else
-      Определите, где вы хотите производить поиск. Возможны следующие варианты:
+      ╨Ю╨┐╤А╨╡╨┤╨╡╨╗╨╕╤В╨╡, ╨│╨┤╨╡ ╨▓╤Л ╤Е╨╛╤В╨╕╤В╨╡ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║. ╨Т╨╛╨╖╨╝╨╛╨╢╨╜╤Л ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╨╡ ╨▓╨░╤А╨╕╨░╨╜╤В╤Л:
       \fi
       \begin{itemize}
       \item \ifenglish
             {\bf Open windows}
             \else
-            {\bf открытые окна}
+            {\bf ╨╛╤В╨║╤А╤Л╤В╤Л╨╡ ╨╛╨║╨╜╨░}
             \fi
       \item \ifenglish
             {\bf Project files}
             \else
-            {\bf файлы проекта}
+            {\bf ╤Д╨░╨╣╨╗╤Л ╨┐╤А╨╛╨╡╨║╤В╨░}
             \fi
      \item 
             \ifenglish
             {\bf Disk files}.
             \else
-            {\bf файлы на диске}
+            {\bf ╤Д╨░╨╣╨╗╤Л ╨╜╨░ ╨┤╨╕╤Б╨║╨╡}
             \fi
     \end{itemize}
 
@@ -699,49 +699,49 @@ To search the group of files for a certain string:
       In the last case you should also specify the directory to find in
       and, if you wish, turn on searching subdirectories.
       \else
-      В последнем случае вы должны также указать директорию поиска и, 
-      если пожелаете, включить поиск в поддиректориях.
+      ╨Т ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╡╨╝ ╤Б╨╗╤Г╤З╨░╨╡ ╨▓╤Л ╨┤╨╛╨╗╨╢╨╜╤Л ╤В╨░╨║╨╢╨╡ ╤Г╨║╨░╨╖╨░╤В╤М ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤О ╨┐╨╛╨╕╤Б╨║╨░ ╨╕, 
+      ╨╡╤Б╨╗╨╕ ╨┐╨╛╨╢╨╡╨╗╨░╨╡╤В╨╡, ╨▓╨║╨╗╤О╤З╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║ ╨▓ ╨┐╨╛╨┤╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П╤Е.
       \fi
 \item \ifenglish
       Specify file name mask if you wish to find in some subset of files.
       File name mask is a regular expression in the same format as one in
       redirection file.
       \else
-      Укажите шаблон имени файла, если хотите производить поиск в некотором
-      подмножестве файлов.
+      ╨г╨║╨░╨╢╨╕╤В╨╡ ╤И╨░╨▒╨╗╨╛╨╜ ╨╕╨╝╨╡╨╜╨╕ ╤Д╨░╨╣╨╗╨░, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║ ╨▓ ╨╜╨╡╨║╨╛╤В╨╛╤А╨╛╨╝
+      ╨┐╨╛╨┤╨╝╨╜╨╛╨╢╨╡╤Б╤В╨▓╨╡ ╤Д╨░╨╣╨╗╨╛╨▓.
       \fi
 \item \ifenglish
       Select in {\bf Find text as} group which occurrences of the text you are interested in.
       Following options are available:
       \else
-      В меню {\bf Find text as} выберите, какие места, содержащие ваш текст, вас 
-      интересуют.
-      Возможны следующие варианты:
+      ╨Т ╨╝╨╡╨╜╤О {\bf Find text as} ╨▓╤Л╨▒╨╡╤А╨╕╤В╨╡, ╨║╨░╨║╨╕╨╡ ╨╝╨╡╤Б╤В╨░, ╤Б╨╛╨┤╨╡╤А╨╢╨░╤Й╨╕╨╡ ╨▓╨░╤И ╤В╨╡╨║╤Б╤В, ╨▓╨░╤Б 
+      ╨╕╨╜╤В╨╡╤А╨╡╤Б╤Г╤О╤В.
+      ╨Т╨╛╨╖╨╝╨╛╨╢╨╜╤Л ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╕╨╡ ╨▓╨░╤А╨╕╨░╨╜╤В╤Л:
       \fi
       \begin{itemize}
       \item {\bf Any text} 
       \ifenglish 
       -- any occurrence is acceptable
       \else
-      -- любое вхождение приемлемо
+      -- ╨╗╤О╨▒╨╛╨╡ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╨╡ ╨┐╤А╨╕╨╡╨╝╨╗╨╡╨╝╨╛
       \fi
       \item {\bf Word prefix} 
        \ifenglish
        -- word break must precede the text
        \else
-       -- перед текстом должен быть промежуток между словами
+       -- ╨┐╨╡╤А╨╡╨┤ ╤В╨╡╨║╤Б╤В╨╛╨╝ ╨┤╨╛╨╗╨╢╨╡╨╜ ╨▒╤Л╤В╤М ╨┐╤А╨╛╨╝╨╡╨╢╤Г╤В╨╛╨║ ╨╝╨╡╨╢╨┤╤Г ╤Б╨╗╨╛╨▓╨░╨╝╨╕
        \fi
       \item {\bf Word suffix} 
        \ifenglish
        -- word break must follow the text
        \else
-       -- за текстом следует промежуток между словами
+       -- ╨╖╨░ ╤В╨╡╨║╤Б╤В╨╛╨╝ ╤Б╨╗╨╡╨┤╤Г╨╡╤В ╨┐╤А╨╛╨╝╨╡╨╢╤Г╤В╨╛╨║ ╨╝╨╡╨╢╨┤╤Г ╤Б╨╗╨╛╨▓╨░╨╝╨╕
        \fi
       \item {\bf Whole word} 
        \ifenglish
        -- text must be surrounded by word breaks
        \else
-       -- текст должен быть окружен промежутками между словами
+       -- ╤В╨╡╨║╤Б╤В ╨┤╨╛╨╗╨╢╨╡╨╜ ╨▒╤Л╤В╤М ╨╛╨║╤А╤Г╨╢╨╡╨╜ ╨┐╤А╨╛╨╝╨╡╨╢╤Г╤В╨║╨░╨╝╨╕ ╨╝╨╡╨╢╨┤╤Г ╤Б╨╗╨╛╨▓╨░╨╝╨╕
        \fi
       \end{itemize}
 \item 
@@ -749,14 +749,14 @@ To search the group of files for a certain string:
       Select the {\bf Case sensitive} checkbox if you want only
       case-matching occurrences of a string to be found
       \else
-      Установите опцию {\bf Case sensitive}, если хотите чтобы поиск велся 
-      с точностью до регистра
+      ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Case sensitive}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╕╤Б╨║ ╨▓╨╡╨╗╤Б╤П 
+      ╤Б ╤В╨╛╤З╨╜╨╛╤Б╤В╤М╤О ╨┤╨╛ ╤А╨╡╨│╨╕╤Б╤В╤А╨░
       \fi
 \item 
       \ifenglish
       Select the {\bf OK} pushbutton
       \else
-      Нажмите кнопку {\bf OK}
+      ╨Э╨░╨╢╨╝╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf OK}
       \fi
 \end{enumerate}
 
@@ -775,20 +775,20 @@ a search string in the file. Press {\bf Ctrl+L} (Search Next) to see other occur
 Note that if some files are opened in the IDE and modified, search will always
 work on those modified versions, even when the range is specified as Directory.
 \else
-Когда вы нажимаете OK, появляется диалог с информацией о ходе поиска и кнопкой
-{\bf Cancel}. Вы можете прекратить поиск, если нажмете на нее.
+╨Ъ╨╛╨│╨┤╨░ ╨▓╤Л ╨╜╨░╨╢╨╕╨╝╨░╨╡╤В╨╡ OK, ╨┐╨╛╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨┤╨╕╨░╨╗╨╛╨│ ╤Б ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╡╨╣ ╨╛ ╤Е╨╛╨┤╨╡ ╨┐╨╛╨╕╤Б╨║╨░ ╨╕ ╨║╨╜╨╛╨┐╨║╨╛╨╣
+{\bf Cancel}. ╨Т╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╨┐╤А╨╡╨║╤А╨░╤В╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║, ╨╡╤Б╨╗╨╕ ╨╜╨░╨╢╨╝╨╡╤В╨╡ ╨╜╨░ ╨╜╨╡╨╡.
 
-После того, как поиск завершен, вы располагаете списком файлов, где встретился 
-ваш шаблон. Одновременно может быть открыто несколько таких списков. Установите 
-опцию {\bf Open new window}, если хотите, чтобы каждый новый результат отображался 
-в отдельном окне. Иначе список файлов попадет в уже существующее окно. 
+╨Я╨╛╤Б╨╗╨╡ ╤В╨╛╨│╨╛, ╨║╨░╨║ ╨┐╨╛╨╕╤Б╨║ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜, ╨▓╤Л ╤А╨░╤Б╨┐╨╛╨╗╨░╨│╨░╨╡╤В╨╡ ╤Б╨┐╨╕╤Б╨║╨╛╨╝ ╤Д╨░╨╣╨╗╨╛╨▓, ╨│╨┤╨╡ ╨▓╤Б╤В╤А╨╡╤В╨╕╨╗╤Б╤П 
+╨▓╨░╤И ╤И╨░╨▒╨╗╨╛╨╜. ╨Ю╨┤╨╜╨╛╨▓╤А╨╡╨╝╨╡╨╜╨╜╨╛ ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М ╨╛╤В╨║╤А╤Л╤В╨╛ ╨╜╨╡╤Б╨║╨╛╨╗╤М╨║╨╛ ╤В╨░╨║╨╕╤Е ╤Б╨┐╨╕╤Б╨║╨╛╨▓. ╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ 
+╨╛╨┐╤Ж╨╕╤О {\bf Open new window}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡, ╤З╤В╨╛╨▒╤Л ╨║╨░╨╢╨┤╤Л╨╣ ╨╜╨╛╨▓╤Л╨╣ ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В ╨╛╤В╨╛╨▒╤А╨░╨╢╨░╨╗╤Б╤П 
+╨▓ ╨╛╤В╨┤╨╡╨╗╤М╨╜╨╛╨╝ ╨╛╨║╨╜╨╡. ╨Ш╨╜╨░╤З╨╡ ╤Б╨┐╨╕╤Б╨╛╨║ ╤Д╨░╨╣╨╗╨╛╨▓ ╨┐╨╛╨┐╨░╨┤╨╡╤В ╨▓ ╤Г╨╢╨╡ ╤Б╤Г╤Й╨╡╤Б╤В╨▓╤Г╤О╤Й╨╡╨╡ ╨╛╨║╨╜╨╛. 
 
-Выбор файла из списка открывает его в IDE и находит первое вхождение
-строки поиска. Чтобы перейти к следующему вхождению, нажмите {\bf Ctrl+L}.
+╨Т╤Л╨▒╨╛╤А ╤Д╨░╨╣╨╗╨░ ╨╕╨╖ ╤Б╨┐╨╕╤Б╨║╨░ ╨╛╤В╨║╤А╤Л╨▓╨░╨╡╤В ╨╡╨│╨╛ ╨▓ IDE ╨╕ ╨╜╨░╤Е╨╛╨┤╨╕╤В ╨┐╨╡╤А╨▓╨╛╨╡ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╨╡
+╤Б╤В╤А╨╛╨║╨╕ ╨┐╨╛╨╕╤Б╨║╨░. ╨з╤В╨╛╨▒╤Л ╨┐╨╡╤А╨╡╨╣╤В╨╕ ╨║ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╨╡╨╝╤Г ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤О, ╨╜╨░╨╢╨╝╨╕╤В╨╡ {\bf Ctrl+L}.
 
-Заметьте, что если несколько файлов открыты и изменены в IDE, то поиск будет
-производиться в этих измененных вариантах, даже если область поиска определена 
-как Директория.
+╨Ч╨░╨╝╨╡╤В╤М╤В╨╡, ╤З╤В╨╛ ╨╡╤Б╨╗╨╕ ╨╜╨╡╤Б╨║╨╛╨╗╤М╨║╨╛ ╤Д╨░╨╣╨╗╨╛╨▓ ╨╛╤В╨║╤А╤Л╤В╤Л ╨╕ ╨╕╨╖╨╝╨╡╨╜╨╡╨╜╤Л ╨▓ IDE, ╤В╨╛ ╨┐╨╛╨╕╤Б╨║ ╨▒╤Г╨┤╨╡╤В
+╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М╤Б╤П ╨▓ ╤Н╤В╨╕╤Е ╨╕╨╖╨╝╨╡╨╜╨╡╨╜╨╜╤Л╤Е ╨▓╨░╤А╨╕╨░╨╜╤В╨░╤Е, ╨┤╨░╨╢╨╡ ╨╡╤Б╨╗╨╕ ╨╛╨▒╨╗╨░╤Б╤В╤М ╨┐╨╛╨╕╤Б╨║╨░ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╨░ 
+╨║╨░╨║ ╨Ф╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П.
 \fi
 %-----------------------------------------------------------------------
 
@@ -800,8 +800,8 @@ work on those modified versions, even when the range is specified as Directory.
 Start search operation. Dialog box will appear with {\bf Cancel} button
 that allows you to cancel the operation.
 \else
-Начать процедуру поиска. Появится диалоговое окно с кнопкой {\bf Cancel},
-что позволяет вам прекратить процедуру.
+╨Э╨░╤З╨░╤В╤М ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Г ╨┐╨╛╨╕╤Б╨║╨░. ╨Я╨╛╤П╨▓╨╕╤В╤Б╤П ╨┤╨╕╨░╨╗╨╛╨│╨╛╨▓╨╛╨╡ ╨╛╨║╨╜╨╛ ╤Б ╨║╨╜╨╛╨┐╨║╨╛╨╣ {\bf Cancel},
+╤З╤В╨╛ ╨┐╨╛╨╖╨▓╨╛╨╗╤П╨╡╤В ╨▓╨░╨╝ ╨┐╤А╨╡╨║╤А╨░╤В╨╕╤В╤М ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Г.
 \fi
 \end{popup}
 
@@ -813,7 +813,7 @@ that allows you to cancel the operation.
 Press {\bf Cancel} button if you decided not to perform file search.
 
 \else
-Нажмите кнопку {\bf Cancel}, если решили не производить поиск.
+╨Э╨░╨╢╨╝╨╕╤В╨╡ ╨║╨╜╨╛╨┐╨║╤Г {\bf Cancel}, ╨╡╤Б╨╗╨╕ ╤А╨╡╤И╨╕╨╗╨╕ ╨╜╨╡ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║.
 \fi
 \end{popup}
 
@@ -827,9 +827,9 @@ as separate words, or within other words. For example, pattern {\tt "ear"} will
 be found in text {\tt "Search"}.
 
 \else
-Эта опция позволяет отыскивать все вхождения, где строка содержится как отдельное
-слово или как часть других слов. Например, шаблон {\tt "ear"} будет
-найден в тексте {\tt "Search"}.
+╨н╤В╨░ ╨╛╨┐╤Ж╨╕╤П ╨┐╨╛╨╖╨▓╨╛╨╗╤П╨╡╤В ╨╛╤В╤Л╤Б╨║╨╕╨▓╨░╤В╤М ╨▓╤Б╨╡ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П, ╨│╨┤╨╡ ╤Б╤В╤А╨╛╨║╨░ ╤Б╨╛╨┤╨╡╤А╨╢╨╕╤В╤Б╤П ╨║╨░╨║ ╨╛╤В╨┤╨╡╨╗╤М╨╜╨╛╨╡
+╤Б╨╗╨╛╨▓╨╛ ╨╕╨╗╨╕ ╨║╨░╨║ ╤З╨░╤Б╤В╤М ╨┤╤А╤Г╨│╨╕╤Е ╤Б╨╗╨╛╨▓. ╨Э╨░╨┐╤А╨╕╨╝╨╡╤А, ╤И╨░╨▒╨╗╨╛╨╜ {\tt "ear"} ╨▒╤Г╨┤╨╡╤В
+╨╜╨░╨╣╨┤╨╡╨╜ ╨▓ ╤В╨╡╨║╤Б╤В╨╡ {\tt "Search"}.
 \fi
 \end{popup}
 
@@ -842,9 +842,9 @@ Allows the text to be found in the beginning but not in the middle of words
 (that means, requires word break to precede text occurrences). For example,
 pattern {\tt "Wind"} will be found in word {\tt"Windows"}.
 \else
-Позволяет отыскивать текст в начале, а не в середине слов (что означает, что
-перед местом, где встретился текст должен быть промежуток между словами).
-Например, шаблон {\tt "Wind"} будет найден в слове {\tt"Windows"}.
+╨Я╨╛╨╖╨▓╨╛╨╗╤П╨╡╤В ╨╛╤В╤Л╤Б╨║╨╕╨▓╨░╤В╤М ╤В╨╡╨║╤Б╤В ╨▓ ╨╜╨░╤З╨░╨╗╨╡, ╨░ ╨╜╨╡ ╨▓ ╤Б╨╡╤А╨╡╨┤╨╕╨╜╨╡ ╤Б╨╗╨╛╨▓ (╤З╤В╨╛ ╨╛╨╖╨╜╨░╤З╨░╨╡╤В, ╤З╤В╨╛
+╨┐╨╡╤А╨╡╨┤ ╨╝╨╡╤Б╤В╨╛╨╝, ╨│╨┤╨╡ ╨▓╤Б╤В╤А╨╡╤В╨╕╨╗╤Б╤П ╤В╨╡╨║╤Б╤В ╨┤╨╛╨╗╨╢╨╡╨╜ ╨▒╤Л╤В╤М ╨┐╤А╨╛╨╝╨╡╨╢╤Г╤В╨╛╨║ ╨╝╨╡╨╢╨┤╤Г ╤Б╨╗╨╛╨▓╨░╨╝╨╕).
+╨Э╨░╨┐╤А╨╕╨╝╨╡╤А, ╤И╨░╨▒╨╗╨╛╨╜ {\tt "Wind"} ╨▒╤Г╨┤╨╡╤В ╨╜╨░╨╣╨┤╨╡╨╜ ╨▓ ╤Б╨╗╨╛╨▓╨╡ {\tt"Windows"}.
 \fi
 \end{popup}
 
@@ -857,9 +857,9 @@ Allows the text to be found in the end but not in the middle of words
 (that means, requires word break to follow text occurrences). For example,
 pattern {\tt "fix"} will be found in word {\tt"suffix"}.
 \else
-Позволяет отыскать текст в конце, но не в середине слов (что означает
-требование к промежутку между словами находиться сразу за обнаруженным 
-текстом). Например, шаблон {\tt "fix"} будет найден в {\tt"suffix"}.
+╨Я╨╛╨╖╨▓╨╛╨╗╤П╨╡╤В ╨╛╤В╤Л╤Б╨║╨░╤В╤М ╤В╨╡╨║╤Б╤В ╨▓ ╨║╨╛╨╜╤Ж╨╡, ╨╜╨╛ ╨╜╨╡ ╨▓ ╤Б╨╡╤А╨╡╨┤╨╕╨╜╨╡ ╤Б╨╗╨╛╨▓ (╤З╤В╨╛ ╨╛╨╖╨╜╨░╤З╨░╨╡╤В
+╤В╤А╨╡╨▒╨╛╨▓╨░╨╜╨╕╨╡ ╨║ ╨┐╤А╨╛╨╝╨╡╨╢╤Г╤В╨║╤Г ╨╝╨╡╨╢╨┤╤Г ╤Б╨╗╨╛╨▓╨░╨╝╨╕ ╨╜╨░╤Е╨╛╨┤╨╕╤В╤М╤Б╤П ╤Б╤А╨░╨╖╤Г ╨╖╨░ ╨╛╨▒╨╜╨░╤А╤Г╨╢╨╡╨╜╨╜╤Л╨╝ 
+╤В╨╡╨║╤Б╤В╨╛╨╝). ╨Э╨░╨┐╤А╨╕╨╝╨╡╤А, ╤И╨░╨▒╨╗╨╛╨╜ {\tt "fix"} ╨▒╤Г╨┤╨╡╤В ╨╜╨░╨╣╨┤╨╡╨╜ ╨▓ {\tt"suffix"}.
 \fi
 \end{popup}
 
@@ -873,9 +873,9 @@ string within other words to be skipped during search.
 So neither pattern {\tt "hole"} nor {\tt "ole"} nor letter {\tt "h"}
 will be found in word {\tt "Whole"}.
 \else
-Установите опцию {\bf Whole words}, если хотите, чтобы вхождения строки поиска в 
-середине слов не рассматривались. Так ни {\tt "hole"}, ни {\tt "ole"}, ни буква 
- {\tt "h"} не будут найдены в слове {\tt "Whole"}.
+╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Whole words}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡, ╤З╤В╨╛╨▒╤Л ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П ╤Б╤В╤А╨╛╨║╨╕ ╨┐╨╛╨╕╤Б╨║╨░ ╨▓ 
+╤Б╨╡╤А╨╡╨┤╨╕╨╜╨╡ ╤Б╨╗╨╛╨▓ ╨╜╨╡ ╤А╨░╤Б╤Б╨╝╨░╤В╤А╨╕╨▓╨░╨╗╨╕╤Б╤М. ╨в╨░╨║ ╨╜╨╕ {\tt "hole"}, ╨╜╨╕ {\tt "ole"}, ╨╜╨╕ ╨▒╤Г╨║╨▓╨░ 
+ {\tt "h"} ╨╜╨╡ ╨▒╤Г╨┤╤Г╤В ╨╜╨░╨╣╨┤╨╡╨╜╤Л ╨▓ ╤Б╨╗╨╛╨▓╨╡ {\tt "Whole"}.
 \fi
 \end{popup}
 
@@ -887,8 +887,8 @@ will be found in word {\tt "Whole"}.
 When this checkbox is selected the search string field is automatically
 initialized with current word from the editor window.
 \else
-Когда эта опция установлена, строка поиска автоматически инициализируется 
-текущим словом в окне редактирования.
+╨Ъ╨╛╨│╨┤╨░ ╤Н╤В╨░ ╨╛╨┐╤Ж╨╕╤П ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╗╨╡╨╜╨░, ╤Б╤В╤А╨╛╨║╨░ ╨┐╨╛╨╕╤Б╨║╨░ ╨░╨▓╤В╨╛╨╝╨░╤В╨╕╤З╨╡╤Б╨║╨╕ ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨╕╤А╤Г╨╡╤В╤Б╤П 
+╤В╨╡╨║╤Г╤Й╨╕╨╝ ╤Б╨╗╨╛╨▓╨╛╨╝ ╨▓ ╨╛╨║╨╜╨╡ ╤А╨╡╨┤╨░╨║╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╤П.
 \fi
 \end{popup}
 
@@ -905,12 +905,12 @@ right of this field.
 Leaving this field blank builds list of files in given search area that match
 specifies file name mask.
 \else
-Наберите строку, которую хотите отыскать в этом поле ввода. Все строки, 
-которые вы вводите, хранятся в архивном списке. Вы можете выбрать один из ранее 
-использованных шаблонов путем нажатия кпопки со стрелкой справа от этого поля.
+╨Э╨░╨▒╨╡╤А╨╕╤В╨╡ ╤Б╤В╤А╨╛╨║╤Г, ╨║╨╛╤В╨╛╤А╤Г╤О ╤Е╨╛╤В╨╕╤В╨╡ ╨╛╤В╤Л╤Б╨║╨░╤В╤М ╨▓ ╤Н╤В╨╛╨╝ ╨┐╨╛╨╗╨╡ ╨▓╨▓╨╛╨┤╨░. ╨Т╤Б╨╡ ╤Б╤В╤А╨╛╨║╨╕, 
+╨║╨╛╤В╨╛╤А╤Л╨╡ ╨▓╤Л ╨▓╨▓╨╛╨┤╨╕╤В╨╡, ╤Е╤А╨░╨╜╤П╤В╤Б╤П ╨▓ ╨░╤А╤Е╨╕╨▓╨╜╨╛╨╝ ╤Б╨┐╨╕╤Б╨║╨╡. ╨Т╤Л ╨╝╨╛╨╢╨╡╤В╨╡ ╨▓╤Л╨▒╤А╨░╤В╤М ╨╛╨┤╨╕╨╜ ╨╕╨╖ ╤А╨░╨╜╨╡╨╡ 
+╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╜╤Л╤Е ╤И╨░╨▒╨╗╨╛╨╜╨╛╨▓ ╨┐╤Г╤В╨╡╨╝ ╨╜╨░╨╢╨░╤В╨╕╤П ╨║╨┐╨╛╨┐╨║╨╕ ╤Б╨╛ ╤Б╤В╤А╨╡╨╗╨║╨╛╨╣ ╤Б╨┐╤А╨░╨▓╨░ ╨╛╤В ╤Н╤В╨╛╨│╨╛ ╨┐╨╛╨╗╤П.
 
-Если оставить это поле пустым, то будет построен список файлов, имена которых
-отвечают указанному шаблону имени файла.
+╨Х╤Б╨╗╨╕ ╨╛╤Б╤В╨░╨▓╨╕╤В╤М ╤Н╤В╨╛ ╨┐╨╛╨╗╨╡ ╨┐╤Г╤Б╤В╤Л╨╝, ╤В╨╛ ╨▒╤Г╨┤╨╡╤В ╨┐╨╛╤Б╤В╤А╨╛╨╡╨╜ ╤Б╨┐╨╕╤Б╨╛╨║ ╤Д╨░╨╣╨╗╨╛╨▓, ╨╕╨╝╨╡╨╜╨░ ╨║╨╛╤В╨╛╤А╤Л╤Е
+╨╛╤В╨▓╨╡╤З╨░╤О╤В ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨╝╤Г ╤И╨░╨▒╨╗╨╛╨╜╤Г ╨╕╨╝╨╡╨╜╨╕ ╤Д╨░╨╣╨╗╨░.
 \fi
 \end{popup}
 
@@ -923,9 +923,9 @@ Instructs the IDE to search in all project files. The project files list
 is built during project make.  Only files whose names
 matches the specified file mask are searched.
 \else
-Заставляет IDE производить поиск во всех проектных файлах. Список проектных 
-файлов строится во время компоновки проекта. Поиск прозводится только в 
-файлах, имена которых отвечают указанному шаблону имени файла.
+╨Ч╨░╤Б╤В╨░╨▓╨╗╤П╨╡╤В IDE ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║ ╨▓╨╛ ╨▓╤Б╨╡╤Е ╨┐╤А╨╛╨╡╨║╤В╨╜╤Л╤Е ╤Д╨░╨╣╨╗╨░╤Е. ╨б╨┐╨╕╤Б╨╛╨║ ╨┐╤А╨╛╨╡╨║╤В╨╜╤Л╤Е 
+╤Д╨░╨╣╨╗╨╛╨▓ ╤Б╤В╤А╨╛╨╕╤В╤Б╤П ╨▓╨╛ ╨▓╤А╨╡╨╝╤П ╨║╨╛╨╝╨┐╨╛╨╜╨╛╨▓╨║╨╕ ╨┐╤А╨╛╨╡╨║╤В╨░. ╨Я╨╛╨╕╤Б╨║ ╨┐╤А╨╛╨╖╨▓╨╛╨┤╨╕╤В╤Б╤П ╤В╨╛╨╗╤М╨║╨╛ ╨▓ 
+╤Д╨░╨╣╨╗╨░╤Е, ╨╕╨╝╨╡╨╜╨░ ╨║╨╛╤В╨╛╤А╤Л╤Е ╨╛╤В╨▓╨╡╤З╨░╤О╤В ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨╝╤Г ╤И╨░╨▒╨╗╨╛╨╜╤Г ╨╕╨╝╨╡╨╜╨╕ ╤Д╨░╨╣╨╗╨░.
 \fi
 \end{popup}
 
@@ -937,8 +937,8 @@ matches the specified file mask are searched.
 Instructs IDE to search in all open windows whose names match the specified
 file name mask.
 \else
-Заставляет IDE производить поиск во всех открытых окнах, названия которых
-отвечают указанному шаблону имени файла.
+╨Ч╨░╤Б╤В╨░╨▓╨╗╤П╨╡╤В IDE ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║ ╨▓╨╛ ╨▓╤Б╨╡╤Е ╨╛╤В╨║╤А╤Л╤В╤Л╤Е ╨╛╨║╨╜╨░╤Е, ╨╜╨░╨╖╨▓╨░╨╜╨╕╤П ╨║╨╛╤В╨╛╤А╤Л╤Е
+╨╛╤В╨▓╨╡╤З╨░╤О╤В ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨╝╤Г ╤И╨░╨▒╨╗╨╛╨╜╤Г ╨╕╨╝╨╡╨╜╨╕ ╤Д╨░╨╣╨╗╨░.
 \fi
 \end{popup}
 
@@ -950,8 +950,8 @@ file name mask.
 Instructs IDE to search in disk files in given directory. Only files whose names
 matches the specified file mask are searched.
 \else
-Заставляет IDE производить поиск в файлах в данной директории. Поиск будет
-произведен только в файлах, имена которых отвечают заданному шаблону.
+╨Ч╨░╤Б╤В╨░╨▓╨╗╤П╨╡╤В IDE ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║ ╨▓ ╤Д╨░╨╣╨╗╨░╤Е ╨▓ ╨┤╨░╨╜╨╜╨╛╨╣ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╨╕. ╨Я╨╛╨╕╤Б╨║ ╨▒╤Г╨┤╨╡╤В
+╨┐╤А╨╛╨╕╨╖╨▓╨╡╨┤╨╡╨╜ ╤В╨╛╨╗╤М╨║╨╛ ╨▓ ╤Д╨░╨╣╨╗╨░╤Е, ╨╕╨╝╨╡╨╜╨░ ╨║╨╛╤В╨╛╤А╤Л╤Е ╨╛╤В╨▓╨╡╤З╨░╤О╤В ╨╖╨░╨┤╨░╨╜╨╜╨╛╨╝╤Г ╤И╨░╨▒╨╗╨╛╨╜╤Г.
 \fi
 \end{popup}
 
@@ -964,9 +964,9 @@ Select the {\bf Case sensitive} checkbox if you want to find only
 case-matching occurrences of a string. For instance, if you search for
 the string {\tt "Win32"}, the string {\tt "WIN32"} will be skipped.
 \else
-Установите опцию {\bf Case sensitive}, если хотите отыскать участки текста, 
-содержащие вашу строку с точностью до регистра. Например, если вы ищете строку
-{\tt "Win32"}, строка {\tt "WIN32"} будет отброшена.
+╨г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╨╡ ╨╛╨┐╤Ж╨╕╤О {\bf Case sensitive}, ╨╡╤Б╨╗╨╕ ╤Е╨╛╤В╨╕╤В╨╡ ╨╛╤В╤Л╤Б╨║╨░╤В╤М ╤Г╤З╨░╤Б╤В╨║╨╕ ╤В╨╡╨║╤Б╤В╨░, 
+╤Б╨╛╨┤╨╡╤А╨╢╨░╤Й╨╕╨╡ ╨▓╨░╤И╤Г ╤Б╤В╤А╨╛╨║╤Г ╤Б ╤В╨╛╤З╨╜╨╛╤Б╤В╤М╤О ╨┤╨╛ ╤А╨╡╨│╨╕╤Б╤В╤А╨░. ╨Э╨░╨┐╤А╨╕╨╝╨╡╤А, ╨╡╤Б╨╗╨╕ ╨▓╤Л ╨╕╤Й╨╡╤В╨╡ ╤Б╤В╤А╨╛╨║╤Г
+{\tt "Win32"}, ╤Б╤В╤А╨╛╨║╨░ {\tt "WIN32"} ╨▒╤Г╨┤╨╡╤В ╨╛╤В╨▒╤А╨╛╤И╨╡╨╜╨░.
 \fi
 \end{popup}
 
@@ -979,9 +979,9 @@ If you already have one search result window and this checkbox is checked
 a new window will be created after the search. Otherwise current window will
 be used.
 \else
-Если у вас уже имеется одно окно с результатами поиска, и эта опция установлена,
-то после очередного поиска будет создано новое окно. Иначе будет использовано
-текущее окно.
+╨Х╤Б╨╗╨╕ ╤Г ╨▓╨░╤Б ╤Г╨╢╨╡ ╨╕╨╝╨╡╨╡╤В╤Б╤П ╨╛╨┤╨╜╨╛ ╨╛╨║╨╜╨╛ ╤Б ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В╨░╨╝╨╕ ╨┐╨╛╨╕╤Б╨║╨░, ╨╕ ╤Н╤В╨░ ╨╛╨┐╤Ж╨╕╤П ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╗╨╡╨╜╨░,
+╤В╨╛ ╨┐╨╛╤Б╨╗╨╡ ╨╛╤З╨╡╤А╨╡╨┤╨╜╨╛╨│╨╛ ╨┐╨╛╨╕╤Б╨║╨░ ╨▒╤Г╨┤╨╡╤В ╤Б╨╛╨╖╨┤╨░╨╜╨╛ ╨╜╨╛╨▓╨╛╨╡ ╨╛╨║╨╜╨╛. ╨Ш╨╜╨░╤З╨╡ ╨▒╤Г╨┤╨╡╤В ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╛
+╤В╨╡╨║╤Г╤Й╨╡╨╡ ╨╛╨║╨╜╨╛.
 \fi
 \end{popup}
 
@@ -994,9 +994,9 @@ If {\bf Directory} radio button is selected you set directory to find files in h
 You may also check {\bf and subdirectories} check box to search in subdirectories of this
 directory.
 \else
-Если включена кнопка {\bf Directory}, то здесь вы указываете директорию, в которой 
-будет производиться поиск файлов. Вы также можете установить опцию, чтобы поиск 
-велся также и в поддиректориях данной директории.
+╨Х╤Б╨╗╨╕ ╨▓╨║╨╗╤О╤З╨╡╨╜╨░ ╨║╨╜╨╛╨┐╨║╨░ {\bf Directory}, ╤В╨╛ ╨╖╨┤╨╡╤Б╤М ╨▓╤Л ╤Г╨║╨░╨╖╤Л╨▓╨░╨╡╤В╨╡ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤О, ╨▓ ╨║╨╛╤В╨╛╤А╨╛╨╣ 
+╨▒╤Г╨┤╨╡╤В ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М╤Б╤П ╨┐╨╛╨╕╤Б╨║ ╤Д╨░╨╣╨╗╨╛╨▓. ╨Т╤Л ╤В╨░╨║╨╢╨╡ ╨╝╨╛╨╢╨╡╤В╨╡ ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╨╛╨┐╤Ж╨╕╤О, ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╕╤Б╨║ 
+╨▓╨╡╨╗╤Б╤П ╤В╨░╨║╨╢╨╡ ╨╕ ╨▓ ╨┐╨╛╨┤╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П╤Е ╨┤╨░╨╜╨╜╨╛╨╣ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╨╕.
 \fi
 \end{popup}
 
@@ -1009,8 +1009,8 @@ Specify that you wish to search in subdirectories as well as in specified
 directory. The search will happen in whole directory subtree, without any
 depth limit.
 \else
-Указывает, что вы хотите производить поиск и в поддиректориях данной директории.
-Поиск произойдет во всем поддереве директорий без ограничения глубины.
+╨г╨║╨░╨╖╤Л╨▓╨░╨╡╤В, ╤З╤В╨╛ ╨▓╤Л ╤Е╨╛╤В╨╕╤В╨╡ ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨┤╨╕╤В╤М ╨┐╨╛╨╕╤Б╨║ ╨╕ ╨▓ ╨┐╨╛╨┤╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤П╤Е ╨┤╨░╨╜╨╜╨╛╨╣ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╨╕.
+╨Я╨╛╨╕╤Б╨║ ╨┐╤А╨╛╨╕╨╖╨╛╨╣╨┤╨╡╤В ╨▓╨╛ ╨▓╤Б╨╡╨╝ ╨┐╨╛╨┤╨┤╨╡╤А╨╡╨▓╨╡ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╨╣ ╨▒╨╡╨╖ ╨╛╨│╤А╨░╨╜╨╕╤З╨╡╨╜╨╕╤П ╨│╨╗╤Г╨▒╨╕╨╜╤Л.
 \fi
 \end{popup}
 
@@ -1022,9 +1022,9 @@ depth limit.
 Specify in which files you wish to search the pattern. Any regular expression
 is allowed here. Leaving this field blank invokes searching in all files. Be careful!
 \else
-Укажите, в каких файлах вы хотите отыскать ваш шаблон. Здесь возможно любое
-регулярное выражение. Если оставить это поле пустым, то поиск будет произведен 
-во всех файлах. Будьте осторожны.
+╨г╨║╨░╨╢╨╕╤В╨╡, ╨▓ ╨║╨░╨║╨╕╤Е ╤Д╨░╨╣╨╗╨░╤Е ╨▓╤Л ╤Е╨╛╤В╨╕╤В╨╡ ╨╛╤В╤Л╤Б╨║╨░╤В╤М ╨▓╨░╤И ╤И╨░╨▒╨╗╨╛╨╜. ╨Ч╨┤╨╡╤Б╤М ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛ ╨╗╤О╨▒╨╛╨╡
+╤А╨╡╨│╤Г╨╗╤П╤А╨╜╨╛╨╡ ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╨╡. ╨Х╤Б╨╗╨╕ ╨╛╤Б╤В╨░╨▓╨╕╤В╤М ╤Н╤В╨╛ ╨┐╨╛╨╗╨╡ ╨┐╤Г╤Б╤В╤Л╨╝, ╤В╨╛ ╨┐╨╛╨╕╤Б╨║ ╨▒╤Г╨┤╨╡╤В ╨┐╤А╨╛╨╕╨╖╨▓╨╡╨┤╨╡╨╜ 
+╨▓╨╛ ╨▓╤Б╨╡╤Е ╤Д╨░╨╣╨╗╨░╤Е. ╨С╤Г╨┤╤М╤В╨╡ ╨╛╤Б╤В╨╛╤А╨╛╨╢╨╜╤Л.
 \fi
 \end{popup}
 
@@ -1036,8 +1036,8 @@ is allowed here. Leaving this field blank invokes searching in all files. Be car
 Select directory where you wish to search using standard directory selection
 dialog.
 \else
-Выберите директорию, где вы хотите произвести поиск, используя стандартный диалог
-выбора директории.
+╨Т╤Л╨▒╨╡╤А╨╕╤В╨╡ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╤О, ╨│╨┤╨╡ ╨▓╤Л ╤Е╨╛╤В╨╕╤В╨╡ ╨┐╤А╨╛╨╕╨╖╨▓╨╡╤Б╤В╨╕ ╨┐╨╛╨╕╤Б╨║, ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╤П ╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╤Л╨╣ ╨┤╨╕╨░╨╗╨╛╨│
+╨▓╤Л╨▒╨╛╤А╨░ ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╨╕.
 \fi
 \end{popup}
 
