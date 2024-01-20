@@ -78,7 +78,7 @@ struct FILEERRLIST
  ~FILEERRLIST   ();
   FILEERRLIST   *next;
   char           szFilename[CCHMAXPATH];
-  PSZ            pszShortName; // указывает в szFilename
+  PSZ            pszShortName; // ╤Г╨║╨░╨╖╤Л╨▓╨░╨╡╤В ╨▓ szFilename
   PERRSTR        pErrList;
 };
 typedef FILEERRLIST *PFILEERRLIST;
@@ -88,7 +88,7 @@ struct ERRSTR
   PFILEERRLIST  pFEL;
   ERRSTR       *next;
   LONG          lListItem;
-  TPR           tprErr;     // TPR (начало текста = 0,0)
+  TPR           tprErr;     // TPR (╨╜╨░╤З╨░╨╗╨╛ ╤В╨╡╨║╤Б╤В╨░ = 0,0)
   ULONG         ulErrNum;
   ULONG         ulErrClass;
   ULONG         ulSentOrder;
@@ -113,34 +113,34 @@ public:
   BOOL      GoError      (GO_ERROR goError);
   void      FillList     ();
   void      TextChanged  (PTCD ptcd);
-  LONG      l1stLine;    // Позиция первого символа по мнению компилятора
-  LONG      l1stPos;     // (обычно 1;1) В самих ошибках хранится в нормальном виде (от 0;0).
-  ULONG     ulSentCount; // Возрастает для каждой новой пришедшей ошибки
+  LONG      l1stLine;    // ╨Я╨╛╨╖╨╕╤Ж╨╕╤П ╨┐╨╡╤А╨▓╨╛╨│╨╛ ╤Б╨╕╨╝╨▓╨╛╨╗╨░ ╨┐╨╛ ╨╝╨╜╨╡╨╜╨╕╤О ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░
+  LONG      l1stPos;     // (╨╛╨▒╤Л╤З╨╜╨╛ 1;1) ╨Т ╤Б╨░╨╝╨╕╤Е ╨╛╤И╨╕╨▒╨║╨░╤Е ╤Е╤А╨░╨╜╨╕╤В╤Б╤П ╨▓ ╨╜╨╛╤А╨╝╨░╨╗╤М╨╜╨╛╨╝ ╨▓╨╕╨┤╨╡ (╨╛╤В 0;0).
+  ULONG     ulSentCount; // ╨Т╨╛╨╖╤А╨░╤Б╤В╨░╨╡╤В ╨┤╨╗╤П ╨║╨░╨╢╨┤╨╛╨╣ ╨╜╨╛╨▓╨╛╨╣ ╨┐╤А╨╕╤И╨╡╨┤╤И╨╡╨╣ ╨╛╤И╨╕╨▒╨║╨╕
 private:
-     // Ошибки хранятся в упорядоченных по УБЫВАНИЮ позиции в файле списках ERRSTR (свой список для
-     // каждого файла.) Эти списки висят на списке FILEERRLIST. В нем:
-     //   имена файлов не дублируются;
-     //   может быть одно вхождение с пустым именем файла;
-     //   нет узлов с пустым списком ошибок.
+     // ╨Ю╤И╨╕╨▒╨║╨╕ ╤Е╤А╨░╨╜╤П╤В╤Б╤П ╨▓ ╤Г╨┐╨╛╤А╤П╨┤╨╛╤З╨╡╨╜╨╜╤Л╤Е ╨┐╨╛ ╨г╨С╨л╨Т╨Р╨Э╨Ш╨о ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ ╨▓ ╤Д╨░╨╣╨╗╨╡ ╤Б╨┐╨╕╤Б╨║╨░╤Е ERRSTR (╤Б╨▓╨╛╨╣ ╤Б╨┐╨╕╤Б╨╛╨║ ╨┤╨╗╤П
+     // ╨║╨░╨╢╨┤╨╛╨│╨╛ ╤Д╨░╨╣╨╗╨░.) ╨н╤В╨╕ ╤Б╨┐╨╕╤Б╨║╨╕ ╨▓╨╕╤Б╤П╤В ╨╜╨░ ╤Б╨┐╨╕╤Б╨║╨╡ FILEERRLIST. ╨Т ╨╜╨╡╨╝:
+     //   ╨╕╨╝╨╡╨╜╨░ ╤Д╨░╨╣╨╗╨╛╨▓ ╨╜╨╡ ╨┤╤Г╨▒╨╗╨╕╤А╤Г╤О╤В╤Б╤П;
+     //   ╨╝╨╛╨╢╨╡╤В ╨▒╤Л╤В╤М ╨╛╨┤╨╜╨╛ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╨╡ ╤Б ╨┐╤Г╤Б╤В╤Л╨╝ ╨╕╨╝╨╡╨╜╨╡╨╝ ╤Д╨░╨╣╨╗╨░;
+     //   ╨╜╨╡╤В ╤Г╨╖╨╗╨╛╨▓ ╤Б ╨┐╤Г╤Б╤В╤Л╨╝ ╤Б╨┐╨╕╤Б╨║╨╛╨╝ ╨╛╤И╨╕╨▒╨╛╨║.
   PFILEERRLIST    pFEList;
   SORT_MODE       sMode;
 };
 
 class SRCLIST
 {
-// Имена в списке есть двух типов - 'manual'=полученные из списка установленного юзером
-//        и 'comp' - полученные от компилятора (добавлен 1 символ перед строкой = 'M'/'C')
+// ╨Ш╨╝╨╡╨╜╨░ ╨▓ ╤Б╨┐╨╕╤Б╨║╨╡ ╨╡╤Б╤В╤М ╨┤╨▓╤Г╤Е ╤В╨╕╨┐╨╛╨▓ - 'manual'=╨┐╨╛╨╗╤Г╤З╨╡╨╜╨╜╤Л╨╡ ╨╕╨╖ ╤Б╨┐╨╕╤Б╨║╨░ ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╗╨╡╨╜╨╜╨╛╨│╨╛ ╤О╨╖╨╡╤А╨╛╨╝
+//        ╨╕ 'comp' - ╨┐╨╛╨╗╤Г╤З╨╡╨╜╨╜╤Л╨╡ ╨╛╤В ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ (╨┤╨╛╨▒╨░╨▓╨╗╨╡╨╜ 1 ╤Б╨╕╨╝╨▓╨╛╨╗ ╨┐╨╡╤А╨╡╨┤ ╤Б╤В╤А╨╛╨║╨╛╨╣ = 'M'/'C')
 //
 public:
   SRCLIST();
-  void      SetFullNames   (BOOL fFullNames);              // Показывать ли полные имена
+  void      SetFullNames   (BOOL fFullNames);              // ╨Я╨╛╨║╨░╨╖╤Л╨▓╨░╤В╤М ╨╗╨╕ ╨┐╨╛╨╗╨╜╤Л╨╡ ╨╕╨╝╨╡╨╜╨░
   BOOL      QueryFullNames () {return fFullNames;}
   PSZ       Enum           (int nWhat, BOOL f_private=FALSE);              // nWhat = 0/1/2: all/sel/manual
   PSZ       NextEnum       (int nWhat) {return Enum(nWhat,TRUE);}          // --//--
-  void      ClearManual    (BOOL fNoShow=FALSE) {clear_spec('M',fNoShow);} // Очистить m-имена
-  void      ClearComp      (BOOL fNoShow=FALSE) {clear_spec('C',fNoShow);} // Очистить c-имена
+  void      ClearManual    (BOOL fNoShow=FALSE) {clear_spec('M',fNoShow);} // ╨Ю╤З╨╕╤Б╤В╨╕╤В╤М m-╨╕╨╝╨╡╨╜╨░
+  void      ClearComp      (BOOL fNoShow=FALSE) {clear_spec('C',fNoShow);} // ╨Ю╤З╨╕╤Б╤В╨╕╤В╤М c-╨╕╨╝╨╡╨╜╨░
   void      AddFile        (PSZ pszFile, BOOL fTagItManual = FALSE);
-  void      ShowAppended   ();                                             // Показать изменения
+  void      ShowAppended   ();                                             // ╨Я╨╛╨║╨░╨╖╨░╤В╤М ╨╕╨╖╨╝╨╡╨╜╨╡╨╜╨╕╤П
   void      Select         (char chMode, PSZ pszPattern);
   void      ToggleCurItemSel();
   void      WProfile(LONG slot, PSZ szName);
@@ -367,8 +367,8 @@ MRESULT EXPENTRY dpSelDirDlg(HWND hWnd,ULONG ulMsg,MPARAM m1,MPARAM m2);
 
 #define IDM_TOOLS             600
 #define IDM_TOOLCONFIGURE     601
-// Команды вызова тулов будут
-//          TOOL_MIN_ID+<номер тула (*одного из перегруженных*)>
+// ╨Ъ╨╛╨╝╨░╨╜╨┤╤Л ╨▓╤Л╨╖╨╛╨▓╨░ ╤В╤Г╨╗╨╛╨▓ ╨▒╤Г╨┤╤Г╤В
+//          TOOL_MIN_ID+<╨╜╨╛╨╝╨╡╤А ╤В╤Г╨╗╨░ (*╨╛╨┤╨╜╨╛╨│╨╛ ╨╕╨╖ ╨┐╨╡╤А╨╡╨│╤А╤Г╨╢╨╡╨╜╨╜╤Л╤Е*)>
 
 #define IDM_PROJECT           700
 #define IDM_PROJNEW           701
@@ -783,7 +783,7 @@ MRESULT EXPENTRY dpSelDirDlg(HWND hWnd,ULONG ulMsg,MPARAM m1,MPARAM m2);
 //
 //  Reserved values:
 #define TOOL_MIN_ID           10000
-// RC не понимает выражений Ж:-(
+// RC ╨╜╨╡ ╨┐╨╛╨╜╨╕╨╝╨░╨╡╤В ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╨╣ ╨Ц:-(
 #define IDB_TOOL0             10000
 #define IDB_TOOL1             10001
 #define IDB_TOOL2             10002

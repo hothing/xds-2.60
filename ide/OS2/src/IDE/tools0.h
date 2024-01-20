@@ -16,30 +16,30 @@
 #define IDM_TOOL_SEPARATOR (TOOL_MIN_ID + MAXTOOLS + 1)
 #define POPUP_TMP_FILE     "XD$$HELL.TMP"
 
-void    ToolRecallPopup();           // Всплывет/создастся немодальное popup окно, во втором случае - не вернется.
-void    ToolHidePopup();             // Если popup окно не в работе, то оно спрячется.
-void    ToolStartPopup (MPARAM(m1)); // Запуск тула в немодальном popup окне, не вернется до окончания.
+void    ToolRecallPopup();           // ╨Т╤Б╨┐╨╗╤Л╨▓╨╡╤В/╤Б╨╛╨╖╨┤╨░╤Б╤В╤Б╤П ╨╜╨╡╨╝╨╛╨┤╨░╨╗╤М╨╜╨╛╨╡ popup ╨╛╨║╨╜╨╛, ╨▓╨╛ ╨▓╤В╨╛╤А╨╛╨╝ ╤Б╨╗╤Г╤З╨░╨╡ - ╨╜╨╡ ╨▓╨╡╤А╨╜╨╡╤В╤Б╤П.
+void    ToolHidePopup();             // ╨Х╤Б╨╗╨╕ popup ╨╛╨║╨╜╨╛ ╨╜╨╡ ╨▓ ╤А╨░╨▒╨╛╤В╨╡, ╤В╨╛ ╨╛╨╜╨╛ ╤Б╨┐╤А╤П╤З╨╡╤В╤Б╤П.
+void    ToolStartPopup (MPARAM(m1)); // ╨Ч╨░╨┐╤Г╤Б╨║ ╤В╤Г╨╗╨░ ╨▓ ╨╜╨╡╨╝╨╛╨┤╨░╨╗╤М╨╜╨╛╨╝ popup ╨╛╨║╨╜╨╡, ╨╜╨╡ ╨▓╨╡╤А╨╜╨╡╤В╤Б╤П ╨┤╨╛ ╨╛╨║╨╛╨╜╤З╨░╨╜╨╕╤П.
 
 struct TOOL
 {
-  int           cb;                         // Для передачи диалогам
-  TOOL         *ptDefValue;                 // Не 0 если это был тул из тулсета
-  char          szName      [TOOLNAMELEN];  // Наше имя
-  char          szComment   [46];           // Текст 'сопли'
-  PSZ           pszToolScript;              // malloc()ed текст собссно ; 0 - тула нету
-  PSZ           pszFilter;                  // malloc()ed фильтр (или 0); [0] = +/- (use/not use)
-  char          szMenuItem  [50];           // "" - в меню не ставится
-  BOOL          fRunWhenProject;            // Фильтр: нужен известный файл проекта
-  char          szMatchFiles[50];           // Фильтр: шаблон имени текущего файла
-  char          szHotKey    [20];           // Что-то типа "Alt+'C'" (--- не используется!)
-  ACCEL         rAccel;                     // Accel для hot key (или .fs будет 0)
-  USHORT        usBmp;                      // Идентификатор ресурса битмапа или 0
+  int           cb;                         // ╨Ф╨╗╤П ╨┐╨╡╤А╨╡╨┤╨░╤З╨╕ ╨┤╨╕╨░╨╗╨╛╨│╨░╨╝
+  TOOL         *ptDefValue;                 // ╨Э╨╡ 0 ╨╡╤Б╨╗╨╕ ╤Н╤В╨╛ ╨▒╤Л╨╗ ╤В╤Г╨╗ ╨╕╨╖ ╤В╤Г╨╗╤Б╨╡╤В╨░
+  char          szName      [TOOLNAMELEN];  // ╨Э╨░╤И╨╡ ╨╕╨╝╤П
+  char          szComment   [46];           // ╨в╨╡╨║╤Б╤В '╤Б╨╛╨┐╨╗╨╕'
+  PSZ           pszToolScript;              // malloc()ed ╤В╨╡╨║╤Б╤В ╤Б╨╛╨▒╤Б╤Б╨╜╨╛ ; 0 - ╤В╤Г╨╗╨░ ╨╜╨╡╤В╤Г
+  PSZ           pszFilter;                  // malloc()ed ╤Д╨╕╨╗╤М╤В╤А (╨╕╨╗╨╕ 0); [0] = +/- (use/not use)
+  char          szMenuItem  [50];           // "" - ╨▓ ╨╝╨╡╨╜╤О ╨╜╨╡ ╤Б╤В╨░╨▓╨╕╤В╤Б╤П
+  BOOL          fRunWhenProject;            // ╨д╨╕╨╗╤М╤В╤А: ╨╜╤Г╨╢╨╡╨╜ ╨╕╨╖╨▓╨╡╤Б╤В╨╜╤Л╨╣ ╤Д╨░╨╣╨╗ ╨┐╤А╨╛╨╡╨║╤В╨░
+  char          szMatchFiles[50];           // ╨д╨╕╨╗╤М╤В╤А: ╤И╨░╨▒╨╗╨╛╨╜ ╨╕╨╝╨╡╨╜╨╕ ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╤Д╨░╨╣╨╗╨░
+  char          szHotKey    [20];           // ╨з╤В╨╛-╤В╨╛ ╤В╨╕╨┐╨░ "Alt+'C'" (--- ╨╜╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В╤Б╤П!)
+  ACCEL         rAccel;                     // Accel ╨┤╨╗╤П hot key (╨╕╨╗╨╕ .fs ╨▒╤Г╨┤╨╡╤В 0)
+  USHORT        usBmp;                      // ╨Ш╨┤╨╡╨╜╤В╨╕╤Д╨╕╨║╨░╤В╨╛╤А ╤А╨╡╤Б╤Г╤А╤Б╨░ ╨▒╨╕╤В╨╝╨░╨┐╨░ ╨╕╨╗╨╕ 0
 
                 TOOL        ();                       //
                ~TOOL        ();                       //
   BOOL          IsEnabled   ();                       // Enabled?
-  BOOL          Execute     (HWND hMsgWnd);           // Запуск (вернет FALSE при ошибке)
-  void          Copy        (TOOL *pSrc);             // Взять значение
+  BOOL          Execute     (HWND hMsgWnd);           // ╨Ч╨░╨┐╤Г╤Б╨║ (╨▓╨╡╤А╨╜╨╡╤В FALSE ╨┐╤А╨╕ ╨╛╤И╨╕╨▒╨║╨╡)
+  void          Copy        (TOOL *pSrc);             // ╨Т╨╖╤П╤В╤М ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡
   BOOL          RProfile    (LONG slot, PSZ szKey);
   BOOL          WProfile    (LONG slot, PSZ szKey, BOOL fMkNewDefs = FALSE);
   void          free_all    ();
@@ -63,24 +63,24 @@ public:
   void         Copy             (TOOLBOX *ptb);
   void         StorePopupPPFont (char szPPFont[FACESIZE+10]);
   PSZ          QueryPopupPPFont () {return szPPFont;}
-  BOOL         RProfile         (LONG slot, PSZ pszKey, BOOL fKeepOld); // FALSE если слишком много тулзов
+  BOOL         RProfile         (LONG slot, PSZ pszKey, BOOL fKeepOld); // FALSE ╨╡╤Б╨╗╨╕ ╤Б╨╗╨╕╤И╨║╨╛╨╝ ╨╝╨╜╨╛╨│╨╛ ╤В╤Г╨╗╨╖╨╛╨▓
   void         WProfile         (LONG slot, PSZ pszKey, BOOL fMkNewDefs = FALSE);
 private:
-  PTOOL        apTools[MAXTOOLS];             // Структуры тулов
-  char         szPPFont[FACESIZE+10];         // Фонт popup окна (типа "8.Helv" или "")
+  PTOOL        apTools[MAXTOOLS];             // ╨б╤В╤А╤Г╨║╤В╤Г╤А╤Л ╤В╤Г╨╗╨╛╨▓
+  char         szPPFont[FACESIZE+10];         // ╨д╨╛╨╜╤В popup ╨╛╨║╨╜╨░ (╤В╨╕╨┐╨░ "8.Helv" ╨╕╨╗╨╕ "")
 
   HACCEL       make_hAccel       ();
   void         del_controls      (BOOL fMenu);
   void         reFill_controls   (BOOL fMenu);
-  LONG         find_enabled      (PSZ pszName); // Номер активного тула с таким именем (или -1)
+  LONG         find_enabled      (PSZ pszName); // ╨Э╨╛╨╝╨╡╤А ╨░╨║╤В╨╕╨▓╨╜╨╛╨│╨╛ ╤В╤Г╨╗╨░ ╤Б ╤В╨░╨║╨╕╨╝ ╨╕╨╝╨╡╨╜╨╡╨╝ (╨╕╨╗╨╕ -1)
   friend       MRESULT EXPENTRY  dpToolCfgDlg(HWND,ULONG,MPARAM,MPARAM);
 };
 typedef TOOLBOX *PTOOLBOX;
 
 #if 0
-  Тулам сопоставляются идентификаторы контролов TOOL_ID_MIN+<номер тула>,
-  Реально вызванный тул ищется путим взятия имени кликнутого и поиска среди
-  множества тулов с таким именем первого активного
+  ╨в╤Г╨╗╨░╨╝ ╤Б╨╛╨┐╨╛╤Б╤В╨░╨▓╨╗╤П╤О╤В╤Б╤П ╨╕╨┤╨╡╨╜╤В╨╕╤Д╨╕╨║╨░╤В╨╛╤А╤Л ╨║╨╛╨╜╤В╤А╨╛╨╗╨╛╨▓ TOOL_ID_MIN+<╨╜╨╛╨╝╨╡╤А ╤В╤Г╨╗╨░>,
+  ╨а╨╡╨░╨╗╤М╨╜╨╛ ╨▓╤Л╨╖╨▓╨░╨╜╨╜╤Л╨╣ ╤В╤Г╨╗ ╨╕╤Й╨╡╤В╤Б╤П ╨┐╤Г╤В╨╕╨╝ ╨▓╨╖╤П╤В╨╕╤П ╨╕╨╝╨╡╨╜╨╕ ╨║╨╗╨╕╨║╨╜╤Г╤В╨╛╨│╨╛ ╨╕ ╨┐╨╛╨╕╤Б╨║╨░ ╤Б╤А╨╡╨┤╨╕
+  ╨╝╨╜╨╛╨╢╨╡╤Б╤В╨▓╨░ ╤В╤Г╨╗╨╛╨▓ ╤Б ╤В╨░╨║╨╕╨╝ ╨╕╨╝╨╡╨╜╨╡╨╝ ╨┐╨╡╤А╨▓╨╛╨│╨╛ ╨░╨║╤В╨╕╨▓╨╜╨╛╨│╨╛
 #endif
 
 #define WC_QUERYACCEL "WC_QAccelWindow"

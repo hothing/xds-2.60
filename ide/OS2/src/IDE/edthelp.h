@@ -20,12 +20,12 @@ public:
   //// Append:
   // <szInfList> ::= <infitem>[;<szInfList>]
   // <infitem>   ::= FULLNAME.INF | DIRECTORY | NAME.INF | NAME | ""//
-  // FULLNAME.INF - добавляем этот файл
-  // DIRECTORY    - все *.inf файлы из нее
-  // NAME.INF     - ищем этот файл по BOOKSHELF
-  // NAME         - 1) добавим ".inf" и попробуем как NAME.INF
-  //                2)если есть env. variable с таким именем и ее вид *.inf{+*.inf} -
-  //                  в качестве NAME.INF попробуем первый *.inf
+  // FULLNAME.INF - ╨┤╨╛╨▒╨░╨▓╨╗╤П╨╡╨╝ ╤Н╤В╨╛╤В ╤Д╨░╨╣╨╗
+  // DIRECTORY    - ╨▓╤Б╨╡ *.inf ╤Д╨░╨╣╨╗╤Л ╨╕╨╖ ╨╜╨╡╨╡
+  // NAME.INF     - ╨╕╤Й╨╡╨╝ ╤Н╤В╨╛╤В ╤Д╨░╨╣╨╗ ╨┐╨╛ BOOKSHELF
+  // NAME         - 1) ╨┤╨╛╨▒╨░╨▓╨╕╨╝ ".inf" ╨╕ ╨┐╨╛╨┐╤А╨╛╨▒╤Г╨╡╨╝ ╨║╨░╨║ NAME.INF
+  //                2)╨╡╤Б╨╗╨╕ ╨╡╤Б╤В╤М env. variable ╤Б ╤В╨░╨║╨╕╨╝ ╨╕╨╝╨╡╨╜╨╡╨╝ ╨╕ ╨╡╨╡ ╨▓╨╕╨┤ *.inf{+*.inf} -
+  //                  ╨▓ ╨║╨░╤З╨╡╤Б╤В╨▓╨╡ NAME.INF ╨┐╨╛╨┐╤А╨╛╨▒╤Г╨╡╨╝ ╨┐╨╡╤А╨▓╤Л╨╣ *.inf
   void Append           (PSZ szInfList);
   void Clear            ();
   void WProfile         (LONG slot, PSZ szName, BOOL fMirror);

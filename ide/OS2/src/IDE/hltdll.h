@@ -234,7 +234,7 @@
         BOOL              fAutoident;
         BOOL              fPasteRepSel;
         BOOL              fUseTabChars;
-        BOOL              fDefault; // ëÆ¢Ø†§†•‚ ¢·•£§† (§Æ´¶•≠ °Î‚Ï! ¢ £´Æ°†´Ï≠Æ¨ ´®·‚•)
+        BOOL              fDefault; // –°–æ–≤–ø–∞–¥–∞–µ—Ç –≤—Å–µ–≥–¥–∞ (–¥–æ–ª–∂–µ–Ω –±—ã—Ç—å! –≤ –≥–ª–æ–±–∞–ª—å–Ω–æ–º –ª–∏—Å—Ç–µ)
         ASSTR            *next;
         void              Assign      (ASSTR *pAss);
         void              SetFiles    (PSZ sz);

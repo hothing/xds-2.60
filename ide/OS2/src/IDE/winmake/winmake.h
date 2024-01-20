@@ -25,7 +25,7 @@ void    SendStartJob                 // Tune progress indicator (and reset it)
               long progress_limit    //   Max. progress value
              );
 void    SendProgress                 // Move progress indicator
-                                     /*+++ comment_progress ॠ�쭮 �� �ᯮ������: */
+                                     /*+++ comment_progress реально не используется: */
              (long comment_progress, //   Value to be indicated right to the comment (SendStartJob)
                                      //     we'll not display if it is less then 0
               long progress);        //   New progress value (0..progress_limit)

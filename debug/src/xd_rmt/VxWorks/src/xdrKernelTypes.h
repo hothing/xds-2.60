@@ -77,10 +77,10 @@ typedef struct{
 
 
 /*----------------------------------------------------------------------------*/
-#define xdrKernelTypes_GoMode_None	  0  /* ê•¶®¨Î ®·ØÆ´≠•≠®Ô Ø‡Æ£‡†¨¨Î             */
-#define xdrKernelTypes_GoMode_SingleStep  1  /* à·ØÆ´≠®‚Ï Æ§≠„ ™Æ¨†≠§„                  */
-#define xdrKernelTypes_GoMode_RangeStep   2  /* à·ØÆ´≠Ô‚Ï ¢ „™†ß†≠≠Æ¨ §®†Ø†ßÆ≠• †§‡•·Æ¢ */
-#define xdrKernelTypes_GoMode_Go          3  /* à·ØÆ´≠Ô‚Ï §Æ ¢Æß≠®™≠Æ¢•≠®Ô ·Æ°Î‚®Ô      */
+#define xdrKernelTypes_GoMode_None	  0  /* –†–µ–∂–∏–º—ã –∏—Å–ø–æ–ª–Ω–µ–Ω–∏—è –ø—Ä–æ–≥—Ä–∞–º–º—ã             */
+#define xdrKernelTypes_GoMode_SingleStep  1  /* –ò—Å–ø–æ–ª–Ω–∏—Ç—å –æ–¥–Ω—É –∫–æ–º–∞–Ω–¥—É                  */
+#define xdrKernelTypes_GoMode_RangeStep   2  /* –ò—Å–ø–æ–ª–Ω—è—Ç—å –≤ —É–∫–∞–∑–∞–Ω–Ω–æ–º –¥–∏–∞–ø–∞–∑–æ–Ω–µ –∞–¥—Ä–µ—Å–æ–≤ */
+#define xdrKernelTypes_GoMode_Go          3  /* –ò—Å–ø–æ–ª–Ω—è—Ç—å –¥–æ –≤–æ–∑–Ω–∏–∫–Ω–æ–≤–µ–Ω–∏—è —Å–æ–±—ã—Ç–∏—è      */
   
 
 typedef struct xdrKernelTypes_tagGoMode{
@@ -91,12 +91,12 @@ typedef struct xdrKernelTypes_tagGoMode{
 
   union{
     struct{
-      DWORD Begin, End; /* Ñ®†Ø†ßÆ≠ †§‡•·Æ¢                        */
-    } RangeStep;        /* à·ØÆ´≠Ô‚Ï ¢ „™†ß†≠≠Æ¨ §®†Ø†ßÆ≠• †§‡•·Æ¢ */
+      DWORD Begin, End; /* –î–∏–∞–ø–∞–∑–æ–Ω –∞–¥—Ä–µ—Å–æ–≤                        */
+    } RangeStep;        /* –ò—Å–ø–æ–ª–Ω—è—Ç—å –≤ —É–∫–∞–∑–∞–Ω–Ω–æ–º –¥–∏–∞–ø–∞–∑–æ–Ω–µ –∞–¥—Ä–µ—Å–æ–≤ */
 
     struct{
-      BYTE add_step;    /* ÑÆ°†¢´Ô‚Ï ·Æ°Î‚®• SingleStep? */
-    } SingleStep;       /* à·ØÆ´≠®‚Ï Æ§≠„ ™Æ¨†≠§„        */
+      BYTE add_step;    /* –î–æ–±–∞–≤–ª—è—Ç—å —Å–æ–±—ã—Ç–∏–µ SingleStep? */
+    } SingleStep;       /* –ò—Å–ø–æ–ª–Ω–∏—Ç—å –æ–¥–Ω—É –∫–æ–º–∞–Ω–¥—É        */
   } Body;
 
 } xdrKernelTypes_GoMode;
@@ -104,24 +104,24 @@ typedef struct xdrKernelTypes_tagGoMode{
 
 /*----------------------------------------------------------------------------*/
 typedef BYTE xdrKernelTypes_ExceptionID;
-#define xdrKernelTypes_ExceptionID_OutOfMemory       0   /* ÑÆ·‚„Ø ØÆ †§‡•·„ ¢≠• §®†Ø†ßÆ≠† †§‡•·Æ¢ */
-#define xdrKernelTypes_ExceptionID_WriteProtected    1   /* á†Ø®·Ï ¢ ß†È®È•≠≠„Ó Æ°´†·‚Ï Ø†¨Ô‚®     */
-#define xdrKernelTypes_ExceptionID_ProgramException  2   /* è‡Æ£‡†¨¨≠Æ• Ø‡•‡Î¢†≠®•                 */
-#define xdrKernelTypes_ExceptionID_UserException     3   /* à·ØÆ´≠•≠®• Ø‡•‡¢†≠Æ ØÆ´ÏßÆ¢†‚•´•¨      */
+#define xdrKernelTypes_ExceptionID_OutOfMemory       0   /* –î–æ—Å—Ç—É–ø –ø–æ –∞–¥—Ä–µ—Å—É –≤–Ω–µ –¥–∏–∞–ø–∞–∑–æ–Ω–∞ –∞–¥—Ä–µ—Å–æ–≤ */
+#define xdrKernelTypes_ExceptionID_WriteProtected    1   /* –ó–∞–ø–∏—Å—å –≤ –∑–∞—â–∏—â–µ–Ω–Ω—É—é –æ–±–ª–∞—Å—Ç—å –ø–∞–º—è—Ç–∏     */
+#define xdrKernelTypes_ExceptionID_ProgramException  2   /* –ü—Ä–æ–≥—Ä–∞–º–º–Ω–æ–µ –ø—Ä–µ—Ä—ã–≤–∞–Ω–∏–µ                 */
+#define xdrKernelTypes_ExceptionID_UserException     3   /* –ò—Å–ø–æ–ª–Ω–µ–Ω–∏–µ –ø—Ä–µ—Ä–≤–∞–Ω–æ –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–µ–º      */
 
 
 typedef BYTE xdrKernelTypes_EventType;
-#define xdrKernelTypes_EventType_InternalError      0   /* à·™´ÓÁ®‚•´Ï≠†Ô ·®‚„†Ê®Ô ¢ Æ‚´†§Á®™• */
-#define xdrKernelTypes_EventType_Exception          1   /* à·™´ÓÁ®‚•´Ï≠†Ô ·®‚„†Ê®Ô ¢ Ø‡Æ£‡†¨¨• */
-#define xdrKernelTypes_EventType_BreakpointHit      2   /* íÆÁ™† Æ·‚†≠Æ¢†                      */
-#define xdrKernelTypes_EventType_SingleStep         3   /* à·ØÆ´≠•≠† Æ§≠† ™Æ¨†≠§†              */
-#define xdrKernelTypes_EventType_Call               4   /* ÇÎØÆ´≠•≠† ®≠·‚‡„™Ê®Ô CALL           */
-#define xdrKernelTypes_EventType_Return             5   /* ÇÎØÆ´≠•≠† ®≠·‚‡„™Ê®Ô RET            */
-#define xdrKernelTypes_EventType_MemoryAccess       6   /* ÑÆ·‚Ø„Ø ™ Ø†¨Ô‚®                    */
-#define xdrKernelTypes_EventType_ComponentCreated   7   /* ëÆß§†≠† ≠Æ¢†Ô ™Æ¨ØÆ≠•≠‚† Ø‡Æ£‡†¨¨Î  */
-#define xdrKernelTypes_EventType_ComponentDestroyed 8   /* ëÆß§†≠† ≠Æ¢†Ô ™Æ¨ØÆ≠•≠‚† Ø‡Æ£‡†¨¨Î  */
-#define xdrKernelTypes_EventType_ThreadCreated      9   /* ëÆß§†≠ thread                       */
-#define xdrKernelTypes_EventType_ThreadDestroyed    10  /* ì§†´•≠ thread                       */
+#define xdrKernelTypes_EventType_InternalError      0   /* –ò—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–∞—è —Å–∏—Ç—É–∞—Ü–∏—è –≤ –æ—Ç–ª–∞–¥—á–∏–∫–µ */
+#define xdrKernelTypes_EventType_Exception          1   /* –ò—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–∞—è —Å–∏—Ç—É–∞—Ü–∏—è –≤ –ø—Ä–æ–≥—Ä–∞–º–º–µ */
+#define xdrKernelTypes_EventType_BreakpointHit      2   /* –¢–æ—á–∫–∞ –æ—Å—Ç–∞–Ω–æ–≤–∞                      */
+#define xdrKernelTypes_EventType_SingleStep         3   /* –ò—Å–ø–æ–ª–Ω–µ–Ω–∞ –æ–¥–Ω–∞ –∫–æ–º–∞–Ω–¥–∞              */
+#define xdrKernelTypes_EventType_Call               4   /* –í—ã–ø–æ–ª–Ω–µ–Ω–∞ –∏–Ω—Å—Ç—Ä—É–∫—Ü–∏—è CALL           */
+#define xdrKernelTypes_EventType_Return             5   /* –í—ã–ø–æ–ª–Ω–µ–Ω–∞ –∏–Ω—Å—Ç—Ä—É–∫—Ü–∏—è RET            */
+#define xdrKernelTypes_EventType_MemoryAccess       6   /* –î–æ—Å—Ç–ø—É–ø –∫ –ø–∞–º—è—Ç–∏                    */
+#define xdrKernelTypes_EventType_ComponentCreated   7   /* –°–æ–∑–¥–∞–Ω–∞ –Ω–æ–≤–∞—è –∫–æ–º–ø–æ–Ω–µ–Ω—Ç–∞ –ø—Ä–æ–≥—Ä–∞–º–º—ã  */
+#define xdrKernelTypes_EventType_ComponentDestroyed 8   /* –°–æ–∑–¥–∞–Ω–∞ –Ω–æ–≤–∞—è –∫–æ–º–ø–æ–Ω–µ–Ω—Ç–∞ –ø—Ä–æ–≥—Ä–∞–º–º—ã  */
+#define xdrKernelTypes_EventType_ThreadCreated      9   /* –°–æ–∑–¥–∞–Ω thread                       */
+#define xdrKernelTypes_EventType_ThreadDestroyed    10  /* –£–¥–∞–ª–µ–Ω thread                       */
 
 
 typedef BYTE xdrKernelTypes_AccessType;
@@ -130,23 +130,23 @@ typedef BYTE xdrKernelTypes_AccessType;
 #define xdrKernelTypes_AccessType_Write      2
 #define xdrKernelTypes_AccessType_ReadWrite  3
 
-/* à≠‰Æ‡¨†Ê®Ô Æ ØÆ·´•§≠•¨ Ø‡Æ®ßÆË•§Ë•¨ ·Æ°Î‚®® */
+/* –ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å–ª–µ–¥–Ω–µ–º –ø—Ä–æ–∏–∑–æ—à–µ–¥—à–µ–º —Å–æ–±—ã—Ç–∏–∏ */
 typedef struct xdrKernelTypes_tagEvent{
 
   struct{
-    DWORD                    pc;        /* í•™„Ë®© †§‡•· */
-    xdrKernelTypes_EventType eventType; /* í®Ø ·Æ°Î‚®Ô   */
+    DWORD                    pc;        /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å */
+    xdrKernelTypes_EventType eventType; /* –¢–∏–ø —Å–æ–±—ã—Ç–∏—è   */
   } Header;
 
   union{
 
     struct{
-    } SingleStep;     /* à·ØÆ´≠•≠† Æ§≠† ™Æ¨†≠§†  */
+    } SingleStep;     /* –ò—Å–ø–æ–ª–Ω–µ–Ω–∞ –æ–¥–Ω–∞ –∫–æ–º–∞–Ω–¥–∞  */
 
     struct{
-      DWORD      ErrorNo;      /* çÆ¨•‡ ÆË®°™®                        */
-      DWORD      ErrorContext; /* ÑÆØÆ´≠®‚•´Ï≠Î• †‚‡®°„‚Î             */
-    } InternalError;           /* à·™´ÓÁ®‚•´Ï≠†Ô ·®‚„†Ê®Ô ¢ Æ‚´†§Á®™• */
+      DWORD      ErrorNo;      /* –ù–æ–º–µ—Ä –æ—à–∏–±–∫–∏                        */
+      DWORD      ErrorContext; /* –î–æ–ø–æ–ª–Ω–∏—Ç–µ–ª—å–Ω—ã–µ –∞—Ç—Ä–∏–±—É—Ç—ã             */
+    } InternalError;           /* –ò—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–∞—è —Å–∏—Ç—É–∞—Ü–∏—è –≤ –æ—Ç–ª–∞–¥—á–∏–∫–µ */
 
     struct{
       xdrKernelTypes_ExceptionID exceptionID;
@@ -154,19 +154,19 @@ typedef struct xdrKernelTypes_tagEvent{
       DWORD                      XCPT_INFO_2;    
       DWORD                      XCPT_INFO_3;    
       DWORD                      XCPT_INFO_4;    
-    } Exception;      /* à·™´ÓÁ®‚•´Ï≠†Ô ·®‚„†Ê®Ô ¢ Ø‡Æ£‡†¨¨• */
+    } Exception;      /* –ò—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–∞—è —Å–∏—Ç—É–∞—Ü–∏—è –≤ –ø—Ä–æ–≥—Ä–∞–º–º–µ */
 
     struct{
-      DWORD CallAddr;          /* Ä§‡•· ¢ÎßÎ¢†•¨Æ© ™Æ¨†≠§Î   */
-    } Call;           /* ÇÎØÆ´≠•≠† ®≠·‚‡„™Ê®Ô CALL  */
+      DWORD CallAddr;          /* –ê–¥—Ä–µ—Å –≤—ã–∑—ã–≤–∞–µ–º–æ–π –∫–æ–º–∞–Ω–¥—ã   */
+    } Call;           /* –í—ã–ø–æ–ª–Ω–µ–Ω–∞ –∏–Ω—Å—Ç—Ä—É–∫—Ü–∏—è CALL  */
 
     struct{
-      DWORD ReturnAddr;        /* Ä§‡•· ¢Æß¢‡†‚†             */
-    } Return;         /* ÇÎØÆ´≠•≠† ®≠·‚‡„™Ê®Ô RET   */
+      DWORD ReturnAddr;        /* –ê–¥—Ä–µ—Å –≤–æ–∑–≤—Ä–∞—Ç–∞             */
+    } Return;         /* –í—ã–ø–æ–ª–Ω–µ–Ω–∞ –∏–Ω—Å—Ç—Ä—É–∫—Ü–∏—è RET   */
 
     struct{
       DWORD BreakpointInd;
-    } BreakpointHit;  /* íÆÁ™† Æ·‚†≠Æ¢†             */
+    } BreakpointHit;  /* –¢–æ—á–∫–∞ –æ—Å—Ç–∞–Ω–æ–≤–∞             */
 
     struct{
       xdrKernelTypes_ModuleInfo Component;

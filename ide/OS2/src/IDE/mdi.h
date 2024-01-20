@@ -122,7 +122,7 @@
 #define IDM_POP_WBFONT      2407
 #define IDM_POP_WBCOLORS    2408
 #define IDM_POP_WBWARP      2409
-// �ਬ�窨 � MDI... :(
+// Примочки к MDI... :(
 #define IDM_POP_MVGROUPS    2489
 #define IDM_POP_MVAGROUP    2490
 #define IDM_POP_MV1GROUP    2491

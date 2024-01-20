@@ -16,26 +16,26 @@
 #define IDM_TOOL_SEPARATOR (TOOL_MIN_ID + MAXTOOLS + 1)
 #define POPUP_TMP_FILE     "XD$$HELL.TMP"
 
-void    ToolRecallPopup();           // Ç·Ø´Î¢•‚/·Æß§†·‚·Ô ≠•¨Æ§†´Ï≠Æ• popup Æ™≠Æ, ¢Æ ¢‚Æ‡Æ¨ ·´„Á†• - ≠• ¢•‡≠•‚·Ô.
-void    ToolHidePopup();             // Ö·´® popup Æ™≠Æ ≠• ¢ ‡†°Æ‚•, ‚Æ Æ≠Æ ·Ø‡ÔÁ•‚·Ô.
-void    ToolStartPopup (MPARAM(m1)); // á†Ø„·™ ‚„´† ¢ ≠•¨Æ§†´Ï≠Æ¨ popup Æ™≠•, ≠• ¢•‡≠•‚·Ô §Æ Æ™Æ≠Á†≠®Ô.
+void    ToolRecallPopup();           // –í—Å–ø–ª—ã–≤–µ—Ç/—Å–æ–∑–¥–∞—Å—Ç—Å—è –Ω–µ–º–æ–¥–∞–ª—å–Ω–æ–µ popup –æ–∫–Ω–æ, –≤–æ –≤—Ç–æ—Ä–æ–º —Å–ª—É—á–∞–µ - –Ω–µ –≤–µ—Ä–Ω–µ—Ç—Å—è.
+void    ToolHidePopup();             // –ï—Å–ª–∏ popup –æ–∫–Ω–æ –Ω–µ –≤ —Ä–∞–±–æ—Ç–µ, —Ç–æ –æ–Ω–æ —Å–ø—Ä—è—á–µ—Ç—Å—è.
+void    ToolStartPopup (MPARAM(m1)); // –ó–∞–ø—É—Å–∫ —Ç—É–ª–∞ –≤ –Ω–µ–º–æ–¥–∞–ª—å–Ω–æ–º popup –æ–∫–Ω–µ, –Ω–µ –≤–µ—Ä–Ω–µ—Ç—Å—è –¥–æ –æ–∫–æ–Ω—á–∞–Ω–∏—è.
 
 struct TOOL
 {
-  int           cb;                         // Ñ´Ô Ø•‡•§†Á® §®†´Æ£†¨
-  char          szName      [TOOLNAMELEN];  // ç†Ë• ®¨Ô
-  PSZ           pszToolScript;              // malloc()ed ‚•™·‚ ·Æ°··≠Æ ; 0 - ‚„´† ≠•‚„
-  PSZ           pszFilter;                  // malloc()ed ‰®´Ï‚‡ (®´® 0); [0] = +/- (use/not use)
-  BOOL          fRunWhenProject;            // î®´Ï‚‡: ≠„¶•≠ ®ß¢•·‚≠Î© ‰†©´ Ø‡Æ•™‚†
-  char          szMatchFiles[50];           // î®´Ï‚‡: Ë†°´Æ≠ ®¨•≠® ‚•™„È•£Æ ‰†©´†
-//TOOL         *ptDefValue;                 // ç• 0 •·´® Ì‚Æ °Î´ ‚„´ ®ß ‚„´·•‚†
+  int           cb;                         // –î–ª—è –ø–µ—Ä–µ–¥–∞—á–∏ –¥–∏–∞–ª–æ–≥–∞–º
+  char          szName      [TOOLNAMELEN];  // –ù–∞—à–µ –∏–º—è
+  PSZ           pszToolScript;              // malloc()ed —Ç–µ–∫—Å—Ç —Å–æ–±—Å—Å–Ω–æ ; 0 - —Ç—É–ª–∞ –Ω–µ—Ç—É
+  PSZ           pszFilter;                  // malloc()ed —Ñ–∏–ª—å—Ç—Ä (–∏–ª–∏ 0); [0] = +/- (use/not use)
+  BOOL          fRunWhenProject;            // –§–∏–ª—å—Ç—Ä: –Ω—É–∂–µ–Ω –∏–∑–≤–µ—Å—Ç–Ω—ã–π —Ñ–∞–π–ª –ø—Ä–æ–µ–∫—Ç–∞
+  char          szMatchFiles[50];           // –§–∏–ª—å—Ç—Ä: —à–∞–±–ª–æ–Ω –∏–º–µ–Ω–∏ —Ç–µ–∫—É—â–µ–≥–æ —Ñ–∞–π–ª–∞
+//TOOL         *ptDefValue;                 // –ù–µ 0 –µ—Å–ª–∏ —ç—Ç–æ –±—ã–ª —Ç—É–ª –∏–∑ —Ç—É–ª—Å–µ—Ç–∞
   TOOL         *next;
 
                 TOOL        ();                       //
                ~TOOL        ();                       //
   BOOL          IsEnabled   ();                       // Enabled?
-  BOOL          Execute     (HWND hMsgWnd);           // á†Ø„·™ (¢•‡≠•‚ FALSE Ø‡® ÆË®°™•)
-  void          Copy        (TOOL *pSrc);             // ÇßÔ‚Ï ß≠†Á•≠®Ô
+  BOOL          Execute     (HWND hMsgWnd);           // –ó–∞–ø—É—Å–∫ (–≤–µ—Ä–Ω–µ—Ç FALSE –ø—Ä–∏ –æ—à–∏–±–∫–µ)
+  void          Copy        (TOOL *pSrc);             // –í–∑—è—Ç—å –∑–Ω–∞—á–µ–Ω–∏—è
   void          free_all    ();
   BOOL          RProfile    (LONG slot, PSZ szKey);
   BOOL          WProfile    (LONG slot, PSZ szKey);
@@ -44,20 +44,20 @@ typedef TOOL *PTOOL;
 
 struct TOOLCATEGORY
 {
-  int            cb;                          // Ñ´Ô Ø•‡•§†Á® §®†´Æ£†¨
-  char           szName       [TOOLNAMELEN];  // à¨Ô ™†‚•£Æ‡®® (Ø„·‚Æ• => ™†‚•£Æ‡®Ô ®£≠Æ‡®‡„•‚·Ô)
-  char           szComment    [50];           // í•™·‚ '·ÆØ´®'
-  char           szMenuItem   [50];           // "" - ¢ ¨•≠Ó ≠• ·‚†¢®‚·Ô
-  ACCEL          rAccel;                      // Accel §´Ô hot key (®´® .fs °„§•‚ 0)
-  USHORT         usBmp;                       // à§•≠‚®‰®™†‚Æ‡ ‡•·„‡·† °®‚¨†Ø† ®´® 0
-  PTOOL          pToolList;                   // ëØ®·Æ™ ‚„´Æ¢ ™†‚•£Æ‡®®
-  ULONG          nLastEdTool;                 // Ñ´Ô ‡•§†™‚‡Æ¢†≠®Ô - ≠Æ¨•‡ ØÆ·´•§≠•£Æ ®ß¨•≠Ô¢Ë•£Æ·Ô ‚„´†
+  int            cb;                          // –î–ª—è –ø–µ—Ä–µ–¥–∞—á–∏ –¥–∏–∞–ª–æ–≥–∞–º
+  char           szName       [TOOLNAMELEN];  // –ò–º—è –∫–∞—Ç–µ–≥–æ—Ä–∏–∏ (–ø—É—Å—Ç–æ–µ => –∫–∞—Ç–µ–≥–æ—Ä–∏—è –∏–≥–Ω–æ—Ä–∏—Ä—É–µ—Ç—Å—è)
+  char           szComment    [50];           // –¢–µ–∫—Å—Ç '—Å–æ–ø–ª–∏'
+  char           szMenuItem   [50];           // "" - –≤ –º–µ–Ω—é –Ω–µ —Å—Ç–∞–≤–∏—Ç—Å—è
+  ACCEL          rAccel;                      // Accel –¥–ª—è hot key (–∏–ª–∏ .fs –±—É–¥–µ—Ç 0)
+  USHORT         usBmp;                       // –ò–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æ—Ä —Ä–µ—Å—É—Ä—Å–∞ –±–∏—Ç–º–∞–ø–∞ –∏–ª–∏ 0
+  PTOOL          pToolList;                   // –°–ø–∏—Å–æ–∫ —Ç—É–ª–æ–≤ –∫–∞—Ç–µ–≥–æ—Ä–∏–∏
+  ULONG          nLastEdTool;                 // –î–ª—è —Ä–µ–¥–∞–∫—Ç—Ä–æ–≤–∞–Ω–∏—è - –Ω–æ–º–µ—Ä –ø–æ—Å–ª–µ–¥–Ω–µ–≥–æ –∏–∑–º–µ–Ω—è–≤—à–µ–≥–æ—Å—è —Ç—É–ª–∞
 
                  TOOLCATEGORY ();                       //
                 ~TOOLCATEGORY ();                       //
   BOOL           IsEnabled    ();                       // Enabled?
-  BOOL           Execute      (HWND hMsgWnd);           // á†Ø„·™ (¢•‡≠•‚ FALSE Ø‡® ÆË®°™•)
-  void           Apply        (TOOLCATEGORY *pSrc);     // ÑÆ°†¢®‚Ï ‚„´Î, ß†¨•≠®‚Ï ·Æ¢Ø†§†ÓÈ®•
+  BOOL           Execute      (HWND hMsgWnd);           // –ó–∞–ø—É—Å–∫ (–≤–µ—Ä–Ω–µ—Ç FALSE –ø—Ä–∏ –æ—à–∏–±–∫–µ)
+  void           Apply        (TOOLCATEGORY *pSrc);     // –î–æ–±–∞–≤–∏—Ç—å —Ç—É–ª—ã, –∑–∞–º–µ–Ω–∏—Ç—å —Å–æ–≤–ø–∞–¥–∞—é—â–∏–µ
   BOOL           WProfile     (LONG slot, PSZ szKey);
   BOOL           RProfile     (LONG slot, PSZ szKey);
   void           free_all     ();
@@ -70,8 +70,8 @@ class TOOLBOX
 public:
                 TOOLBOX();
                ~TOOLBOX();
-  BOOL          Execute           (LONG lCtrlId); // í„´†¨ ·ÆØÆ·‚†¢´ÔÓ‚·Ô ®§•≠‚®‰®™†‚Æ‡Î ™Æ≠‚‡Æ´Æ¢ TOOL_ID_MIN+<≠Æ¨•‡ ™†‚•£Æ‡®® ‚„´†>
-  BOOL          PlayTool          (PQMSG pqmsg);  // Ö·´® ·ÆÆ°È•≠®Ó ·ÆÆ‚¢•‚·‚¢„•‚ ‚„´ - ØÆØ‡Æ°„•‚ ¢ÎØÆ´≠®‚Ï, TRUE; ®≠†Á• - FALSE
+  BOOL          Execute           (LONG lCtrlId); // –¢—É–ª–∞–º —Å–æ–ø–æ—Å—Ç–∞–≤–ª—è—é—Ç—Å—è –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ç–æ—Ä—ã –∫–æ–Ω—Ç—Ä–æ–ª–æ–≤ TOOL_ID_MIN+<–Ω–æ–º–µ—Ä –∫–∞—Ç–µ–≥–æ—Ä–∏–∏ —Ç—É–ª–∞>
+  BOOL          PlayTool          (PQMSG pqmsg);  // –ï—Å–ª–∏ —Å–æ–æ–±—â–µ–Ω–∏—é —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É–µ—Ç —Ç—É–ª - –ø–æ–ø—Ä–æ–±—É–µ—Ç –≤—ã–ø–æ–ª–Ω–∏—Ç—å, TRUE; –∏–Ω–∞—á–µ - FALSE
   void          EditTools         ();
   void          ReenableAll       ();
   void          TuneMenu          ();
@@ -79,11 +79,11 @@ public:
   void          StorePopupPPFont  (char szPPFont[FACESIZE+10]);
   PSZ           QueryPopupPPFont  () {return szPPFont;}
   void          free_all();
-  BOOL          RProfile          (LONG slot, PSZ pszKey); // FALSE •·´® ·´®Ë™Æ¨ ¨≠Æ£Æ ‚„´ßÆ¢
+  BOOL          RProfile          (LONG slot, PSZ pszKey); // FALSE –µ—Å–ª–∏ —Å–ª–∏—à–∫–æ–º –º–Ω–æ–≥–æ —Ç—É–ª–∑–æ–≤
   void          WProfile          (LONG slot, PSZ pszKey);
 private:
-  PTOOLCATEGORY apToolCategories[MAXTOOLS];    // ä†‚•£Æ‡®® ‚„´Æ¢ (Æ‚·„‚·‚¢ÓÈ®• - °•ß ®¨•≠®)
-  char          szPPFont[FACESIZE+10];         // îÆ≠‚ popup Æ™≠† (‚®Ø† "8.Helv" ®´® "")
+  PTOOLCATEGORY apToolCategories[MAXTOOLS];    // –ö–∞—Ç–µ–≥–æ—Ä–∏–∏ —Ç—É–ª–æ–≤ (–æ—Ç—Å—É—Ç—Å—Ç–≤—é—â–∏–µ - –±–µ–∑ –∏–º–µ–Ω–∏)
+  char          szPPFont[FACESIZE+10];         // –§–æ–Ω—Ç popup –æ–∫–Ω–∞ (—Ç–∏–ø–∞ "8.Helv" –∏–ª–∏ "")
 
   HACCEL        make_hAccel       ();
   void          del_controls      (BOOL fMenu);

@@ -335,8 +335,8 @@ class Segment : public ForeverObject {
     int                 nlines;
     int                 linessize;
 
-    Segment *           next;           /* В объектном файле */
-    Segment *           link;           /* В collection      */
+    Segment *           next;           /* в”¬ СЋСЃВ·С…СЉР„СЌСЋСЊ Р‡СЂС‰С‹С… */
+    Segment *           link;           /* в”¬ collection      */
     dword               alignment;
 
 #if defined (OBSOLETE)
@@ -441,7 +441,7 @@ struct fixupFAR16_xx {
 
 extern struct fixupFAR16_xx * FAR16_xxFixups;
 
-extern int NFixups;          /* Общее их количество в выдаваемой программе */
+extern int NFixups;          /* в•¬СЃв€™С…С… С€С— СЉСЋС‹С€СћС…С‘Р„С‚СЋ С‚ С‚в€љС„СЂС‚СЂС…СЊСЋС‰ СЏРЃСЋСѓРЃСЂСЊСЊС… */
 
 extern dword * Fix;
 extern dword * FixRTrg;
@@ -510,8 +510,8 @@ extern dword CodeLen,   Code16Len,   DataLen,   BSSLen,   IdataLen, RDataLen, JI
 extern byte   * CodePtr, * Code16Ptr, * DataPtr, * IdataPtr, * RDataPtr;
 extern Storage * JImportImage, * JExportImage;
 
-extern dword ImportStart; /* Таблица переходов на импортированные имена -
-                              внутри сегмента кода и прижато к его концу */
+extern dword ImportStart; /* в•ҐСЂСЃС‹С€РЋСЂ СЏС…РЃС…С—СЋС„СЋС‚ СЌСЂ С€СЊСЏСЋРЃР„С€РЃСЋС‚СЂСЌСЌв€љС… С€СЊС…СЌСЂ -
+                              С‚СЌС”Р„РЃС€ С‘С…СѓСЊС…СЌР„СЂ СЉСЋС„СЂ С€ СЏРЃС€С†СЂР„СЋ СЉ С…СѓСЋ СЉСЋСЌРЋС” */
 
 /*-------------------------------------------------------------------------*/
 /*                              FILES                                      */

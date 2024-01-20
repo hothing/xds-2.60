@@ -57,24 +57,24 @@ typedef struct{
 
 /* -----------------------------------------------------*/
 typedef BYTE EXCEPTION_ID;
-#define excID_OutOfMemory       0   /* ÑÆ·‚„Ø ØÆ †§‡•·„ ¢≠• §®†Ø†ßÆ≠† †§‡•·Æ¢ */
-#define excID_WriteProtected    1   /* á†Ø®·Ï ¢ ß†È®È•≠≠„Ó Æ°´†·‚Ï Ø†¨Ô‚®     */
-#define excID_ProgramException  2   /* è‡Æ£‡†¨¨≠Æ• Ø‡•‡Î¢†≠®•                 */
-#define excID_UserException     3   /* à·ØÆ´≠•≠®• Ø‡•‡¢†≠Æ ØÆ´ÏßÆ¢†‚•´•¨      */
+#define excID_OutOfMemory       0   /* –î–æ—Å—Ç—É–ø –ø–æ –∞–¥—Ä–µ—Å—É –≤–Ω–µ –¥–∏–∞–ø–∞–∑–æ–Ω–∞ –∞–¥—Ä–µ—Å–æ–≤ */
+#define excID_WriteProtected    1   /* –ó–∞–ø–∏—Å—å –≤ –∑–∞—â–∏—â–µ–Ω–Ω—É—é –æ–±–ª–∞—Å—Ç—å –ø–∞–º—è—Ç–∏     */
+#define excID_ProgramException  2   /* –ü—Ä–æ–≥—Ä–∞–º–º–Ω–æ–µ –ø—Ä–µ—Ä—ã–≤–∞–Ω–∏–µ                 */
+#define excID_UserException     3   /* –ò—Å–ø–æ–ª–Ω–µ–Ω–∏–µ –ø—Ä–µ—Ä–≤–∞–Ω–æ –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–µ–º      */
 
 
 typedef BYTE EVENT_TYPE;
-#define eventType_InternalError    0   /* à·™´ÓÁ®‚•´Ï≠†Ô ·®‚„†Ê®Ô ¢ Æ‚´†§Á®™• */
-#define eventType_Exception        1   /* à·™´ÓÁ®‚•´Ï≠†Ô ·®‚„†Ê®Ô ¢ Ø‡Æ£‡†¨¨• */
-#define eventType_BreakpointHit    2   /* íÆÁ™† Æ·‚†≠Æ¢†                      */
-#define eventType_SingleStep       3   /* à·ØÆ´≠•≠† Æ§≠† ™Æ¨†≠§†              */
-#define eventType_Call             4   /* ÇÎØÆ´≠•≠† ®≠·‚‡„™Ê®Ô CALL           */
-#define eventType_Return           5   /* ÇÎØÆ´≠•≠† ®≠·‚‡„™Ê®Ô RET            */
-#define eventType_MemoryAccess     6   /* ÑÆ·‚Ø„Ø ™ Ø†¨Ô‚®                    */
-#define eventType_CompCreated      7   /* ëÆß§†≠† ≠Æ¢†Ô ™Æ¨ØÆ≠•≠‚† Ø‡Æ£‡†¨¨Î  */
-#define eventType_CompDestroyed    8   /* ëÆß§†≠† ≠Æ¢†Ô ™Æ¨ØÆ≠•≠‚† Ø‡Æ£‡†¨¨Î  */
-#define eventType_ThreadCreated    9   /* ëÆß§†≠ thread                       */
-#define eventType_ThreadDestroyed  10  /* ì§†´•≠ thread                       */
+#define eventType_InternalError    0   /* –ò—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–∞—è —Å–∏—Ç—É–∞—Ü–∏—è –≤ –æ—Ç–ª–∞–¥—á–∏–∫–µ */
+#define eventType_Exception        1   /* –ò—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–∞—è —Å–∏—Ç—É–∞—Ü–∏—è –≤ –ø—Ä–æ–≥—Ä–∞–º–º–µ */
+#define eventType_BreakpointHit    2   /* –¢–æ—á–∫–∞ –æ—Å—Ç–∞–Ω–æ–≤–∞                      */
+#define eventType_SingleStep       3   /* –ò—Å–ø–æ–ª–Ω–µ–Ω–∞ –æ–¥–Ω–∞ –∫–æ–º–∞–Ω–¥–∞              */
+#define eventType_Call             4   /* –í—ã–ø–æ–ª–Ω–µ–Ω–∞ –∏–Ω—Å—Ç—Ä—É–∫—Ü–∏—è CALL           */
+#define eventType_Return           5   /* –í—ã–ø–æ–ª–Ω–µ–Ω–∞ –∏–Ω—Å—Ç—Ä—É–∫—Ü–∏—è RET            */
+#define eventType_MemoryAccess     6   /* –î–æ—Å—Ç–ø—É–ø –∫ –ø–∞–º—è—Ç–∏                    */
+#define eventType_CompCreated      7   /* –°–æ–∑–¥–∞–Ω–∞ –Ω–æ–≤–∞—è –∫–æ–º–ø–æ–Ω–µ–Ω—Ç–∞ –ø—Ä–æ–≥—Ä–∞–º–º—ã  */
+#define eventType_CompDestroyed    8   /* –°–æ–∑–¥–∞–Ω–∞ –Ω–æ–≤–∞—è –∫–æ–º–ø–æ–Ω–µ–Ω—Ç–∞ –ø—Ä–æ–≥—Ä–∞–º–º—ã  */
+#define eventType_ThreadCreated    9   /* –°–æ–∑–¥–∞–Ω thread                       */
+#define eventType_ThreadDestroyed  10  /* –£–¥–∞–ª–µ–Ω thread                       */
 
 
 typedef BYTE ACCESS_TYPE;    
@@ -83,76 +83,76 @@ typedef BYTE ACCESS_TYPE;
 #define accesType_Write      2
 #define accesType_ReadWrite  3
 
-/* à≠‰Æ‡¨†Ê®Ô Æ ØÆ·´•§≠•¨ Ø‡Æ®ßÆË•§Ë•¨ ·Æ°Î‚®® */
+/* –ò–Ω—Ñ–æ—Ä–º–∞—Ü–∏—è –æ –ø–æ—Å–ª–µ–¥–Ω–µ–º –ø—Ä–æ–∏–∑–æ—à–µ–¥—à–µ–º —Å–æ–±—ã—Ç–∏–∏ */
 typedef union {
 
   struct{
-    DWORD      pc;        /* í•™„Ë®© †§‡•· */
-    EVENT_TYPE Event;     /* ëÆ°Î‚®•       */
+    DWORD      pc;        /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å */
+    EVENT_TYPE Event;     /* –°–æ–±—ã—Ç–∏–µ       */
   } Common;
 
   struct{
-    DWORD      pc;        /* í•™„Ë®© †§‡•·           */
-    EVENT_TYPE Event;     /* ëÆ°Î‚®•                 */
-  } SingleStep;           /* à·ØÆ´≠•≠† Æ§≠† ™Æ¨†≠§†  */
+    DWORD      pc;        /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å           */
+    EVENT_TYPE Event;     /* –°–æ–±—ã—Ç–∏–µ                 */
+  } SingleStep;           /* –ò—Å–ø–æ–ª–Ω–µ–Ω–∞ –æ–¥–Ω–∞ –∫–æ–º–∞–Ω–¥–∞  */
 
   struct{
-    DWORD      pc;           /* í•™„Ë®© †§‡•·                       */
-    EVENT_TYPE Event;        /* ëÆ°Î‚®•                             */
-    DWORD      ErrorNo;      /* çÆ¨•‡ ÆË®°™®                        */
-    DWORD      ErrorContext; /* ÑÆØÆ´≠®‚•´Ï≠Î• †‚‡®°„‚Î             */
-  } InternalError;           /* à·™´ÓÁ®‚•´Ï≠†Ô ·®‚„†Ê®Ô ¢ Æ‚´†§Á®™• */
+    DWORD      pc;           /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å                       */
+    EVENT_TYPE Event;        /* –°–æ–±—ã—Ç–∏–µ                             */
+    DWORD      ErrorNo;      /* –ù–æ–º–µ—Ä –æ—à–∏–±–∫–∏                        */
+    DWORD      ErrorContext; /* –î–æ–ø–æ–ª–Ω–∏—Ç–µ–ª—å–Ω—ã–µ –∞—Ç—Ä–∏–±—É—Ç—ã             */
+  } InternalError;           /* –ò—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–∞—è —Å–∏—Ç—É–∞—Ü–∏—è –≤ –æ—Ç–ª–∞–¥—á–∏–∫–µ */
 
   struct{
-    DWORD        pc;           /* í•™„Ë®© †§‡•·                       */
-    EVENT_TYPE   Event;        /* ëÆ°Î‚®•                             */
+    DWORD        pc;           /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å                       */
+    EVENT_TYPE   Event;        /* –°–æ–±—ã—Ç–∏–µ                             */
     EXCEPTION_ID Exception_ID;
     DWORD        XCPT_INFO_1;
     DWORD        XCPT_INFO_2;    
     DWORD        XCPT_INFO_3;    
     DWORD        XCPT_INFO_4;    
-  } Exception;                 /* à·™´ÓÁ®‚•´Ï≠†Ô ·®‚„†Ê®Ô ¢ Ø‡Æ£‡†¨¨• */
+  } Exception;                 /* –ò—Å–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–∞—è —Å–∏—Ç—É–∞—Ü–∏—è –≤ –ø—Ä–æ–≥—Ä–∞–º–º–µ */
 
   struct{
-    DWORD        pc;           /* í•™„Ë®© †§‡•·              */
-    EVENT_TYPE   Event;        /* ëÆ°Î‚®•                    */
-    DWORD        CallAddr;     /* Ä§‡•· ¢ÎßÎ¢†•¨Æ© ™Æ¨†≠§Î   */
-  } Call;                      /* ÇÎØÆ´≠•≠† ®≠·‚‡„™Ê®Ô CALL  */
+    DWORD        pc;           /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å              */
+    EVENT_TYPE   Event;        /* –°–æ–±—ã—Ç–∏–µ                    */
+    DWORD        CallAddr;     /* –ê–¥—Ä–µ—Å –≤—ã–∑—ã–≤–∞–µ–º–æ–π –∫–æ–º–∞–Ω–¥—ã   */
+  } Call;                      /* –í—ã–ø–æ–ª–Ω–µ–Ω–∞ –∏–Ω—Å—Ç—Ä—É–∫—Ü–∏—è CALL  */
 
   struct{
-    DWORD        pc;           /* í•™„Ë®© †§‡•·              */
-    EVENT_TYPE   Event;        /* ëÆ°Î‚®•                    */
-    DWORD        ReturnAddr;   /* Ä§‡•· ¢Æß¢‡†‚†             */
-  } Return;                    /* ÇÎØÆ´≠•≠† ®≠·‚‡„™Ê®Ô RET   */
+    DWORD        pc;           /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å              */
+    EVENT_TYPE   Event;        /* –°–æ–±—ã—Ç–∏–µ                    */
+    DWORD        ReturnAddr;   /* –ê–¥—Ä–µ—Å –≤–æ–∑–≤—Ä–∞—Ç–∞             */
+  } Return;                    /* –í—ã–ø–æ–ª–Ω–µ–Ω–∞ –∏–Ω—Å—Ç—Ä—É–∫—Ü–∏—è RET   */
 
   struct{
-    DWORD        pc;           /* í•™„Ë®© †§‡•·              */
-    EVENT_TYPE   Event;        /* ëÆ°Î‚®•                    */
+    DWORD        pc;           /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å              */
+    EVENT_TYPE   Event;        /* –°–æ–±—ã—Ç–∏–µ                    */
     DWORD        BreakpointInd;
-  } BreakpointHit;             /* íÆÁ™† Æ·‚†≠Æ¢†             */
+  } BreakpointHit;             /* –¢–æ—á–∫–∞ –æ—Å—Ç–∞–Ω–æ–≤–∞             */
 
   struct{
-    DWORD        pc;           /* í•™„Ë®© †§‡•·              */
-    EVENT_TYPE   Event;        /* ëÆ°Î‚®•                    */
+    DWORD        pc;           /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å              */
+    EVENT_TYPE   Event;        /* –°–æ–±—ã—Ç–∏–µ                    */
     EXEC_INFO    Component;
     BYTE         Stopable;
   } CompCreated;
 
   struct{
-    DWORD        pc;           /* í•™„Ë®© †§‡•·              */
-    EVENT_TYPE   Event;        /* ëÆ°Î‚®•                    */
+    DWORD        pc;           /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å              */
+    EVENT_TYPE   Event;        /* –°–æ–±—ã—Ç–∏–µ                    */
     DWORD        Handle;
   } CompDestroyed;
 
   struct{
-    DWORD        pc;           /* í•™„Ë®© †§‡•·              */
-    EVENT_TYPE   Event;        /* ëÆ°Î‚®•                    */
+    DWORD        pc;           /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å              */
+    EVENT_TYPE   Event;        /* –°–æ–±—ã—Ç–∏–µ                    */
     DWORD tid;                 /* Task ID                    */
   } ThreadCreated;
 
   struct{
-    DWORD        pc;           /* í•™„Ë®© †§‡•·              */
-    EVENT_TYPE   Event;        /* ëÆ°Î‚®•                    */
+    DWORD        pc;           /* –¢–µ–∫—É—à–∏–π –∞–¥—Ä–µ—Å              */
+    EVENT_TYPE   Event;        /* –°–æ–±—ã—Ç–∏–µ                    */
     DWORD tid;                 /* Task ID                    */
   } ThreadDestroyed;
 
@@ -163,10 +163,10 @@ typedef union {
 
 
 typedef BYTE MODE;
-#define modeNone        0    /* ê•¶®¨Î ®·ØÆ´≠•≠®Ô Ø‡Æ£‡†¨¨Î             */
-#define modeSingleStep  1    /* à·ØÆ´≠®‚Ï Æ§≠„ ™Æ¨†≠§„                  */
-#define modeRangeStep   2    /* à·ØÆ´≠Ô‚Ï ¢ „™†ß†≠≠Æ¨ §®†Ø†ßÆ≠• †§‡•·Æ¢ */
-#define modeGo          3    /* à·ØÆ´≠Ô‚Ï §Æ ¢Æß≠®™≠Æ¢•≠®Ô ·Æ°Î‚®Ô      */
+#define modeNone        0    /* –†–µ–∂–∏–º—ã –∏—Å–ø–æ–ª–Ω–µ–Ω–∏—è –ø—Ä–æ–≥—Ä–∞–º–º—ã             */
+#define modeSingleStep  1    /* –ò—Å–ø–æ–ª–Ω–∏—Ç—å –æ–¥–Ω—É –∫–æ–º–∞–Ω–¥—É                  */
+#define modeRangeStep   2    /* –ò—Å–ø–æ–ª–Ω—è—Ç—å –≤ —É–∫–∞–∑–∞–Ω–Ω–æ–º –¥–∏–∞–ø–∞–∑–æ–Ω–µ –∞–¥—Ä–µ—Å–æ–≤ */
+#define modeGo          3    /* –ò—Å–ø–æ–ª–Ω—è—Ç—å –¥–æ –≤–æ–∑–Ω–∏–∫–Ω–æ–≤–µ–Ω–∏—è —Å–æ–±—ã—Ç–∏—è      */
   
 
 typedef union{
@@ -175,13 +175,13 @@ typedef union{
 
   struct{
     MODE  mode;
-    DWORD Begin, End; /* Ñ®†Ø†ßÆ≠ †§‡•·Æ¢                        */
-  } RangeStep;        /* à·ØÆ´≠Ô‚Ï ¢ „™†ß†≠≠Æ¨ §®†Ø†ßÆ≠• †§‡•·Æ¢ */
+    DWORD Begin, End; /* –î–∏–∞–ø–∞–∑–æ–Ω –∞–¥—Ä–µ—Å–æ–≤                        */
+  } RangeStep;        /* –ò—Å–ø–æ–ª–Ω—è—Ç—å –≤ —É–∫–∞–∑–∞–Ω–Ω–æ–º –¥–∏–∞–ø–∞–∑–æ–Ω–µ –∞–¥—Ä–µ—Å–æ–≤ */
 
   struct{
     MODE mode;
-    BYTE add_step;    /* ÑÆ°†¢´Ô‚Ï ·Æ°Î‚®• SingleStep? */
-  } SingleStep;       /* à·ØÆ´≠®‚Ï Æ§≠„ ™Æ¨†≠§„        */
+    BYTE add_step;    /* –î–æ–±–∞–≤–ª—è—Ç—å —Å–æ–±—ã—Ç–∏–µ SingleStep? */
+  } SingleStep;       /* –ò—Å–ø–æ–ª–Ω–∏—Ç—å –æ–¥–Ω—É –∫–æ–º–∞–Ω–¥—É        */
 
 } GO_MODE;
 

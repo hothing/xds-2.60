@@ -55,9 +55,9 @@
 
   BOOL Browse         (char *szOut, char *szIn, HWND hOwner, char *szCaption, BOOL fSaveAs);
 
-  BOOL EditVarTable   (HWND hWnd);   // hWnd - parent window, ¢•‡≠•‚ TRUE  •·´® Á‚Æ-‚Æ °Î´Æ ®ß¨•≠•≠Æ
-  PSZ  OpenExprVar    (PSZ pszExpr); // é‚™‡Î¢†•‚ Ø•‡•¨•≠≠Î• ¢ pszExpr ¢Î‡†¶•≠®® ® ¢Æß¢‡†È†•‚
-                                     // malloc()ed ‡•ß„´Ï‚†‚ (0 Ø‡® ÆË®°™•)
+  BOOL EditVarTable   (HWND hWnd);   // hWnd - parent window, –≤–µ—Ä–Ω–µ—Ç TRUE  –µ—Å–ª–∏ —á—Ç–æ-—Ç–æ –±—ã–ª–æ –∏–∑–º–µ–Ω–µ–Ω–æ
+  PSZ  OpenExprVar    (PSZ pszExpr); // –û—Ç–∫—Ä—ã–≤–∞–µ—Ç –ø–µ—Ä–µ–º–µ–Ω–Ω—ã–µ –≤ pszExpr –≤—ã—Ä–∞–∂–µ–Ω–∏–∏ –∏ –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç
+                                     // malloc()ed —Ä–µ–∑—É–ª—å—Ç–∞—Ç (0 –ø—Ä–∏ –æ—à–∏–±–∫–µ)
 
 
   #define VARNAMELEN 32
@@ -70,19 +70,19 @@
     };
     typedef VARSTR *PVARSTR;
 
-    PVARSTR   *apVarStr;                           // Malloc()ed „ØÆ‡Ô§ÆÁ•≠≠Î© ¨†··®¢ „™†ß†‚•´•©
-    ULONG      lVarsAlloced;                       // á†‡•ß•‡¢®‡Æ¢†≠≠†Ô §´®≠† ¨†··®¢† (™-¢Æ Ì´•¨•≠‚Æ¢)
-    ULONG      lVarsTotal;                         // äÆ´®Á•·‚¢Æ Ø•‡•¨•≠≠ÎÂ
+    PVARSTR   *apVarStr;                           // Malloc()ed —É–ø–æ—Ä—è–¥–æ—á–µ–Ω–Ω—ã–π –º–∞—Å—Å–∏–≤ —É–∫–∞–∑–∞—Ç–µ–ª–µ–π
+    ULONG      lVarsAlloced;                       // –ó–∞—Ä–µ–∑–µ—Ä–≤–∏—Ä–æ–≤–∞–Ω–Ω–∞—è –¥–ª–∏–Ω–∞ –º–∞—Å—Å–∏–≤–∞ (–∫-–≤–æ —ç–ª–µ–º–µ–Ω—Ç–æ–≤)
+    ULONG      lVarsTotal;                         // –ö–æ–ª–∏—á–µ—Å—Ç–≤–æ –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö
     BOOL       find_name(PSZ name, PLONG pIdx);
   public:
-    PSZ        QueryVar   (PSZ szName);              // ì™†ß†‚•´Ï ≠† ·Æ§•‡¶®¨Æ• ®´® 0
-    BOOL       QueryIdxVar(ULONG idx,                // Ö·´® ®≠§•™· idx ≠• ¢ÎÂÆ§®‚ ß† £‡†≠®ÊÎ ‚†°´®ÊÎ
-                           PSZ *ppszName,            //   - „·‚†≠Æ¢®‚ „™†ß†‚•´® ≠† ®¨Ô ® ß≠†Á•≠®•
-                           PSZ *ppszValue);          //   Ø•‡•¨•≠≠Æ©, ®≠†Á• ¢•‡≠•‚ FALSE
-    LONG       QueryVarIdx(PSZ szName);              // à≠§•™· Ø•‡•¨•≠≠Æ© ¢ ‚†°´®Ê• ®´® -1
-    void       AssignVar  (PSZ szName, PSZ szValue); // Ö·´® Ø•‡•¨•≠≠Æ© ≠•‚ - ß†¢•§•‚
-    BOOL       ForgetVar  (PSZ szName);              // FALSE  •·´® ‚†™Æ£Æ ®¨•≠® ≠•‚
-    void       ForgetAll  ();                        // éÁ®·‚®‚Ï ‚†°´®Ê„
+    PSZ        QueryVar   (PSZ szName);              // –£–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ —Å–æ–¥–µ—Ä–∂–∏–º–æ–µ –∏–ª–∏ 0
+    BOOL       QueryIdxVar(ULONG idx,                // –ï—Å–ª–∏ –∏–Ω–¥–µ–∫—Å idx –Ω–µ –≤—ã—Ö–æ–¥–∏—Ç –∑–∞ –≥—Ä–∞–Ω–∏—Ü—ã —Ç–∞–±–ª–∏—Ü—ã
+                           PSZ *ppszName,            //   - —É—Å—Ç–∞–Ω–æ–≤–∏—Ç —É–∫–∞–∑–∞—Ç–µ–ª–∏ –Ω–∞ –∏–º—è –∏ –∑–Ω–∞—á–µ–Ω–∏–µ
+                           PSZ *ppszValue);          //   –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π, –∏–Ω–∞—á–µ –≤–µ—Ä–Ω–µ—Ç FALSE
+    LONG       QueryVarIdx(PSZ szName);              // –ò–Ω–¥–µ–∫—Å –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π –≤ —Ç–∞–±–ª–∏—Ü–µ –∏–ª–∏ -1
+    void       AssignVar  (PSZ szName, PSZ szValue); // –ï—Å–ª–∏ –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π –Ω–µ—Ç - –∑–∞–≤–µ–¥–µ—Ç
+    BOOL       ForgetVar  (PSZ szName);              // FALSE  –µ—Å–ª–∏ —Ç–∞–∫–æ–≥–æ –∏–º–µ–Ω–∏ –Ω–µ—Ç
+    void       ForgetAll  ();                        // –û—á–∏—Å—Ç–∏—Ç—å —Ç–∞–±–ª–∏—Ü—É
     void       WProfile   (LONG slot, PSZ szKey);
     void       RProfile   (LONG slot, PSZ szKey, BOOL fAddNew);
                VARTABLE   (VARTABLE *pInit = 0);

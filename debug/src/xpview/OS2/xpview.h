@@ -87,14 +87,14 @@ private:
   HWND          hList;
   VIEWPORT_KIND vpKind;
   SORT_MODE     sortMode;
-  LONG          lNumFract;     // Пропорциональные ширины
-  LONG          lTimeFract;    //   полей,
-  LONG          lTime1Fract;   //     не вырождаются при
-  LONG          lNameFract;    //       уменьшении окна
-  LONG          xNumFract;     // Реальные ширины
-  LONG          xTimeFract;    //   полей
-  LONG          xTime1Fract;   //     (в экранных
-  LONG          xNameFract;    //       координатах)
+  LONG          lNumFract;     // ╨Я╤А╨╛╨┐╨╛╤А╤Ж╨╕╨╛╨╜╨░╨╗╤М╨╜╤Л╨╡ ╤И╨╕╤А╨╕╨╜╤Л
+  LONG          lTimeFract;    //   ╨┐╨╛╨╗╨╡╨╣,
+  LONG          lTime1Fract;   //     ╨╜╨╡ ╨▓╤Л╤А╨╛╨╢╨┤╨░╤О╤В╤Б╤П ╨┐╤А╨╕
+  LONG          lNameFract;    //       ╤Г╨╝╨╡╨╜╤М╤И╨╡╨╜╨╕╨╕ ╨╛╨║╨╜╨░
+  LONG          xNumFract;     // ╨а╨╡╨░╨╗╤М╨╜╤Л╨╡ ╤И╨╕╤А╨╕╨╜╤Л
+  LONG          xTimeFract;    //   ╨┐╨╛╨╗╨╡╨╣
+  LONG          xTime1Fract;   //     (╨▓ ╤Н╨║╤А╨░╨╜╨╜╤Л╤Е
+  LONG          xNameFract;    //       ╨║╨╛╨╛╤А╨┤╨╕╨╜╨░╤В╨░╤Е)
   LONG          dyHead;
   int           nPrfItem;
   int           nUpdateLocked;

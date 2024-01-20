@@ -183,7 +183,7 @@ void read_file (char *name, char ** buf, long *sz)
 // reads all data from the file to memore and returns pointer to the buffer.
 // please don't forget to free the buffer
 {
-	char fname [_MAX_PATH * 2+3]; //много-много, кое-где по 2000...
+	char fname [_MAX_PATH * 2+3]; //СЊСЌСЋСѓСЋ-СЊСЌСЋСѓСЋ, СЉСЋС…-СѓС„С… СЏСЋ 2000...
 	FILE * f;
 
 	*buf = NULL;

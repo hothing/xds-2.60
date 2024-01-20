@@ -22,21 +22,21 @@
 
 #define WPNAMELEN   100
 
-// Режим чтения/запси профайла
-#define PRF_IO_NORMAL     0x0001  // Обычный
-#define PRF_IO_MIRRORBASE 0x0003  // Читаем из NORMAL, затем ожидается MIRROR
-#define PRF_IO_MIRROR     0x0004  // Зеркальный профайл
-#define PRF_IO_TEMPLATE   0x0008  // Писать только требуемое, при чтении - применить к тек. WP
-#define PRF_IO_TPL_ASS    0x0010  //  Читать ассоциации
-#define PRF_IO_TPL_TOOLS  0x0020  //  Читать тулзы
-#define PRF_IO_TPL_RMTLS  0x0040  //  При чтении текущие тулзы выкинуть
+// ╨а╨╡╨╢╨╕╨╝ ╤З╤В╨╡╨╜╨╕╤П/╨╖╨░╨┐╤Б╨╕ ╨┐╤А╨╛╤Д╨░╨╣╨╗╨░
+#define PRF_IO_NORMAL     0x0001  // ╨Ю╨▒╤Л╤З╨╜╤Л╨╣
+#define PRF_IO_MIRRORBASE 0x0003  // ╨з╨╕╤В╨░╨╡╨╝ ╨╕╨╖ NORMAL, ╨╖╨░╤В╨╡╨╝ ╨╛╨╢╨╕╨┤╨░╨╡╤В╤Б╤П MIRROR
+#define PRF_IO_MIRROR     0x0004  // ╨Ч╨╡╤А╨║╨░╨╗╤М╨╜╤Л╨╣ ╨┐╤А╨╛╤Д╨░╨╣╨╗
+#define PRF_IO_TEMPLATE   0x0008  // ╨Я╨╕╤Б╨░╤В╤М ╤В╨╛╨╗╤М╨║╨╛ ╤В╤А╨╡╨▒╤Г╨╡╨╝╨╛╨╡, ╨┐╤А╨╕ ╤З╤В╨╡╨╜╨╕╨╕ - ╨┐╤А╨╕╨╝╨╡╨╜╨╕╤В╤М ╨║ ╤В╨╡╨║. WP
+#define PRF_IO_TPL_ASS    0x0010  //  ╨з╨╕╤В╨░╤В╤М ╨░╤Б╤Б╨╛╤Ж╨╕╨░╤Ж╨╕╨╕
+#define PRF_IO_TPL_TOOLS  0x0020  //  ╨з╨╕╤В╨░╤В╤М ╤В╤Г╨╗╨╖╤Л
+#define PRF_IO_TPL_RMTLS  0x0040  //  ╨Я╤А╨╕ ╤З╤В╨╡╨╜╨╕╨╕ ╤В╨╡╨║╤Г╤Й╨╕╨╡ ╤В╤Г╨╗╨╖╤Л ╨▓╤Л╨║╨╕╨╜╤Г╤В╤М
 
 /* --- Globals:
 */
 extern char    szWorkplace[WPNAMELEN];
 extern BOOL    fUseMirror;
 extern char    szWPMirror [CCHMAXPATH];
-extern char    szIniPath  [CCHMAXPATH]; // Путь к нашей ini+temp директории
+extern char    szIniPath  [CCHMAXPATH]; // ╨Я╤Г╤В╤М ╨║ ╨╜╨░╤И╨╡╨╣ ini+temp ╨┤╨╕╤А╨╡╨║╤В╨╛╤А╨╕╨╕
 extern PSZ     pszWPComment;
 
 /* Create the profile
@@ -102,23 +102,23 @@ LONG      PfReadRelFName  (LONG slot, PSZ pszName, char szTarg[CCHMAXPATH], PVOI
 LONG      PfQueryItemSize (LONG slot, PSZ pszName);
 
 
-//--- Внутренний список WP-темплитов
-// В szIniPath файл WPTPL_FILE содержит пользовательские темплиты (slots 1..)
-// В os2.ini/xds ключи XDS_WPT_* - пути к *.ini файлам с системными темплитами (slots 1..)
+//--- ╨Т╨╜╤Г╤В╤А╨╡╨╜╨╜╨╕╨╣ ╤Б╨┐╨╕╤Б╨╛╨║ WP-╤В╨╡╨╝╨┐╨╗╨╕╤В╨╛╨▓
+// ╨Т szIniPath ╤Д╨░╨╣╨╗ WPTPL_FILE ╤Б╨╛╨┤╨╡╤А╨╢╨╕╤В ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╨╡╨╗╤М╤Б╨║╨╕╨╡ ╤В╨╡╨╝╨┐╨╗╨╕╤В╤Л (slots 1..)
+// ╨Т os2.ini/xds ╨║╨╗╤О╤З╨╕ XDS_WPT_* - ╨┐╤Г╤В╨╕ ╨║ *.ini ╤Д╨░╨╣╨╗╨░╨╝ ╤Б ╤Б╨╕╤Б╤В╨╡╨╝╨╜╤Л╨╝╨╕ ╤В╨╡╨╝╨┐╨╗╨╕╤В╨░╨╝╨╕ (slots 1..)
 //
 class WPTPLOFFICE
 {
 public:
    WPTPLOFFICE();
   ~WPTPLOFFICE();
-  void ReBuild();                                 // Поиметь инфо обо всех доступных темплитах
-  void ShowList       (HWND hLB);                 // Заполнить лист
-  void ShowComment    (LHANDLE h, HWND hMLE);     // Показать комментарий (h - хэндл в листе)
-  void RefreshComment (LHANDLE h, HWND hMLE);     // Обновить, если надо, комментарий (h - хэндл в листе)
-  void StoreTpl       (PSZ szName, HWND hMsgWnd); // Создать новый темплит        // После них надо
-  BOOL RemoveTpl      (LHANDLE h, HWND hMsgWnd);  // Удалить темплит. Вернет fOk. //   перечитать список
-  void ApplyTpl       (LHANDLE h, HWND hMsgWnd, BOOL fNewWp=FALSE);  // Применить темплит (h - хэндл в листе)
-  BOOL IsReadOnly     (LHANDLE h);                // TRUE если h - read olny или h = 0
+  void ReBuild();                                 // ╨Я╨╛╨╕╨╝╨╡╤В╤М ╨╕╨╜╤Д╨╛ ╨╛╨▒╨╛ ╨▓╤Б╨╡╤Е ╨┤╨╛╤Б╤В╤Г╨┐╨╜╤Л╤Е ╤В╨╡╨╝╨┐╨╗╨╕╤В╨░╤Е
+  void ShowList       (HWND hLB);                 // ╨Ч╨░╨┐╨╛╨╗╨╜╨╕╤В╤М ╨╗╨╕╤Б╤В
+  void ShowComment    (LHANDLE h, HWND hMLE);     // ╨Я╨╛╨║╨░╨╖╨░╤В╤М ╨║╨╛╨╝╨╝╨╡╨╜╤В╨░╤А╨╕╨╣ (h - ╤Е╤Н╨╜╨┤╨╗ ╨▓ ╨╗╨╕╤Б╤В╨╡)
+  void RefreshComment (LHANDLE h, HWND hMLE);     // ╨Ю╨▒╨╜╨╛╨▓╨╕╤В╤М, ╨╡╤Б╨╗╨╕ ╨╜╨░╨┤╨╛, ╨║╨╛╨╝╨╝╨╡╨╜╤В╨░╤А╨╕╨╣ (h - ╤Е╤Н╨╜╨┤╨╗ ╨▓ ╨╗╨╕╤Б╤В╨╡)
+  void StoreTpl       (PSZ szName, HWND hMsgWnd); // ╨б╨╛╨╖╨┤╨░╤В╤М ╨╜╨╛╨▓╤Л╨╣ ╤В╨╡╨╝╨┐╨╗╨╕╤В        // ╨Я╨╛╤Б╨╗╨╡ ╨╜╨╕╤Е ╨╜╨░╨┤╨╛
+  BOOL RemoveTpl      (LHANDLE h, HWND hMsgWnd);  // ╨г╨┤╨░╨╗╨╕╤В╤М ╤В╨╡╨╝╨┐╨╗╨╕╤В. ╨Т╨╡╤А╨╜╨╡╤В fOk. //   ╨┐╨╡╤А╨╡╤З╨╕╤В╨░╤В╤М ╤Б╨┐╨╕╤Б╨╛╨║
+  void ApplyTpl       (LHANDLE h, HWND hMsgWnd, BOOL fNewWp=FALSE);  // ╨Я╤А╨╕╨╝╨╡╨╜╨╕╤В╤М ╤В╨╡╨╝╨┐╨╗╨╕╤В (h - ╤Е╤Н╨╜╨┤╨╗ ╨▓ ╨╗╨╕╤Б╤В╨╡)
+  BOOL IsReadOnly     (LHANDLE h);                // TRUE ╨╡╤Б╨╗╨╕ h - read olny ╨╕╨╗╨╕ h = 0
 private:
   typedef struct ONEWPTPL
   {
@@ -140,17 +140,17 @@ private:
 
 class WPTPLADVANCEDINIT
 //
-// Это некий абстрактный класс для advanced инициализации нового WP при создании его из
-// темплита. Пока что просто игает rexx script.
-// Хранится не только в темплитах, но и в WPs, чтобы можно было из них
-// создавать темплиты.
+// ╨н╤В╨╛ ╨╜╨╡╨║╨╕╨╣ ╨░╨▒╤Б╤В╤А╨░╨║╤В╨╜╤Л╨╣ ╨║╨╗╨░╤Б╤Б ╨┤╨╗╤П advanced ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨░╤Ж╨╕╨╕ ╨╜╨╛╨▓╨╛╨│╨╛ WP ╨┐╤А╨╕ ╤Б╨╛╨╖╨┤╨░╨╜╨╕╨╕ ╨╡╨│╨╛ ╨╕╨╖
+// ╤В╨╡╨╝╨┐╨╗╨╕╤В╨░. ╨Я╨╛╨║╨░ ╤З╤В╨╛ ╨┐╤А╨╛╤Б╤В╨╛ ╨╕╨│╨░╨╡╤В rexx script.
+// ╨е╤А╨░╨╜╨╕╤В╤Б╤П ╨╜╨╡ ╤В╨╛╨╗╤М╨║╨╛ ╨▓ ╤В╨╡╨╝╨┐╨╗╨╕╤В╨░╤Е, ╨╜╨╛ ╨╕ ╨▓ WPs, ╤З╤В╨╛╨▒╤Л ╨╝╨╛╨╢╨╜╨╛ ╨▒╤Л╨╗╨╛ ╨╕╨╖ ╨╜╨╕╤Е
+// ╤Б╨╛╨╖╨┤╨░╨▓╨░╤В╤М ╤В╨╡╨╝╨┐╨╗╨╕╤В╤Л.
 //
 {
 public:
           WPTPLADVANCEDINIT ();
          ~WPTPLADVANCEDINIT ();
-  void    ApplyNow          (HWND hMsgWnd);           // Применить нас в имеющемся на данный момент WP
-  void    ModifyDlg         (HWND hMsgWnd);           // Диалог с модификацией нас.
+  void    ApplyNow          (HWND hMsgWnd);           // ╨Я╤А╨╕╨╝╨╡╨╜╨╕╤В╤М ╨╜╨░╤Б ╨▓ ╨╕╨╝╨╡╤О╤Й╨╡╨╝╤Б╤П ╨╜╨░ ╨┤╨░╨╜╨╜╤Л╨╣ ╨╝╨╛╨╝╨╡╨╜╤В WP
+  void    ModifyDlg         (HWND hMsgWnd);           // ╨Ф╨╕╨░╨╗╨╛╨│ ╤Б ╨╝╨╛╨┤╨╕╤Д╨╕╨║╨░╤Ж╨╕╨╡╨╣ ╨╜╨░╤Б.
   void    WProfile          (LONG slot, PSZ pszName); //
   void    RProfile          (LONG slot, PSZ pszName); //
 private:

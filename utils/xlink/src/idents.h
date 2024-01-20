@@ -67,7 +67,7 @@ extern void InitIds (void);
 
 #undef CONST
 
-/* Номера соответствующих имен */
+/* в•ђСЋСЊС…РЃСЂ С‘СЋСЋР„С‚С…Р„С‘Р„С‚С”в– в€™С€С— С€СЊС…СЌ */
 
 extern ident CODE,
              CONST,

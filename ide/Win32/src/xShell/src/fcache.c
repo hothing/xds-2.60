@@ -381,8 +381,8 @@ static BOOL isTextOem(const unsigned char *text, int len)
   int oemRate = 0, ansiRate = 0;
   int i = 0;
   for(; i < len; ++i) {
-    if(text[i] >= 0x80 /*'A'*/ && text[i] <= 0xAF /*'Ô'*/ ||
-      text[i] >= 0xE0 /*''*/ && text[i] <= 0xEF /*'ˇ'*/ ||
+    if(text[i] >= 0x80 /*'A'*/ && text[i] <= 0xAF /*'—è'*/ ||
+      text[i] >= 0xE0 /*'–Å'*/ && text[i] <= 0xEF /*'¬†'*/ ||
       text[i] == 0xB3 /*'|'*/ || text[i] == 0xBA /*||*/)
       ++oemRate;
     if(text[i] >= 0xC0 /*'A'*/)

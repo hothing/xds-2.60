@@ -103,17 +103,17 @@ class MACROS
 public:
   MACROS            ();
  ~MACROS            ();
-  BOOL StartRecord    ();             // ç†Á†‚Ï ß†Ø®·Ï
-  BOOL DoneMacro      ();             // ÉÆ‚Æ¢Æ.
-  BOOL TerminateMacro (PSZ szReason); // í•‡¨®≠®‡Æ¢†‚Ï ß†Ø®·Ï ¨†™‡Æ·†. Ö·´® szReson - ¢Î§†‚Ï Ì‚Æ ·ÆÆ°È•≠®•.
-  void AddToMacro     (PSZ szCmd);    // ÑÆ°†¢®‚Ï ™ ¨†™‡Æ·„
+  BOOL StartRecord    ();             // –ù–∞—á–∞—Ç—å –∑–∞–ø–∏—Å—å
+  BOOL DoneMacro      ();             // –ì–æ—Ç–æ–≤–æ.
+  BOOL TerminateMacro (PSZ szReason); // –¢–µ—Ä–º–∏–Ω–∏—Ä–æ–≤–∞—Ç—å –∑–∞–ø–∏—Å—å –º–∞–∫—Ä–æ—Å–∞. –ï—Å–ª–∏ szReson - –≤—ã–¥–∞—Ç—å —ç—Ç–æ —Å–æ–æ–±—â–µ–Ω–∏–µ.
+  void AddToMacro     (PSZ szCmd);    // –î–æ–±–∞–≤–∏—Ç—å –∫ –º–∞–∫—Ä–æ—Å—É
   BOOL PlayMacro      (PQMSG pqmsg);
   BOOL MacroDlg       ();
   BOOL RecallMacroEd  (BOOL fTestEnabled);
   void WProfile       (LONG lSlot, PSZ szName, BOOL fGlobal);
   void RProfile       (LONG lSlot, PSZ szName, BOOL fGlobal);
 private:
-  // èÆ§§•‡¶™† §®†´Æ£† ¨†™‡Æ·Æ¢
+  // –ü–æ–¥–¥–µ—Ä–∂–∫–∞ –¥–∏–∞–ª–æ–≥–∞ –º–∞–∫—Ä–æ—Å–æ–≤
   enum   LISTEV { INIT, MOVE_UP, MOVE_DOWN, LIST2LIST, EDIT, DUPLICATE, REMOVE, NEW, SELCHANGED };
   BOOL   list_event (PMACRO pmGlobal, PMACRO pmLocal, HWND hGlobal, HWND hLocal, BOOL fGlobal, LISTEV listev);
   PMACRO dup_list   (PMACRO pmList);
