@@ -263,7 +263,7 @@ BEGIN
     IF (v.type.mode=pc.ty_opaque) &
        ~ pcO.def &
        (v.type.base#NIL) &
-       (v.type.base.obj#NIL) (* ÂÆ‡ÆËÆ °Î „°‡†‚Ï Ì‚Æ „·´Æ¢®• !!!!! *)
+       (v.type.base.obj#NIL) (* —Ö–æ—Ä–æ—à–æ –±—ã —É–±—Ä–∞—Ç—å —ç—Ç–æ —É—Å–ª–æ–≤–∏–µ !!!!! *)
     THEN
       v:=v.type.base.obj;
       ASSERT(v.type.mode IN pc.TY_SET{pc.ty_pointer,pc.ty_opaque}
@@ -2187,9 +2187,9 @@ END formal_type;
 
 PROCEDURE const_expr(v: pc.NODE);
 (*
-        Ø‡®ÂÆ§®‚·Ô ‚†™ ·´Æ¶≠Æ ÆØ‡•§•´Ô‚Ï Ô¢´Ô•‚·Ô ´® ¢Î‡†¶•≠®• ™Æ≠·‚†≠‚≠Î¨
-        ®ß-ß† ¢Î‡†¶•≠®© ‚®Ø† SIZE(REAL)+1, §´Ô ™Æ‚Æ‡ÎÂ back-end ¨Æ¶•‚
-        Æ‚™†ß†‚Ï·Ô ·ÆÆ°È®‚Ï ß≠†Á•≠®• SIZE(REAL)
+        –ø—Ä–∏—Ö–æ–¥–∏—Ç—Å—è —Ç–∞–∫ —Å–ª–æ–∂–Ω–æ –æ–ø—Ä–µ–¥–µ–ª—è—Ç—å —è–≤–ª—è–µ—Ç—Å—è –ª–∏ –≤—ã—Ä–∞–∂–µ–Ω–∏–µ –∫–æ–Ω—Å—Ç–∞–Ω—Ç–Ω—ã–º
+        –∏–∑-–∑–∞ –≤—ã—Ä–∞–∂–µ–Ω–∏–π —Ç–∏–ø–∞ SIZE(REAL)+1, –¥–ª—è –∫–æ—Ç–æ—Ä—ã—Ö back-end –º–æ–∂–µ—Ç
+        –æ—Ç–∫–∞–∑–∞—Ç—å—Å—è —Å–æ–æ–±—â–∏—Ç—å –∑–Ω–∞—á–µ–Ω–∏–µ SIZE(REAL)
 *)
   PROCEDURE const(v: pc.NODE): BOOLEAN;
     VAR n: pc.NODE;
@@ -2485,7 +2485,7 @@ BEGIN
   ASSERT(o.host#r.dst);
   t:=o.type;
   LOOP
-    (* t.inx ¨Æ¶≠Æ ≠• Ø‡Æ¢•‡Ô‚Ï, Æ≠ Æ°Ôß†‚•´Ï≠Æ ordinal *)
+    (* t.inx –º–æ–∂–Ω–æ –Ω–µ –ø—Ä–æ–≤–µ—Ä—è—Ç—å, –æ–Ω –æ–±—è–∑–∞—Ç–µ–ª—å–Ω–æ ordinal *)
     ASSERT(t.inx#r.dst);
     IF t.base=r.dst THEN t.base:=r.src END;
     IF (t.base=NIL) OR (t.base.obj#NIL) THEN EXIT END;
@@ -2499,7 +2499,7 @@ BEGIN
   IF dst=src THEN RETURN END;
   ASSERT(dst.mode=pcO.ty_undef);
   r.src:=src; r.dst:=dst;
-  cu.type.objects(r); (* ®‚•‡®‡„Ó‚·Ô ´®Ë≠®• Æ°Í•™‚Î !!!! *)
+  cu.type.objects(r); (* –∏—Ç–µ—Ä–∏—Ä—É—é—Ç—Å—è –ª–∏—à–Ω–∏–µ –æ–±—ä–µ–∫—Ç—ã !!!! *)
   dst:=src;
 END copy_type;
 
@@ -2815,8 +2815,8 @@ PROCEDURE type_definition(VAR t: pc.STRUCT; en_array_of: BOOLEAN);
       IF pcS.warn_not_translated THEN
         pcS.warn(4001, "(variant fields)");
       END;
-      (* ¢†‡®†≠‚≠Î• ß†Ø®·® ¢ é°•‡Æ≠• ‚‡•°„Ó‚ Æ·Æ°Æ© ØÆ§§•‡¶™®
-         §´Ô ≠Æ‡¨†´Ï≠Æ© ‡†°Æ‚Î ·°Æ‡™® ¨„·Æ‡† *)
+      (* –≤–∞—Ä–∏–∞–Ω—Ç–Ω—ã–µ –∑–∞–ø–∏—Å–∏ –≤ –û–±–µ—Ä–æ–Ω–µ —Ç—Ä–µ–±—É—é—Ç –æ—Å–æ–±–æ–π –ø–æ–¥–¥–µ—Ä–∂–∫–∏
+         –¥–ª—è –Ω–æ—Ä–º–∞–ª—å–Ω–æ–π —Ä–∞–±–æ—Ç—ã —Å–±–æ—Ä–∫–∏ –º—É—Å–æ—Ä–∞ *)
       pcS.get(sy);
       tag := pcO.new_obj(pc.ob_header);
       pcO.new(tag.val,pc.nd_case);
@@ -3528,7 +3528,7 @@ PROCEDURE Block(enter: pc.NODE);
       pre:=(NOT pcO.def) & pcO.try_scp(pcO.cur_scope,pcS.name,p) &
            (p.mode IN FWD) & (pcO.otag_forward IN p.tags);
     END;
-    (* spr - Ø•‡•™‡Î‚Î© ¨•‚Æ§, NIL •·´® ‚†™Æ£Æ ≠•‚ *)
+    (* spr - –ø–µ—Ä–µ–∫—Ä—ã—Ç—ã–π –º–µ—Ç–æ–¥, NIL –µ—Å–ª–∏ —Ç–∞–∫–æ–≥–æ –Ω–µ—Ç *)
     type := pcO.new_type(pc.ty_proctype);
 --    type.flag:=sf;
     IF pre THEN
@@ -3592,10 +3592,10 @@ PROCEDURE Block(enter: pc.NODE);
     END;
     IF (pcO.otag_exported IN p.tags) & (p.mode=pc.ob_proc) THEN
       IF pcS.oberon THEN
-        (* Ì™·ØÆ‡‚®‡„•¨Î• é°•‡Æ≠-Ø‡ÆÊ•§„‡Î §Æ´¶≠Î Æ°´†§†‚Ï ß≠†Á•≠®•¨ *)
+        (* —ç–∫—Å–ø–æ—Ä—Ç–∏—Ä—É–µ–º—ã–µ –û–±–µ—Ä–æ–Ω-–ø—Ä–æ—Ü–µ–¥—É—Ä—ã –¥–æ–ª–∂–Ω—ã –æ–±–ª–∞–¥–∞—Ç—å –∑–Ω–∞—á–µ–Ω–∏–µ–º *)
         p.mode:=pc.ob_xproc;
       ELSIF ~ (pc.otag_public IN p.tags) THEN
-        (* Ø‡ÆÊ•§„‡† Æ°ÍÔ¢´•≠† · ¢≠•Ë≠®¨ ·¢ÔßÎ¢†≠®•¨ ¢ Modula-2 *)
+        (* –ø—Ä–æ—Ü–µ–¥—É—Ä–∞ –æ–±—ä—è–≤–ª–µ–Ω–∞ —Å –≤–Ω–µ—à–Ω–∏–º —Å–≤—è–∑—ã–≤–∞–Ω–∏–µ–º –≤ Modula-2 *)
         p.mode:=pc.ob_lproc;
         EXCL(p.tags,pcO.otag_exported);
       END;
@@ -3692,7 +3692,7 @@ PROCEDURE Block(enter: pc.NODE);
     mod.type.base:=pcO.void;
     check_get(pcS.semic);
     pcO.dcl(pcO.cur_scope,mod);
-    (* ´Æ™†´Ï≠Î• ¨Æ§„´® ≠• §Æ´¶≠Î ß†≠Æ·®‚Ï·Ô ¢ ·Ø®·Æ™ Æ°Í•™‚Æ¢ *)
+    (* –ª–æ–∫–∞–ª—å–Ω—ã–µ –º–æ–¥—É–ª–∏ –Ω–µ –¥–æ–ª–∂–Ω—ã –∑–∞–Ω–æ—Å–∏—Ç—å—Å—è –≤ —Å–ø–∏—Å–æ–∫ –æ–±—ä–µ–∫—Ç–æ–≤ *)
     host_scope:=pcO.cur_scope;
     pcO.enter_scope(mod.type);
     import;
@@ -3864,10 +3864,10 @@ PROCEDURE Block(enter: pc.NODE);
   END app_reraise;
 
   PROCEDURE insert_module(enter,mod: pc.NODE);
-    (* mod - ´Æ™†´Ï≠Î© ¨Æ§„´Ï, enter - Æ°Í•¨´ÓÈ†Ô ™Æ≠·‚‡„™Ê®Ô *)
+    (* mod - –ª–æ–∫–∞–ª—å–Ω—ã–π –º–æ–¥—É–ª—å, enter - –æ–±—ä–µ–º–ª—é—â–∞—è –∫–æ–Ω—Å—Ç—Ä—É–∫—Ü–∏—è *)
     VAR n: pc.NODE; o: pc.OBJECT;
   BEGIN
-    (* Æ°Í•™‚Î *)
+    (* –æ–±—ä–µ–∫—Ç—ã *)
     ASSERT(mod.type.prof=NIL);
     o:=mod.type.mem;
     IF o#NIL THEN
@@ -3878,7 +3878,7 @@ PROCEDURE Block(enter: pc.NODE);
       o.next:=enter.type.mem;
       enter.type.mem:=mod.type.mem;
     END;
-    (* ÆØ•‡†‚Æ‡Î *)
+    (* –æ–ø–µ—Ä–∞—Ç–æ—Ä—ã *)
     ASSERT(mod.r.mode=pc.nd_finally);
     ASSERT(enter.r.mode=pc.nd_finally);
     IF pcO.level>=0 THEN
@@ -3894,7 +3894,7 @@ PROCEDURE Block(enter: pc.NODE);
       app_nodes(n,enter.r);
       enter.r:=n;
     END;
-    (* Ø‡ÆÊ•§„‡Î *)
+    (* –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
     n:=mod.l;
     IF n#NIL THEN
       WHILE n.next#NIL DO n:=n.next END;
@@ -3942,8 +3942,8 @@ BEGIN
   END;
   check_objects(enter.type.mem);
   pcO.new(enter.r,pc.nd_finally);
-  enter.r.r:=enter;  (* Ì‚Æ ≠„¶≠Æ §´Ô Ø‡†¢®´Ï≠Æ£Æ ØÆ‡Æ¶§•≠®Ô ®¨•≠®
-                                Ø‡ÆÊ•§„‡Î ‰®≠†´®ß†Ê®® *)
+  enter.r.r:=enter;  (* —ç—Ç–æ –Ω—É–∂–Ω–æ –¥–ª—è –ø—Ä–∞–≤–∏–ª—å–Ω–æ–≥–æ –ø–æ—Ä–æ–∂–¥–µ–Ω–∏—è –∏–º–µ–Ω–∏
+                                –ø—Ä–æ—Ü–µ–¥—É—Ä—ã —Ñ–∏–Ω–∞–ª–∏–∑–∞—Ü–∏–∏ *)
   enter.r.type:=pcO.void;
   enter.pos:=pcS.txtpos;
   IF sy=pcS.begin THEN

@@ -259,7 +259,7 @@ END AddPos;
 --------------------------------------------------------------------------------
 -- Returns 'true' if position refer to same line in the source code?
 -- @param[in]: p1, p2 - positions to be compared
--- @note Мы не можем пользоваться обычной процедурой, т.к. не надо учитывать позиции в строках.
+-- @note ╨Ь╤Л ╨╜╨╡ ╨╝╨╛╨╢╨╡╨╝ ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╤М╤Б╤П ╨╛╨▒╤Л╤З╨╜╨╛╨╣ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨╛╨╣, ╤В.╨║. ╨╜╨╡ ╨╜╨░╨┤╨╛ ╤Г╤З╨╕╤В╤Л╨▓╨░╤В╤М ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ ╨▓ ╤Б╤В╤А╨╛╨║╨░╤Е.
 PROCEDURE PosEqu *(p1-, p2-: ir.TPOS): BOOLEAN;
 VAR fname1, fname2: env.String;
     line1, line2, col1, col2: LONGINT;

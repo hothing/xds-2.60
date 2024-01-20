@@ -238,20 +238,20 @@ IMPORT
  VAR rsegm: CODE_SEGM;
 
        	PROCEDURE GCoff_AddValue(i : INTEGER) : INT32;
- 	VAR calling_object,           (* ‚Æ‚ object, ¢ ™Æ‚Æ‡Æ¨ relocation *)
-	    target_object : OBJECT;   (* Æ°Í•™‚ ≠† ™Æ‚Æ‡Î© relocation    *)
+ 	VAR calling_object,           (* —Ç–æ—Ç object, –≤ –∫–æ—Ç–æ—Ä–æ–º relocation *)
+	    target_object : OBJECT;   (* –æ–±—ä–µ–∫—Ç –Ω–∞ –∫–æ—Ç–æ—Ä—ã–π relocation    *)
 
 	    foo32,
 	    value_to_add : INT32;
 
-	    code_addr,		       (* ≠†Á†´Æ ™Æ§† calling_object    *)
-	    off_4_app,                 (* ·¨•È•≠®• ¢≠„‚‡® calling_object*)
-	    adr_4_app: LONGINT;        (* †§‡•· ¢ Ø†¨Ô‚®, ØÆ ™Æ‚Æ‡Æ¨„   *)
-				       (* ≠†ÂÆ§Ô‚·Ô Ì‚® Á•‡‚Æ¢Î 4 °†©‚† *)
+	    code_addr,		       (* –Ω–∞—á–∞–ª–æ –∫–æ–¥–∞ calling_object    *)
+	    off_4_app,                 (* —Å–º–µ—â–µ–Ω–∏–µ –≤–Ω—É—Ç—Ä–∏ calling_object*)
+	    adr_4_app: LONGINT;        (* –∞–¥—Ä–µ—Å –≤ –ø–∞–º—è—Ç–∏, –ø–æ –∫–æ—Ç–æ—Ä–æ–º—É   *)
+				       (* –Ω–∞—Ö–æ–¥—è—Ç—Å—è —ç—Ç–∏ —á–µ—Ä—Ç–æ–≤—ã 4 –±–∞–π—Ç–∞ *)
 
-	    calling_offset,            (* ·¨•È•≠®Ô ‚ÆÁ™® relocation'a ® *)
-	    target_offset : LONGINT;   (* ‚ÆÁ™® taget'a ¢≠„‚‡® ‰†©´†    *)
-				       (* Æ‚≠Æ·®‚•´Ï≠Æ .text            *)
+	    calling_offset,            (* —Å–º–µ—â–µ–Ω–∏—è —Ç–æ—á–∫–∏ relocation'a –∏ *)
+	    target_offset : LONGINT;   (* —Ç–æ—á–∫–∏ taget'a –≤–Ω—É—Ç—Ä–∏ —Ñ–∞–π–ª–∞    *)
+				       (* –æ—Ç–Ω–æ—Å–∏—Ç–µ–ª—å–Ω–æ .text            *)
 
 	    is_external: BOOLEAN;
 	    is_rel32   : BOOLEAN;
@@ -293,16 +293,16 @@ IMPORT
 
            IF is_rel32 THEN
 		IF is_external THEN
-                        (* Æ‚≠Ô‚Ï †§‡•· ·´•§. ™Æ¨†≠§Î *)
+                        (* –æ—Ç–Ω—è—Ç—å –∞–¥—Ä–µ—Å —Å–ª–µ–¥. –∫–æ–º–∞–Ω–¥—ã *)
 			value_to_add := - calling_offset - 4;
-		ELSE    (* ØÆ´Æ¶®‚Ï ·¨•È•≠®• §Æ Ê•´® *)
+		ELSE    (* –ø–æ–ª–æ–∂–∏—Ç—å —Å–º–µ—â–µ–Ω–∏–µ –¥–æ —Ü–µ–ª–∏ *)
 			value_to_add := target_offset - calling_offset - 4;
 		END;
    	   ELSE         (* abs32 *)
 		IF is_external THEN
-			(* ≠®Á•£Æ ≠• §•´†‚Ï *)
+			(* –Ω–∏—á–µ–≥–æ –Ω–µ –¥–µ–ª–∞—Ç—å *)
 			value_to_add := 0;
-		ELSE    (* ØÆ´Æ¶®‚Ï ·¨•È•≠®• Ê•´® Æ‚≠Æ·®‚•´Ï≠Æ .text *)
+		ELSE    (* –ø–æ–ª–æ–∂–∏—Ç—å —Å–º–µ—â–µ–Ω–∏–µ —Ü–µ–ª–∏ –æ—Ç–Ω–æ—Å–∏—Ç–µ–ª—å–Ω–æ .text *)
                        	value_to_add := target_offset + cfr.SectionHeaders[ target_section ].s_paddr;
                	END;
    	   END;

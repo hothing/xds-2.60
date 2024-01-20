@@ -403,7 +403,7 @@ END get_max;
 PROCEDURE (VAR z: int_value) set_integer(x: LONGINT);
   VAR i: INTEGER; m: SET;
 BEGIN
-  (* ≠†Ø®·†≠Æ ¢ Ø‡•§ØÆ´Æ¶•≠®® BITS(SET)=32 !!! *)
+  (* –Ω–∞–ø–∏—Å–∞–Ω–æ –≤ –ø—Ä–µ–¥–ø–æ–ª–æ–∂–µ–Ω–∏–∏ BITS(SET)=32 !!! *)
   ASSERT(SET_BITS=32);
   z.val[0]:=SYSTEM.VAL(SET,x);
   z.sgnext_32();
@@ -412,7 +412,7 @@ END set_integer;
 PROCEDURE (VAR z: int_value) get_integer(): LONGINT;
   VAR i: INTEGER; m: SET;
 BEGIN
-  (* ≠†Ø®·†≠Æ ¢ Ø‡•§ØÆ´Æ¶•≠®® BITS(SET)=32 !!! *)
+  (* –Ω–∞–ø–∏—Å–∞–Ω–æ –≤ –ø—Ä–µ–¥–ø–æ–ª–æ–∂–µ–Ω–∏–∏ BITS(SET)=32 !!! *)
   ASSERT(SET_BITS=32);
   IF MAX_BIT IN z.val[0] THEN m:=FULL_MASK ELSE m:={} END;
   FOR i:=1 TO MAX_SET DO
@@ -424,7 +424,7 @@ END get_integer;
 PROCEDURE (VAR z: int_value) get_cardinal(): SYSTEM.CARD32;
   VAR i: INTEGER;
 BEGIN
-  (* ≠†Ø®·†≠Æ ¢ Ø‡•§ØÆ´Æ¶•≠®® BITS(SET)=32 !!! *)
+  (* –Ω–∞–ø–∏—Å–∞–Ω–æ –≤ –ø—Ä–µ–¥–ø–æ–ª–æ–∂–µ–Ω–∏–∏ BITS(SET)=32 !!! *)
   ASSERT(SET_BITS=32);
   FOR i:=1 TO MAX_SET DO
     IF z.val[i]#{} THEN z.ovr(); RETURN 0 END;
@@ -1158,7 +1158,7 @@ BEGIN
 END unary;
 
 PROCEDURE strcmp(cop: pc.SUB_MODE; x-,y-: ARRAY OF CHAR): LONGINT;
-(* ·‚‡Æ™† ¨Æ¶•‚ ≠• ™Æ≠Á†‚Ï·Ô ·®¨¢Æ´Æ¨ 0X ! *)
+(* —Å—Ç—Ä–æ–∫–∞ –º–æ–∂–µ—Ç –Ω–µ –∫–æ–Ω—á–∞—Ç—å—Å—è —Å–∏–º–≤–æ–ª–æ–º 0X ! *)
   VAR i: LONGINT; r: BOOLEAN; cx,cy: CHAR;
 BEGIN
   i:=0;

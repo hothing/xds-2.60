@@ -44,8 +44,8 @@ CONST
   omark_used_in_for*  = pc.omark_aux0;  (* object was used in FOR *)
   omark_threat_proc*  = pc.omark_aux1;  (* procedure is processed for threatening *)
   omark_threatened*   = pc.omark_aux2;  (* object was used from another scope     *)
-  (* Отличается от pc.otag_threatened тем, что указывает на использование
-     в исходном тексте, а не в оптимизированной программе *)
+  (* ╨Ю╤В╨╗╨╕╤З╨░╨╡╤В╤Б╤П ╨╛╤В pc.otag_threatened ╤В╨╡╨╝, ╤З╤В╨╛ ╤Г╨║╨░╨╖╤Л╨▓╨░╨╡╤В ╨╜╨░ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╕╨╡
+     ╨▓ ╨╕╤Б╤Е╨╛╨┤╨╜╨╛╨╝ ╤В╨╡╨║╤Б╤В╨╡, ╨░ ╨╜╨╡ ╨▓ ╨╛╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╨╛╨▓╨░╨╜╨╜╨╛╨╣ ╨┐╤А╨╛╨│╤А╨░╨╝╨╝╨╡ *)
   omark_dis_array_of* = pc.omark_aux3;  (* forward type must not be array of *)
 
   omark_tried *= pc.omark_aux19;  -- object was tried to serach
@@ -124,7 +124,7 @@ VAR
   m2_int   -: pc.STRUCT;
   m2_card  -: pc.STRUCT;
 
-  level    -: SHORTINT; (* ! модуль не увеличивает уровень вложенности *)
+  level    -: SHORTINT; (* ! ╨╝╨╛╨┤╤Г╨╗╤М ╨╜╨╡ ╤Г╨▓╨╡╨╗╨╕╤З╨╕╨▓╨░╨╡╤В ╤Г╤А╨╛╨▓╨╡╨╜╤М ╨▓╨╗╨╛╨╢╨╡╨╜╨╜╨╛╤Б╤В╨╕ *)
   def      *: BOOLEAN;  (* definition module     *)
   imp      *: BOOLEAN;  (* implementation module *)
 
@@ -150,7 +150,7 @@ VAR
 
 VAR
   (** standard types *)
-  (** стандартные типы не зависят от текущего значения опций! *)
+  (** ╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╤Л╨╡ ╤В╨╕╨┐╤Л ╨╜╨╡ ╨╖╨░╨▓╨╕╤Б╤П╤В ╨╛╤В ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П ╨╛╨┐╤Ж╨╕╨╣! *)
   invtype   -: pc.STRUCT;
   undef     -: pc.STRUCT;
   void      -: pc.STRUCT;
@@ -236,7 +236,7 @@ VAR
   def_import   : ESTRUCT;
 
 PROCEDURE enter_scope*(b: pc.STRUCT);
-(* бывает scope у которого obj=NIL ! *)
+(* ╨▒╤Л╨▓╨░╨╡╤В scope ╤Г ╨║╨╛╤В╨╛╤А╨╛╨│╨╛ obj=NIL ! *)
 BEGIN
   IF b.obj#NIL THEN b:=b.obj.type END;
   ASSERT((b.mode=pc.ty_proctype) OR (b.mode=pc.ty_module));
@@ -529,8 +529,8 @@ BEGIN
 END app_bal1;
 
 PROCEDURE app_bal(x: EOBJECT; VAR p: EOBJECT; VAR h: BOOLEAN): pc.OBJECT;
-(* h = TRUE -> ўлбRв  ¤_а_ў  ўRаRб< 
-   p.bal = ўлбRв (p.r) - ўлбRв (p.l)
+(* h = TRUE -> ╤Ю╨╗╨▒R╨▓┬а ┬д_╨░_╤Ю┬а ╤ЮR╨░R╨▒<┬а
+   p.bal = ╤Ю╨╗╨▒R╨▓┬а(p.r) - ╤Ю╨╗╨▒R╨▓┬а(p.l)
 *)
   VAR p1,p2: EOBJECT; y: pc.OBJECT; r: LONGINT;
 BEGIN
@@ -669,8 +669,8 @@ END mark_tried;
 
 PROCEDURE try_scp*(scope: pc.STRUCT; name-: ARRAY OF CHAR;
                 VAR o: pc.OBJECT): BOOLEAN;
-(** ищет среди всех объектов (в том числе неэкспортированных)
-    указанной области видимости
+(** ╨╕╤Й╨╡╤В ╤Б╤А╨╡╨┤╨╕ ╨▓╤Б╨╡╤Е ╨╛╨▒╤К╨╡╨║╤В╨╛╨▓ (╨▓ ╤В╨╛╨╝ ╤З╨╕╤Б╨╗╨╡ ╨╜╨╡╤Н╨║╤Б╨┐╨╛╤А╤В╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╤Е)
+    ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨╣ ╨╛╨▒╨╗╨░╤Б╤В╨╕ ╨▓╨╕╨┤╨╕╨╝╨╛╤Б╤В╨╕
 *)
   VAR s: ESTRUCT;
 BEGIN
@@ -697,8 +697,8 @@ END try_scp;
 
 PROCEDURE try_qua*(scope: pc.STRUCT; name-: ARRAY OF CHAR;
                       VAR o: pc.OBJECT): BOOLEAN;
-(** ищет среди экспортированных объектов
-    указанной области видимости (модуль или запись)
+(** ╨╕╤Й╨╡╤В ╤Б╤А╨╡╨┤╨╕ ╤Н╨║╤Б╨┐╨╛╤А╤В╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╤Е ╨╛╨▒╤К╨╡╨║╤В╨╛╨▓
+    ╤Г╨║╨░╨╖╨░╨╜╨╜╨╛╨╣ ╨╛╨▒╨╗╨░╤Б╤В╨╕ ╨▓╨╕╨┤╨╕╨╝╨╛╤Б╤В╨╕ (╨╝╨╛╨┤╤Г╨╗╤М ╨╕╨╗╨╕ ╨╖╨░╨┐╨╕╤Б╤М)
 *)
   VAR s: ESTRUCT;
 BEGIN
@@ -740,7 +740,7 @@ BEGIN
 END try_qua;
 
 PROCEDURE try_vis*(scope: pc.STRUCT; name-: ARRAY OF CHAR; VAR o: pc.OBJECT): BOOLEAN;
-(** ищет в текущей и объемлющих оьластях видимости *)
+(** ╨╕╤Й╨╡╤В ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╨╕ ╨╛╨▒╤К╨╡╨╝╨╗╤О╤Й╨╕╤Е ╨╛╤М╨╗╨░╤Б╤В╤П╤Е ╨▓╨╕╨┤╨╕╨╝╨╛╤Б╤В╨╕ *)
   VAR s,c: ESTRUCT; r: pc.OBJECT; i: BOOLEAN;
 BEGIN
   IF scope.obj#NIL THEN scope:=scope.obj.type END;
@@ -764,7 +764,7 @@ BEGIN
         ASSERT(c.mode=pc.ty_proctype);
         c:=c.up(ESTRUCT);
       END;
-      (* Имя алиаса может не совпадать с именем объекта! *)
+      (* ╨Ш╨╝╤П ╨░╨╗╨╕╨░╤Б╨░ ╨╝╨╛╨╢╨╡╤В ╨╜╨╡ ╤Б╨╛╨▓╨┐╨░╨┤╨░╤В╤М ╤Б ╨╕╨╝╨╡╨╜╨╡╨╝ ╨╛╨▒╤К╨╡╨║╤В╨░! *)
       IF o.mode=ob_alias THEN
         o:=o.actual
       ELSIF o.mode=ob_enum THEN
@@ -858,7 +858,7 @@ BEGIN
 END fnd_vis;
 
 PROCEDURE dcl_enum_consts(scope: pc.STRUCT; o: pc.OBJECT);
-(** для перечислимого типа заносит ссылки на константы этого типа *)
+(** ╨┤╨╗╤П ╨┐╨╡╤А╨╡╤З╨╕╤Б╨╗╨╕╨╝╨╛╨│╨╛ ╤В╨╕╨┐╨░ ╨╖╨░╨╜╨╛╤Б╨╕╤В ╤Б╤Б╤Л╨╗╨║╨╕ ╨╜╨░ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╤Л ╤Н╤В╨╛╨│╨╛ ╤В╨╕╨┐╨░ *)
   VAR r,m: pc.OBJECT;
 BEGIN
   ASSERT(o.mode=pc.ob_type);
@@ -878,8 +878,8 @@ BEGIN
 END dcl_enum_consts;
 
 PROCEDURE dcl_ref*(scope: pc.STRUCT; o: pc.OBJECT);
-(** занесение ссылки на объект в область видимости,
-    для перечислимого типа также заносит ссылки на константы этого типа
+(** ╨╖╨░╨╜╨╡╤Б╨╡╨╜╨╕╨╡ ╤Б╤Б╤Л╨╗╨║╨╕ ╨╜╨░ ╨╛╨▒╤К╨╡╨║╤В ╨▓ ╨╛╨▒╨╗╨░╤Б╤В╤М ╨▓╨╕╨┤╨╕╨╝╨╛╤Б╤В╨╕,
+    ╨┤╨╗╤П ╨┐╨╡╤А╨╡╤З╨╕╤Б╨╗╨╕╨╝╨╛╨│╨╛ ╤В╨╕╨┐╨░ ╤В╨░╨║╨╢╨╡ ╨╖╨░╨╜╨╛╤Б╨╕╤В ╤Б╤Б╤Л╨╗╨║╨╕ ╨╜╨░ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╤Л ╤Н╤В╨╛╨│╨╛ ╤В╨╕╨┐╨░
 *)
   VAR r: pc.OBJECT;
 BEGIN
@@ -899,7 +899,7 @@ END dcl_ref;
 
 
 PROCEDURE dcl_rename*(scope: pc.STRUCT; o: pc.OBJECT; nm-: ARRAY OF CHAR);
-(** занесение ссылки на объект в область видимости с переименованием *)
+(** ╨╖╨░╨╜╨╡╤Б╨╡╨╜╨╕╨╡ ╤Б╤Б╤Л╨╗╨║╨╕ ╨╜╨░ ╨╛╨▒╤К╨╡╨║╤В ╨▓ ╨╛╨▒╨╗╨░╤Б╤В╤М ╨▓╨╕╨┤╨╕╨╝╨╛╤Б╤В╨╕ ╤Б ╨┐╨╡╤А╨╡╨╕╨╝╨╡╨╜╨╛╨▓╨░╨╜╨╕╨╡╨╝ *)
   VAR r: pc.OBJECT;
 BEGIN
   ASSERT(o.mode IN pc.OB_Common);
@@ -910,7 +910,7 @@ BEGIN
 END dcl_rename;
 
 PROCEDURE dcl_exp*(scope: pc.STRUCT; name-: ARRAY OF CHAR; VAR o: pc.OBJECT);
-(** экспорт объекта из текущей области видимости в другую *)
+(** ╤Н╨║╤Б╨┐╨╛╤А╤В ╨╛╨▒╤К╨╡╨║╤В╨░ ╨╕╨╖ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╨╛╨▒╨╗╨░╤Б╤В╨╕ ╨▓╨╕╨┤╨╕╨╝╨╛╤Б╤В╨╕ ╨▓ ╨┤╤А╤Г╨│╤Г╤О *)
   VAR s: ESTRUCT; ps: pc.TPOS;
 BEGIN
   ASSERT(cur_scope.mode=pc.ty_module);
@@ -933,8 +933,8 @@ BEGIN
 END dcl_exp;
 
 PROCEDURE create_magic_visibility(scope: pc.STRUCT);
-(** для описаных в scope перечислимых типов делает видимыми в scope
-    константы этих типов
+(** ╨┤╨╗╤П ╨╛╨┐╨╕╤Б╨░╨╜╤Л╤Е ╨▓ scope ╨┐╨╡╤А╨╡╤З╨╕╤Б╨╗╨╕╨╝╤Л╤Е ╤В╨╕╨┐╨╛╨▓ ╨┤╨╡╨╗╨░╨╡╤В ╨▓╨╕╨┤╨╕╨╝╤Л╨╝╨╕ ╨▓ scope
+    ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╤Л ╤Н╤В╨╕╤Е ╤В╨╕╨┐╨╛╨▓
 *)
   PROCEDURE list(o: pc.OBJECT);
   BEGIN
@@ -1153,13 +1153,13 @@ END ini_std_types;
 (*------------------------ Sym. files ----------------------------*)
 
 (*
-        В сим-файл пишется все, что доступно из CU прослеживанием всех
-        ссылок, кроме .mem
-        Некоторые объекты при этом становятся 'public', а именно:
+        ╨Т ╤Б╨╕╨╝-╤Д╨░╨╣╨╗ ╨┐╨╕╤И╨╡╤В╤Б╤П ╨▓╤Б╨╡, ╤З╤В╨╛ ╨┤╨╛╤Б╤В╤Г╨┐╨╜╨╛ ╨╕╨╖ CU ╨┐╤А╨╛╤Б╨╗╨╡╨╢╨╕╨▓╨░╨╜╨╕╨╡╨╝ ╨▓╤Б╨╡╤Е
+        ╤Б╤Б╤Л╨╗╨╛╨║, ╨║╤А╨╛╨╝╨╡ .mem
+        ╨Э╨╡╨║╨╛╤В╨╛╤А╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ╤Б╤В╨░╨╜╨╛╨▓╤П╤В╤Б╤П 'public', ╨░ ╨╕╨╝╨╡╨╜╨╜╨╛:
         'exported' AND CU +
-        ( 'ob_type' : доступны из 'exported' AND CU )
+        ( 'ob_type' : ╨┤╨╛╤Б╤В╤Г╨┐╨╜╤Л ╨╕╨╖ 'exported' AND CU )
 
-        Сначала пишутся "крючки", затем объекты и типы (в том числе модули).
+        ╨б╨╜╨░╤З╨░╨╗╨░ ╨┐╨╕╤И╤Г╤В╤Б╤П "╨║╤А╤О╤З╨║╨╕", ╨╖╨░╤В╨╡╨╝ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨╕ ╤В╨╕╨┐╤Л (╨▓ ╤В╨╛╨╝ ╤З╨╕╤Б╨╗╨╡ ╨╝╨╛╨┤╤Г╨╗╨╕).
 *)
 
 

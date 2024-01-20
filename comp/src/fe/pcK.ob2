@@ -374,7 +374,7 @@ TYPE (** type tags *)
      ttag_aux11,
      ttag_aux12,
      ttag_aux13,
-     ttag_intrinsic,  (* ¢·‚‡Æ•≠≠†Ô ‰„≠-®Ô - ‡•†´®ß„•‚·Ô ·ÆØ‡ÆÊ•··Æ‡Æ¨ *)
+     ttag_intrinsic,  (* –≤—Å—Ç—Ä–æ–µ–Ω–Ω–∞—è —Ñ—É–Ω-–∏—è - —Ä–µ–∞–ª–∏–∑—É–µ—Ç—Å—è —Å–æ–ø—Ä–æ—Ü–µ—Å—Å–æ—Ä–æ–º *)
      ttag_aux15,
      ttag_no_struct,--* =VAL(pc.TTAG, 16); (** do not use struct keyword for record type *)  !!!used in xm!!!
      ttag_aux16,
@@ -523,7 +523,7 @@ TYPE
     otag_no_threat, --= OTAG{ 5 }; (** object name is used only in its scope        *)
     otag_no_aliases,--= OTAG{ 6 }; (** no references to object except its name      *)
     otag_with,      --= OTAG{ 7 }; (** variable is used exactly in one WITH stat.   *)
-    otag_C_pref, (* §Æ°†¢´Ô‚Ï Ø‡•‰®™· ™ ®¨•≠® *)
+    otag_C_pref, (* –¥–æ–±–∞–≤–ª—è—Ç—å –ø—Ä–µ—Ñ–∏–∫—Å –∫ –∏–º–µ–Ω–∏ *)
     otag_aux1,      --= OTAG{ 8 };
     otag_aux2,      --= OTAG{ 9 };
     otag_aux3,      --= OTAG{ 10 };
@@ -1257,7 +1257,7 @@ PROCEDURE ( t: STRUCT ) objects* ( VAR p: RIDER );
           IF m.obj # NIL THEN
             p.del := FALSE;
             p.object (m.obj);
-          (* !!!! ≠• ‡•†´®ßÆ¢†≠Æ „§†´•≠®• *)
+          (* !!!! –Ω–µ —Ä–µ–∞–ª–∏–∑–æ–≤–∞–Ω–æ —É–¥–∞–ª–µ–Ω–∏–µ *)
           END;
           m := m.l;
           WHILE m # NIL DO

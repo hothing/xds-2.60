@@ -344,7 +344,7 @@ BEGIN
   CASE o^.mode OF
   | pc.ob_proc, pc.ob_xproc, pc.ob_lproc
   , pc.ob_eproc, pc.ob_cproc
-  , pc.ob_module :  (* ничего не делать *)
+  , pc.ob_module :  (* ╨╜╨╕╤З╨╡╨│╨╛ ╨╜╨╡ ╨┤╨╡╨╗╨░╤В╤М *)
 
   | pc.ob_var:
     IF (o.lev = 0) AND (o.mno = at.curr_mno) AND (at.omark_gen_ready IN o.marks) THEN
@@ -426,9 +426,9 @@ VAR
   src: pc.STRING; -- source line
  <* END *>
 
-  -- выдает участок кода от текущего положения до
-  -- заданного смещения в коде offs
-  -- при этом выдает начало и конец блока (пролог и эпилог)
+  -- ╨▓╤Л╨┤╨░╨╡╤В ╤Г╤З╨░╤Б╤В╨╛╨║ ╨║╨╛╨┤╨░ ╨╛╤В ╤В╨╡╨║╤Г╤Й╨╡╨│╨╛ ╨┐╨╛╨╗╨╛╨╢╨╡╨╜╨╕╤П ╨┤╨╛
+  -- ╨╖╨░╨┤╨░╨╜╨╜╨╛╨│╨╛ ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╤П ╨▓ ╨║╨╛╨┤╨╡ offs
+  -- ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ╨▓╤Л╨┤╨░╨╡╤В ╨╜╨░╤З╨░╨╗╨╛ ╨╕ ╨║╨╛╨╜╨╡╤Ж ╨▒╨╗╨╛╨║╨░ (╨┐╤А╨╛╨╗╨╛╨│ ╨╕ ╤Н╨┐╨╕╨╗╨╛╨│)
   PROCEDURE write_code;
   BEGIN
     WHILE a < offs DO
@@ -542,7 +542,7 @@ BEGIN
     END;
   END;
  <* END *>
-  -- выдать оставшийся участок кода
+  -- ╨▓╤Л╨┤╨░╤В╤М ╨╛╤Б╤В╨░╨▓╤И╨╕╨╣╤Б╤П ╤Г╤З╨░╤Б╤В╨╛╨║ ╨║╨╛╨┤╨░
   offs := s.code_len;
   write_code;
  <* IF dbg_stab THEN *>
@@ -604,7 +604,7 @@ BEGIN
   text.print("%s:\n", text0);
  <* IF dbg_stab THEN *>
   IF gendebug OR genlineno THEN
-    -- генерировать таблицу стандартных типов при lineno+
+    -- ╨│╨╡╨╜╨╡╤А╨╕╤А╨╛╨▓╨░╤В╤М ╤В╨░╨▒╨╗╨╕╤Ж╤Г ╤Б╤В╨░╨╜╨┤╨░╤А╤В╨╜╤Л╤Е ╤В╨╕╨┐╨╛╨▓ ╨┐╤А╨╕ lineno+
     stb.emitSTAB.TypeEmitter (dbg.ty_start, dbg.act_write, NIL);
   END;
   IF gendebug THEN

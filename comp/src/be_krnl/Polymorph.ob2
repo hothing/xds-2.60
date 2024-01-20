@@ -19,7 +19,7 @@ IMPORT LCDef_I,
        LCNumer_I;
 <* END *>
 
--- ���樠������ ������஢ �������� ��ꥪ��� �ଠ⮢
+-- Инициализация генераторов конкретных объектных форматов
 <* IF OBJ_COFF  THEN *> IMPORT formCOFF; <* END *>
 <* IF OBJ_ELF   THEN *> IMPORT formELF;  <* END *>
 <* IF OBJ_OMF   THEN *> IMPORT formOMF;  <* END *>
@@ -29,7 +29,7 @@ IMPORT LCDef_I,
 <* IF OBJ_GAS   THEN *> IMPORT form_gas; <* END *>
 <* IF OBJ_ASM   THEN *> IMPORT form_asm; <* END *>
 
--- ���樠������ ������஢ �������� �ଠ⮢ �⫠��筮� ���ଠ樨
+-- Инициализация генераторов конкретных форматов отладочной информации
 <* IF DBG_CV    THEN *> IMPORT dbgCV;    <* END *>
 <* IF DBG_HLL   THEN *> IMPORT dbgHLL;   <* END *>
 <* IF DBG_EDIF  THEN *> IMPORT dbgEDIF;  <* END *>
@@ -38,8 +38,8 @@ IMPORT LCDef_I,
 <* IF DBG_DWARF THEN *> IMPORT dbgDWARF; <* END *>
 <* IF DBG_GO32  THEN *> IMPORT dbgGO32;  <* END *>
 
--- ���樠������ ������� ⥪�⮢��� �।�⠢����� �⫠��筮�
--- ���ଠ樨, �ᯮ������ ⮫쪮 ��� �⫠����� 楫��
+-- Инициализация генератора текстового представления отладочной
+-- информации, используется только для отладочных целей
 <* IF DBG_TEXT THEN *> IMPORT dbgTEXT;  <* END *>
 
 END Polymorph.

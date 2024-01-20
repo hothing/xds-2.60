@@ -10,7 +10,7 @@ TYPE
 VAR
     IDB : opTune_386_IDB;
 
-(* Имеет ли смысл SR умножение на эту целую константу *)
+(* ╨Ш╨╝╨╡╨╡╤В ╨╗╨╕ ╤Б╨╝╤Л╤Б╨╗ SR ╤Г╨╝╨╜╨╛╨╢╨╡╨╜╨╕╨╡ ╨╜╨░ ╤Н╤В╤Г ╤Ж╨╡╨╗╤Г╤О ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╤Г *)
 PROCEDURE(idb : opTune_386_IDB)
          NeedSR (v: ir.VALUE; t: ir.TypeType; s: ir.SizeType): BOOLEAN;
 BEGIN
@@ -20,7 +20,7 @@ BEGIN
                  Calc.CompareWithInt (pc.sb_equ, v, 8, t, s)));
 END NeedSR;
 
-(* Имеет ли смысл "безопасное" умножение заменять сдвигами и сложениями *)
+(* ╨Ш╨╝╨╡╨╡╤В ╨╗╨╕ ╤Б╨╝╤Л╤Б╨╗ "╨▒╨╡╨╖╨╛╨┐╨░╤Б╨╜╨╛╨╡" ╤Г╨╝╨╜╨╛╨╢╨╡╨╜╨╕╨╡ ╨╖╨░╨╝╨╡╨╜╤П╤В╤М ╤Б╨┤╨▓╨╕╨│╨░╨╝╨╕ ╨╕ ╤Б╨╗╨╛╨╢╨╡╨╜╨╕╤П╨╝╨╕ *)
 PROCEDURE(idb : opTune_386_IDB)
          NeedAdd(v: ir.VALUE; t: ir.TypeType; s: ir.SizeType): BOOLEAN;
 VAR o: ir.INT;
@@ -36,7 +36,7 @@ BEGIN
 END NeedAdd;
 
 PROCEDURE(idb : opTune_386_IDB)
-        MinLocalStart (proc:pc.OBJECT):LONGINT;(* конец первого локала - далее убывают *)
+        MinLocalStart (proc:pc.OBJECT):LONGINT;(* ╨║╨╛╨╜╨╡╤Ж ╨┐╨╡╤А╨▓╨╛╨│╨╛ ╨╗╨╛╨║╨░╨╗╨░ - ╨┤╨░╨╗╨╡╨╡ ╤Г╨▒╤Л╨▓╨░╤О╤В *)
 BEGIN
   IF proc.flag=pc.flag_vmcall THEN
     RETURN -28;

@@ -34,13 +34,13 @@ TYPE
     DAGNODE      *= POINTER TO TREE;
     TREE         *= RECORD(D.TREE)
                         op*:            ir.Operation;
-                        l*, r*:         DAGNODE;   -- ����, �ࠢ� �뭮���
-                        prev*, next*, parent*:   DAGNODE;   -- ᫥���饥,
-                                                        -- �।��饥 ��ॢ�
-                        par*:           ir.ParamPtr;       -- �᫨ op = ir.o_par
-                        tr*:            ir.TriadePtr;      -- �ਠ��
+                        l*, r*:         DAGNODE;   -- левый, правый сыновья
+                        prev*, next*, parent*:   DAGNODE;   -- следующее,
+                                                        -- предыдущее дерево
+                        par*:           ir.ParamPtr;       -- если op = ir.o_par
+                        tr*:            ir.TriadePtr;      -- триада
                         nt*:            BurgNT.NT;       -- IN_...
-                        sz*:            ir.SizeType;       -- ࠧ��� ��� ��ࠬ���
+                        sz*:            ir.SizeType;       -- размер как параметра
 
                         cost*: BurgNT.CostArray;
       			rule*: BurgNT.RuleArray;

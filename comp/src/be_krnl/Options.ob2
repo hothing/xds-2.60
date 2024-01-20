@@ -84,8 +84,8 @@ CONST
   dbg_GO32   *= "GO32";
   dbg_LLVM   *= "LLVM";
 
-  -- Текстовый формат представления отладочной информации,
-  -- используется только для отладочных целей
+  -- ╨в╨╡╨║╤Б╤В╨╛╨▓╤Л╨╣ ╤Д╨╛╤А╨╝╨░╤В ╨┐╤А╨╡╨┤╤Б╤В╨░╨▓╨╗╨╡╨╜╨╕╤П ╨╛╤В╨╗╨░╨┤╨╛╤З╨╜╨╛╨╣ ╨╕╨╜╤Д╨╛╤А╨╝╨░╤Ж╨╕╨╕,
+  -- ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В╤Б╤П ╤В╨╛╨╗╤М╨║╨╛ ╨┤╨╗╤П ╨╛╤В╨╗╨░╨┤╨╛╤З╨╜╤Л╤Е ╤Ж╨╡╨╗╨╡╨╣
   dbg_TEXT  *= "TEXT";
 
 
@@ -104,22 +104,22 @@ CONST
 
 CONST
   default_MODE = at.CompModeSet{
-                   at.convert_while   -- преобразовывать WHILE в REPEAT
-                  ,at.stack_checked   -- вставлять контроль за стеком
+                   at.convert_while   -- ╨┐╤А╨╡╨╛╨▒╤А╨░╨╖╨╛╨▓╤Л╨▓╨░╤В╤М WHILE ╨▓ REPEAT
+                  ,at.stack_checked   -- ╨▓╤Б╤В╨░╨▓╨╗╤П╤В╤М ╨║╨╛╨╜╤В╤А╨╛╨╗╤М ╨╖╨░ ╤Б╤В╨╡╨║╨╛╨╝
 <* IF TARGET_VAX OR TARGET_68k OR TARGET_RISC OR TARGET_SPARC THEN *>
                   ,at.CAP_proc        -- CAP by procedure call
 <* END *>
 <* IF TARGET_RISC OR TARGET_SPARC THEN *>
-                  ,at.DOPEEPHOLE      -- ЇаRЁўR¤Ёвм й_<_ўл_ RЇвЁ┐Ё жЁЁ
+                  ,at.DOPEEPHOLE      -- ╨З╨░R╨Б╤ЮR┬д╨Б╨▓╨╝ ╨╣_<_╤Ю╨╗_ R╨З╨▓╨БтФР╨Б┬а╨╢╨Б╨Б
 <* END *>
-              --  ,at.copystr_proc    -- копировать строки вызовом процедуры
-                  ,at.new_segment     -- каждую процедуру в отдельный сегмент
+              --  ,at.copystr_proc    -- ╨║╨╛╨┐╨╕╤А╨╛╨▓╨░╤В╤М ╤Б╤В╤А╨╛╨║╨╕ ╨▓╤Л╨╖╨╛╨▓╨╛╨╝ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л
+                  ,at.new_segment     -- ╨║╨░╨╢╨┤╤Г╤О ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Г ╨▓ ╨╛╤В╨┤╨╡╨╗╤М╨╜╤Л╨╣ ╤Б╨╡╨│╨╝╨╡╨╜╤В
               --  ,at.debug           -- generate debug information
-              --  ,at.lineno          -- вставлять номера сторок в obj-файл
+              --  ,at.lineno          -- ╨▓╤Б╤В╨░╨▓╨╗╤П╤В╤М ╨╜╨╛╨╝╨╡╤А╨░ ╤Б╤В╨╛╤А╨╛╨║ ╨▓ obj-╤Д╨░╨╣╨╗
               --  ,at.history         -- include history output
-              --  ,at.NOALIAS         -- в модуле нет ссылок на локалы
-                  ,at.DEF_LIBs        -- библиотеки по умолчанию
-                  ,at.INIT_PTR        -- инициализировать указатели NIL-ом
+              --  ,at.NOALIAS         -- ╨▓ ╨╝╨╛╨┤╤Г╨╗╨╡ ╨╜╨╡╤В ╤Б╤Б╤Л╨╗╨╛╨║ ╨╜╨░ ╨╗╨╛╨║╨░╨╗╤Л
+                  ,at.DEF_LIBs        -- ╨▒╨╕╨▒╨╗╨╕╨╛╤В╨╡╨║╨╕ ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О
+                  ,at.INIT_PTR        -- ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨╕╤А╨╛╨▓╨░╤В╤М ╤Г╨║╨░╨╖╨░╤В╨╡╨╗╨╕ NIL-╨╛╨╝
                   ,at.o2_cmds         -- include info on Oberon-2 commands
                  };
 VAR
@@ -624,7 +624,7 @@ BEGIN
 <* END *> -- TARGET_LLVM
 
 (* -- turn off optimize traps - it nullifies traps' lineno & filenames
-  -- doreorder и nooptimizetraps не должны быть включены одновременно
+  -- doreorder ╨╕ nooptimizetraps ╨╜╨╡ ╨┤╨╛╨╗╨╢╨╜╤Л ╨▒╤Л╤В╤М ╨▓╨║╨╗╤О╤З╨╡╨╜╤Л ╨╛╨┤╨╜╨╛╨▓╤А╨╡╨╝╨╡╨╜╨╜╨╛
   IF at.DOREORDER IN at.COMP_MODE THEN
     EXCL(at.COMP_MODE, at.OptimizeTraps);
   ELSE

@@ -181,7 +181,7 @@ IMPORT reg := Registry;
       END;
     END write;
 
-    -- выдача в текущую позицию файла
+    -- ╨▓╤Л╨┤╨░╤З╨░ ╨▓ ╤В╨╡╨║╤Г╤Й╤Г╤О ╨┐╨╛╨╖╨╕╤Ж╨╕╤О ╤Д╨░╨╣╨╗╨░
     PROCEDURE out * (VAR data: ARRAY OF SYSTEM.BYTE; size: LONGINT);
     BEGIN
       write (data, size);
@@ -203,21 +203,21 @@ IMPORT reg := Registry;
       out(b,4);
     END out4;
 
-    -- получить текущую позицию в файле
+    -- ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М ╤В╨╡╨║╤Г╤Й╤Г╤О ╨┐╨╛╨╖╨╕╤Ж╨╕╤О ╨▓ ╤Д╨░╨╣╨╗╨╡
     PROCEDURE get_pos * (): LONGINT;
     BEGIN
       flush;
       RETURN obj_file.GetPos();
     END get_pos;
 
-    -- установить текущую позицию в файле
+    -- ╤Г╤Б╤В╨░╨╜╨╛╨▓╨╕╤В╤М ╤В╨╡╨║╤Г╤Й╤Г╤О ╨┐╨╛╨╖╨╕╤Ж╨╕╤О ╨▓ ╤Д╨░╨╣╨╗╨╡
     PROCEDURE set_pos * (pos: LONGINT);
     BEGIN
       flush;
       obj_file.SetPos(pos);
     END set_pos;
 
-    -- выдача в указанную позицию файла
+    -- ╨▓╤Л╨┤╨░╤З╨░ ╨▓ ╤Г╨║╨░╨╖╨░╨╜╨╜╤Г╤О ╨┐╨╛╨╖╨╕╤Ж╨╕╤О ╤Д╨░╨╣╨╗╨░
     PROCEDURE ins * (pos: LONGINT; VAR data: ARRAY OF SYSTEM.BYTE; size: LONGINT);
     BEGIN
       set_pos (pos);

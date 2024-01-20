@@ -18,7 +18,7 @@ IMPORT cmd:=CodeDef;
 TYPE
   INT = ir.INT;
 
-<* NEW setproc- *> (* ®·ØÆ´ÏßÆ¢†‚Ï Ø‡ÆÊ•§„‡Î §´Ô ÆØ•‡†Ê®© ·Æ ¨≠Æ¶•·‚¢†¨® *)
+<* NEW setproc- *> (* –∏—Å–ø–æ–ª—å–∑–æ–≤–∞—Ç—å –ø—Ä–æ—Ü–µ–¥—É—Ä—ã –¥–ª—è –æ–ø–µ—Ä–∞—Ü–∏–π —Å–æ –º–Ω–æ–∂–µ—Å—Ç–≤–∞–º–∏ *)
 
 
 <* IF TARGET_SPARC THEN *>
@@ -37,20 +37,20 @@ CONST
 CONST MAX_assign = 50;  
 
 CONST
-  sArc      =  ops.Arc ;      (* <Arc>,<≠Æ¨•‡ „ß´†> •·´® „ Arc ≠Æ¨•‡ „ß´† < 0, *)
-                                (* ‚Æ Ì‚Æ ≠Æ¨•‡ ≠†·‚ÆÔÈ®© · ¨®≠„·Æ¨              *)
-  sLabel    =  ops.Label;     (* <Label>,<≠Æ¨•‡ „ß´†>   *)
+  sArc      =  ops.Arc ;      (* <Arc>,<–Ω–æ–º–µ—Ä —É–∑–ª–∞> –µ—Å–ª–∏ —É Arc –Ω–æ–º–µ—Ä —É–∑–ª–∞ < 0, *)
+                                (* —Ç–æ —ç—Ç–æ –Ω–æ–º–µ—Ä –Ω–∞—Å—Ç–æ—è—â–∏–π —Å –º–∏–Ω—É—Å–æ–º              *)
+  sLabel    =  ops.Label;     (* <Label>,<–Ω–æ–º–µ—Ä —É–∑–ª–∞>   *)
   sResult   =  ops.Result;    (* <Result>, <parameter>  *)
-  sEnd      =  ops.End;      (* <End> -- ™Æ≠•Ê Ë†°´Æ≠† *)
+  sEnd      =  ops.End;      (* <End> -- –∫–æ–Ω–µ—Ü —à–∞–±–ª–æ–Ω–∞ *)
 
-  sarg      =  ops.arg;       (* <Arg>,<≠Æ¨•‡ †‡£„¨•≠‚†> *)
-  stmp      =  ops.tmp;       (* ¢‡•¨•≠≠†Ô Ø•‡•¨•≠≠†Ô *)
-  snum      =  ops.num;       (* Á®·´•≠≠†Ô ™Æ≠·‚†≠‚† *)
-  sloc      =  ops.loc;       (* ≠Æ¨•‡ ´Æ™†´† *)
-  sprc      =  ops.prc;       (* ≠Æ¨•‡ Ø‡ÆÊ•§„‡Î *)
+  sarg      =  ops.arg;       (* <Arg>,<–Ω–æ–º–µ—Ä –∞—Ä–≥—É–º–µ–Ω—Ç–∞> *)
+  stmp      =  ops.tmp;       (* –≤—Ä–µ–º–µ–Ω–Ω–∞—è –ø–µ—Ä–µ–º–µ–Ω–Ω–∞—è *)
+  snum      =  ops.num;       (* —á–∏—Å–ª–µ–Ω–Ω–∞—è –∫–æ–Ω—Å—Ç–∞–Ω—Ç–∞ *)
+  sloc      =  ops.loc;       (* –Ω–æ–º–µ—Ä –ª–æ–∫–∞–ª–∞ *)
+  sprc      =  ops.prc;       (* –Ω–æ–º–µ—Ä –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
 
-  sOpt      =  ops.Opt;       (* ØÆ¨•‚™† §´Ô ÆØÊ®® ‚‡®†§Î (≠•Æ°Ôß.) *)
-  sResType  =  ops.ResType;   (* ØÆ¨•‚™† Æ ‚®Ø• ‡•ß„´Ï‚†‚† (≠•Æ°Ôß.) *)
+  sOpt      =  ops.Opt;       (* –ø–æ–º–µ—Ç–∫–∞ –¥–ª—è –æ–ø—Ü–∏–∏ —Ç—Ä–∏–∞–¥—ã (–Ω–µ–æ–±—è–∑.) *)
+  sResType  =  ops.ResType;   (* –ø–æ–º–µ—Ç–∫–∞ –æ —Ç–∏–ø–µ —Ä–µ–∑—É–ª—å—Ç–∞—Ç–∞ (–Ω–µ–æ–±—è–∑.) *)
 
 -- if FALSE (by default), then O2 "guard" statement checknils its argument
 -- if TRUE, then the following code can be safely compiled:
@@ -146,7 +146,7 @@ PROCEDURE mask_val(sz : ir.SizeType; l: LONGINT): pc.VALUE;
   VAR   s: SET;
     mask : pc.VALUE;
     MAX_BITS : INT;
-BEGIN  (* l - Á®·´Æ ‡†ß‡Ô§Æ¢ · 1-•© *)
+BEGIN  (* l - —á–∏—Å–ª–æ —Ä–∞–∑—Ä—è–¥–æ–≤ —Å 1-–µ–π *)
   MAX_BITS := sz * def.SHORTCARD_BITS;
   ASSERT((0<l) AND (l <= MAX_BITS));
   IF l = MAX_BITS THEN
@@ -241,9 +241,9 @@ END gen_trap_N;
 
 PROCEDURE gen_conv_triade(tpos-: ir.TPOS;
                      op: ir.Operation;
-                VAR arg: ir.Arg;                               (* Á‚Æ    *)
-                from_ty: ir.TypeType; from_sz: ir.SizeType;    (* Æ‚™„§† *)
-                to_ty  : ir.TypeType;   to_sz: ir.SizeType;    (* ™„§†   *)
+                VAR arg: ir.Arg;                               (* —á—Ç–æ    *)
+                from_ty: ir.TypeType; from_sz: ir.SizeType;    (* –æ—Ç–∫—É–¥–∞ *)
+                to_ty  : ir.TypeType;   to_sz: ir.SizeType;    (* –∫—É–¥–∞   *)
                  silent: BOOLEAN);
   VAR q: ir.TriadePtr;
 BEGIN
@@ -300,9 +300,9 @@ BEGIN
 END gen_conversion;
 
 PROCEDURE gen_cast(tpos-: ir.TPOS;
-                VAR arg : ir.Arg;                               (* Á‚Æ    *)
-                from_ty : ir.TypeType; from_sz: ir.SizeType;    (* Æ‚™„§† *)
-                to_ty   : ir.TypeType;   to_sz: ir.SizeType);   (* ™„§†   *)
+                VAR arg : ir.Arg;                               (* —á—Ç–æ    *)
+                from_ty : ir.TypeType; from_sz: ir.SizeType;    (* –æ—Ç–∫—É–¥–∞ *)
+                to_ty   : ir.TypeType;   to_sz: ir.SizeType);   (* –∫—É–¥–∞   *)
 BEGIN
   gen_conv_triade(tpos, ir.o_cast, arg, from_ty, from_sz, to_ty, to_sz, FALSE);
 END gen_cast;
@@ -393,11 +393,11 @@ BEGIN
   RETURN q.Name
 END gen_bin_spec;
 
-PROCEDURE gen_fi(tpos-: ir.TPOS;                    (* ØÆß®Ê®Ô           *)
-                 n: INTEGER;                       (* Á®·´Æ †‡£„¨•≠‚Æ¢  *)
-                ty: ir.TypeType; sz: ir.SizeType;  (* ‚®Ø ‡•ß„´Ï‚†‚†    *)
-             args-: ARRAY OF ir.Arg;               (* ¨†··®¢ †‡£„¨•≠‚Æ¢ *)
-           VAR res: ir.Arg);                       (* ‡•ß„´Ï‚†‚         *)
+PROCEDURE gen_fi(tpos-: ir.TPOS;                    (* –ø–æ–∑–∏—Ü–∏—è           *)
+                 n: INTEGER;                       (* —á–∏—Å–ª–æ –∞—Ä–≥—É–º–µ–Ω—Ç–æ–≤  *)
+                ty: ir.TypeType; sz: ir.SizeType;  (* —Ç–∏–ø —Ä–µ–∑—É–ª—å—Ç–∞—Ç–∞    *)
+             args-: ARRAY OF ir.Arg;               (* –º–∞—Å—Å–∏–≤ –∞—Ä–≥—É–º–µ–Ω—Ç–æ–≤ *)
+           VAR res: ir.Arg);                       (* —Ä–µ–∑—É–ª—å—Ç–∞—Ç         *)
   VAR q: ir.TriadePtr; i: INT;
 BEGIN
   q := ir.NewTriadeInit(n, ir.o_fi, ty, sz);
@@ -511,11 +511,11 @@ BEGIN
   io.print_pos(n.pos); io.print(" gen_type(n.mode=%d)\n", n.mode);
 <* END *>
   t := n.dynamic_type();
-  IF t # NIL THEN (* ‚®Ø ®ß¢•·‚•≠ ·‚†‚®Á•·™® *)
-    <* IF db_e THEN *> io.print("        gen_type: ·‚†‚®Á•·™®© ‚®Ø"); <* END *>
+  IF t # NIL THEN (* —Ç–∏–ø –∏–∑–≤–µ—Å—Ç–µ–Ω —Å—Ç–∞—Ç–∏—á–µ—Å–∫–∏ *)
+    <* IF db_e THEN *> io.print("        gen_type: —Å—Ç–∞—Ç–∏—á–µ—Å–∫–∏–π —Ç–∏–ø"); <* END *>
     gen_type_name(t, arg);
   ELSE
-    <* IF db_e THEN *> io.print("        gen_type: §®≠†¨®Á•·™®© ‚®Ø"); <* END *>
+    <* IF db_e THEN *> io.print("        gen_type: –¥–∏–Ω–∞–º–∏—á–µ—Å–∫–∏–π —Ç–∏–ø"); <* END *>
     n := n.dynamic_type_expr();
     IF n.type.mode=pc.ty_pointer THEN
       IF isThisEvaluated THEN
@@ -614,7 +614,7 @@ PROCEDURE ^ gen_complex_value*(tpos: ir.TPOS;
 
 CONST GENERAL_TYPEs = pc.TY_SET{pc.ty_ZZ, pc.ty_RR, pc.ty_CC};
 
-PROCEDURE args_type(n: pc.NODE): pc.STRUCT;   (* ‚®Ø †‡£„¨•≠‚Æ¢ °®≠.ÆØ•‡†Ê®® *)
+PROCEDURE args_type(n: pc.NODE): pc.STRUCT;   (* —Ç–∏–ø –∞—Ä–≥—É–º–µ–Ω—Ç–æ–≤ –±–∏–Ω.–æ–ø–µ—Ä–∞—Ü–∏–∏ *)
   VAR type: pc.STRUCT;
 BEGIN
   type := n.l.type;
@@ -1068,7 +1068,7 @@ BEGIN  (* - - - - g e n _ c o n d i t i o n - - - - *)
            gr.NewArc(gr.currNode, YES, TRUE);
            gr.NewArc(gr.currNode, NO,  TRUE);
            gr.FinishNode;
-   (*  | pc.su_cc:   ≠†§Æ ™†™ ·´•§„•‚ ‡†ßÆ°‡†‚Ï·Ô - ?? *)
+   (*  | pc.su_cc:   –Ω–∞–¥–æ –∫–∞–∫ —Å–ª–µ–¥—É–µ—Ç —Ä–∞–∑–æ–±—Ä–∞—Ç—å—Å—è - ?? *)
        | pc.su_conv ,pc.su_cast:
            gen_comp0;
        | pc.su_odd:
@@ -1152,7 +1152,7 @@ END gen_len_usage;
 
 PROCEDURE gen_len*(n: pc.NODE; dim: INTEGER; type: pc.STRUCT;
                                                      VAR arg: ir.Arg);
-(* dim ≠Æ¨•‡ ®≠§•™·†Ê®®, ·´•¢† ≠†Ø‡†¢Æ *)
+(* dim –Ω–æ–º–µ—Ä –∏–Ω–¥–µ–∫—Å–∞—Ü–∏–∏, —Å–ª–µ–≤–∞ –Ω–∞–ø—Ä–∞–≤–æ *)
   VAR t,f: pc.STRUCT; i,j: LONGINT;
     larg: ir.Arg;
     kind : SHORTINT; a: at.ATTR_EXT;
@@ -1197,11 +1197,11 @@ BEGIN
         RETURN;
     | pc.nd_unary, pc.nd_lconv:
         IF (n.mode=pc.nd_lconv) OR (n.sub=pc.su_conv) THEN
-          (* §´Ô ¢ÎÂÆ§≠Æ£Æ Æ‚™‡Î‚Æ£Æ ¨†··®¢† §´Ô ¢·•Â •£Æ ®ß¨•‡•≠®©
-             ™‡Æ¨• ØÆ·´•§≠•£Æ §Æ´¶≠Î °Î‚Ï ·ÆÆ‚¢•‚·‚¢„ÓÈ®• ®ß¨•‡•≠®Ô
-             ¢ ÆØ•‡†≠§• ÆØ•‡†Ê®® Ø‡•Æ°‡†ßÆ¢†≠®Ô, §´®≠† ØÆ Ì‚®¨
-             ®ß¨•‡•≠®Ô¨ ·Æ¢Ø†§†•‚ · ®·ÂÆ§≠Æ© §´®≠≠Æ©. Ñ´®≠† ØÆ
-             ØÆ·´•§≠•¨„ ®ß¨•‡•≠®Ó Ø•‡•¢ÎÁ®·´Ô•‚·Ô.
+          (* –¥–ª—è –≤—ã—Ö–æ–¥–Ω–æ–≥–æ –æ—Ç–∫—Ä—ã—Ç–æ–≥–æ –º–∞—Å—Å–∏–≤–∞ –¥–ª—è –≤—Å–µ—Ö –µ–≥–æ –∏–∑–º–µ—Ä–µ–Ω–∏–π
+             –∫—Ä–æ–º–µ –ø–æ—Å–ª–µ–¥–Ω–µ–≥–æ –¥–æ–ª–∂–Ω—ã –±—ã—Ç—å —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—â–∏–µ –∏–∑–º–µ—Ä–µ–Ω–∏—è
+             –≤ –æ–ø–µ—Ä–∞–Ω–¥–µ –æ–ø–µ—Ä–∞—Ü–∏–∏ –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞–Ω–∏—è, –¥–ª–∏–Ω–∞ –ø–æ —ç—Ç–∏–º
+             –∏–∑–º–µ—Ä–µ–Ω–∏—è–º —Å–æ–≤–ø–∞–¥–∞–µ—Ç —Å –∏—Å—Ö–æ–¥–Ω–æ–π –¥–ª–∏–Ω–Ω–æ–π. –î–ª–∏–Ω–∞ –ø–æ
+             –ø–æ—Å–ª–µ–¥–Ω–µ–º—É –∏–∑–º–µ—Ä–µ–Ω–∏—é –ø–µ—Ä–µ–≤—ã—á–∏—Å–ª—è–µ—Ç—Å—è.
           *)
           f:=n.l.type;
           FOR i:=0 TO dim-1 DO ASSERT(f.mode IN pc.ARRs); f:=f.base END;
@@ -1266,7 +1266,7 @@ BEGIN
 END gen_size_usage;
 
 PROCEDURE gen_size*(n: pc.NODE; dim: INTEGER; VAR arg: ir.Arg);
-  (* dim - ™Æ´®Á•·‚¢Æ ®≠§•™·†Ê®© *)
+  (* dim - –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ –∏–Ω–¥–µ–∫—Å–∞—Ü–∏–π *)
   VAR t: pc.STRUCT; i: INTEGER;
     larg: ir.Arg;
     a: at.ATTR_EXT;
@@ -1407,13 +1407,13 @@ PROCEDURE gen_call*(n: pc.NODE; md: ir.GenModeSet; VAR arg: ir.Arg);
 
   PROCEDURE count_seq(): INTEGER;
     VAR l,r: pc.NODE; cnt: INTEGER;
-  BEGIN (* ØÆ·Á®‚†‚Ï Á®·´Æ Ø†‡†¨•‚‡Æ¢ ¢ ØÆ·´•§Æ¢†‚•´Ï≠Æ·‚® *)
+  BEGIN (* –ø–æ—Å—á–∏—Ç–∞—Ç—å —á–∏—Å–ª–æ –ø–∞—Ä–∞–º–µ—Ç—Ä–æ–≤ –≤ –ø–æ—Å–ª–µ–¥–æ–≤–∞—Ç–µ–ª—å–Ω–æ—Å—Ç–∏ *)
     r := n.r;
     WHILE r.next # NIL DO r := r.next END;
     ASSERT(r.mode= pc.nd_sequence);
     l := r.l; cnt := 0;
     WHILE l # NIL DO
-(*     ≠†§Æ ´® Ø•‡•§†¢†‚Ï §´®≠„ ¨†··®¢† ??
+(*     –Ω–∞–¥–æ –ª–∏ –ø–µ—Ä–µ–¥–∞–≤–∞—Ç—å –¥–ª–∏–Ω—É –º–∞—Å—Å–∏–≤–∞ ??
       IF l.type.mode IN pc.SEQ_ARRs THEN INC(cnt, 2);
       ELSE INC(cnt, 1);
       END;
@@ -1424,7 +1424,7 @@ PROCEDURE gen_call*(n: pc.NODE; md: ir.GenModeSet; VAR arg: ir.Arg);
     RETURN cnt
   END count_seq;
 
-  PROCEDURE gen_seq_el(l: pc.NODE; N: INTEGER);      (* ≠Æ¨•‡ ¢ ‚‡®†§• *)
+  PROCEDURE gen_seq_el(l: pc.NODE; N: INTEGER);      (* –Ω–æ–º–µ—Ä –≤ —Ç—Ä–∏–∞–¥–µ *)
     VAR ty: ir.TypeType; sz: ir.SizeType;
         asgn: ir.TriadePtr;
   BEGIN
@@ -1457,8 +1457,8 @@ PROCEDURE gen_call*(n: pc.NODE; md: ir.GenModeSet; VAR arg: ir.Arg);
     IF NOT RtoL THEN gen_seq_el(l.next, N+1) END;
   END gen_seq_el;
 
-  PROCEDURE gen_param(this, l: pc.NODE;    (* ¢Î‡†¶•≠®• - ‰†™‚.Ø†‡†¨•‚‡ *)
-                      i: INTEGER);         (* ≠Æ¨•‡ ¢ Ø‡Æ‚Æ‚®Ø• *)
+  PROCEDURE gen_param(this, l: pc.NODE;    (* –≤—ã—Ä–∞–∂–µ–Ω–∏–µ - —Ñ–∞–∫—Ç.–ø–∞—Ä–∞–º–µ—Ç—Ä *)
+                      i: INTEGER);         (* –Ω–æ–º–µ—Ä –≤ –ø—Ä–æ—Ç–æ—Ç–∏–ø–µ *)
 
     VAR j : INTEGER; ll: pc.NODE;
   BEGIN
@@ -1469,12 +1469,12 @@ PROCEDURE gen_call*(n: pc.NODE; md: ir.GenModeSet; VAR arg: ir.Arg);
         ir.MakeParAddr(q.Params[i+1], tmp_nm, 0);
         IF NOT RtoL THEN gen_param(this, l, i+1) END;
 
-    | pr.pm_base:    (* ----- °†ß† Æ§≠Æ© ®ß ÆÂ¢†‚. Ø‡ÆÊ•§„‡ *)
+    | pr.pm_base:    (* ----- –±–∞–∑–∞ –æ–¥–Ω–æ–π –∏–∑ –æ—Ö–≤–∞—Ç. –ø—Ä–æ—Ü–µ–¥—É—Ä *)
         IF RtoL THEN gen_param(this, l, i+1) END;
         j := nst + ORD(proto.par[i].ind);
-        IF j >= 0 THEN (* ¨•·‚Æ ¢ÎßÆ¢† £´„°¶• ÆØ®·†≠®Ô *)
+        IF j >= 0 THEN (* –º–µ—Å—Ç–æ –≤—ã–∑–æ–≤–∞ –≥–ª—É–±–∂–µ –æ–ø–∏—Å–∞–Ω–∏—è *)
           def.o_attr(ir.NullPos, at.curr_proc, at.a_base+SHORT(j), ir.GenModeSet{}, arg);
-        ELSE (* ¢ÎßÆ¢ ¢ ÆÂ¢†‚Î¢†ÓÈ•© Ø‡ÆÊ•§„‡• *)
+        ELSE (* –≤—ã–∑–æ–≤ –≤ –æ—Ö–≤–∞—Ç—ã–≤–∞—é—â–µ–π –ø—Ä–æ—Ü–µ–¥—É—Ä–µ *)
           ASSERT(j = -1);
           def.o_attr(ir.NullPos, at.curr_proc, at.a_mybase, ir.GenModeSet{}, arg);
         END;
@@ -1614,7 +1614,7 @@ BEGIN
   gr.AppendTr(q);
 
   IF def.REF IN md THEN
-    IF NOT proto.rtn THEN (* † ‚†™ °Î¢†•‚ ?? LAZ*)
+    IF NOT proto.rtn THEN (* –∞ —Ç–∞–∫ –±—ã–≤–∞–µ—Ç ?? LAZ*)
       q.Tag  := ir.y_RealVar;
       q.Name := tmp_nm;
     END;
@@ -1656,7 +1656,7 @@ PROCEDURE gen_call_storage*(n: pc.NODE);
     IF l = NIL THEN
       size := def.type_size(btype);
       def.c_number(size, arg);
-                                -- ‡†ß¨•‡ Ì´•¨•≠‚† · ¢Î‡†¢≠®¢†≠®•¨ Æ‚ ¨†··®¢†
+                                -- —Ä–∞–∑–º–µ—Ä —ç–ª–µ–º–µ–Ω—Ç–∞ —Å –≤—ã—Ä–∞–≤–Ω–∏–≤–∞–Ω–∏–µ–º –æ—Ç –º–∞—Å—Å–∏–≤–∞
     ELSE gen_value(l, ir.GenModeSet{}, arg);
     END;
     ir.ParmByArg(q.Params[p_no], arg);
@@ -1821,9 +1821,9 @@ BEGIN
       CASE prms[i].mode OF
       |pr.pm_base:
         k := at.curr_proc.lev - n.obj.lev + ORD(prms[i].ind);
-        IF k >= 0 THEN (* ¨•·‚Æ ¢ÎßÆ¢† £´„°¶• ÆØ®·†≠®Ô *)
+        IF k >= 0 THEN (* –º–µ—Å—Ç–æ –≤—ã–∑–æ–≤–∞ –≥–ª—É–±–∂–µ –æ–ø–∏—Å–∞–Ω–∏—è *)
           def.o_attr(ir.NullPos, at.curr_proc, at.a_base+SHORT(k), ir.GenModeSet{}, arg);
-        ELSE (* ¢ÎßÆ¢ ¢ ÆÂ¢†‚Î¢†ÓÈ•© Ø‡ÆÊ•§„‡• *)
+        ELSE (* –≤—ã–∑–æ–≤ –≤ –æ—Ö–≤–∞—Ç—ã–≤–∞—é—â–µ–π –ø—Ä–æ—Ü–µ–¥—É—Ä–µ *)
           ASSERT(k = -1);
           def.o_attr(ir.NullPos, at.curr_proc, at.a_mybase, ir.GenModeSet{}, arg);
         END;
@@ -1835,7 +1835,7 @@ BEGIN
           |0: prm_ptr;
           |1: prm_size(NIL); l:=l.next;
           |2: IF new THEN prm_lens(l)
-              ELSE prm_dims()  -- † Ì‚Æ ß†Á•¨? (Ø‡® „§†´•≠®® - ≠• ≠„¶≠Æ, ¨Æ¶•‚ °Î‚Ï - §´Ô °„§„È•© ‡•†´´Æ™†Ê®®?)
+              ELSE prm_dims()  -- –∞ —ç—Ç–æ –∑–∞—á–µ–º? (–ø—Ä–∏ —É–¥–∞–ª–µ–Ω–∏–∏ - –Ω–µ –Ω—É–∂–Ω–æ, –º–æ–∂–µ—Ç –±—ã—Ç—å - –¥–ª—è –±—É–¥—É—â–µ–π —Ä–µ–∞–ª–ª–æ–∫–∞—Ü–∏–∏?)
               END;
         END;
         INC(j);
@@ -1846,7 +1846,7 @@ BEGIN
     END;
   END;
   gr.AppendTr(q);
-(* ?? † ™†™ ≠† ·Á•‚ resize ?? ·¨ opCode.gen_sproc *)
+(* ?? –∞ –∫–∞–∫ –Ω–∞ —Å—á–µ—Ç resize ?? —Å–º opCode.gen_sproc *)
   chk_no_exit(n);  -- to have o_stop after procedure call with no_exit tag
 END gen_call_storage;
 
@@ -1982,7 +1982,7 @@ PROCEDURE gen_complex_binary(tpos: ir.TPOS;
                        VAR re,im : ir.Arg);
   VAR  q: ir.TriadePtr;
     lre, lim, rre, rim, t1, t2, t3: ir.Arg;
-    RE_offs, IM_offs: LONGINT;   (* ¨Æ£„‚ ß†¢®·•‚Ï Æ‚ †‡Â®‚•™‚„‡Î *)
+    RE_offs, IM_offs: LONGINT;   (* –º–æ–≥—É—Ç –∑–∞–≤–∏—Å–µ—Ç—å –æ—Ç –∞—Ä—Ö–∏—Ç–µ–∫—Ç—É—Ä—ã *)
     sz: ir.SizeType;
     loc : ir.Local;
 BEGIN
@@ -2125,8 +2125,8 @@ END gen_complex_binary;
 
 PROCEDURE gen_complex_unary(n: pc.NODE; VAR re,im: ir.Arg);
   VAR arg: ir.Arg;
-    sz, from_sz: ir.SizeType;             (* ‡†ß¨•‡ ·ÆÆ‚¢•‚·‚¢„ÓÈ•£Æ float *)
-    RE_offs, IM_offs: LONGINT;            (* ¨Æ£„‚ ß†¢®·•‚Ï Æ‚ †‡Â®‚•™‚„‡Î *)
+    sz, from_sz: ir.SizeType;             (* —Ä–∞–∑–º–µ—Ä —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—â–µ–≥–æ float *)
+    RE_offs, IM_offs: LONGINT;            (* –º–æ–≥—É—Ç –∑–∞–≤–∏—Å–µ—Ç—å –æ—Ç –∞—Ä—Ö–∏—Ç–µ–∫—Ç—É—Ä—ã *)
     from, type : pc.STRUCT;
     from_ty: ir.TypeType;
 BEGIN
@@ -2168,8 +2168,8 @@ BEGIN
 END gen_complex_unary;
 
 PROCEDURE store_complex*(tpos : ir.TPOS;
-                         arg- : ir.Arg;        (* †§‡•· ØÆ´„Á†‚•´Ô *)
-                      re, im- : ir.Arg;        (* ·Æ·‚†¢≠Î• Á†·‚® ß≠†Á•≠®Ô *)
+                         arg- : ir.Arg;        (* –∞–¥—Ä–µ—Å –ø–æ–ª—É—á–∞—Ç–µ–ª—è *)
+                      re, im- : ir.Arg;        (* —Å–æ—Å—Ç–∞–≤–Ω—ã–µ —á–∞—Å—Ç–∏ –∑–Ω–∞—á–µ–Ω–∏—è *)
                          type : pc.STRUCT);
   VAR sz: ir.SizeType;
     RE_offs, IM_offs: LONGINT;
@@ -2207,8 +2207,8 @@ PROCEDURE gen_complex_value*(tpos: ir.TPOS;
                            gen_im: BOOLEAN;
                         VAR re,im: ir.Arg);
   VAR arg: ir.Arg;
-    RE_offs, IM_offs: LONGINT;   (* ¨Æ£„‚ ß†¢®·•‚Ï Æ‚ †‡Â®‚•™‚„‡Î *)
-    sz: ir.SizeType;             (* ‡†ß¨•‡ ·ÆÆ‚¢•‚·‚¢„ÓÈ•£Æ float *)
+    RE_offs, IM_offs: LONGINT;   (* –º–æ–≥—É—Ç –∑–∞–≤–∏—Å–µ—Ç—å –æ—Ç –∞—Ä—Ö–∏—Ç–µ–∫—Ç—É—Ä—ã *)
+    sz: ir.SizeType;             (* —Ä–∞–∑–º–µ—Ä —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—â–µ–≥–æ float *)
     type: pc.STRUCT;
     v : pc.VALUE;
     o: pc.OBJECT;
@@ -2521,7 +2521,7 @@ CONST
 CONST op_place = 68;
 
 PROCEDURE gen_lset_binary(n: pc.NODE; loc: ir.Local);
-                                (* loc - Ø•‡•¨•≠≠†Ô-‡•ß„´Ï‚†‚ *)
+                                (* loc - –ø–µ—Ä–µ–º–µ–Ω–Ω–∞—è-—Ä–µ–∑—É–ª—å—Ç–∞—Ç *)
 VAR
  <* IF setproc THEN *>
   q: ir.TriadePtr;
@@ -2757,11 +2757,11 @@ END gen_value_binary;
 
 
 PROCEDURE gen_value_cast(n: pc.NODE; md: ir.GenModeSet; VAR arg: ir.Arg);
-(* •·´® ‡†ß¨•‡Î ‚®ØÆ¢ ≠• ·Æ¢Ø†§†Ó‚, ‚Æ ß≠†Á•≠®Ô ´®Ë≠®Â °†©‚Æ¢ ≠• ÆØ‡•§•´•≠Î *)
+(* –µ—Å–ª–∏ —Ä–∞–∑–º–µ—Ä—ã —Ç–∏–ø–æ–≤ –Ω–µ —Å–æ–≤–ø–∞–¥–∞—é—Ç, —Ç–æ –∑–Ω–∞—á–µ–Ω–∏—è –ª–∏—à–Ω–∏—Ö –±–∞–π—Ç–æ–≤ –Ω–µ –æ–ø—Ä–µ–¥–µ–ª–µ–Ω—ã *)
 
   PROCEDURE gen_temp_var(sz: LONGINT);
-    (* Ø‡ÆØ®·Î¢†•‚ ®·ÂÆ§≠Æ• ¢Î‡†¶•≠®Ô ¢Æ ¢‡•¨•≠≠„Ó
-       Ø•‡•¨•≠≠„Ó ® ¢Æß¢‡†È†•‚ •• †§‡•·                    *)
+    (* –ø—Ä–æ–ø–∏—Å—ã–≤–∞–µ—Ç –∏—Å—Ö–æ–¥–Ω–æ–µ –≤—ã—Ä–∞–∂–µ–Ω–∏—è –≤–æ –≤—Ä–µ–º–µ–Ω–Ω—É—é
+       –ø–µ—Ä–µ–º–µ–Ω–Ω—É—é –∏ –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç –µ–µ –∞–¥—Ä–µ—Å                    *)
     VAR tmp: ir.Local; q: ir.TriadePtr; rarg:ir.Arg;
   BEGIN
     IF def.LVL IN md THEN
@@ -3063,8 +3063,8 @@ BEGIN
         q := def.RTS_call(n.pos, std.X2C_CAP, TRUE);
         ir.ParmByArg(q.Params[1], arg);
       ELSE
-        q := def.NewTriadeTS(1, ir.o_cap, n.type);  -- ¨Æ¶•‚ °Î‚Ï ‚‡®†§„ o_cap
-        q.Position := n.pos;                        --  ·´•§„•‚ ®ß¶®‚Ï
+        q := def.NewTriadeTS(1, ir.o_cap, n.type);  -- –º–æ–∂–µ—Ç –±—ã—Ç—å —Ç—Ä–∏–∞–¥—É o_cap
+        q.Position := n.pos;                        --  —Å–ª–µ–¥—É–µ—Ç –∏–∑–∂–∏—Ç—å
         ir.ParmByArg(q.Params[0], arg);
         ir.GenResVar(q);
       END;
@@ -3172,7 +3172,7 @@ PROCEDURE gen_index_check*(n: pc.NODE;  (* - expression *)
       rarg, tmp_arg: ir.Arg;  ty: ir.TypeType; sz: ir.SizeType;
       q: ir.TriadePtr;
 BEGIN
-(* LAZ - ¢‡•¨•≠≠Æ *)
+(* LAZ - –≤—Ä–µ–º–µ–Ω–Ω–æ *)
   WHILE (n.mode = pc.nd_unary) & (n.sub = pc.su_conv)
     & n.l.type.is_ordinal()
   DO
@@ -3252,7 +3252,7 @@ BEGIN
 END gen_index_check;
 
 PROCEDURE gen_index(n: pc.NODE; VAR arg: ir.Arg);
-  VAR                               (* ¢·•£§† ¢Î§†•‚ †§‡•· !! *)
+  VAR                               (* –≤—Å–µ–≥–¥–∞ –≤—ã–¥–∞–µ—Ç –∞–¥—Ä–µ—Å !! *)
     l : pc.NODE;
     r   : ARRAY 32 OF pc.NODE;
     chkd: ARRAY 32 OF ir.OptionsSet;
@@ -3740,7 +3740,7 @@ BEGIN
 END gen_array_aggregate;
 
 PROCEDURE gen_record_aggregate(n: pc.NODE;   --
-                           ares-: ir.Arg);   -- †§‡•· ‡•ß„´Ï‚†‚†
+                           ares-: ir.Arg);   -- –∞–¥—Ä–µ—Å —Ä–µ–∑—É–ª—å—Ç–∞—Ç–∞
 
   VAR l: pc.NODE;
 
@@ -3869,7 +3869,7 @@ END gen_value_sequence;
 
 CONST
   (* min_len(x,v)  ; arg0 = &x; arg1 = xlen; arg2 = &v; arg3 = vlen *)
-  (*     ‡•ß„´Ï‚†‚ - ¢ ØÆ·´•§≠•© ‚‡®†§•                             *)
+  (*     —Ä–µ–∑—É–ª—å—Ç–∞—Ç - –≤ –ø–æ—Å–ª–µ–¥–Ω–µ–π —Ç—Ä–∏–∞–¥–µ                             *)
 
   min_len_sample = ARRAY OF LONGINT {
   VAL(SHORTINT,ir.o_le),    2, VAL(SHORTINT,tune.index_ty), tune.index_sz,  sarg, 1, sarg, 3, ORD(ir.y_Nothing),
@@ -3952,7 +3952,7 @@ BEGIN
   ELSE
     gen_len(from, 0, def.SIZE_T, args[1]);
     IF at.copystr_proc IN at.COMP_MODE THEN
-     (* ----- ‡•†´®ßÆ¢†‚Ï ¢ÎßÆ¢Æ¨ ----- *)
+     (* ----- —Ä–µ–∞–ª–∏–∑–æ–≤–∞—Ç—å –≤—ã–∑–æ–≤–æ–º ----- *)
       q := def.RTS_call(tpos, std.X2C_COPY, TRUE);
       ir.ParmByArg(q.Params[1], args[0]);
       ir.ParmByArg(q.Params[2], args[1]);
@@ -3960,7 +3960,7 @@ BEGIN
       ir.ParmByArg(q.Params[4], v_len);
       gr.AppendTr(q);
     ELSE
-     (* -------- Ô¢≠Æ ‡†ß¢Æ‡†Á®¢†‚Ï ¢ Ê®™´ ------- *)
+     (* -------- —è–≤–Ω–æ —Ä–∞–∑–≤–æ—Ä–∞—á–∏–≤–∞—Ç—å –≤ —Ü–∏–∫–ª ------- *)
       ir.SetSilentMode();
       ops.gen_sample(tpos, copy_sample, args);
       ir.SetNormalMode();
@@ -3986,8 +3986,8 @@ END gen_caller_ip_adr;
 PROCEDURE conditional_expression(n: pc.NODE; md: ir.GenModeSet; VAR arg: ir.Arg);
   VAR
     then_node, else_node, fi_node: ir.Node;
-    ty: ir.TypeType; sz: ir.SizeType;      (* ‚®Ø ‡•ß„´Ï‚†‚†    *)
-    args: ARRAY 2 OF ir.Arg;               (* †‡£„¨•≠‚Î *)
+    ty: ir.TypeType; sz: ir.SizeType;      (* —Ç–∏–ø —Ä–µ–∑—É–ª—å—Ç–∞—Ç–∞    *)
+    args: ARRAY 2 OF ir.Arg;               (* –∞—Ä–≥—É–º–µ–Ω—Ç—ã *)
     lvl: BOOLEAN;
 BEGIN
   ASSERT(n.type.mode # pc.ty_void);
@@ -4024,13 +4024,13 @@ BEGIN
 END conditional_expression;
 
 PROCEDURE with_temp(o: pc.OBJECT): BOOLEAN;
-BEGIN (* Ø•‡•¨•≠≠†Ô ·£•≠•‡®‡Æ¢†≠† ‚‡†≠·´Ô‚Æ‡Æ¨ §´Ô M2-ÆØ•‡†‚Æ‡† WITH *)
+BEGIN (* –ø–µ—Ä–µ–º–µ–Ω–Ω–∞—è —Å–≥–µ–Ω–µ—Ä–∏—Ä–æ–≤–∞–Ω–∞ —Ç—Ä–∞–Ω—Å–ª—è—Ç–æ—Ä–æ–º –¥–ª—è M2-–æ–ø–µ—Ä–∞—Ç–æ—Ä–∞ WITH *)
   RETURN ((o.mode = pc.ob_var)&(o.name[0] = ""))
 END with_temp;
 
 VAR gen_sequence*: PROCEDURE(n: pc.NODE;
-                        go_ret: BOOLEAN;   (* return - Ø•‡•ÂÆ§ ¢ ™Æ≠•Ê °´Æ™† *)
-                          tail: BOOLEAN;   (* §†´•• •·‚Ï •È• ÆØ•‡†‚Æ‡Î *)
+                        go_ret: BOOLEAN;   (* return - –ø–µ—Ä–µ—Ö–æ–¥ –≤ –∫–æ–Ω–µ—Ü –±–ª–æ–∫–∞ *)
+                          tail: BOOLEAN;   (* –¥–∞–ª–µ–µ –µ—Å—Ç—å –µ—â–µ –æ–ø–µ—Ä–∞—Ç–æ—Ä—ã *)
                         VAR dd: BOOLEAN);  (* dead end *)
 
 PROCEDURE gen_value*(n: pc.NODE; md: ir.GenModeSet; VAR arg: ir.Arg);
@@ -4313,7 +4313,7 @@ BEGIN
  <* END *> 
 END opE.
 
-(* ------------------------------ ®ß Ø‡ÆÊ•§„‡Î gen_in:
+(* ------------------------------ –∏–∑ –ø—Ä–æ—Ü–µ–¥—É—Ä—ã gen_in:
 
 --  io.print("gen_condition: base.mode = %d\n", base.mode);
   ASSERT(base.mode IN {pc.ty_range, pc.ty_enum, pc.ty_char});
@@ -4332,7 +4332,7 @@ END opE.
   gen_check(ir.o_checklo, arg1, arg0, ir.t_unsign(*!!*), tune.index_sz, n.pos);
 ------------------------------------------------- *)
 
-(* ------------------------------- ®ß Ø‡ÆÊ•§„‡Î gen_binary:
+(* ------------------------------- –∏–∑ –ø—Ä–æ—Ü–µ–¥—É—Ä—ã gen_binary:
 
   | pc.sb_cand:
       yes := gr.NewNode();

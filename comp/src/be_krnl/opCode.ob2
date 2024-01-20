@@ -5,7 +5,7 @@
 
 MODULE opCode;
 
-(** ÉÆ´Æ¢≠Æ© ¨Æ§„´Ï §´Ô ØÆ§™´ÓÁ•≠®Ô native-™Æ§Æ£•≠•‡†Ê®® *)
+(** –ì–æ–ª–æ–≤–Ω–æ–π –º–æ–¥—É–ª—å –¥–ª—è –ø–æ–¥–∫–ª—é—á–µ–Ω–∏—è native-–∫–æ–¥–æ–≥–µ–Ω–µ—Ä–∞—Ü–∏–∏ *)
 
 IMPORT
   pc   := pcK,                                      ir,
@@ -338,7 +338,7 @@ END process_var_debug_info;
 VAR
   last_name_len : INT;     (* name length for the previous procedure *)
 
-PROCEDURE Optim_Init;   (* Ø•‡¢Æ≠†Á†´Ï≠†Ô ®≠®Ê®†´®ß†Ê®Ô ÆØ‚®¨®ß†‚Æ‡† *)
+PROCEDURE Optim_Init;   (* –ø–µ—Ä–≤–æ–Ω–∞—á–∞–ª—å–Ω–∞—è –∏–Ω–∏—Ü–∏–∞–ª–∏–∑–∞—Ü–∏—è –æ–ø—Ç–∏–º–∏–∑–∞—Ç–æ—Ä–∞ *)
 BEGIN
   last_name_len := 0;
   Calc.Init;
@@ -349,7 +349,7 @@ BEGIN
 <* END *>
 END Optim_Init;
 
-PROCEDURE Optim_Start;  (* ≠†Á†´Æ ≠Æ¢Æ© Ø‡ÆÊ•§„‡Î *)
+PROCEDURE Optim_Start;  (* –Ω–∞—á–∞–ª–æ –Ω–æ–≤–æ–π –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
 BEGIN
   try_block := FALSE;
   was_alloca:= FALSE;
@@ -373,7 +373,7 @@ BEGIN
 <* END *>
 END WriteTest;
 
-PROCEDURE Optim_Do;  (* Æ°‡†°Æ‚™† ·Æß§†≠≠Æ£Æ £‡†‰† *)
+PROCEDURE Optim_Do;  (* –æ–±—Ä–∞–±–æ—Ç–∫–∞ —Å–æ–∑–¥–∞–Ω–Ω–æ–≥–æ –≥—Ä–∞—Ñ–∞ *)
   VAR nm: pc.STRING;
     s: env.String;
 BEGIN
@@ -761,7 +761,7 @@ END gen_sproc;
 
 (** ------------- labels & gotos ------------------------------------- *)
 CONST
-  ntag_exit_label  = pc.ntag_elsif_node;  (* •·‚Ï ¢ÎÂÆ§≠†Ô ¨•‚™† *)
+  ntag_exit_label  = pc.ntag_elsif_node;  (* –µ—Å—Ç—å –≤—ã—Ö–æ–¥–Ω–∞—è –º–µ—Ç–∫–∞ *)
 
 TYPE
   label_rec = RECORD
@@ -827,8 +827,8 @@ VAR -- proc_end: ir.Node;
     ret_tmp: ir.Local;
 
 PROCEDURE ^ gen_sequence(n: pc.NODE;
-                    go_ret: BOOLEAN;  (* return - Ø•‡•ÂÆ§ ¢ ™Æ≠•Ê °´Æ™† *)
-                      tail: BOOLEAN;  (* •·‚Ï •È• ™†™®•-‚Æ §•©·‚¢®Ô, ™Æ‚Æ‡Î• ≠†§Æ ·§•´†‚Ï *)
+                    go_ret: BOOLEAN;  (* return - –ø–µ—Ä–µ—Ö–æ–¥ –≤ –∫–æ–Ω–µ—Ü –±–ª–æ–∫–∞ *)
+                      tail: BOOLEAN;  (* –µ—Å—Ç—å –µ—â–µ –∫–∞–∫–∏–µ-—Ç–æ –¥–µ–π—Å—Ç–≤–∏—è, –∫–æ—Ç–æ—Ä—ã–µ –Ω–∞–¥–æ —Å–¥–µ–ª–∞—Ç—å *)
               VAR dead_end: BOOLEAN);
 
 PROCEDURE gen_alt(n: pc.NODE; go_ret, tail: BOOLEAN; end: ir.Node);
@@ -947,7 +947,7 @@ BEGIN
   gr.StartNode(end_for);
 END gen_statement_for;
 
-PROCEDURE num_cases(n : pc.NODE): INTEGER; (* Á®·´Æ ¨•‚Æ™/Ø†‡ ¨•‚Æ™ *)
+PROCEDURE num_cases(n : pc.NODE): INTEGER; (* —á–∏—Å–ª–æ –º–µ—Ç–æ–∫/–ø–∞—Ä –º–µ—Ç–æ–∫ *)
  VAR cnt : INTEGER; l,m: pc.NODE;
 BEGIN
   ASSERT((n.mode=pc.nd_casedo) OR (n.mode=pc.nd_caselse));
@@ -1002,10 +1002,10 @@ BEGIN
   gr.PutTriadeLast(q, case_node);
   num := 0;
   l:=m.l;
-  WHILE l#NIL DO (* Ø•‡•‡•°Æ‡ †´Ï‚•‡≠†‚®¢ *)
+  WHILE l#NIL DO (* –ø–µ—Ä–µ—Ä–µ–±–æ—Ä –∞–ª—å—Ç–µ—Ä–Ω–∞—Ç–∏–≤ *)
     gr.StartNewNode();
     k:=l.l;
-    WHILE k # NIL DO (* Ø•‡•‡•°Æ‡ ·Ø®·™† ¨•‚Æ™ „ †´Ï‚•‡≠†‚®¢Î *)
+    WHILE k # NIL DO (* –ø–µ—Ä–µ—Ä–µ–±–æ—Ä —Å–ø–∏—Å–∫–∞ –º–µ—Ç–æ–∫ —É –∞–ª—å—Ç–µ—Ä–Ω–∞—Ç–∏–≤—ã *)
       low  := k.val;
       high := k.l.val;
       i := 0;
@@ -1088,7 +1088,7 @@ BEGIN
         ope.gen_complex_value(n.pos, n.l, TRUE, TRUE, re_arg, im_arg);
         def.o_attr(n.pos, at.curr_proc, at.a_rtn, ir.GenModeSet{}, arg);
         ope.store_complex(n.pos, arg, re_arg, im_arg, base);
-      ELSE (*  ¢Æß¢‡†È†•¨ ·‚‡„™‚„‡„ - ≠†§Æ ·§•´†‚Ï copy *)
+      ELSE (*  –≤–æ–∑–≤—Ä–∞—â–∞–µ–º —Å—Ç—Ä—É–∫—Ç—É—Ä—É - –Ω–∞–¥–æ —Å–¥–µ–ª–∞—Ç—å copy *)
           q := ir.NewTriadeInit (3, ir.o_copy, ir.t_void, 0);
           q.Position := n.pos;
           ope.gen_value(n.l, ir.GenModeSet{def.REF}, arg);
@@ -1209,7 +1209,7 @@ BEGIN
       IF convert THEN
         ir.SetNormalMode ();
         FOR i := 0 TO ir.Nodes[end_node].NIn-1 DO
-         (* §„£®, ¢•§„È®• ¢ ¢•‡Ë®≠„ end_node ¢ Æ°ÂÆ§ Ê®™´† *)
+         (* –¥—É–≥–∏, –≤–µ–¥—É—â–∏–µ –≤ –≤–µ—Ä—à–∏–Ω—É end_node –≤ –æ–±—Ö–æ–¥ —Ü–∏–∫–ª–∞ *)
           gr.Arcs[ir.Nodes[end_node].InArcs[i]].Original := FALSE;
         END;
         gen_sequence(n.r, go_ret, TRUE, dd);
@@ -1241,7 +1241,7 @@ BEGIN
         gr.StartNode(label(n));
       END;
 
-    |pc.nd_exit:                   (* n.r - ÆØ•‡†‚Æ‡, ®ß ™Æ‚Æ‡Æ£Æ ¢ÎÂÆ§®¨ *)
+    |pc.nd_exit:                   (* n.r - –æ–ø–µ—Ä–∞—Ç–æ—Ä, –∏–∑ –∫–æ—Ç–æ—Ä–æ–≥–æ –≤—ã—Ö–æ–¥–∏–º *)
       nd := gr.currNode;
       gr.Goto(label(n.r));
       ir.Nodes^[nd].Last.Position := n.pos;
@@ -1255,16 +1255,16 @@ BEGIN
       gen_statement_if(n, go_ret, tail, end_node);
       gr.currNode := end_node;
 
-    |pc.nd_block:             (* ÆØ•‡†‚Æ‡, ®ß ™Æ‚Æ‡Æ£Æ •·‚Ï ¢ÎÂÆ§ return'Æ¨ *)
+    |pc.nd_block:             (* –æ–ø–µ—Ä–∞—Ç–æ—Ä, –∏–∑ –∫–æ—Ç–æ—Ä–æ–≥–æ –µ—Å—Ç—å –≤—ã—Ö–æ–¥ return'–æ–º *)
       ASSERT (NOT (ntag_exit_label IN n.tags));
       gen_sequence(n.r, go_ret OR tail, tail, dd);
       IF ntag_exit_label IN n.tags THEN
         gr.StartNode(label(n));
       END;
 
-    |pc.nd_return:                      (* ¢ n.r - °´Æ™, ®ß ™Æ‚Æ‡Æ£Æ ¢ÎÂÆ§®¨; *)
-      gen_statement_return(n, go_ret);  (* Æ§≠†™Æ ØÆ·´• Ì‚Æ£Æ °´Æ™† ¨Æ£„‚     *)
-      gr.FinishNode();                  (* °Î‚Ï •È• ®·ØÆ´≠Ô•¨Î• ÆØ•‡†‚Æ‡Î     *)
+    |pc.nd_return:                      (* –≤ n.r - –±–ª–æ–∫, –∏–∑ –∫–æ—Ç–æ—Ä–æ–≥–æ –≤—ã—Ö–æ–¥–∏–º; *)
+      gen_statement_return(n, go_ret);  (* –æ–¥–Ω–∞–∫–æ –ø–æ—Å–ª–µ —ç—Ç–æ–≥–æ –±–ª–æ–∫–∞ –º–æ–≥—É—Ç     *)
+      gr.FinishNode();                  (* –±—ã—Ç—å –µ—â–µ –∏—Å–ø–æ–ª–Ω—è–µ–º—ã–µ –æ–ø–µ—Ä–∞—Ç–æ—Ä—ã     *)
 
     |pc.nd_for:
       gen_statement_for(n, go_ret);
@@ -1365,8 +1365,8 @@ BEGIN
 END gen_statement;
 
 PROCEDURE gen_sequence(n: pc.NODE;
-                  go_ret: BOOLEAN;   (* return - Ø•‡•ÂÆ§ ¢ ™Æ≠•Ê °´Æ™† *)
-                    tail: BOOLEAN;   (* §†´•• •·‚Ï •È• ÆØ•‡†‚Æ‡Î *)
+                  go_ret: BOOLEAN;   (* return - –ø–µ—Ä–µ—Ö–æ–¥ –≤ –∫–æ–Ω–µ—Ü –±–ª–æ–∫–∞ *)
+                    tail: BOOLEAN;   (* –¥–∞–ª–µ–µ –µ—Å—Ç—å –µ—â–µ –æ–ø–µ—Ä–∞—Ç–æ—Ä—ã *)
                   VAR dd: BOOLEAN);  (* dead end *)
 BEGIN
   dd := FALSE;
@@ -1417,17 +1417,17 @@ BEGIN
     IF Prt.par[i].where = pr.STACK THEN
       p_offs := parm_offs;
       IF p_sz < 4 THEN
-        IF tune.BIG_END THEN       -- Ø‡®¶†‚Ï ™ §‡„£Æ¨„ ™‡†Ó
+        IF tune.BIG_END THEN       -- –ø—Ä–∏–∂–∞—Ç—å –∫ –¥—Ä—É–≥–æ–º—É –∫—Ä–∞—é
           INC(p_offs, 4 - p_sz);
         END;
-        p_sz := 4; -- ØÆ™† ¢·• Ø†‡†¨•‚‡Î ™´†§„‚·Ô Ê•´Î¨® ·´Æ¢†¨®, §´®≠† ¢·•£§† 4
+        p_sz := 4; -- –ø–æ–∫–∞ –≤—Å–µ –ø–∞—Ä–∞–º–µ—Ç—Ä—ã –∫–ª–∞–¥—É—Ç—Å—è —Ü–µ–ª—ã–º–∏ —Å–ª–æ–≤–∞–º–∏, –¥–ª–∏–Ω–∞ –≤—Å–µ–≥–¥–∞ 4
       END;
       INC (parm_offs, p_sz);
     ELSE
       IF must_save_param (p,i) THEN
         IF p_sz < 4 THEN
           DEC(loc_offs, 4);
-          IF tune.BIG_END THEN       -- Ø‡®¶†‚Ï ™ §‡„£Æ¨„ ™‡†Ó
+          IF tune.BIG_END THEN       -- –ø—Ä–∏–∂–∞—Ç—å –∫ –¥—Ä—É–≥–æ–º—É –∫—Ä–∞—é
             p_offs := loc_offs + 4 - p_sz;
           ELSE
             p_offs := loc_offs;
@@ -1449,9 +1449,9 @@ END RecalcParamOffsets;
 PROCEDURE make_offsets(p: pc.OBJECT;
                VAR based: pc.OBJECT);  (* one of p's vars in memory *)
 (*
- Ø‡ÆÊ•§„‡† „¶• §Æ´¶≠† °Î‚Ï ß†≠•·•≠† ¢ ‚†°´®Ê„ ® §´Ô ≠•• ØÆ·‚‡Æ•≠ Ø‡Æ‚Æ‚®Ø;
- ≠†§Æ Ø‡®Ø®·†‚Ï ·¨•È•≠®Ô §´Ô ¢·•Â Ø†‡†¨•‚‡Æ¢ Ø‡ÆÊ•§„‡Î ® §´Ô ‚•Â Ø•‡•¨•≠≠ÎÂ,
- ™Æ‚Æ‡Î• ®·ØÆ´Ïß„Ó‚·Ô ¢´Æ¶•≠≠Î¨® Ø‡ÆÊ•§„‡†¨®
+ –ø—Ä–æ—Ü–µ–¥—É—Ä–∞ —É–∂–µ –¥–æ–ª–∂–Ω–∞ –±—ã—Ç—å –∑–∞–Ω–µ—Å–µ–Ω–∞ –≤ —Ç–∞–±–ª–∏—Ü—É –∏ –¥–ª—è –Ω–µ–µ –ø–æ—Å—Ç—Ä–æ–µ–Ω –ø—Ä–æ—Ç–æ—Ç–∏–ø;
+ –Ω–∞–¥–æ –ø—Ä–∏–ø–∏—Å–∞—Ç—å —Å–º–µ—â–µ–Ω–∏—è –¥–ª—è –≤—Å–µ—Ö –ø–∞—Ä–∞–º–µ—Ç—Ä–æ–≤ –ø—Ä–æ—Ü–µ–¥—É—Ä—ã –∏ –¥–ª—è —Ç–µ—Ö –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö,
+ –∫–æ—Ç–æ—Ä—ã–µ –∏—Å–ø–æ–ª—å–∑—É—é—Ç—Å—è –≤–ª–æ–∂–µ–Ω–Ω—ã–º–∏ –ø—Ä–æ—Ü–µ–¥—É—Ä–∞–º–∏
 *)
   VAR ptype: pc.STRUCT;  v,vv: pc.OBJECT;  i: SHORTINT;
     proto: pr.Proto; prm: pr.params;  cnt: INTEGER;
@@ -1481,17 +1481,17 @@ BEGIN
   prm := proto.par;
   FOR cnt := 0 TO proto.npar-1 DO
     CASE prm[cnt].mode OF
-    | pr.pm_return:  (* ----- †§‡•· Ø•‡•¨•≠≠Æ© §´Ô ¢Æß¢‡†È†•¨Æ£Æ ß≠†Á•≠®Ô *)
+    | pr.pm_return:  (* ----- –∞–¥—Ä–µ—Å –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π –¥–ª—è –≤–æ–∑–≤—Ä–∞—â–∞–µ–º–æ–≥–æ –∑–Ω–∞—á–µ–Ω–∏—è *)
         at.app_info(p, at.a_rtn, ir.y_Nothing, VAL(at.InfExtName, ir.UNDEFINED), NIL, prm[cnt].offs);
-    | pr.pm_base:    (* ----- °†ß† Æ§≠Æ© ®ß ÆÂ¢†‚. Ø‡ÆÊ•§„‡ *)
+    | pr.pm_base:    (* ----- –±–∞–∑–∞ –æ–¥–Ω–æ–π –∏–∑ –æ—Ö–≤–∞—Ç. –ø—Ä–æ—Ü–µ–¥—É—Ä *)
         i := VAL(SHORTINT, prm[cnt].ind);
         at.app_info(p, at.a_base+i, ir.y_Nothing, VAL(at.InfExtName, ir.UNDEFINED), NIL, prm[cnt].offs);
-    | pr.pm_param:   (* ----- Ø†‡†¨•‚‡ *)
+    | pr.pm_param:   (* ----- –ø–∞—Ä–∞–º–µ—Ç—Ä *)
         IF at.must_have_fixed_address(v) THEN based := v END;
         IF copied_param(v) & NOT (v.type.mode = pc.ty_array_of) THEN
           IF at.must_have_fixed_address(v) THEN
             DEC(loc_offs, def.type_size(v.type));
-            make_neg_align(loc_offs, 4);         -- ¢Î‡Æ¢≠Ô‚Ï ≠† 4 ??
+            make_neg_align(loc_offs, 4);         -- –≤—ã—Ä–æ–≤–Ω—è—Ç—å –Ω–∞ 4 ??
             at.app_info(v, at.a_self, ir.y_Nothing, VAL(at.InfExtName, ir.UNDEFINED), NIL, loc_offs);
           ELSE
             at.app_info(v, at.a_self, ir.y_Nothing, VAL(at.InfExtName, ir.UNDEFINED), NIL, ir.UNKNOWN_OFFSET);
@@ -1501,15 +1501,15 @@ BEGIN
         END;
         vv := v;
         v := v.next;
-    | pr.pm_len:     (* ----- §´®≠† Ø†‡†¨•‚‡†-£®°™Æ£Æ ¨†··®¢† ØÆ Æ§≠Æ¨„ ®ß¨•‡.*)
+    | pr.pm_len:     (* ----- –¥–ª–∏–Ω–∞ –ø–∞—Ä–∞–º–µ—Ç—Ä–∞-–≥–∏–±–∫–æ–≥–æ –º–∞—Å—Å–∏–≤–∞ –ø–æ –æ–¥–Ω–æ–º—É –∏–∑–º–µ—Ä.*)
         i := VAL(SHORTINT, prm[cnt].ind);
         at.app_info(vv, at.a_len+i, ir.y_Nothing, VAL(at.InfExtName, ir.UNDEFINED), NIL, prm[cnt].offs);
-    | pr.pm_formrec: (* ----- VAR Ø†‡†¨•‚‡ - Æ°•‡Æ≠Æ¢·™†Ô ß†Ø®·Ï *)
+    | pr.pm_formrec: (* ----- VAR –ø–∞—Ä–∞–º–µ—Ç—Ä - –æ–±–µ—Ä–æ–Ω–æ–≤—Å–∫–∞—è –∑–∞–ø–∏—Å—å *)
         IF at.must_have_fixed_address(v) THEN based := v END;
         at.app_info(v, at.a_self, ir.y_Nothing, VAL(at.InfExtName, ir.UNDEFINED), NIL, prm[cnt].offs);
         vv := v;
         v := v.next;
-    | pr.pm_type:    (* ----- ‚®Ø Ì‚Æ© ß†Ø®·® *)
+    | pr.pm_type:    (* ----- —Ç–∏–ø —ç—Ç–æ–π –∑–∞–ø–∏—Å–∏ *)
         at.app_info(vv, at.a_type, ir.y_Nothing, VAL(at.InfExtName, ir.UNDEFINED), NIL, prm[cnt].offs);
     | pr.pm_re:
         IF at.must_have_fixed_address(v) THEN based := v END;
@@ -1519,7 +1519,7 @@ BEGIN
         v := v.next;
     | pr.pm_im:
         at.app_info(vv, at.a_im, ir.y_Nothing, VAL(at.InfExtName, ir.UNDEFINED), NIL, prm[cnt].offs);
-    | pr.pm_seq:     (* ----- C-ØÆ·´•§Æ¢†‚•´Ï≠Æ·‚Ï Ø†‡†¨•‚‡Æ¢ *)
+    | pr.pm_seq:     (* ----- C-–ø–æ—Å–ª–µ–¥–æ–≤–∞—Ç–µ–ª—å–Ω–æ—Å—Ç—å –ø–∞—Ä–∞–º–µ—Ç—Ä–æ–≤ *)
         ASSERT(v.next = NIL);
         IF at.must_have_fixed_address(v) THEN based := v END;
         at.app_info(v, at.a_self, ir.y_Nothing, VAL(at.InfExtName, ir.UNDEFINED), NIL, prm[cnt].offs);
@@ -1544,8 +1544,8 @@ BEGIN
   END;
 END make_offsets;
 
-PROCEDURE change_info(o: pc.OBJECT;   (* „ §†≠≠Æ£Æ Æ°Í•™‚† ß†¨•≠®‚Ï  *)
-                  akind: SHORTINT;    (* ®≠‰Æ‡¨†Ê®Ó Æ° Ì‚Æ¨ †‚‡®°„‚• *)
+PROCEDURE change_info(o: pc.OBJECT;   (* —É –¥–∞–Ω–Ω–æ–≥–æ –æ–±—ä–µ–∫—Ç–∞ –∑–∞–º–µ–Ω–∏—Ç—å  *)
+                  akind: SHORTINT;    (* –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏—é –æ–± —ç—Ç–æ–º –∞—Ç—Ä–∏–±—É—Ç–µ *)
                   e_tag: ir.TagType;
                    name: at.InfExtName);
   VAR a: at.ATTR_EXT;
@@ -1559,8 +1559,8 @@ BEGIN
   END
 END change_info;
 
-PROCEDURE change_offs(o: pc.OBJECT;   (* „ §†≠≠Æ£Æ Æ°Í•™‚† ß†¨•≠®‚Ï  *)
-                  akind: SHORTINT;    (* ®≠‰Æ‡¨†Ê®Ó Æ° Ì‚Æ¨ †‚‡®°„‚• *)
+PROCEDURE change_offs(o: pc.OBJECT;   (* —É –¥–∞–Ω–Ω–æ–≥–æ –æ–±—ä–µ–∫—Ç–∞ –∑–∞–º–µ–Ω–∏—Ç—å  *)
+                  akind: SHORTINT;    (* –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏—é –æ–± —ç—Ç–æ–º –∞—Ç—Ä–∏–±—É—Ç–µ *)
                    offs: LONGINT);
   VAR a: at.ATTR_EXT;
 BEGIN
@@ -1605,11 +1605,11 @@ BEGIN
     IF open_arr & NOT (at.curr_proc.type.flag IN opt.LangsWithOpenArrays) THEN
       RETURN
     END;
-  (* ≠†§Æ ·§•´†‚Ï ™ÆØ®Ó Ø†‡†¨•‚‡† *)
+  (* –Ω–∞–¥–æ —Å–¥–µ–ª–∞—Ç—å –∫–æ–ø–∏—é –ø–∞—Ä–∞–º–µ—Ç—Ä–∞ *)
     def.o_usage(tpos, v, ir.GenModeSet{def.REF}, from_arg);
     IF open_arr THEN
       ope.gen_size_usage(tpos, v, 0, sz_arg);
-      alloc_open(tpos, sz_arg, to_arg); (* ¢Î§•´®‚Ï ¨•·‚Æ ØÆ§ ™ÆØ®Ó ¨†··®¢† *)
+      alloc_open(tpos, sz_arg, to_arg); (* –≤—ã–¥–µ–ª–∏—Ç—å –º–µ—Å—Ç–æ –ø–æ–¥ –∫–æ–ø–∏—é –º–∞—Å—Å–∏–≤–∞ *)
     ELSE
       def.c_number(def.type_size(type), sz_arg);
       EXCL(v.tags, at.otag_declared);
@@ -1641,17 +1641,17 @@ PROCEDURE copy_params(p: pc.OBJECT);
 --    RtoL: BOOLEAN;
     tpos : ir.TPOS;
 
-  PROCEDURE copy_param(v: pc.OBJECT;    (* Æ°Í•™‚ - ‰Æ‡¨†´Ï≠Î© Ø†‡†¨•‚‡ *)
-                       i: INTEGER);     (* ≠Æ¨•‡ Ø†‡†¨•‚‡† ¢ Ø‡Æ‚Æ‚®Ø•   *)
+  PROCEDURE copy_param(v: pc.OBJECT;    (* –æ–±—ä–µ–∫—Ç - —Ñ–æ—Ä–º–∞–ª—å–Ω—ã–π –ø–∞—Ä–∞–º–µ—Ç—Ä *)
+                       i: INTEGER);     (* –Ω–æ–º–µ—Ä –ø–∞—Ä–∞–º–µ—Ç—Ä–∞ –≤ –ø—Ä–æ—Ç–æ—Ç–∏–ø–µ   *)
 
   BEGIN
     IF i >= proto.npar THEN RETURN END;
     CASE proto.par[i].mode OF
-    | pr.pm_return:  (* ----- †§‡•· Ø•‡•¨•≠≠Æ© §´Ô ¢Æß¢‡†È†•¨Æ£Æ ß≠†Á•≠®Ô *)
+    | pr.pm_return:  (* ----- –∞–¥—Ä–µ—Å –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π –¥–ª—è –≤–æ–∑–≤—Ä–∞—â–∞–µ–º–æ–≥–æ –∑–Ω–∞—á–µ–Ω–∏—è *)
         copy_param(v, i+1)
-    | pr.pm_base:    (* ----- °†ß† Æ§≠Æ© ®ß ÆÂ¢†‚. Ø‡ÆÊ•§„‡ *)
+    | pr.pm_base:    (* ----- –±–∞–∑–∞ –æ–¥–Ω–æ–π –∏–∑ –æ—Ö–≤–∞—Ç. –ø—Ä–æ—Ü–µ–¥—É—Ä *)
         copy_param(v, i+1)
-    | pr.pm_param:   (* ----- Ø†‡†¨•‚‡ *)
+    | pr.pm_param:   (* ----- –ø–∞—Ä–∞–º–µ—Ç—Ä *)
 --      IF NOT RtoL THEN copy_param(v.next, i+1) END;
 
         LOOP
@@ -1739,8 +1739,8 @@ PROCEDURE get_params(p: pc.OBJECT);
     RETURN get_one_param(tpos, proto, i, name)
   END get_one;
 
-  PROCEDURE get_param(v: pc.OBJECT;    (* Æ°Í•™‚ - ‰Æ‡¨†´Ï≠Î© Ø†‡†¨•‚‡ *)
-                      i: INTEGER);     (* ≠Æ¨•‡ Ø†‡†¨•‚‡† ¢ Ø‡Æ‚Æ‚®Ø•   *)
+  PROCEDURE get_param(v: pc.OBJECT;    (* –æ–±—ä–µ–∫—Ç - —Ñ–æ—Ä–º–∞–ª—å–Ω—ã–π –ø–∞—Ä–∞–º–µ—Ç—Ä *)
+                      i: INTEGER);     (* –Ω–æ–º–µ—Ä –ø–∞—Ä–∞–º–µ—Ç—Ä–∞ –≤ –ø—Ä–æ—Ç–æ—Ç–∏–ø–µ   *)
     VAR j, k: INTEGER;
       pp: pc.OBJECT;
       loc, loc_len: ir.Local;
@@ -1748,14 +1748,14 @@ PROCEDURE get_params(p: pc.OBJECT);
   BEGIN
     IF i>=proto.npar THEN RETURN END;
     CASE proto.par[i].mode OF
-    | pr.pm_return:  (* ----- †§‡•· Ø•‡•¨•≠≠Æ© §´Ô ¢Æß¢‡†È†•¨Æ£Æ ß≠†Á•≠®Ô *)
+    | pr.pm_return:  (* ----- –∞–¥—Ä–µ—Å –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π –¥–ª—è –≤–æ–∑–≤—Ä–∞—â–∞–µ–º–æ–≥–æ –∑–Ω–∞—á–µ–Ω–∏—è *)
         IF NOT RtoL THEN get_param(v, i+1) END;
         nm := at.make_name("%s'rtn", p.name^);
         loc := get_one(i, nm);
         change_info(p, at.a_rtn, ir.y_RealVar, VAL(at.InfExtName, loc));
         IF RtoL THEN get_param(v, i+1) END;
 
-    | pr.pm_base:    (* ----- °†ß† Æ§≠Æ© ®ß ÆÂ¢†‚. Ø‡ÆÊ•§„‡ *)
+    | pr.pm_base:    (* ----- –±–∞–∑–∞ –æ–¥–Ω–æ–π –∏–∑ –æ—Ö–≤–∞—Ç. –ø—Ä–æ—Ü–µ–¥—É—Ä *)
         IF NOT RtoL THEN get_param(v, i+1) END;
         j := VAL(SHORTINT, proto.par[i].ind);
         pp := p;
@@ -1765,7 +1765,7 @@ PROCEDURE get_params(p: pc.OBJECT);
         change_info(p, at.a_base+SHORT(j), ir.y_RealVar, VAL(at.InfExtName, loc));
         IF RtoL THEN get_param(v, i+1) END;
 
-    | pr.pm_param:   (* ----- Ø†‡†¨•‚‡ *)
+    | pr.pm_param:   (* ----- –ø–∞—Ä–∞–º–µ—Ç—Ä *)
         IF NOT RtoL THEN get_param(v.next, i+1) END;
         CASE proto.par[i].ind OF
         | ORD(pr.by_val):
@@ -1819,7 +1819,7 @@ PROCEDURE get_params(p: pc.OBJECT);
         nm := at.make_name("%s're", v.name^);
         loc := get_one(i, nm);
         change_info(v, at.a_re, ir.y_RealVar, VAL(at.InfExtName, loc));
-        ir.Locals[loc].Obj := v;                         (* ÆÁ•≠Ï ·™´®ß™Æ !! *)
+        ir.Locals[loc].Obj := v;                         (* –æ—á–µ–Ω—å —Å–∫–ª–∏–∑–∫–æ !! *)
         change_info(v, at.a_self, ir.y_RealVar, VAL(at.InfExtName, loc));
                            (* at.BASE+ir.y_AddrConst -- ?? *)
         nm := at.make_name("%s'im", v.name^);
@@ -1885,8 +1885,8 @@ END absolute_var;
 PROCEDURE make_usage(p: pc.OBJECT);
   VAR u: pc.USAGE; o: pc.OBJECT; arg: ir.Arg; j: SHORTINT;
 BEGIN
--- ¢ÆÆ°È•-‚Æ Ø‡® "´•≠®¢Æ¨" ØÆ§ÂÆ§• °Î´Æ °Î §Æ·‚†‚ÆÁ≠Æ
--- ØÆÁ®·‚®‚Ï Ø‡®ß≠†™ "created" „ Æ°Í•™‚Æ¢ ®ß Ì‚Æ£Æ ·Ø®·™†
+-- –≤–æ–æ–±—â–µ-—Ç–æ –ø—Ä–∏ "–ª–µ–Ω–∏–≤–æ–º" –ø–æ–¥—Ö–æ–¥–µ –±—ã–ª–æ –±—ã –¥–æ—Å—Ç–∞—Ç–æ—á–Ω–æ
+-- –ø–æ—á–∏—Å—Ç–∏—Ç—å –ø—Ä–∏–∑–Ω–∞–∫ "created" —É –æ–±—ä–µ–∫—Ç–æ–≤ –∏–∑ —ç—Ç–æ–≥–æ —Å–ø–∏—Å–∫–∞
 
 <* IF db_code THEN *> io.print("make_usage: %s\n", p.name^); <* END *>
   u := p.type.use;
@@ -1910,7 +1910,7 @@ BEGIN
          & (o.type.mode=pc.ty_record) & (o.type.flag IN opt.LangsWithRTTI) THEN
           change_info(o, at.a_type, at.BASE+ir.y_RealVar, VAL(at.InfExtName, arg.name));
       END;
-    END;                               (* ß§•·Ï ÂÆ‡ÆËÆ °Î „Á•·‚Ï ® offset *)
+    END;                               (* –∑–¥–µ—Å—å —Ö–æ—Ä–æ—à–æ –±—ã —É—á–µ—Å—Ç—å –∏ offset *)
     u := u.next;
   END;
 END make_usage;
@@ -1938,7 +1938,7 @@ BEGIN
   gr.AppendTr(q);
   at.app_info(p, at.a_mybase, ir.y_Variable, VAL(at.InfExtName, q.Name), NIL, 0);
 
-(* §‡„£Æ© ¢†‡®†≠‚ - °•ß Ø‡®·¢†®¢†≠®©:
+(* –¥—Ä—É–≥–æ–π –≤–∞—Ä–∏–∞–Ω—Ç - –±–µ–∑ –ø—Ä–∏—Å–≤–∞–∏–≤–∞–Ω–∏–π:
   loc := at.loc_by_obj(v);
   at.app_info(p, at.a_mybase, at.BASE+ir.y_AddrConst, loc, NIL, -ir.Locals[loc].Offset);
 *)
@@ -1948,7 +1948,7 @@ PROCEDURE init_o2_ptrs;                 (* result - in opProcs.MustFillFrame *)
   VAR o: pc.OBJECT; type: pc.STRUCT;
     q: ir.TriadePtr; arg : ir.Arg;
     o2_ptr : BOOLEAN;
-BEGIN      (* ¨Æ¶•‚ °Î‚Ï ´„ÁË• ØÆ‚Æ¨ Ø‡Æ©‚®·Ï ØÆ ir.Locals ?? *)
+BEGIN      (* –º–æ–∂–µ—Ç –±—ã—Ç—å –ª—É—á—à–µ –ø–æ—Ç–æ–º –ø—Ä–æ–π—Ç–∏—Å—å –ø–æ ir.Locals ?? *)
   o2_ptr := FALSE;
   o := at.curr_proc.type.mem;
   LOOP
@@ -1986,7 +1986,7 @@ BEGIN
     IF o.mode IN pc.VARs THEN
       at.del_attr(o.ext, at.a_self);
       EXCL(o.tags, at.otag_declared);
-      (* ≠†§Æ ¢¢•·‚® ‚•£(®) §´Ô †‚‡®°„‚Æ¢ *)
+      (* –Ω–∞–¥–æ –≤–≤–µ—Å—Ç–∏ —Ç–µ–≥(–∏) –¥–ª—è –∞—Ç—Ä–∏–±—É—Ç–æ–≤ *)
     END;
     o := o.next;
   END;
@@ -2341,7 +2341,7 @@ BEGIN
 
   ir.SetSilentMode ();
 
-  get_params(p);                  (* Ø‡®≠Ô‚Ï Ø†‡†¨•‚‡Î *)
+  get_params(p);                  (* –ø—Ä–∏–Ω—è—Ç—å –ø–∞—Ä–∞–º–µ—Ç—Ä—ã *)
 
 (*
   pcVis.print("\n----------------- opCode.gen_proc('%s')\n", p.name^);
@@ -2353,9 +2353,9 @@ BEGIN
 
   alloc_threatened(p);
 
-  make_usage(p);                  (* Ø‡®Ø®·†‚Ï †‚‡®°„‚Î ¢≠•Ë≠®¨ Ø•‡•¨•≠≠Î¨ *)
+  make_usage(p);                  (* –ø—Ä–∏–ø–∏—Å–∞—Ç—å –∞—Ç—Ä–∏–±—É—Ç—ã –≤–Ω–µ—à–Ω–∏–º –ø–µ—Ä–µ–º–µ–Ω–Ω—ã–º *)
   IF based # NIL THEN
-    make_mybase(p, based);        (* ß†¢•·‚® Ø•‡•¨•≠≠„Ó - °†ß„ Ø‡ÆÊ•§„‡Î *)
+    make_mybase(p, based);        (* –∑–∞–≤–µ—Å—Ç–∏ –ø–µ—Ä–µ–º–µ–Ω–Ω—É—é - –±–∞–∑—É –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
   END;
   copy_params(p);
 
@@ -2363,7 +2363,7 @@ BEGIN
   ir.SetNormalMode ();
 
   ini_labels;
-  gen_sequence(p.val.r, FALSE, FALSE, dd);      (* ‚•´Æ Ø‡ÆÊ•§„‡Î *)
+  gen_sequence(p.val.r, FALSE, FALSE, dd);      (* —Ç–µ–ª–æ –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
   ir.SetSilentMode;
   IF p.type.base.mode = pc.ty_void THEN
     q := ir.NewTriadeInit(0, ir.o_ret, ir.t_void, 0);
@@ -2506,7 +2506,7 @@ BEGIN
     at.stk_lim := 0;
   ELSE
     IF (at.TARGET = at.trg_FLASHTEK) THEN
-      at.stk_lim := 0; (* ®≠†Á• - ≠•Ø‡®Ô‚≠Æ·‚® ·Æ ß≠†™Æ¨ '=' ¢ ™Æ¨†≠§. ·‚‡Æ™• *)
+      at.stk_lim := 0; (* –∏–Ω–∞—á–µ - –Ω–µ–ø—Ä–∏—è—Ç–Ω–æ—Å—Ç–∏ —Å–æ –∑–Ω–∞–∫–æ–º '=' –≤ –∫–æ–º–∞–Ω–¥. —Å—Ç—Ä–æ–∫–µ *)
     END;
     set_stack_limit(at.stk_lim);
   END;
@@ -2514,8 +2514,8 @@ BEGIN
   get_heap_parameters;
 
   q := def.RTS_call(tpos, std.X2C_BEGIN, TRUE);
-  ir.MakeParAddr(q.Params[1], argc, 0);    (* Ø†‡†¨•‚‡Î Æ‚ main *)
-  ir.MakeParLocal(q.Params[2], argv);      (* Ø†‡†¨•‚‡Î Æ‚ main *)
+  ir.MakeParAddr(q.Params[1], argc, 0);    (* –ø–∞—Ä–∞–º–µ—Ç—Ä—ã –æ—Ç main *)
+  ir.MakeParLocal(q.Params[2], argv);      (* –ø–∞—Ä–∞–º–µ—Ç—Ä—ã –æ—Ç main *)
   ir.MakeParNum(q.Params[3], def.val(ORD(at.gc_auto)));
   ir.MakeParNum(q.Params[4], def.val(at.gc_thres));
   ir.MakeParNum(q.Params[5], def.val(at.heap_lim));
@@ -2534,7 +2534,7 @@ BEGIN
     at.stk_lim := 0;
   ELSE
     IF (at.TARGET = at.trg_FLASHTEK) THEN
-      at.stk_lim := 0; (* ®≠†Á• - ≠•Ø‡®Ô‚≠Æ·‚® ·Æ ß≠†™Æ¨ '=' ¢ ™Æ¨†≠§. ·‚‡Æ™• *)
+      at.stk_lim := 0; (* –∏–Ω–∞—á–µ - –Ω–µ–ø—Ä–∏—è—Ç–Ω–æ—Å—Ç–∏ —Å–æ –∑–Ω–∞–∫–æ–º '=' –≤ –∫–æ–º–∞–Ω–¥. —Å—Ç—Ä–æ–∫–µ *)
     END;
     set_stack_limit(at.stk_lim);
   END;
@@ -2728,7 +2728,7 @@ BEGIN
 
     ini_labels;
     def.enter_statement(tmps);
-    gen_alt(at.curr_mod.val.r, FALSE, FALSE, ret);  (* ‚•´Æ ¨Æ§„´Ô *)
+    gen_alt(at.curr_mod.val.r, FALSE, FALSE, ret);  (* —Ç–µ–ª–æ –º–æ–¥—É–ª—è *)
     def.exit_statement(tmps);
     def.tmp_vars := NIL;
     ASSERT(def.tmp_busy = NIL);
@@ -2854,7 +2854,7 @@ END out_object;
 PROCEDURE (c: CODE) inp_object(f: xfs.SymFile; o: pc.OBJECT; id: LONGINT);
 BEGIN
   at.inp_object(f, o, id);
-  (* ß†‚•¨ ØÆÁ®·‚®¨ ‚Ì£® -- ØÆ ®·‚Æ‡®Á•·™®¨ Ø‡®Á®≠†¨ *)
+  (* –∑–∞—Ç–µ–º –ø–æ—á–∏—Å—Ç–∏–º —Ç—ç–≥–∏ -- –ø–æ –∏—Å—Ç–æ—Ä–∏—á–µ—Å–∫–∏–º –ø—Ä–∏—á–∏–Ω–∞–º *)
   o.tags := o.tags - (pc.OTAG_SET{pc.otag_aux1 .. pc.otag_aux12} - pc.OTAG_SET{ at.otag_versionkey });
 END inp_object;
 
@@ -3158,7 +3158,7 @@ BEGIN
         o := o.next;
       END;
     END;
-    pcVis.print("%.40c ™Æ≠•Ê ¨Æ§„´Ô %d\n", '-', i);
+    pcVis.print("%.40c –∫–æ–Ω–µ—Ü –º–æ–¥—É–ª—è %d\n", '-', i);
   END;
 END vis_mods;
 *)
@@ -3213,7 +3213,7 @@ BEGIN
                                     TRUE);
   def.collect_glob_vars(prof);
   def.collect_glob_vars(mem);
---  def.collect_glob_vars(at.work_objects); - Ì‚® Æ°Í•™‚Î ØÆÔ¢Ô‚·Ô ‚Æ´Ï™Æ ØÆ‚Æ¨
+--  def.collect_glob_vars(at.work_objects); - —ç—Ç–∏ –æ–±—ä–µ–∫—Ç—ã –ø–æ—è–≤—è—Ç—Å—è —Ç–æ–ª—å–∫–æ –ø–æ—Ç–æ–º
   def.alloc_glob_vars;
   def.clear_glob_info;
  <* END *>

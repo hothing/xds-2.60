@@ -194,7 +194,7 @@ PROCEDURE mark_objects(mod: pc.OBJECT;
     IF t.base#NIL THEN mark_type_name(t.base) END;
     IF t.inx #NIL THEN mark_type_name(t.inx) END;
     IF t.mode=pc.ty_record THEN
-      (* ß†≠Æ·®¨ ¢ ·Ø®·Æ™ ¨•‚Æ§Î *)
+      (* –∑–∞–Ω–æ—Å–∏–º –≤ —Å–ø–∏—Å–æ–∫ –º–µ—Ç–æ–¥—ã *)
       o:=t.mem;
       WHILE o#NIL DO
         ASSERT(o.mode=pc.ob_xproc);
@@ -206,7 +206,7 @@ PROCEDURE mark_objects(mod: pc.OBJECT;
         END;
         o:=o.next;
       END;
-      (* ØÆ¨•Á†•¨ ØÆ´Ô *)
+      (* –ø–æ–º–µ—á–∞–µ–º –ø–æ–ª—è *)
       o:=t.prof;
       WHILE o#NIL DO
         IF (style=st_body) OR (pc.otag_public_f IN o.tags) THEN
@@ -542,7 +542,7 @@ BEGIN
 END out_prm_name;
 
 PROCEDURE out_type_name(t: pc.STRUCT);
-(* ¢Î¢Æ§®‚ ®¨Ô ‚®Ø†, •·´® ®¨•≠® ≠•‚ ‚Æ ™†™„Ó-≠®°„§Ï ßÓ™„ *)
+(* –≤—ã–≤–æ–¥–∏—Ç –∏–º—è —Ç–∏–ø–∞, –µ—Å–ª–∏ –∏–º–µ–Ω–∏ –Ω–µ—Ç —Ç–æ –∫–∞–∫—É—é-–Ω–∏–±—É–¥—å –∑—é–∫—É *)
 BEGIN
   ASSERT(t#NIL);
   CASE t.mode OF
@@ -639,7 +639,7 @@ BEGIN
     wc("("); out_type_ref(ps,t.base,lev,dso); wc(")");
   END;
 
-  (* ¢ÎÁ®·´®¨ ¨†™·®¨†´Ï≠„Ó §´®≠„ ®¨•≠® ØÆ´Ô *)
+  (* –≤—ã—á–∏—Å–ª–∏–º –º–∞–∫—Å–∏–º–∞–ª—å–Ω—É—é –¥–ª–∏–Ω—É –∏–º–µ–Ω–∏ –ø–æ–ª—è *)
   l:=t.prof; m:=0;
   WHILE l#NIL DO
     IF omark_vis IN l.marks THEN
@@ -681,7 +681,7 @@ BEGIN
   END;
   out_comment(ps,get_ps(t.end),dso,FALSE,'');
 
-  (* ¢Î¢•§•¨ ·Ø®·Æ™ ¨•‚Æ§Æ¢ *)
+  (* –≤—ã–≤–µ–¥–µ–º —Å–ø–∏—Å–æ–∫ –º–µ—Ç–æ–¥–æ–≤ *)
   IF style#st_body THEN
     out_methods_xref(t,style=st_def,lev+2,lev+2+dso);
   END;
@@ -744,7 +744,7 @@ BEGIN
 END out_type_def;
 
 PROCEDURE out_type_ref(VAR ps: LONGINT; t: pc.STRUCT; lev,dso: INTEGER);
-(* ¢Î¢Æ§®‚ ··Î´™„ ≠† ‚®Ø, ‚.•. •£Æ ®¨Ô (•·´® Æ≠Æ •·‚Ï) ®´® •£Æ ÆØ®·†≠®• *)
+(* –≤—ã–≤–æ–¥–∏—Ç —Å—Å—ã–ª–∫—É –Ω–∞ —Ç–∏–ø, —Ç.–µ. –µ–≥–æ –∏–º—è (–µ—Å–ª–∏ –æ–Ω–æ –µ—Å—Ç—å) –∏–ª–∏ –µ–≥–æ –æ–ø–∏—Å–∞–Ω–∏–µ *)
 BEGIN
   IF (t.obj#NIL) & valid_name(t.obj.name) THEN
     out_type_name(t);

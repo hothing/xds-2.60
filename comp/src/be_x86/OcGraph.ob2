@@ -98,8 +98,8 @@ PROCEDURE AreLocationsPossiblyIntersect(v1-, v2- : def.Vars;
 
 BEGIN
    additional_check := FALSE;
-   (* предполагается, что если мы сюда попали, то
-     оба адреса нетривиальные
+   (* ╨┐╤А╨╡╨┤╨┐╨╛╨╗╨░╨│╨░╨╡╤В╤Б╤П, ╤З╤В╨╛ ╨╡╤Б╨╗╨╕ ╨╝╤Л ╤Б╤О╨┤╨░ ╨┐╨╛╨┐╨░╨╗╨╕, ╤В╨╛
+     ╨╛╨▒╨░ ╨░╨┤╤А╨╡╤Б╨░ ╨╜╨╡╤В╤А╨╕╨▓╨╕╨░╨╗╤М╨╜╤Л╨╡
    *)
    IF v1.vs <> NIL THEN
        IF (IsDefined(v2.l) AND (v2.l < Color.NLocals) AND b.In(v1.vs,ORD(v2.l))) OR
@@ -113,12 +113,12 @@ BEGIN
           RETURN TRUE;
        END;
    END;
-   (* больше v_i.vs меня не интересуют *)
-   IF IsDefined(v1.l) THEN (* v1 --- хороший *)
-       IF IsDefined(v2.l) THEN (* v2 --- хороший *)
+   (* ╨▒╨╛╨╗╤М╤И╨╡ v_i.vs ╨╝╨╡╨╜╤П ╨╜╨╡ ╨╕╨╜╤В╨╡╤А╨╡╤Б╤Г╤О╤В *)
+   IF IsDefined(v1.l) THEN (* v1 --- ╤Е╨╛╤А╨╛╤И╨╕╨╣ *)
+       IF IsDefined(v2.l) THEN (* v2 --- ╤Е╨╛╤А╨╛╤И╨╕╨╣ *)
            additional_check := TRUE;
            RETURN v1.l = v2.l;
-       ELSE (* v2 --- плохой *)
+       ELSE (* v2 --- ╨┐╨╗╨╛╤Е╨╛╨╣ *)
            RETURN (v1.l < Color.NLocals) AND
                   (ir.IsExternal(v1.l) OR ir.Locals[v1.l].Addressed);
        END;
@@ -133,7 +133,7 @@ BEGIN
 END AreLocationsPossiblyIntersect;
 
 
-(* сравнение списков смещений из адресов *)
+(* ╤Б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╤Б╨┐╨╕╤Б╨║╨╛╨▓ ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╨╣ ╨╕╨╖ ╨░╨┤╤А╨╡╤Б╨╛╨▓ *)
 PROCEDURE CompareOffsLists(l1,l2  : Emit.OffsRecPtr) : BOOLEAN;
 BEGIN
     LOOP
@@ -145,7 +145,7 @@ BEGIN
     END;
 END CompareOffsLists;
 
-(* сравнение списков процедур из адресов *)
+(* ╤Б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╤Б╨┐╨╕╤Б╨║╨╛╨▓ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А ╨╕╨╖ ╨░╨┤╤А╨╡╤Б╨╛╨▓ *)
 PROCEDURE CompareProcLists(l1,l2  : Emit.ProcRecPtr) : BOOLEAN;
 BEGIN
     LOOP
@@ -157,7 +157,7 @@ BEGIN
     END;
 END CompareProcLists;
 
-(* сравнение адресов без смещений *)
+(* ╤Б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╨░╨┤╤А╨╡╤Б╨╛╨▓ ╨▒╨╡╨╖ ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╨╣ *)
 PROCEDURE CompareAddrsNoOffs(a1-,a2- : def.AddrMode) : BOOLEAN;
 BEGIN
     RETURN (a1.place1.r  = a2.place1.r)  &  (a1.place2.r = a2.place2.r) &
@@ -352,7 +352,7 @@ BEGIN
    END;
 
    IF oused_mem OR oset_mem THEN
-      (* определяем зависимости с предыдущими командами, пользующими память *)
+      (* ╨╛╨┐╤А╨╡╨┤╨╡╨╗╤П╨╡╨╝ ╨╖╨░╨▓╨╕╤Б╨╕╨╝╨╛╤Б╤В╨╕ ╤Б ╨┐╤А╨╡╨┤╤Л╨┤╤Г╤Й╨╕╨╝╨╕ ╨║╨╛╨╝╨░╨╜╨┤╨░╨╝╨╕, ╨┐╨╛╨╗╤М╨╖╤Г╤О╤Й╨╕╨╝╨╕ ╨┐╨░╨╝╤П╤В╤М *)
       FOR j:=0 TO NextMemShiftLen-1 DO
           ii := NextMemShift[j];
           iused_mem := def.USED_MEM IN SEGM.code[ii].attrs.tag_attrs;

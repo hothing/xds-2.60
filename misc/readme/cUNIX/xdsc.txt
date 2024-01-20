@@ -33,7 +33,7 @@ The following directory structure is created during installation:
 xds/
     bin             executable and system files
     C/      
-        ‘           XDS-C libraries source code
+        Ð¡           XDS-C libraries source code
     def/            definition modules:
         iso             ISO Modula-2 library
         ob2             Oberon-2 library pseudo-definition modules

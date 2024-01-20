@@ -857,7 +857,7 @@ BEGIN
      <* END *>
       IF (ln # predln) & (of # predof) THEN
         linum.SegmentNumber := seg;
-        linum.LineNumber := ln+1; -- ‚.™. front-end ·Á®‚†•‚ ≠Æ¨•‡† ·‚‡Æ™ · 0
+        linum.LineNumber := ln+1; -- —Ç.–∫. front-end —Å—á–∏—Ç–∞–µ—Ç –Ω–æ–º–µ—Ä–∞ —Å—Ç—Ä–æ–∫ —Å 0
         linum.CodeOffset := of;
         cmd.GenBuf (linum);
         predln := ln;

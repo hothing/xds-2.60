@@ -38,8 +38,8 @@ IMPORT
 (*
         Additional object names
 ob_proc
-        0 _ret  - переменная для возврата результата
-        1 _type - имя типа (для методов)
+        0 _ret  - ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╨░╤П ╨┤╨╗╤П ╨▓╨╛╨╖╨▓╤А╨░╤В╨░ ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В╨░
+        1 _type - ╨╕╨╝╤П ╤В╨╕╨┐╨░ (╨┤╨╗╤П ╨╝╨╡╤В╨╛╨┤╨╛╨▓)
 ob_module
         0 _init
         1 _BEGIN
@@ -48,11 +48,11 @@ ob_module
         4 _cmds
         5 _cnms
 ob_field
-        0..n    - путь для вариантных имен
+        0..n    - ╨┐╤Г╤В╤М ╨┤╨╗╤П ╨▓╨░╤А╨╕╨░╨╜╤В╨╜╤Л╤Е ╨╕╨╝╨╡╨╜
 ob_type
-        1 _desc   - дескриптор типа
-        2 _offs   - список оффсетов
-        3 _proc   - список методов
+        1 _desc   - ╨┤╨╡╤Б╨║╤А╨╕╨┐╤В╨╛╤А ╤В╨╕╨┐╨░
+        2 _offs   - ╤Б╨┐╨╕╤Б╨╛╨║ ╨╛╤Д╤Д╤Б╨╡╤В╨╛╨▓
+        3 _proc   - ╤Б╨┐╨╕╤Б╨╛╨║ ╨╝╨╡╤В╨╛╨┤╨╛╨▓
 ob_varpar
         0 _type
 *)
@@ -60,8 +60,8 @@ ob_varpar
 TYPE
   STR* = ARRAY 256 OF CHAR;
   PRM_BUF* = ARRAY 256 OF RECORD
-    mode*: SHORTINT;    (* вид параметра: pm_*, см. CONST *)
-    ref *: SET;         (* мода генерации *)
+    mode*: SHORTINT;    (* ╨▓╨╕╨┤ ╨┐╨░╤А╨░╨╝╨╡╤В╤А╨░: pm_*, ╤Б╨╝. CONST *)
+    ref *: SET;         (* ╨╝╨╛╨┤╨░ ╨│╨╡╨╜╨╡╤А╨░╤Ж╨╕╨╕ *)
     obj *: pc.OBJECT;
   END;
   TMP_VAR* = POINTER TO TMP_VAR_REC;
@@ -76,14 +76,14 @@ TYPE
 
 CONST
   (* expression generation mode *)
-  REF*  = 0;    (* генерить указатель вместо значения                   *)
-  ANY*  = 1;    (* генерить указатель (или значение) произвольного С-типа *)
-  LVL*  = 2;    (* генерить l-value (или ссылку на него если REF)       *)
-  BSA*  = 3;    (* генерить правильный тип либо указатель на базовый тип *)
-  CCH*  = 5;    (* строковые литералы генерить сишными                  *)
+  REF*  = 0;    (* ╨│╨╡╨╜╨╡╤А╨╕╤В╤М ╤Г╨║╨░╨╖╨░╤В╨╡╨╗╤М ╨▓╨╝╨╡╤Б╤В╨╛ ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П                   *)
+  ANY*  = 1;    (* ╨│╨╡╨╜╨╡╤А╨╕╤В╤М ╤Г╨║╨░╨╖╨░╤В╨╡╨╗╤М (╨╕╨╗╨╕ ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡) ╨┐╤А╨╛╨╕╨╖╨▓╨╛╨╗╤М╨╜╨╛╨│╨╛ ╨б-╤В╨╕╨┐╨░ *)
+  LVL*  = 2;    (* ╨│╨╡╨╜╨╡╤А╨╕╤В╤М l-value (╨╕╨╗╨╕ ╤Б╤Б╤Л╨╗╨║╤Г ╨╜╨░ ╨╜╨╡╨│╨╛ ╨╡╤Б╨╗╨╕ REF)       *)
+  BSA*  = 3;    (* ╨│╨╡╨╜╨╡╤А╨╕╤В╤М ╨┐╤А╨░╨▓╨╕╨╗╤М╨╜╤Л╨╣ ╤В╨╕╨┐ ╨╗╨╕╨▒╨╛ ╤Г╨║╨░╨╖╨░╤В╨╡╨╗╤М ╨╜╨░ ╨▒╨░╨╖╨╛╨▓╤Л╨╣ ╤В╨╕╨┐ *)
+  CCH*  = 5;    (* ╤Б╤В╤А╨╛╨║╨╛╨▓╤Л╨╡ ╨╗╨╕╤В╨╡╤А╨░╨╗╤Л ╨│╨╡╨╜╨╡╤А╨╕╤В╤М ╤Б╨╕╤И╨╜╤Л╨╝╨╕                  *)
   NEG*  = 6;
-  BLN*  = 7;    (* условное выражение, значение будет сравниваться с нулем *)
-  CNS*  = 8;    (* выражение-инициализация: допустимы агрегаты          *)
+  BLN*  = 7;    (* ╤Г╤Б╨╗╨╛╨▓╨╜╨╛╨╡ ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╨╡, ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡ ╨▒╤Г╨┤╨╡╤В ╤Б╤А╨░╨▓╨╜╨╕╨▓╨░╤В╤М╤Б╤П ╤Б ╨╜╤Г╨╗╨╡╨╝ *)
+  CNS*  = 8;    (* ╨▓╤Л╤А╨░╨╢╨╡╨╜╨╕╨╡-╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨░╤Ж╨╕╤П: ╨┤╨╛╨┐╤Г╤Б╤В╨╕╨╝╤Л ╨░╨│╤А╨╡╨│╨░╤В╤Л          *)
   CHK*  = 9;    (* constant expression                                  *)
   CRF   =10;    (* reference                                            *)
   PLS*  =11;    (* addition or multiplication context                   *)
@@ -119,7 +119,7 @@ VAR
   cns_vars      : TMP_VAR;
   tmp_vars     *: TMP_VAR;
   tmp_busy     *: TMP_VAR;
-  gen_def      *: BOOLEAN; (* TRUE если идет генерация DEFINITION *)
+  gen_def      *: BOOLEAN; (* TRUE ╨╡╤Б╨╗╨╕ ╨╕╨┤╨╡╤В ╨│╨╡╨╜╨╡╤А╨░╤Ж╨╕╤П DEFINITION *)
 
   cur_mod      *: pc.OBJECT; (* current module *)
   mod_usage    *: POINTER TO ARRAY OF BOOLEAN; (* must be included *)
@@ -496,9 +496,9 @@ BEGIN
   t:=t.obj.type; (* this is requared for SL1 *)
   IF ~ren & (t.mode=pc.ty_enum) & (cur_mod.type.flag # pc.flag_bnrp) THEN --$$$
     mod_usage[t.mno]:=TRUE; (* ! *)
-    (* для enum используем базовый тип с целью улучшения
-       переносимости C-текстов, проблема в том, что
-       sizeof(enum X) не определен
+    (* ╨┤╨╗╤П enum ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝ ╨▒╨░╨╖╨╛╨▓╤Л╨╣ ╤В╨╕╨┐ ╤Б ╤Ж╨╡╨╗╤М╤О ╤Г╨╗╤Г╤З╤И╨╡╨╜╨╕╤П
+       ╨┐╨╡╤А╨╡╨╜╨╛╤Б╨╕╨╝╨╛╤Б╤В╨╕ C-╤В╨╡╨║╤Б╤В╨╛╨▓, ╨┐╤А╨╛╨▒╨╗╨╡╨╝╨░ ╨▓ ╤В╨╛╨╝, ╤З╤В╨╛
+       sizeof(enum X) ╨╜╨╡ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜
     *)
     RETURN t_usage(t.base,nm,def,FALSE);
   END;
@@ -724,9 +724,9 @@ PROCEDURE const_aggregate*(v: pc.VALUE; t: pc.STRUCT; p: INTEGER; def,cch: BOOLE
   VAR tmp: STR;
 
   PROCEDURE tmp_in(): BOOLEAN;
-    (* RETURN TRUE если константа уже описана, при этом ее имя
-        записывается в выходной поток, т.е. больше ничего генерить
-        не нужно.
+    (* RETURN TRUE ╨╡╤Б╨╗╨╕ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╨░ ╤Г╨╢╨╡ ╨╛╨┐╨╕╤Б╨░╨╜╨░, ╨┐╤А╨╕ ╤Н╤В╨╛╨╝ ╨╡╨╡ ╨╕╨╝╤П
+        ╨╖╨░╨┐╨╕╤Б╤Л╨▓╨░╨╡╤В╤Б╤П ╨▓ ╨▓╤Л╤Е╨╛╨┤╨╜╨╛╨╣ ╨┐╨╛╤В╨╛╨║, ╤В.╨╡. ╨▒╨╛╨╗╤М╤И╨╡ ╨╜╨╕╤З╨╡╨│╨╛ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М
+        ╨╜╨╡ ╨╜╤Г╨╢╨╜╨╛.
     *)
     VAR bf: STR; c: TMP_VAR;
   BEGIN
@@ -825,8 +825,8 @@ PROCEDURE const_aggregate*(v: pc.VALUE; t: pc.STRUCT; p: INTEGER; def,cch: BOOLE
     make_temp_var(t,nm);
     out.wr('(');
     FOR n:=0 TO t.len-1 DO
-      (* Нужно создавать новый объект на каждый элемент массива,
-         он используется в глобальном списке констант
+      (* ╨Э╤Г╨╢╨╜╨╛ ╤Б╨╛╨╖╨┤╨░╨▓╨░╤В╤М ╨╜╨╛╨▓╤Л╨╣ ╨╛╨▒╤К╨╡╨║╤В ╨╜╨░ ╨║╨░╨╢╨┤╤Л╨╣ ╤Н╨╗╨╡╨╝╨╡╨╜╤В ╨╝╨░╤Б╤Б╨╕╨▓╨░,
+         ╨╛╨╜ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В╤Б╤П ╨▓ ╨│╨╗╨╛╨▒╨░╨╗╤М╨╜╨╛╨╝ ╤Б╨┐╨╕╤Б╨║╨╡ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В
       *)
       w:=pc.value.new(v.pos,t.base);
       w.index_get(n,v);
@@ -1113,15 +1113,15 @@ BEGIN
 END get_bytes;
 
 PROCEDURE get_base_type*(t: pc.STRUCT): pc.STRUCT;
-  (* для типов, которые в С являются массивами, выдает базовай тип,
-     т.е. тип, с указателем на который даннй тип совместим *)
+  (* ╨┤╨╗╤П ╤В╨╕╨┐╨╛╨▓, ╨║╨╛╤В╨╛╤А╤Л╨╡ ╨▓ ╨б ╤П╨▓╨╗╤П╤О╤В╤Б╤П ╨╝╨░╤Б╤Б╨╕╨▓╨░╨╝╨╕, ╨▓╤Л╨┤╨░╨╡╤В ╨▒╨░╨╖╨╛╨▓╨░╨╣ ╤В╨╕╨┐,
+     ╤В.╨╡. ╤В╨╕╨┐, ╤Б ╤Г╨║╨░╨╖╨░╤В╨╡╨╗╨╡╨╝ ╨╜╨░ ╨║╨╛╤В╨╛╤А╤Л╨╣ ╨┤╨░╨╜╨╜╨╣ ╤В╨╕╨┐ ╤Б╨╛╨▓╨╝╨╡╤Б╤В╨╕╨╝ *)
 BEGIN
   ASSERT(is_c_arr(t));
   IF t.mode=pc.ty_array_of THEN
     REPEAT t:=t.base UNTIL t.mode#pc.ty_array_of;
     RETURN t;
   ELSIF t.mode IN pc.ARRs THEN
-    (* !!!!!! а как насчет многомерных массивов ? *)
+    (* !!!!!! ╨░ ╨║╨░╨║ ╨╜╨░╤Б╤З╨╡╤В ╨╝╨╜╨╛╨│╨╛╨╝╨╡╤А╨╜╤Л╤Е ╨╝╨░╤Б╤Б╨╕╨▓╨╛╨▓ ? *)
     RETURN t.base;
   ELSE
     ASSERT(t.mode=pc.ty_set);
@@ -1264,7 +1264,7 @@ PROCEDURE func_params*(
     ELSIF is_pointer(o,t)   THEN INCL(prm_buf[prm_cnt].ref,REF);
     ELSIF is_c_arr(o.type)  THEN INCL(prm_buf[prm_cnt].ref,BSA);
     END;
-    (* если array_of то надо передать длины *)
+    (* ╨╡╤Б╨╗╨╕ array_of ╤В╨╛ ╨╜╨░╨┤╨╛ ╨┐╨╡╤А╨╡╨┤╨░╤В╤М ╨┤╨╗╨╕╨╜╤Л *)
     IF o.type.mode=pc.ty_array_of THEN
       FOR i:=0 TO o.type.len-1 DO
         INC(prm_cnt);
@@ -1353,10 +1353,10 @@ PROCEDURE func_profile_definition*(
                 VAR res: ARRAY OF CHAR;
                 def,pdf: BOOLEAN);
 (*
-        def: TRUE если в профиле должны быть указаны имена параметров,
-             т.е. за профилем последует тело функции.
-        pdf: FALSE собственно профиль
-             TRUE описание параметров (в стиле устаревшего С)
+        def: TRUE ╨╡╤Б╨╗╨╕ ╨▓ ╨┐╤А╨╛╤Д╨╕╨╗╨╡ ╨┤╨╛╨╗╨╢╨╜╤Л ╨▒╤Л╤В╤М ╤Г╨║╨░╨╖╨░╨╜╤Л ╨╕╨╝╨╡╨╜╨░ ╨┐╨░╤А╨░╨╝╨╡╤В╤А╨╛╨▓,
+             ╤В.╨╡. ╨╖╨░ ╨┐╤А╨╛╤Д╨╕╨╗╨╡╨╝ ╨┐╨╛╤Б╨╗╨╡╨┤╤Г╨╡╤В ╤В╨╡╨╗╨╛ ╤Д╤Г╨╜╨║╤Ж╨╕╨╕.
+        pdf: FALSE ╤Б╨╛╨▒╤Б╤В╨▓╨╡╨╜╨╜╨╛ ╨┐╤А╨╛╤Д╨╕╨╗╤М
+             TRUE ╨╛╨┐╨╕╤Б╨░╨╜╨╕╨╡ ╨┐╨░╤А╨░╨╝╨╡╤В╤А╨╛╨▓ (╨▓ ╤Б╤В╨╕╨╗╨╡ ╤Г╤Б╤В╨░╤А╨╡╨▓╤И╨╡╨│╨╛ ╨б)
 *)
 
   VAR
@@ -1404,7 +1404,7 @@ BEGIN
       nm:=""; (* assigment to suppress warning: used before definition *)
     END;
     IF cc.op_krc & ~pdf THEN
-      COPY(nm,buf); (* только имя параметра *)
+      COPY(nm,buf); (* ╤В╨╛╨╗╤М╨║╨╛ ╨╕╨╝╤П ╨┐╨░╤А╨░╨╝╨╡╤В╤А╨░ *)
     ELSIF prm_buf[i].mode=pm_seq THEN
       buf:="...";
     ELSIF prm_buf[i].mode IN {pm_type,pm_thr_type} THEN
@@ -1439,7 +1439,7 @@ PROCEDURE type_constructor(
         in_prm  : BOOLEAN;
         t       : pc.STRUCT): BOOLEAN;
 
-(* если может, порождает конструктор (не обозначение) типа *)
+(* ╨╡╤Б╨╗╨╕ ╨╝╨╛╨╢╨╡╤В, ╨┐╨╛╤А╨╛╨╢╨┤╨░╨╡╤В ╨║╨╛╨╜╤Б╤В╤А╤Г╨║╤В╨╛╤А (╨╜╨╡ ╨╛╨▒╨╛╨╖╨╜╨░╤З╨╡╨╜╨╕╨╡) ╤В╨╕╨┐╨░ *)
 
   VAR buf,prm,pcl: STR; l: LONGINT; rf: BOOLEAN;
 BEGIN
@@ -1742,7 +1742,7 @@ BEGIN
 END array_of_declaration;
 
 PROCEDURE type_declaration(o: pc.OBJECT);
-(* предварительное объявление типа *)
+(* ╨┐╤А╨╡╨┤╨▓╨░╤А╨╕╤В╨╡╨╗╤М╨╜╨╛╨╡ ╨╛╨▒╤К╤П╨▓╨╗╨╡╨╜╨╕╨╡ ╤В╨╕╨┐╨░ *)
 
   PROCEDURE recursion_in_parms(p: pc.OBJECT);
   BEGIN
@@ -1841,7 +1841,7 @@ BEGIN
 END loc_var_declaration;
 
 PROCEDURE func_declaration(o: pc.OBJECT);
-(* предварительное описание функции *)
+(* ╨┐╤А╨╡╨┤╨▓╨░╤А╨╕╤В╨╡╨╗╤М╨╜╨╛╨╡ ╨╛╨┐╨╕╤Б╨░╨╜╨╕╨╡ ╤Д╤Г╨╜╨║╤Ж╨╕╨╕ *)
   VAR
     buf: ARRAY 2048 OF CHAR; (* must be large *)
     nm : STR;
@@ -1871,7 +1871,7 @@ BEGIN
 END func_declaration;
 
 PROCEDURE object_declaration*(o: pc.OBJECT);
-(* предварительное объявление объекта *)
+(* ╨┐╤А╨╡╨┤╨▓╨░╤А╨╕╤В╨╡╨╗╤М╨╜╨╛╨╡ ╨╛╨▒╤К╤П╨▓╨╗╨╡╨╜╨╕╨╡ ╨╛╨▒╤К╨╡╨║╤В╨░ *)
   VAR i: nms.INFO; sv: TMP_VAR;
 BEGIN
   IF cc.otag_declared IN o.tags THEN RETURN END;

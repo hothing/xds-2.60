@@ -33,21 +33,21 @@ TYPE INT = ir.INT;
   CNST_VAR = POINTER TO CNST_VAR_REC;
 
   CNST_VAR_REC = RECORD
-    c_const: BOOLEAN;     (* ™Æ≠·‚†≠‚† ë®Ë≠†Ô *)
+    c_const: BOOLEAN;     (* –∫–æ–Ω—Å—Ç–∞–Ω—Ç–∞ –°–∏—à–Ω–∞—è *)
     type: pc.STRUCT;
     obj : pc.OBJECT;
     next: CNST_VAR;
   END;
 
-CONST  (* ---- ¨Æ§Î £•≠•‡†Ê®® ---- *)
-  REF*  = ir.REF;    (* ‚‡•°„•‚·Ô †§‡•· *)
-  LVL*  = ir.LVL;    (* ‚‡•°„•‚·Ô l-value (†§‡•· ®´® Æ°Í•™‚) *)
+CONST  (* ---- –º–æ–¥—ã –≥–µ–Ω–µ—Ä–∞—Ü–∏–∏ ---- *)
+  REF*  = ir.REF;    (* —Ç—Ä–µ–±—É–µ—Ç—Å—è –∞–¥—Ä–µ—Å *)
+  LVL*  = ir.LVL;    (* —Ç—Ä–µ–±—É–µ—Ç—Å—è l-value (–∞–¥—Ä–µ—Å –∏–ª–∏ –æ–±—ä–µ–∫—Ç) *)
   NEG*  = ir.NEG;
-  CC*   = ir.CC;    (* £•≠•‡®‡Æ¢†‚Ï C-Ë≠Î• ·‚‡Æ™Æ¢Î• ™Æ≠·‚†≠‚Î *)
+  CC*   = ir.CC;    (* –≥–µ–Ω–µ—Ä–∏—Ä–æ–≤–∞—Ç—å C-—à–Ω—ã–µ —Å—Ç—Ä–æ–∫–æ–≤—ã–µ –∫–æ–Ω—Å—Ç–∞–Ω—Ç—ã *)
 
-  VOLATILE* = ir.VOLATILE;  (* ¢Æß¢‡†È†•¨Î© ¢ arg Ø‡®ß≠†™ - ¢¨•·‚• c REF *)
+  VOLATILE* = ir.VOLATILE;  (* –≤–æ–∑–≤—Ä–∞—â–∞–µ–º—ã–π –≤ arg –ø—Ä–∏–∑–Ω–∞–∫ - –≤–º–µ—Å—Ç–µ c REF *)
 
-  VPTR*     = ir.VPTR;  (* SL-1 virtual pointer - ¢Æß¢‡†È†•¨Î© Ø‡®ß≠†™ *)
+  VPTR*     = ir.VPTR;  (* SL-1 virtual pointer - –≤–æ–∑–≤—Ä–∞—â–∞–µ–º—ã–π –ø—Ä–∏–∑–Ω–∞–∫ *)
 
 CONST
   SHORTCARD_BITS* = 8;
@@ -56,11 +56,11 @@ CONST
 
 VAR
   zz_tmp* : pc.VALUE;
-  bool0*  : pc.VALUE;  (* ™Æ≠·‚†≠‚† false *)
-  bool1*  : pc.VALUE;  (* ™Æ≠·‚†≠‚† true  *)
-  zz_zero*: pc.VALUE;  (* ™Æ≠·‚†≠‚† 0 *)
-  zz_one* : pc.VALUE;  (* ™Æ≠·‚†≠‚† 1 *)
-  rr_zero*: pc.VALUE;  (* ™Æ≠·‚†≠‚† 1.0 *)
+  bool0*  : pc.VALUE;  (* –∫–æ–Ω—Å—Ç–∞–Ω—Ç–∞ false *)
+  bool1*  : pc.VALUE;  (* –∫–æ–Ω—Å—Ç–∞–Ω—Ç–∞ true  *)
+  zz_zero*: pc.VALUE;  (* –∫–æ–Ω—Å—Ç–∞–Ω—Ç–∞ 0 *)
+  zz_one* : pc.VALUE;  (* –∫–æ–Ω—Å—Ç–∞–Ω—Ç–∞ 1 *)
+  rr_zero*: pc.VALUE;  (* –∫–æ–Ω—Å—Ç–∞–Ω—Ç–∞ 1.0 *)
 
   SIZE_T*       : pc.STRUCT;
   LSET_T*       : pc.STRUCT;
@@ -75,9 +75,9 @@ VAR
 
   PROFL_T       : pc.STRUCT;  (* LAZ *)
 
-  md_desc*   : pc.OBJECT;  (* §•·™‡®Ø‚Æ‡ ‚•™„È•£Æ ¨Æ§„´Ô  *)
-  last_type* : pc.OBJECT;  (* ØÆ·´•§≠®© ®ß ‚•Â ‚®ØÆ¢, §´Ô *)
-                           (* ™Æ‚Æ‡ÎÂ ≠„¶•≠ §•·™‡®Ø‚Æ‡    *)
+  md_desc*   : pc.OBJECT;  (* –¥–µ—Å–∫—Ä–∏–ø—Ç–æ—Ä —Ç–µ–∫—É—â–µ–≥–æ –º–æ–¥—É–ª—è  *)
+  last_type* : pc.OBJECT;  (* –ø–æ—Å–ª–µ–¥–Ω–∏–π –∏–∑ —Ç–µ—Ö —Ç–∏–ø–æ–≤, –¥–ª—è *)
+                           (* –∫–æ—Ç–æ—Ä—ã—Ö –Ω—É–∂–µ–Ω –¥–µ—Å–∫—Ä–∏–ø—Ç–æ—Ä    *)
   cns_vars   : CNST_VAR;
   cns_cnt    : INT;
   tmp_vars*  : TMP_VAR;
@@ -377,7 +377,7 @@ BEGIN
   END;
 END index_type_info;
 
-PROCEDURE re_im_sz*(t: pc.STRUCT): ir.SizeType;    (* ‡†ß¨•‡ ·ÆÆ‚¢. float *)
+PROCEDURE re_im_sz*(t: pc.STRUCT): ir.SizeType;    (* —Ä–∞–∑–º–µ—Ä —Å–æ–æ—Ç–≤. float *)
 BEGIN
   IF t.mode = pc.ty_complex THEN
     RETURN tune.real_sz
@@ -386,8 +386,8 @@ BEGIN
   RETURN tune.longreal_sz;
 END re_im_sz;
 
-PROCEDURE re_im_offs*(t: pc.STRUCT;          (* ™Æ¨Ø´•™·≠Î© ‚®Ø *)
-           VAR re_offs, im_offs: LONGINT);   (* ¨Æ£„‚ ß†¢®·•‚Ï Æ‚ †‡Â®‚•™‚„‡Î *)
+PROCEDURE re_im_offs*(t: pc.STRUCT;          (* –∫–æ–º–ø–ª–µ–∫—Å–Ω—ã–π —Ç–∏–ø *)
+           VAR re_offs, im_offs: LONGINT);   (* –º–æ–≥—É—Ç –∑–∞–≤–∏—Å–µ—Ç—å –æ—Ç –∞—Ä—Ö–∏—Ç–µ–∫—Ç—É—Ä—ã *)
   VAR sz: ir.SizeType;
 BEGIN
   IF t.mode = pc.ty_complex THEN
@@ -400,9 +400,9 @@ BEGIN
 END re_im_offs;
 
 PROCEDURE is_scalar*(t: pc.STRUCT): BOOLEAN;
-   (* ß≠†Á•≠®• ‚†™Æ£Æ ‚®Ø† "≠†Ø‡Ô¨„Ó" Ø‡®·¢†®¢†•‚·Ô  *)
-   (*  ® ¢Æß¢‡†È†•‚·Ô ™†™ ‡•ß„´Ï‚†‚ ‰„≠™Ê®®          *)
-   (* ¢ Ø‡®≠Ê®Ø•, ¢Æß¨Æ¶≠Æ ¢™´ÓÁ•≠®• ·Ó§† "™Æ‡Æ‚™®Â" ¨†··®¢Æ¢ ® ß†Ø®·•© *)
+   (* –∑–Ω–∞—á–µ–Ω–∏–µ —Ç–∞–∫–æ–≥–æ —Ç–∏–ø–∞ "–Ω–∞–ø—Ä—è–º—É—é" –ø—Ä–∏—Å–≤–∞–∏–≤–∞–µ—Ç—Å—è  *)
+   (*  –∏ –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç—Å—è –∫–∞–∫ —Ä–µ–∑—É–ª—å—Ç–∞—Ç —Ñ—É–Ω–∫—Ü–∏–∏          *)
+   (* –≤ –ø—Ä–∏–Ω—Ü–∏–ø–µ, –≤–æ–∑–º–æ–∂–Ω–æ –≤–∫–ª—é—á–µ–Ω–∏–µ —Å—é–¥–∞ "–∫–æ—Ä–æ—Ç–∫–∏—Ö" –º–∞—Å—Å–∏–≤–æ–≤ –∏ –∑–∞–ø–∏—Å–µ–π *)
 BEGIN
   IF (t.mode IN (pc.NUMs + pc.ADRs
               +pc.TY_SET{pc.ty_boolean, pc.ty_char, pc.ty_range, pc.ty_enum
@@ -423,8 +423,8 @@ END is_scalar;
 
 (*
 PROCEDURE is_scalar_param*(t: pc.STRUCT): BOOLEAN;
-   (* ß≠†Á•≠®• ‚†™Æ£Æ ‚®Ø† "≠†Ø‡Ô¨„Ó" Ø•‡•§†•‚·Ô Ø†‡†¨•‚‡Æ¨-ß≠†Á•≠®•¨   *)
-   (* ¢ Ø‡®≠Ê®Ø•, ¢Æß¨Æ¶≠Æ ¢™´ÓÁ•≠®• ·Ó§† "™Æ‡Æ‚™®Â" ¨†··®¢Æ¢ ® ß†Ø®·•© *)
+   (* –∑–Ω–∞—á–µ–Ω–∏–µ —Ç–∞–∫–æ–≥–æ —Ç–∏–ø–∞ "–Ω–∞–ø—Ä—è–º—É—é" –ø–µ—Ä–µ–¥–∞–µ—Ç—Å—è –ø–∞—Ä–∞–º–µ—Ç—Ä–æ–º-–∑–Ω–∞—á–µ–Ω–∏–µ–º   *)
+   (* –≤ –ø—Ä–∏–Ω—Ü–∏–ø–µ, –≤–æ–∑–º–æ–∂–Ω–æ –≤–∫–ª—é—á–µ–Ω–∏–µ —Å—é–¥–∞ "–∫–æ—Ä–æ—Ç–∫–∏—Ö" –º–∞—Å—Å–∏–≤–æ–≤ –∏ –∑–∞–ø–∏—Å–µ–π *)
 BEGIN
   RETURN t.mode IN (pc.CNUMs + pc.ADRs
                    +{pc.ty_boolean,pc.ty_char,pc.ty_range,    pc.ty_enum
@@ -629,7 +629,7 @@ BEGIN
     IF (o.mode # pc.ob_module)
       &(o.host.mode IN pc.TY_SET{pc.ty_enum,pc.ty_record})
       & NOT (o.mode IN pc.PROCs)
-    THEN (* Æ°Í•™‚ Æ°ÍÔ¢´Ô•‚·Ô ÆØ®·†≠®•¨ •£Æ ‚®Ø† *)
+    THEN (* –æ–±—ä–µ–∫—Ç –æ–±—ä—è–≤–ª—è–µ—Ç—Å—è –æ–ø–∏—Å–∞–Ω–∏–µ–º –µ–≥–æ —Ç–∏–ø–∞ *)
       object_definition(o.host.obj);
       ASSERT(at.otag_declared IN o.tags);
     ELSE
@@ -637,9 +637,9 @@ BEGIN
     END;
   END;
   RETURN at.attr(o.ext, kind)
-(* -- Ì‚Æ£Æ ≠• °Î¢†•‚ ??
-  | a_size        (* ‡†ß¨•‡ ‚®Ø† *)                    (* size_ext *)
-  | a_prot        (* ≠Æ¨•‡ Ø‡Æ‚Æ‚®Ø† *)                (* prot_ext *)
+(* -- —ç—Ç–æ–≥–æ –Ω–µ –±—ã–≤–∞–µ—Ç ??
+  | a_size        (* —Ä–∞–∑–º–µ—Ä —Ç–∏–ø–∞ *)                    (* size_ext *)
+  | a_prot        (* –Ω–æ–º–µ—Ä –ø—Ä–æ—Ç–æ—Ç–∏–ø–∞ *)                (* prot_ext *)
   | a_type:                                            (* inf_ext  *)
 --- *)
 END make_attr;
@@ -687,7 +687,7 @@ PROCEDURE chk_adr*(tpos-: ir.TPOS;
   VAR ty: ir.TypeType; sz: ir.SizeType;
 BEGIN
   IF pc.ttag_volatile IN type.tags THEN INCL(arg.mode, VOLATILE) END;
-  IF    REF IN md THEN (* ≠®Á•£Æ *)
+  IF    REF IN md THEN (* –Ω–∏—á–µ–≥–æ *)
   ELSIF LVL IN md THEN INCL(arg.mode, REF);
   ELSE
     type_info(type, ty, sz);
@@ -729,9 +729,9 @@ PROCEDURE o_attr*(tpos-: ir.TPOS;
     a: at.ATTR_EXT;  inf: at.INFO_EXT;
 BEGIN
  (*
-   •·´® Æ°Í•™‚ o Ô¢´Ô•‚·Ô Ø†‡†¨•‚‡Æ¨ - £®°™®¨ ¨†··®¢Æ¨ ØÆ ß≠†Á•≠®Ó,
-   ‚Æ ¢Æß¨Æ¶≠Î Ø‡Æ°´•¨Î Ø‡® §Æ·‚„Ø• ™ ≠•¨„ ®ß ¢´Æ¶•≠≠Æ© Ø‡ÆÊ•§„‡Î -
-   ≠•Æ°ÂÆ§®¨Æ •È• Æ§≠Æ ‡†ßÎ¨•≠Æ¢†≠®•
+   –µ—Å–ª–∏ –æ–±—ä–µ–∫—Ç o —è–≤–ª—è–µ—Ç—Å—è –ø–∞—Ä–∞–º–µ—Ç—Ä–æ–º - –≥–∏–±–∫–∏–º –º–∞—Å—Å–∏–≤–æ–º –ø–æ –∑–Ω–∞—á–µ–Ω–∏—é,
+   —Ç–æ –≤–æ–∑–º–æ–∂–Ω—ã –ø—Ä–æ–±–ª–µ–º—ã –ø—Ä–∏ –¥–æ—Å—Ç—É–ø–µ –∫ –Ω–µ–º—É –∏–∑ –≤–ª–æ–∂–µ–Ω–Ω–æ–π –ø—Ä–æ—Ü–µ–¥—É—Ä—ã -
+   –Ω–µ–æ–±—Ö–æ–¥–∏–º–æ –µ—â–µ –æ–¥–Ω–æ —Ä–∞–∑—ã–º–µ–Ω–æ–≤–∞–Ω–∏–µ
  *)
 <* IF db_def THEN *>
   io.print("o_attr(o='%s', kind=%d, md=%x, arg)\n", o.name^, kind, md);
@@ -796,7 +796,7 @@ BEGIN
         add_offs(tpos, inf.offs, arg);
     | ir.y_Variable:
         ir.MakeArgVar(arg, VAL(ir.VarNum, inf.name));
-(*  | y_RealConst, y_ComplexConst, y_ProcConst:  --  ≠• °Î¢†•‚ *)
+(*  | y_RealConst, y_ComplexConst, y_ProcConst:  --  –Ω–µ –±—ã–≤–∞–µ—Ç *)
     END;
     IF kind >= at.a_len THEN
       type := INDEX_T;
@@ -823,8 +823,8 @@ BEGIN
   o_attr(tpos, o, at.a_self, md, arg);
 END o_usage;
 
-(* ØÆ N - ≠Æ¨•‡„ rts-Ø‡ÆÊ•§„‡Î ·Æß§†•‚ ‚‡®†§„ ¢ÎßÆ¢† ® ØÆ§¢•Ë®¢†•‚
-   ™ ‚‡®†§• 0-Æ© Ø†‡†¨•‚‡ - ·†¨„ Ø‡ÆÊ•§„‡„
+(* –ø–æ N - –Ω–æ–º–µ—Ä—É rts-–ø—Ä–æ—Ü–µ–¥—É—Ä—ã —Å–æ–∑–¥–∞–µ—Ç —Ç—Ä–∏–∞–¥—É –≤—ã–∑–æ–≤–∞ –∏ –ø–æ–¥–≤–µ—à–∏–≤–∞–µ—Ç
+   –∫ —Ç—Ä–∏–∞–¥–µ 0-–æ–π –ø–∞—Ä–∞–º–µ—Ç—Ä - —Å–∞–º—É –ø—Ä–æ—Ü–µ–¥—É—Ä—É
 *)
 PROCEDURE RTS_call*(tpos-: ir.TPOS; N : INT; make_var: BOOLEAN) : ir.TriadePtr;
   VAR o : pc.OBJECT;
@@ -1033,7 +1033,7 @@ PROCEDURE put_record(v: pc.VALUE; t: pc.STRUCT; VAR sg_len: LONGINT);
     ASSERT (f.mode # pc.ob_header);
     offs := obj_offset(f);
     curr_offs := sg_len - start;
-    IF offs > curr_offs THEN   (* -- ≠„¶≠Æ ¢Î‡†¢≠®¢†≠®• ≠† ≠†Á†´Æ ØÆ´Ô *)
+    IF offs > curr_offs THEN   (* -- –Ω—É–∂–Ω–æ –≤—ã—Ä–∞–≤–Ω–∏–≤–∞–Ω–∏–µ –Ω–∞ –Ω–∞—á–∞–ª–æ –ø–æ–ª—è *)
       put_filling (offs - curr_offs, sg_len)
     ELSE ASSERT (offs = curr_offs);
     END;
@@ -1129,7 +1129,7 @@ BEGIN
       INC(sg_len, sz);
   | pc.ty_complex, pc.ty_lcomplex:
       sz := re_im_sz(t);
-      (* -- ØÆ‡Ô§Æ™ RE,IM ¨Æ¶•‚ ß†¢®·•‚Ï Æ‚ †‡Â®‚•™‚„‡Î *)
+      (* -- –ø–æ—Ä—è–¥–æ–∫ RE,IM –º–æ–∂–µ—Ç –∑–∞–≤–∏—Å–µ—Ç—å –æ—Ç –∞—Ä—Ö–∏—Ç–µ–∫—Ç—É—Ä—ã *)
       cd.put_float(Calc.Unary(pc.su_re, ir.t_float, sz, v), sz);
       INC(sg_len, sz);
       cd.put_float(Calc.Unary(pc.su_im, ir.t_float, sz, v), sz);
@@ -1382,11 +1382,11 @@ PROCEDURE prototype* (t: pc.STRUCT) : pr.ProtoNum;
       prm_buf[prm_cnt].offs := p_offs;
       IF (p_where = pr.STACK) & (p_sz > 0) THEN
         IF p_sz<4 THEN
-          IF tune.BIG_END THEN       -- Ø‡®¶†‚Ï ™ §‡„£Æ¨„ ™‡†Ó
+          IF tune.BIG_END THEN       -- –ø—Ä–∏–∂–∞—Ç—å –∫ –¥—Ä—É–≥–æ–º—É –∫—Ä–∞—é
             INC(prm_buf[prm_cnt].offs, 4 - p_sz);
           END;
           ln := 4;
-          -- ØÆ™† ¢·• Ø†‡†¨•‚‡Î ™´†§„‚·Ô ¢ ·‚•™ push eax - §´®≠† ¢·•£§† 4
+          -- –ø–æ–∫–∞ –≤—Å–µ –ø–∞—Ä–∞–º–µ—Ç—Ä—ã –∫–ª–∞–¥—É—Ç—Å—è –≤ —Å—Ç–µ–∫ push eax - –¥–ª–∏–Ω–∞ –≤—Å–µ–≥–¥–∞ 4
         ELSIF (p_sz = 10) THEN ln := 12;  (* ld_real ?? *)
         ELSE ln := p_sz;
         END;
@@ -1457,13 +1457,13 @@ BEGIN
 <* IF db_def THEN *> note("prototype", t.obj); <* END *>
   buf_errs := FALSE;
   pr.NewProto(prt, P);
-  P.lang_flag := t.flag;      (* -- ¢‡•¨•≠≠Æ !! *) (* ØÆÁ•¨„ ¢‡•¨•≠≠Æ? *)
+  P.lang_flag := t.flag;      (* -- –≤—Ä–µ–º–µ–Ω–Ω–æ !! *) (* –ø–æ—á–µ–º—É –≤—Ä–µ–º–µ–Ω–Ω–æ? *)
   RtoL := t.flag IN opt.LangsWithPushingParams_RtoL;
   P.right_to_left := RtoL;
   prm_cnt := 0;
   offset := tune.PARAM_START;
   last_offs := offset;
-  (* ------------ ¢Æß¢‡†È†•¨Æ• ß≠†Á•≠®• ------------ *)
+  (* ------------ –≤–æ–∑–≤—Ä–∞—â–∞–µ–º–æ–µ –∑–Ω–∞—á–µ–Ω–∏–µ ------------ *)
   IF t.base.mode = pc.ty_void THEN
     P.ret_type := ir.t_void;
     P.ret_size := 0;
@@ -1484,10 +1484,10 @@ BEGIN
     END;
     parameter(pr.pm_return, 0, tune.addr_ty, tune.addr_sz, pr.STACK, offset);
   END;
-  (* ------------ °†ßÎ ÆÂ¢†‚Î¢†ÓÈ®Â Ø‡ÆÊ•§„‡ ------------ *)
+  (* ------------ –±–∞–∑—ã –æ—Ö–≤–∞—Ç—ã–≤–∞—é—â–∏—Ö –ø—Ä–æ—Ü–µ–¥—É—Ä ------------ *)
   P.nbase := 0; P.bases := pr.Bases{};
   us := t.use;
-  IF us # NIL THEN (* ®≠†Á• ¨Æ¶•‚ ≠• °Î‚Ï obj !! *)
+  IF us # NIL THEN (* –∏–Ω–∞—á–µ –º–æ–∂–µ—Ç –Ω–µ –±—ã—Ç—å obj !! *)
     proc_lev := t.obj.lev;
     REPEAT
       o := us.obj;
@@ -1506,11 +1506,11 @@ BEGIN
     UNTIL us = NIL;
     IF P.bases # {} THEN make_bases END;
   END;
-  (* ------------ Æ·‚†´Ï≠Î• Ø†‡†¨•‚‡Î ------------ *)
+  (* ------------ –æ—Å—Ç–∞–ª—å–Ω—ã–µ –ø–∞—Ä–∞–º–µ—Ç—Ä—ã ------------ *)
   P.seq := FALSE;
   p := t.prof;
   WHILE p # NIL DO
-    IF chk_array_of(p) THEN (* ¢·• „¶• ·§•´†≠Æ *)
+    IF chk_array_of(p) THEN (* –≤—Å–µ —É–∂–µ —Å–¥–µ–ª–∞–Ω–æ *)
     ELSE
       CASE p.mode OF
       | pc.ob_var:
@@ -1692,7 +1692,7 @@ BEGIN
 END gen_code_body;
 
 PROCEDURE func_declaration(o: pc.OBJECT);
-(* Ø‡•§¢†‡®‚•´Ï≠Æ• ÆØ®·†≠®• ‰„≠™Ê®® *)
+(* –ø—Ä–µ–¥–≤–∞—Ä–∏—Ç–µ–ª—å–Ω–æ–µ –æ–ø–∏—Å–∞–Ω–∏–µ —Ñ—É–Ω–∫—Ü–∏–∏ *)
   VAR proc: pr.ProcNum;  prt: pr.ProtoNum;
 BEGIN
 <* IF db_def THEN *> note("func_declaration", o); <* END *>
@@ -1714,14 +1714,14 @@ BEGIN
   IF o.mode = pc.ob_cproc THEN gen_code_body(o) END;
 (*
   IF o.host.mode = pc.ty_record THEN
-    (* ¢Æß¨Æ¶≠Æ, •È• ≠†§Æ Æ°‡†°Æ‚†‚Ï ‚®Ø ß†Ø®·®, *)
-    (* •·´® Ì‚† Ø‡ÆÊ•§„‡† - ¨•‚Æ§                *)
+    (* –≤–æ–∑–º–æ–∂–Ω–æ, –µ—â–µ –Ω–∞–¥–æ –æ–±—Ä–∞–±–æ—Ç–∞—Ç—å —Ç–∏–ø –∑–∞–ø–∏—Å–∏, *)
+    (* –µ—Å–ª–∏ —ç—Ç–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä–∞ - –º–µ—Ç–æ–¥                *)
   END;
 *)
 END func_declaration;
 
 PROCEDURE module_declaration(o: pc.OBJECT);
-(* Ø‡•§¢†‡®‚•´Ï≠Æ• ÆØ®·†≠®• ‰„≠™Ê®® *)
+(* –ø—Ä–µ–¥–≤–∞—Ä–∏—Ç–µ–ª—å–Ω–æ–µ –æ–ø–∏—Å–∞–Ω–∏–µ —Ñ—É–Ω–∫—Ü–∏–∏ *)
   VAR proc: pr.ProcNum;  prt: pr.ProtoNum;
 BEGIN
   prt  := prototype(o.type);
@@ -1858,8 +1858,8 @@ BEGIN
       REPEAT t := t.base UNTIL NOT(t.mode IN pc.ARRs);
       elm_size := type_size(t);
       ofs(arr_size - elm_size);
-       -- ß†Ø®·Î¢†•¨ ·¨•È•≠®• ØÆ·´•§≠•£Æ Ì´•¨•≠‚† ¨†··®¢†
-       -- ® „ÂÆ§®¨ ≠† ¢‚Æ‡Æ© ¢®‚Æ™ §´Ô ‚®Ø† Ì´•¨•≠‚†
+       -- –∑–∞–ø–∏—Å—ã–≤–∞–µ–º —Å–º–µ—â–µ–Ω–∏–µ –ø–æ—Å–ª–µ–¥–Ω–µ–≥–æ —ç–ª–µ–º–µ–Ω—Ç–∞ –º–∞—Å—Å–∏–≤–∞
+       -- –∏ —É—Ö–æ–¥–∏–º –Ω–∞ –≤—Ç–æ—Ä–æ–π –≤–∏—Ç–æ–∫ –¥–ª—è —Ç–∏–ø–∞ —ç–ª–µ–º–µ–Ω—Ç–∞
     ELSE ASSERT(FALSE);
     END;
   END;
@@ -1886,7 +1886,7 @@ BEGIN
   RETURN tmp
 END out_str;
 
-PROCEDURE type_desc_definition(t: pc.STRUCT);  (* ·‚‡Æ®¨ §•·™‡®Ø‚Æ‡ §´Ô ‚®Ø† t *)
+PROCEDURE type_desc_definition(t: pc.STRUCT);  (* —Å—Ç—Ä–æ–∏–º –¥–µ—Å–∫—Ä–∏–ø—Ç–æ—Ä –¥–ª—è —Ç–∏–ø–∞ t *)
   VAR
     bf     : ARRAY 1024 OF pc.OBJECT;
     bf_cnt : INT;
@@ -2049,7 +2049,7 @@ BEGIN
          (o.type.mode IN (pc.TY_SET{pc.ty_record,pc.ty_pointer}+pc.ARRs));
 END is_typed_var;
 
-PROCEDURE module_desc_definition(m: pc.OBJECT);  (* ·†¨ ¨Æ§„´Ï *)
+PROCEDURE module_desc_definition(m: pc.OBJECT);  (* —Å–∞–º –º–æ–¥—É–ª—å *)
 
   PROCEDURE list_offs(o: pc.OBJECT);
   BEGIN
@@ -2086,7 +2086,7 @@ PROCEDURE module_desc_definition(m: pc.OBJECT);  (* ·†¨ ¨Æ§„´Ï *)
 BEGIN
   cd.get_segm(old);
 
- (* †§‡•·† £´Æ°†´Ï≠ÎÂ Ø•‡•¨•≠≠ÎÂ - „™†ß†‚•´•© *)
+ (* –∞–¥—Ä–µ—Å–∞ –≥–ª–æ–±–∞–ª—å–Ω—ã—Ö –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö - —É–∫–∞–∑–∞—Ç–µ–ª–µ–π *)
   nm := at.make_name("%s'offs", m.name^);
   of := at.new_work_object(nm, NIL, m.type, pc.ob_cons, FALSE);
   cd.new_segm(new); cd.set_segm(new);
@@ -2095,7 +2095,7 @@ BEGIN
   cd.GenLWord(tune.X2C_OFS_END);
   cd.set_ready(of, new);
 
- (* †§‡•·† £´Æ°†´Ï≠ÎÂ Ø‡ÆÊ•§„‡ - ™Æ¨†≠§ *)
+ (* –∞–¥—Ä–µ—Å–∞ –≥–ª–æ–±–∞–ª—å–Ω—ã—Ö –ø—Ä–æ—Ü–µ–¥—É—Ä - –∫–æ–º–∞–Ω–¥ *)
   nm := at.make_name("%s'cmds", m.name^);
   cmd := at.new_work_object(nm, NIL, m.type, pc.ob_cons, FALSE);
   cd.new_segm(new); cd.set_segm(new);
@@ -2105,7 +2105,7 @@ BEGIN
   cd.put_nil_value;
   cd.set_ready(cmd, new);
 
- (* ®¨•≠† £´Æ°†´Ï≠ÎÂ Ø‡ÆÊ•§„‡ - ™Æ¨†≠§ *)
+ (* –∏–º–µ–Ω–∞ –≥–ª–æ–±–∞–ª—å–Ω—ã—Ö –ø—Ä–æ—Ü–µ–¥—É—Ä - –∫–æ–º–∞–Ω–¥ *)
   IF at.o2_cmds IN at.COMP_MODE THEN
     nm := at.make_name("%s'cnms", m.name^);
     cnm := at.new_work_object(nm, NIL, m.type, pc.ob_cons, FALSE);
@@ -2163,7 +2163,7 @@ PROCEDURE gen_type_descs*(md: pc.OBJECT);
 
 BEGIN (* ----- g e n _ t y p e _ d e s c s -----*)
   list(md.type.prof);
-  list(md.type.mem);   (* ?? ¢Æß¨Æ¶≠Æ Ì‚Æ£Æ ≠• ≠„¶≠Æ *)
+  list(md.type.mem);   (* ?? –≤–æ–∑–º–æ–∂–Ω–æ —ç—Ç–æ–≥–æ –Ω–µ –Ω—É–∂–Ω–æ *)
   IF (md.type.flag IN opt.LangsWithTypeDescriptors) OR (md_desc # NIL) OR
      chk_typed_vars(md.type.prof) OR chk_typed_vars(md.type.mem)
   THEN
@@ -2171,7 +2171,7 @@ BEGIN (* ----- g e n _ t y p e _ d e s c s -----*)
   END;
 END gen_type_descs;
 
-(** ‡†ß¨•È†•‚ ØÆ´•, Ø•‡•¢ÎÁ®·´ÔÔ ·¨•È•≠®•, ® ¢Î§†•‚ •£Æ ¢Î‡†¢≠®¢†≠®• *)
+(** —Ä–∞–∑–º–µ—â–∞–µ—Ç –ø–æ–ª–µ, –ø–µ—Ä–µ–≤—ã—á–∏—Å–ª—è—è —Å–º–µ—â–µ–Ω–∏–µ, –∏ –≤—ã–¥–∞–µ—Ç –µ–≥–æ –≤—ã—Ä–∞–≤–Ω–∏–≤–∞–Ω–∏–µ *)
 
 PROCEDURE alloc_field(f : pc.OBJECT;
                VAR offs : LONGINT;
@@ -2217,7 +2217,7 @@ BEGIN
   INCL(f.tags, at.otag_declared);
 END bit_field;
 
-(** ‡†ß¨•È†•‚ ·Ø®·Æ™ ØÆ´•©, Ø•‡•¢ÎÁ®·´ÔÔ ·¨•È•≠®•, ® ¢Î§†•‚ ¢Î‡†¢≠®¢†≠®• *)
+(** —Ä–∞–∑–º–µ—â–∞–µ—Ç —Å–ø–∏—Å–æ–∫ –ø–æ–ª–µ–π, –ø–µ—Ä–µ–≤—ã—á–∏—Å–ª—è—è —Å–º–µ—â–µ–Ω–∏–µ, –∏ –≤—ã–¥–∞–µ—Ç –≤—ã—Ä–∞–≤–Ω–∏–≤–∞–Ω–∏–µ *)
 
 PROCEDURE alloc_flist (f : pc.OBJECT;
                 VAR offs : LONGINT;
@@ -2284,8 +2284,8 @@ BEGIN
 END alloc_flist;
 
 (*
-   ÆØ‡•§•´Ô•‚ ‡†ß¨•‡ ß†Ø®·® °•ß ¢Î‡†¢≠®¢†≠®Ô ®
-   Ø‡•§ØÆ´†£†Ô, Á‚Æ ‡†ß¨•‡ Ø„·‚Æ© ß†Ø®·® = 0
+   –æ–ø—Ä–µ–¥–µ–ª—è–µ—Ç —Ä–∞–∑–º–µ—Ä –∑–∞–ø–∏—Å–∏ –±–µ–∑ –≤—ã—Ä–∞–≤–Ω–∏–≤–∞–Ω–∏—è –∏
+   –ø—Ä–µ–¥–ø–æ–ª–∞–≥–∞—è, —á—Ç–æ —Ä–∞–∑–º–µ—Ä –ø—É—Å—Ç–æ–π –∑–∞–ø–∏—Å–∏ = 0
 *)
 
 PROCEDURE rec_size0 (t : pc.STRUCT; VAR size : LONGINT; VAR align : SHORTINT);
@@ -2398,7 +2398,7 @@ BEGIN
 END code_func_definition;
 
 PROCEDURE object_definition(o: pc.OBJECT);
-(* Æ™Æ≠Á†‚•´Ï≠Æ• ÆØ®·†≠®• Æ°Í•™‚† *)
+(* –æ–∫–æ–Ω—á–∞—Ç–µ–ª—å–Ω–æ–µ –æ–ø–∏—Å–∞–Ω–∏–µ –æ–±—ä–µ–∫—Ç–∞ *)
 BEGIN
   IF pc.OTAG_SET{at.otag_defining,at.otag_declaring}*o.tags#pc.OTAG_SET{} THEN
     env.errors.Error(o.pos, 1018);
@@ -2570,8 +2570,8 @@ TYPE
                ARRAY OF obj_info_rec;
 
 VAR inf: obj_info;
-   inf_no: INT;     --  Æ°È•• Á®·´Æ ß†≠•·•≠≠ÎÂ Æ°Í•™‚Æ¢
-   based_no : INT;  --  ®ß ≠®Â - Á®·´Æ °†ß®‡Æ¢†≠≠ÎÂ (Æ·‚†´Ï≠Î• ·†¨Æ°†ß®‡Æ¢†≠≠Î•)
+   inf_no: INT;     --  –æ–±—â–µ–µ —á–∏—Å–ª–æ –∑–∞–Ω–µ—Å–µ–Ω–Ω—ã—Ö –æ–±—ä–µ–∫—Ç–æ–≤
+   based_no : INT;  --  –∏–∑ –Ω–∏—Ö - —á–∏—Å–ª–æ –±–∞–∑–∏—Ä–æ–≤–∞–Ω–Ω—ã—Ö (–æ—Å—Ç–∞–ª—å–Ω—ã–µ —Å–∞–º–æ–±–∞–∑–∏—Ä–æ–≤–∞–Ω–Ω—ã–µ)
 
 PROCEDURE ini_glob_info;
 BEGIN
@@ -2661,8 +2661,8 @@ BEGIN
              END;
            END;
          END;
-      | pc.ob_type : -- ¢ ·Ø®·Æ™ ≠„¶≠Æ ¢≠•·‚®
-                     -- §•·™‡®Ø‚Æ‡ ‚®Ø† - Æ°•‡Æ≠Æ¢·™Æ© ß†Ø®·®
+      | pc.ob_type : -- –≤ —Å–ø–∏—Å–æ–∫ –Ω—É–∂–Ω–æ –≤–Ω–µ—Å—Ç–∏
+                     -- –¥–µ—Å–∫—Ä–∏–ø—Ç–æ—Ä —Ç–∏–ø–∞ - –æ–±–µ—Ä–æ–Ω–æ–≤—Å–∫–æ–π –∑–∞–ø–∏—Å–∏
          IF at.omark_gen_ready IN o.marks THEN
            ASSERT(o.type.mode = pc.ty_record);
            collect_self_based(o);
@@ -2674,8 +2674,8 @@ BEGIN
          collect_final_info(o.type.mem);
  (*
 
-      | pc.ob_module : -- Ì‚Æ£Æ ™Æ≠•Á≠Æ ≠• °„§•‚,
-                       -- ≠Æ ¢ ·Ø®·Æ™ ≠„¶≠Æ ¢≠•·‚® §•·™‡®Ø‚Æ‡ ¨Æ§„´Ô
+      | pc.ob_module : -- —ç—Ç–æ–≥–æ –∫–æ–Ω–µ—á–Ω–æ –Ω–µ –±—É–¥–µ—Ç,
+                       -- –Ω–æ –≤ —Å–ø–∏—Å–æ–∫ –Ω—É–∂–Ω–æ –≤–Ω–µ—Å—Ç–∏ –¥–µ—Å–∫—Ä–∏–ø—Ç–æ—Ä –º–æ–¥—É–ª—è
   *)
       ELSE
       END;
@@ -2793,8 +2793,8 @@ BEGIN
 --  ValCnt := 0;
   SIZE_T := pc.new_type(pc.ty_longcard);
   LSET_T := pc.new_type(pc.ty_longcard);
-  INDEX_T := pc.new_type(pc.ty_longint);  (* ≠†§Æ, Á‚Æ°Î Â†‡-™® ·Æ¢Ø†§†´® *)
-  ADDR_T  := pc.new_type(pc.ty_pointer);  (* · ®≠‰Æ‡¨†Ê®•© ¢ op_tune      *)
+  INDEX_T := pc.new_type(pc.ty_longint);  (* –Ω–∞–¥–æ, —á—Ç–æ–±—ã —Ö–∞—Ä-–∫–∏ —Å–æ–≤–ø–∞–¥–∞–ª–∏ *)
+  ADDR_T  := pc.new_type(pc.ty_pointer);  (* —Å –∏–Ω—Ñ–æ—Ä–º–∞—Ü–∏–µ–π –≤ op_tune      *)
   CARD8_T := pc.new_type(pc.ty_shortcard);
   SETOP_TABLE_T := pc.new_type(pc.ty_array);
   MDESC_T := pc.new_type(pc.ty_record);
@@ -2806,14 +2806,14 @@ BEGIN
   PROFL_T.align := tune.addr_sz;
   VOID_T := pc.new_type(pc.ty_void);
 
-  tune.nil_val := val(0); (* ≠†§Æ °Î •¨„ ·ÆÆ‚¢•‚·‚¢„ÓÈ®© ‚®Ø „™†ß†‚•´Ô *)
+  tune.nil_val := val(0); (* –Ω–∞–¥–æ –±—ã –µ–º—É —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—â–∏–π —Ç–∏–ø —É–∫–∞–∑–∞—Ç–µ–ª—è *)
   zz_tmp  := val(0);  -- this VALUE is used as a temporary variable
   zz_zero := val(0);
   zz_one  := val(1);
 <*IF NOT NOFLOAT THEN *>
   rr_zero := rval(0);
 <*END *>
-  bool0   := val(0);  (* Ø‡†¢®´Ï≠•• °Î´Æ °Î ß†¢•·‚® ®Â ≠• · ‚®ØÆ¨ ZZ ?? *)
+  bool0   := val(0);  (* –ø—Ä–∞–≤–∏–ª—å–Ω–µ–µ –±—ã–ª–æ –±—ã –∑–∞–≤–µ—Å—Ç–∏ –∏—Ö –Ω–µ —Å —Ç–∏–ø–æ–º ZZ ?? *)
   bool1   := val(1);
 
   md_desc   := NIL;

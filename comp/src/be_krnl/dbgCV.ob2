@@ -426,7 +426,7 @@ BEGIN
     dbg.emit_type(act, type.base);
     CASE act OF
     | dbg.act_set:
-      -- —â®¡ë ¤¢ ¦¤ë ­¥ ¢ë§ë¢ âì put_index_val
+      -- Ð§Ñ‚Ð¾Ð±Ñ‹ Ð´Ð²Ð°Ð¶Ð´Ñ‹ Ð½Ðµ Ð²Ñ‹Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ put_index_val
       IF dbg.get_index(type) > 0 THEN RETURN; END;
       dbg.put_index_val(type, dbg.get_index(type.base));
     | dbg.act_write:

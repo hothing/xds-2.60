@@ -1066,7 +1066,7 @@ BEGIN
   
   one := ei.NewArgValue(1, a.type^);
   t1 := NewTempVar(a.type^, 0);
-  ei.EmitShl(t1, one, b);  -- ·§¢®£†•¨ '1' ¢´•¢Æ ≠† 'b'
+  ei.EmitShl(t1, one, b);  -- —Å–¥–≤–∏–≥–∞–µ–º '1' –≤–ª–µ–≤–æ –Ω–∞ 'b'
   CASE tr.Op OF
   | ir.o_incl:  -- INCL(a, b) = a | (1 << b)
       ei.EmitOr(res.arg, a, t1);

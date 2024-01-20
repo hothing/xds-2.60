@@ -331,7 +331,7 @@ TYPE
   M2Type     * = POINTER TO M2TypeDesc;
   M2TypeDesc * = RECORD (adt.NamedElementDesc)
     generated * : BOOLEAN;
-    type      * : sys.INT8; -- §´Ô °†ßÆ¢ÎÂ ‚®ØÆ¢ åÆ§„´Î-2
+    type      * : sys.INT8; -- –¥–ª—è –±–∞–∑–æ–≤—ã—Ö —Ç–∏–ø–æ–≤ –ú–æ–¥—É–ª—ã-2
     type_kind * : INT;
     type_size * : INT;
     (* anything what you want *)
@@ -835,7 +835,7 @@ BEGIN
     |ident: Deallocate(res); expr.tobj.expr.ComputeExpression( res, limex );
       IF lstr.Length1(expr.tobj.name) > 0 THEN
 	ValueHandler(expr.tobj, res.str);
-	--lstr.Assign( expr.tobj.name^, res.str); §•´†•‚·Ô ‚•Ø•‡Ï ¢ ValueHandler
+	--lstr.Assign( expr.tobj.name^, res.str); –¥–µ–ª–∞–µ—Ç—Å—è —Ç–µ–ø–µ—Ä—å –≤ ValueHandler
       END;
   END
 END ComputeExpression;

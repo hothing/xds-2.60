@@ -119,7 +119,7 @@ CONST
 --    NIRegs *= 8;
 
 VAR
-    Pi4*:           ir.FLOAT;      -- §´Ô ÆØ‚®¨®ß†Ê®® ®·ØÆ´ÏßÆ¢†≠®Ô
+    Pi4*:           ir.FLOAT;      -- –¥–ª—è –æ–ø—Ç–∏–º–∏–∑–∞—Ü–∏–∏ –∏—Å–ø–æ–ª—å–∑–æ–≤–∞–Ω–∏—è
     Pi8*:           ir.FLOAT;      -- 3.141592653589793238462643383
 
 TYPE
@@ -292,8 +292,8 @@ VAR allowedIRegs *: RegsOfSize;
     allIRegs*:      RegSet;
 
 CONST
-    AllowedIRegsWEBP *= RegsOfSize            -- ÑÆØ„·‚®¨Î• ‡•£®·‚‡Î
-                    {                       -- ¢ ß†¢®·®¨Æ·‚® Æ‚ §´®≠Î
+    AllowedIRegsWEBP *= RegsOfSize            -- –î–æ–ø—É—Å—Ç–∏–º—ã–µ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+                    {                       -- –≤ –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–∏ –æ—Ç –¥–ª–∏–Ω—ã
                         {}                      (* 0 *)
                       , { AL..BL(*, AH..BH, BPlow..DIlow*) }              (* 1 *)
                       , { AX..BX, BP..DI   }              (* 2 *)
@@ -320,8 +320,8 @@ CONST
                  ESI_EBX, EDI_EBX,
                  EDI_ESI                }
         };
-    AllowedIRegsWEBPWSpilled *= RegsOfSize            -- ÑÆØ„·‚®¨Î• ‡•£®·‚‡Î
-                    {                       -- ¢ ß†¢®·®¨Æ·‚® Æ‚ §´®≠Î
+    AllowedIRegsWEBPWSpilled *= RegsOfSize            -- –î–æ–ø—É—Å—Ç–∏–º—ã–µ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+                    {                       -- –≤ –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–∏ –æ—Ç –¥–ª–∏–Ω—ã
                         {}                      (* 0 *)
                       , AllowedIRegsWEBP[1]+RegSet{SPILLED1}              (* 1 *)
                       , AllowedIRegsWEBP[2]+RegSet{SPILLED2}              (* 2 *)
@@ -332,8 +332,8 @@ CONST
                       , {}                      (* 7 *)
                       , AllowedIRegsWEBP[8]+RegSet{SPILLED8}                 (* 8 *)
                     };
-    AllowedIRegsWoEBPWUNDEF *= RegsOfSize            -- ÑÆØ„·‚®¨Î• ‡•£®·‚‡Î
-                    {                       -- ¢ ß†¢®·®¨Æ·‚® Æ‚ §´®≠Î
+    AllowedIRegsWoEBPWUNDEF *= RegsOfSize            -- –î–æ–ø—É—Å—Ç–∏–º—ã–µ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+                    {                       -- –≤ –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–∏ –æ—Ç –¥–ª–∏–Ω—ã
                         {}                      (* 0 *)
                       , AllowedIRegsWoEBP[1]+RegSet{UNDEF_REG}              (* 1 *)
                       , AllowedIRegsWoEBP[2]+RegSet{UNDEF_REG}              (* 2 *)
@@ -344,8 +344,8 @@ CONST
                       , {}                      (* 7 *)
                       , AllowedIRegsWoEBP[8]+RegSet{UNDEF_REG}                 (* 8 *)
                     };
-    AllowedIRegsWEBPWUNDEF *= RegsOfSize            -- ÑÆØ„·‚®¨Î• ‡•£®·‚‡Î
-                    {                       -- ¢ ß†¢®·®¨Æ·‚® Æ‚ §´®≠Î
+    AllowedIRegsWEBPWUNDEF *= RegsOfSize            -- –î–æ–ø—É—Å—Ç–∏–º—ã–µ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+                    {                       -- –≤ –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–∏ –æ—Ç –¥–ª–∏–Ω—ã
                         {}                      (* 0 *)
                       , AllowedIRegsWEBP[1]+RegSet{UNDEF_REG}              (* 1 *)
                       , AllowedIRegsWEBP[2]+RegSet{UNDEF_REG}              (* 2 *)
@@ -356,8 +356,8 @@ CONST
                       , {}                      (* 7 *)
                       , AllowedIRegsWEBP[8]+RegSet{UNDEF_REG}                 (* 8 *)
                     };
-    AllowedIRegsWoEBPWoxH *= RegsOfSize            -- ÑÆØ„·‚®¨Î• ‡•£®·‚‡Î
-                    {                       -- ¢ ß†¢®·®¨Æ·‚® Æ‚ §´®≠Î
+    AllowedIRegsWoEBPWoxH *= RegsOfSize            -- –î–æ–ø—É—Å—Ç–∏–º—ã–µ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+                    {                       -- –≤ –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–∏ –æ—Ç –¥–ª–∏–Ω—ã
                         {}                      (* 0 *)
                       , RegSet{AL..BL}          (* 1 *)
                       , AllowedIRegsWoEBP[2]    (* 2 *)
@@ -368,8 +368,8 @@ CONST
                       , {}                      (* 7 *)
                       , AllowedIRegsWoEBP[8]    (* 8 *)
                     };
-    AllowedIRegsWEBPWoxH *= RegsOfSize           -- ÑÆØ„·‚®¨Î• ‡•£®·‚‡Î
-                    {                       -- ¢ ß†¢®·®¨Æ·‚® Æ‚ §´®≠Î
+    AllowedIRegsWEBPWoxH *= RegsOfSize           -- –î–æ–ø—É—Å—Ç–∏–º—ã–µ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+                    {                       -- –≤ –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–∏ –æ—Ç –¥–ª–∏–Ω—ã
                         {}                      (* 0 *)
                       , RegSet{AL..BL}          (* 1 *)
                       , AllowedIRegsWEBP[2]     (* 2 *)
@@ -381,8 +381,8 @@ CONST
                       , AllowedIRegsWEBP[8]     (* 8 *)
                     };
 
-    AllowedLowRegsWEBP *= RegsOfSize            -- ÑÆØ„·‚®¨Î• ‡•£®·‚‡Î
-                    {                       -- ¢ ß†¢®·®¨Æ·‚® Æ‚ §´®≠Î
+    AllowedLowRegsWEBP *= RegsOfSize            -- –î–æ–ø—É—Å—Ç–∏–º—ã–µ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+                    {                       -- –≤ –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–∏ –æ—Ç –¥–ª–∏–Ω—ã
                         {}                      (* 0 *)
                       , { BPlow..DIlow }              (* 1 *)
                       , {}              (* 2 *)
@@ -393,8 +393,8 @@ CONST
                       , {}                      (* 7 *)
                       , {}                  (* 8 *)
                     };
-    AllowedLowRegsWoEBP *= RegsOfSize            -- ÑÆØ„·‚®¨Î• ‡•£®·‚‡Î
-                    {                       -- ¢ ß†¢®·®¨Æ·‚® Æ‚ §´®≠Î
+    AllowedLowRegsWoEBP *= RegsOfSize            -- –î–æ–ø—É—Å—Ç–∏–º—ã–µ —Ä–µ–≥–∏—Å—Ç—Ä—ã
+                    {                       -- –≤ –∑–∞–≤–∏—Å–∏–º–æ—Å—Ç–∏ –æ—Ç –¥–ª–∏–Ω—ã
                         {}                      (* 0 *)
                       , { SIlow..DIlow }              (* 1 *)
                       , {}              (* 2 *)
@@ -528,8 +528,8 @@ CONST
     JL  *= Condition{ 12 };   JGE *= Condition{ 13 };
     JLE *= Condition{ 14 };   JG  *= Condition{ 15 };
 
-    NoJ *= Condition{  127 };             -- è•‡•ÂÆ§ ¢ ™Æ≠Ê• ´„Á† ≠• ≠„¶•≠
-    UnJ *= Condition{  126 };             -- Å•ß„·´Æ¢≠Î© Ø•‡•ÂÆ§ ¢ ™Æ≠Ê• ´„Á†
+    NoJ *= Condition{  127 };             -- –ü–µ—Ä–µ—Ö–æ–¥ –≤ –∫–æ–Ω—Ü–µ –ª—É—á–∞ –Ω–µ –Ω—É–∂–µ–Ω
+    UnJ *= Condition{  126 };             -- –ë–µ–∑—É—Å–ª–æ–≤–Ω—ã–π –ø–µ—Ä–µ—Ö–æ–¥ –≤ –∫–æ–Ω—Ü–µ –ª—É—á–∞
 
 --    HiFetch *= ARRAY OF Condition {255,255,JB,JA,255,255,JB,JA,
 --                                   255,255,255,255,JL,JG,JL,JG };
@@ -541,7 +541,7 @@ CONST
     CCResultInTos   *= { at.BORLAND, at.MSVC, at.OS2SYS_CALL, at.DJGPP, at.GCC };
 
 
-    TTT_add *= BinaryOp{ 0 };           -- Å®≠†‡≠Î• ÆØ•‡†Ê®®
+    TTT_add *= BinaryOp{ 0 };           -- –ë–∏–Ω–∞—Ä–Ω—ã–µ –æ–ø–µ—Ä–∞—Ü–∏–∏
     TTT_or  *= BinaryOp{ 1 };
     TTT_adc *= BinaryOp{ 2 };
     TTT_sbb *= BinaryOp{ 3 };
@@ -549,26 +549,26 @@ CONST
     TTT_sub *= BinaryOp{ 5 };
     TTT_xor *= BinaryOp{ 6 };
     TTT_cmp *= BinaryOp{ 7 };
-    TTT_bt  *= BinaryOp{ 8 };         -- ê†°Æ‚† · °®‚†¨®
-    TTT_bts *= BinaryOp{ 9 };         -- ê†°Æ‚† · °®‚†¨®
-    TTT_btr *= BinaryOp{ 10 };         -- ê†°Æ‚† · °®‚†¨®
+    TTT_bt  *= BinaryOp{ 8 };         -- –†–∞–±–æ—Ç–∞ —Å –±–∏—Ç–∞–º–∏
+    TTT_bts *= BinaryOp{ 9 };         -- –†–∞–±–æ—Ç–∞ —Å –±–∏—Ç–∞–º–∏
+    TTT_btr *= BinaryOp{ 10 };         -- –†–∞–±–æ—Ç–∞ —Å –±–∏—Ç–∞–º–∏
 
     TTT_last *= TTT_btr;
 
     TTT_mul *= BinaryOp{ 255 };
 
-    TTT_inc *= UnaryOp{ 0 };           -- ì≠†‡≠Î• ÆØ•‡†Ê®®
+    TTT_inc *= UnaryOp{ 0 };           -- –£–Ω–∞—Ä–Ω—ã–µ –æ–ø–µ—Ä–∞—Ü–∏–∏
     TTT_dec *= UnaryOp{ 1 };
     TTT_not *= UnaryOp{ 2 };
     TTT_neg *= UnaryOp{ 3 };
 
-    TTT_rol *= ShiftOp{ 0 };           -- ë§¢®£®
+    TTT_rol *= ShiftOp{ 0 };           -- –°–¥–≤–∏–≥–∏
     TTT_ror *= ShiftOp{ 1 };
     TTT_shl *= ShiftOp{ 4 };
     TTT_shr *= ShiftOp{ 5 };
     TTT_sar *= ShiftOp{ 7 };
 
-    FADD  *= FloatOp{ 0 };             -- Ç•È•·‚¢•≠≠Î• ÆØ•‡†Ê®®
+    FADD  *= FloatOp{ 0 };             -- –í–µ—â–µ—Å—Ç–≤–µ–Ω–Ω—ã–µ –æ–ø–µ—Ä–∞—Ü–∏–∏
     FMUL  *= FloatOp{ 1 };
     FSUB  *= FloatOp{ 4 };
     FSUBR *= FloatOp{ 5 };

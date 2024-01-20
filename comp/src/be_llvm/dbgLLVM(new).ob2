@@ -197,7 +197,7 @@ BEGIN
     xfs.sys.ConvertToHost (dname^, dname);
   END;
   IF env.config.Option ("DBGFULLPATHS") THEN 
-    -- секретная опция для выдачи в отладчике полных путей в 'DW_AT_comp_dir'
+    -- ╤Б╨╡╨║╤А╨╡╤В╨╜╨░╤П ╨╛╨┐╤Ж╨╕╤П ╨┤╨╗╤П ╨▓╤Л╨┤╨░╤З╨╕ ╨▓ ╨╛╤В╨╗╨░╨┤╤З╨╕╨║╨╡ ╨┐╨╛╨╗╨╜╤Л╤Е ╨┐╤Г╤В╨╡╨╣ ╨▓ 'DW_AT_comp_dir'
     FileSys.FullName(full_name, dname^);
     DStrings.Assign(full_name, dname);
   END;
@@ -663,8 +663,8 @@ END EmitComment;
 
 --------------------------------------------------------------------------------
 CONST
-  -- Эти "ty_*" определены в дополнение к описанным в pcK.ob2
-  -- PrimitiveTypeNo возвращает одно из "pc.ty_*" или "ty_*" значений [ + MAX(pc.TY_MODE)]
+  -- ╨н╤В╨╕ "ty_*" ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╡╨╜╤Л ╨▓ ╨┤╨╛╨┐╨╛╨╗╨╜╨╡╨╜╨╕╨╡ ╨║ ╨╛╨┐╨╕╤Б╨░╨╜╨╜╤Л╨╝ ╨▓ pcK.ob2
+  -- PrimitiveTypeNo ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В ╨╛╨┤╨╜╨╛ ╨╕╨╖ "pc.ty_*" ╨╕╨╗╨╕ "ty_*" ╨╖╨╜╨░╤З╨╡╨╜╨╕╨╣ [ + MAX(pc.TY_MODE)]
   ty_boolean_1  = pc.ty_boolean;
   ty_boolean_2  = pc.ty_aux1;
   ty_boolean_4  = pc.ty_aux2;

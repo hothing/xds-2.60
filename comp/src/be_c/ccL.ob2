@@ -155,7 +155,7 @@ END pop;
 
 PROCEDURE append*(VAR txt: STR);
 (*
-    Добавляет текущий текст к тексту txt
+    ╨Ф╨╛╨▒╨░╨▓╨╗╤П╨╡╤В ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╤В╨╡╨║╤Б╤В ╨║ ╤В╨╡╨║╤Б╤В╤Г txt
 *)
   VAR app: STR;
 BEGIN
@@ -204,7 +204,7 @@ BEGIN
     IF (wp_max<0) OR (col_ps-str_ps+wp_pos<32) THEN RETURN END;
     i:=wp_pos+1;
   END;
-  (* i - позиция в str, начиная с которой нужно перенести на новую строку *)
+  (* i - ╨┐╨╛╨╖╨╕╤Ж╨╕╤П ╨▓ str, ╨╜╨░╤З╨╕╨╜╨░╤П ╤Б ╨║╨╛╤В╨╛╤А╨╛╨╣ ╨╜╤Г╨╢╨╜╨╛ ╨┐╨╡╤А╨╡╨╜╨╡╤Б╤В╨╕ ╨╜╨░ ╨╜╨╛╨▓╤Г╤О ╤Б╤В╤А╨╛╨║╤Г *)
   j:=0; l:=str_ps; str_ps:=i;
   WHILE (i<l) & (str[i]=' ') DO INC(i) END;
   IF l-i>=LEN(bf) THEN str_ps:=l; RETURN END;
@@ -233,11 +233,11 @@ BEGIN
 END restore_lf;
 
 PROCEDURE wrc*(ch: CHAR);
-(* запись символа символьного литерала,
-   переносы запрещены.
+(* ╨╖╨░╨┐╨╕╤Б╤М ╤Б╨╕╨╝╨▓╨╛╨╗╨░ ╤Б╨╕╨╝╨▓╨╛╨╗╤М╨╜╨╛╨│╨╛ ╨╗╨╕╤В╨╡╤А╨░╨╗╨░,
+   ╨┐╨╡╤А╨╡╨╜╨╛╤Б╤Л ╨╖╨░╨┐╤А╨╡╤Й╨╡╨╜╤Л.
 *)
 BEGIN
-  (* wr0 вызывать нельзя! *)
+  (* wr0 ╨▓╤Л╨╖╤Л╨▓╨░╤В╤М ╨╜╨╡╨╗╤М╨╖╤П! *)
   IF str_ps>=STR_SIZE THEN flush_str END;
   str[str_ps]:=ch; INC(str_ps); INC(col_ps);
   ASSERT(ch#lch);

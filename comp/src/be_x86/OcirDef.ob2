@@ -490,7 +490,7 @@ CONST EmptyAttrs* = OpAttrs{
                     (* definition of operations *)
 
 TYPE
-  (* ¢·• ÆØ•‡†Ê®® *)
+  (* –≤—Å–µ –æ–ø–µ—Ä–∞—Ü–∏–∏ *)
   BinRecipe*     = POINTER TO BinRecipeRec;
   BinRecipeRec*  = RECORD
                    END;
@@ -506,7 +506,7 @@ BEGIN
 END GetVal;
 
 TYPE
-  (* ÆØ•‡†Ê®®, ™Æ‚Æ‡Î• Á®‚†Ó‚ ®ß Ø†¨Ô‚® *)
+  (* –æ–ø–µ—Ä–∞—Ü–∏–∏, –∫–æ—Ç–æ—Ä—ã–µ —á–∏—Ç–∞—é—Ç –∏–∑ –ø–∞–º—è—Ç–∏ *)
   BinRecipeR*    = POINTER TO BinRecipeRRec;
   BinRecipeRRec* = RECORD (BinRecipeRec)
                    END;
@@ -522,13 +522,13 @@ BEGIN
 END GetReadSz;
 
 TYPE
-  (* ÆØ•‡†Ê®®, ™Æ‚Æ‡Î• Á®‚†Ó‚ ®ß ¢•È•·‚¢•≠≠Æ© Ø†¨Ô‚® *)
+  (* –æ–ø–µ—Ä–∞—Ü–∏–∏, –∫–æ—Ç–æ—Ä—ã–µ —á–∏—Ç–∞—é—Ç –∏–∑ –≤–µ—â–µ—Å—Ç–≤–µ–Ω–Ω–æ–π –ø–∞–º—è—Ç–∏ *)
   BinRecipeFloatR*      = POINTER TO BinRecipeFloatRRec;
   BinRecipeFloatRRec*   = RECORD (BinRecipeRRec)
                           END;
 
 TYPE
-  (* ÆØ•‡†Ê®®, ™Æ‚Æ‡Î• Ø®Ë„‚ ¢ Ø†¨Ô‚Ï *)
+  (* –æ–ø–µ—Ä–∞—Ü–∏–∏, –∫–æ—Ç–æ—Ä—ã–µ –ø–∏—à—É—Ç –≤ –ø–∞–º—è—Ç—å *)
   BinRecipeW*    = POINTER TO BinRecipeWRec;
   BinRecipeWRec* = RECORD (BinRecipeRec)
                    END;
@@ -544,13 +544,13 @@ BEGIN
 END GetWriteSz;
 
 TYPE
-  (* ÆØ•‡†Ê®®, ™Æ‚Æ‡Î• Ø®Ë„‚ ¢ ¢•È•·‚¢•≠≠„Ó Ø†¨Ô‚Ï *)
+  (* –æ–ø–µ—Ä–∞—Ü–∏–∏, –∫–æ—Ç–æ—Ä—ã–µ –ø–∏—à—É—Ç –≤ –≤–µ—â–µ—Å—Ç–≤–µ–Ω–Ω—É—é –ø–∞–º—è—Ç—å *)
   BinRecipeFloatW*      = POINTER TO BinRecipeFloatWRec;
   BinRecipeFloatWRec*   = RECORD (BinRecipeWRec)
                           END;
 
 TYPE
-  (* ÆØ•‡†Ê®®, ™Æ‚Æ‡Î• ® Ø®Ë„‚ ® Á®‚†Ó‚ *)
+  (* –æ–ø–µ—Ä–∞—Ü–∏–∏, –∫–æ—Ç–æ—Ä—ã–µ –∏ –ø–∏—à—É—Ç –∏ —á–∏—Ç–∞—é—Ç *)
   BinRecipeRW*   = POINTER TO BinRecipeRWRec;
   BinRecipeRWRec*= RECORD (BinRecipeRec)
                    END;

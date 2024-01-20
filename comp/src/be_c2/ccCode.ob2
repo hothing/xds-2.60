@@ -107,11 +107,11 @@ PROCEDURE GenBracedStats (      n: pc.NODE
                          ;    trt: BOOLEAN   -- do gen return
                          ;   loop: pc.NODE );
 (*
-   nrt - оператор является последним в блоке: можно не генерить
-         goto в операторе RETURN
-   trt - по RETURN нужно выйти из процедуры оператором return,
-         нет кода, который нужно исполнить после RETURN но до
-         выхода из тела C-процедуры
+   nrt - ╨╛╨┐╨╡╤А╨░╤В╨╛╤А ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╕╨╝ ╨▓ ╨▒╨╗╨╛╨║╨╡: ╨╝╨╛╨╢╨╜╨╛ ╨╜╨╡ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М
+         goto ╨▓ ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╡ RETURN
+   trt - ╨┐╨╛ RETURN ╨╜╤Г╨╢╨╜╨╛ ╨▓╤Л╨╣╤В╨╕ ╨╕╨╖ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╛╨╝ return,
+         ╨╜╨╡╤В ╨║╨╛╨┤╨░, ╨║╨╛╤В╨╛╤А╤Л╨╣ ╨╜╤Г╨╢╨╜╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╨╕╤В╤М ╨┐╨╛╤Б╨╗╨╡ RETURN ╨╜╨╛ ╨┤╨╛
+         ╨▓╤Л╤Е╨╛╨┤╨░ ╨╕╨╖ ╤В╨╡╨╗╨░ C-╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л
 *)
 VAR rt: BOOLEAN;
 BEGIN
@@ -177,7 +177,7 @@ VAR
   -----------------------------------------------
   PROCEDURE GenPreCheck ( en_if: BOOLEAN ): BOOLEAN;
   (*
-     возвращает FALSE если цикл не исполняется ни разу
+     ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В FALSE ╨╡╤Б╨╗╨╕ ╤Ж╨╕╨║╨╗ ╨╜╨╡ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╤В╤Б╤П ╨╜╨╕ ╤А╨░╨╖╤Г
   *)
   VAR neg: BOOLEAN;
   BEGIN
@@ -301,7 +301,7 @@ BEGIN
 <* ELSE *>
   IF dcl.CmpValue (pc.sb_equ, zz_abs_stp, dcl.NewIntValue (1)) THEN
 <* END *>
-    (* шаг равен +/- 1 *) (* или число повторений константа !!!!! *)
+    (* ╤И╨░╨│ ╤А╨░╨▓╨╡╨╜ +/- 1 *) (* ╨╕╨╗╨╕ ╤З╨╕╤Б╨╗╨╛ ╨┐╨╛╨▓╤В╨╛╤А╨╡╨╜╨╕╨╣ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╨░ !!!!! *)
     qq := (l.r.val # NIL)
 <* IF NODE_VALUE_REPRESENTATION THEN *>
         & dcl.CmpValue (pc.sb_neq, l.r.val, n.obj.type.min.val)
@@ -329,7 +329,7 @@ BEGIN
     out.WrFmt (") {");
     out.WrNL;
     GenSequence (n.r, lev+1, dd(*=>*), rt(*=>*), FALSE, trt, n);
-    (* значения zz_* испорчены ! *)
+    (* ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П zz_* ╨╕╤Б╨┐╨╛╤А╤З╨╡╨╜╤Л ! *)
     IF ~ qq (*OR (bd.ntag_chkfor IN n.tags)*) THEN -- $$$ do it for low = ushort (0)
       out.WrSpc (lev+1);
       out.WrStr ("if (");
@@ -356,7 +356,7 @@ BEGIN
        THEN zz_tmp.binary (pc.sb_minus, l.l.val, l.r.val);
        ELSE zz_tmp.binary (pc.sb_minus, l.r.val, l.l.val);
       END;
-      zz_tmp.binary (pc.sb_div, zz_tmp, zz_abs_stp); (* число повторений *)
+      zz_tmp.binary (pc.sb_div, zz_tmp, zz_abs_stp); (* ╤З╨╕╤Б╨╗╨╛ ╨┐╨╛╨▓╤В╨╛╤А╨╡╨╜╨╕╨╣ *)
       dcl.GenConstAggr (zz_tmp, n.obj.type, 1, FALSE, FALSE);
     ELSE
       t := n.obj.type.super_type();
@@ -379,7 +379,7 @@ BEGIN
     out.WrFmt (";;) {");
     out.WrNL;
     GenSequence (n.r, lev+1, dd(*=>*), rt(*=>*), FALSE, trt, n);
-    (* значения zz_* испорчены ! *)
+    (* ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П zz_* ╨╕╤Б╨┐╨╛╤А╤З╨╡╨╜╤Л ! *)
     zz_abs_stp.unary (pc.su_abs, stp);
     out.WrSpc (lev+1); out.WrFmt ("if (!%s) break;", var_no); out.WrNL;
     out.WrSpc (lev+1); out.WrFmt ("--%s;", var_no); out.WrNL;
@@ -559,11 +559,11 @@ PROCEDURE GenStatement (      n: pc.NODE
                        ;    trt: BOOLEAN
                        ;   loop: pc.NODE );
 (*
-   nrt - оператор является последним в блоке: можно не генерить
-		goto в операторе RETURN
-   trt - по RETURN нужно выйти из процедуры оператором return,
-		нет кода, который нужно исполнить после RETURN но до
-		выхода из тела C-процедуры
+   nrt - ╨╛╨┐╨╡╤А╨░╤В╨╛╤А ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╕╨╝ ╨▓ ╨▒╨╗╨╛╨║╨╡: ╨╝╨╛╨╢╨╜╨╛ ╨╜╨╡ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М
+		goto ╨▓ ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╡ RETURN
+   trt - ╨┐╨╛ RETURN ╨╜╤Г╨╢╨╜╨╛ ╨▓╤Л╨╣╤В╨╕ ╨╕╨╖ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╛╨╝ return,
+		╨╜╨╡╤В ╨║╨╛╨┤╨░, ╨║╨╛╤В╨╛╤А╤Л╨╣ ╨╜╤Г╨╢╨╜╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╨╕╤В╤М ╨┐╨╛╤Б╨╗╨╡ RETURN ╨╜╨╛ ╨┤╨╛
+		╨▓╤Л╤Е╨╛╨┤╨░ ╨╕╨╖ ╤В╨╡╨╗╨░ C-╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л
 *)
 VAR
   nm     : STR;
@@ -617,7 +617,7 @@ BEGIN
      &((n.mode # pc.nd_sproc) OR (n.sub # pc.sp_code))
      & (n.mode # pc.nd_for)
     THEN
-      (* nd_return и nd_block могут вырождаться в пустую строку! *)
+      (* nd_return ╨╕ nd_block ╨╝╨╛╨│╤Г╤В ╨▓╤Л╤А╨╛╨╢╨┤╨░╤В╤М╤Б╤П ╨▓ ╨┐╤Г╤Б╤В╤Г╤О ╤Б╤В╤А╨╛╨║╤Г! *)
       out.WrSpc (lev);
     END;
   ELSE
@@ -1099,11 +1099,11 @@ PROCEDURE GenSequence (      n: pc.NODE
                       ;    trt: BOOLEAN    -- do gen return
                       ;   loop: pc.NODE ); -- for, do, while
 (*
-   nrt - оператор является последним в блоке: можно не генерить
-		goto в операторе RETURN
-   trt - по RETURN нужно выйти из процедуры оператором return,
-		нет кода, который нужно исполнить после RETURN но до
-		выхода из тела C-процедуры
+   nrt - ╨╛╨┐╨╡╤А╨░╤В╨╛╤А ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╕╨╝ ╨▓ ╨▒╨╗╨╛╨║╨╡: ╨╝╨╛╨╢╨╜╨╛ ╨╜╨╡ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М
+		goto ╨▓ ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╡ RETURN
+   trt - ╨┐╨╛ RETURN ╨╜╤Г╨╢╨╜╨╛ ╨▓╤Л╨╣╤В╨╕ ╨╕╨╖ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╛╨╝ return,
+		╨╜╨╡╤В ╨║╨╛╨┤╨░, ╨║╨╛╤В╨╛╤А╤Л╨╣ ╨╜╤Г╨╢╨╜╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╨╕╤В╤М ╨┐╨╛╤Б╨╗╨╡ RETURN ╨╜╨╛ ╨┤╨╛
+		╨▓╤Л╤Е╨╛╨┤╨░ ╨╕╨╖ ╤В╨╡╨╗╨░ C-╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л
 *)
 BEGIN
   dd := FALSE;
@@ -1135,8 +1135,8 @@ BEGIN
   IF code & tim.CanGetClock()
    & env.config.Option ("GENDATE")
   THEN
-    (*	!!!! желательно писать в h-файл время записи сим-файла,
-	текущее время в h-файл писать нельзя - не работает сравнение.
+    (*	!!!! ╨╢╨╡╨╗╨░╤В╨╡╨╗╤М╨╜╨╛ ╨┐╨╕╤Б╨░╤В╤М ╨▓ h-╤Д╨░╨╣╨╗ ╨▓╤А╨╡╨╝╤П ╨╖╨░╨┐╨╕╤Б╨╕ ╤Б╨╕╨╝-╤Д╨░╨╣╨╗╨░,
+	╤В╨╡╨║╤Г╤Й╨╡╨╡ ╨▓╤А╨╡╨╝╤П ╨▓ h-╤Д╨░╨╣╨╗ ╨┐╨╕╤Б╨░╤В╤М ╨╜╨╡╨╗╤М╨╖╤П - ╨╜╨╡ ╤А╨░╨▒╨╛╤В╨░╨╡╤В ╤Б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡.
     *)
     tim.GetClock (dt);
     s := pc.code.code_ext;

@@ -113,7 +113,7 @@ BEGIN
   dest^.next := NIL;
 END copy_segm_by_len;
 
-(* §Æ°†¢´Ô•‚ add_sg ¢ ≠†Á†´Æ res_sg, ‡†ß¨•È†Ô ØÆ·´•§≠®© •·´® ≠„¶≠Æ,
+(* –¥–æ–±–∞–≤–ª—è–µ—Ç add_sg –≤ –Ω–∞—á–∞–ª–æ res_sg, —Ä–∞–∑–º–µ—â–∞—è –ø–æ—Å–ª–µ–¥–Ω–∏–π –µ—Å–ª–∏ –Ω—É–∂–Ω–æ,
 *)
 PROCEDURE AddToStart*(VAR res_sg : Segment; add_sg : Segment);
 VAR i       : INTEGER;
@@ -569,7 +569,7 @@ END PrefixCorrect;
 CONST BitsPerSet = SYSTEM.BITS (SET);
       NSets      = (PORTION_SIZE + BitsPerSet - 1) DIV BitsPerSet;
 
-(* §´®≠† BV ¢·•£§† NSets *)
+(* –¥–ª–∏–Ω–∞ BV –≤—Å–µ–≥–¥–∞ NSets *)
 
 TYPE  BV*  = POINTER TO ARRAY OF SET;
 

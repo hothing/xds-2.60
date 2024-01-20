@@ -1,4 +1,4 @@
-(* ç†™ÆØ´•≠®• TOC *)
+(* –ù–∞–∫–æ–ø–ª–µ–Ω–∏–µ TOC *)
 MODULE TOC;
 
 IMPORT pc   := pcK,
@@ -18,7 +18,7 @@ TYPE TocSegment  = POINTER TO TocDesc;
 
 VAR CurToc*: TocSegment;
     LTOCSegm : cd.CODE_SEGM;
-    lastTOCentrance: INTEGER;  -- ≠Æ¨•‡ ØÆ·´•§≠•© ß†Ø®·® ¢ TOC
+    lastTOCentrance: INTEGER;  -- –Ω–æ–º–µ—Ä –ø–æ—Å–ª–µ–¥–Ω–µ–π –∑–∞–ø–∏—Å–∏ –≤ TOC
 TYPE
     TOC_OFFSET_ATTR  = POINTER TO toc_offs_rec;
     toc_offs_rec   = RECORD(at.attr_ext_rec)

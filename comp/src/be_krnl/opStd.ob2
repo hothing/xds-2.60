@@ -150,8 +150,8 @@ BEGIN
   pr.NewProto(pt, P);
   P.ret_type := ty;
   P.ret_size := sz;
-  P.right_to_left := RtoL;  (* ØÆ‡Ô§Æ™ ¢ÎÁ®·´•≠®Ô †‡£„¨•≠‚Æ¢ *)
-  P.lang_flag := pc.flag_c;       (* -- ¢‡•¨•≠≠Æ !! *)
+  P.right_to_left := RtoL;  (* –ø–æ—Ä—è–¥–æ–∫ –≤—ã—á–∏—Å–ª–µ–Ω–∏—è –∞—Ä–≥—É–º–µ–Ω—Ç–æ–≤ *)
+  P.lang_flag := pc.flag_c;       (* -- –≤—Ä–µ–º–µ–Ω–Ω–æ !! *)
   P.rtn      := FALSE;
   P.ext_rtn  := FALSE;
   P.seq      := FALSE;
@@ -169,25 +169,25 @@ END std_proc_proto;
 
 PROCEDURE std_param(pt   : pr.ProtoNum;
                     n    : INTEGER;
-                    mode : pr.ParamMode; (* ¢®§ Ø†‡†¨•‚‡†: pm_*, ·¨. CONST *)
-                    ind  : SHORTINT;     (* Ø‡®ß≠†™ REF ®´® ≠Æ¨•‡ ‡†ß¨•‡≠Æ·‚® *)
-                    type : ir.TypeType;  (* ‚®Ø Ø†‡†¨•‚‡† ?? *)
-                    size : ir.SizeType;  (* ‡†ß¨•‡ Ø†‡†¨•‚‡† ?? *)
-                    where: pr.MemType;   (* £§• ≠†ÂÆ§®‚·Ô Ø†‡†¨•‚‡ *)
-                    offs : LONGINT       (* ·¨•È•≠®• ≠† ·‚•™• *)
+                    mode : pr.ParamMode; (* –≤–∏–¥ –ø–∞—Ä–∞–º–µ—Ç—Ä–∞: pm_*, —Å–º. CONST *)
+                    ind  : SHORTINT;     (* –ø—Ä–∏–∑–Ω–∞–∫ REF –∏–ª–∏ –Ω–æ–º–µ—Ä —Ä–∞–∑–º–µ—Ä–Ω–æ—Å—Ç–∏ *)
+                    type : ir.TypeType;  (* —Ç–∏–ø –ø–∞—Ä–∞–º–µ—Ç—Ä–∞ ?? *)
+                    size : ir.SizeType;  (* —Ä–∞–∑–º–µ—Ä –ø–∞—Ä–∞–º–µ—Ç—Ä–∞ ?? *)
+                    where: pr.MemType;   (* –≥–¥–µ –Ω–∞—Ö–æ–¥–∏—Ç—Å—è –ø–∞—Ä–∞–º–µ—Ç—Ä *)
+                    offs : LONGINT       (* —Å–º–µ—â–µ–Ω–∏–µ –Ω–∞ —Å—Ç–µ–∫–µ *)
                    );
 BEGIN
   IF mode = pr.pm_return THEN
     pr.ProtoList[pt].rtn := TRUE;
     pr.ProtoList[pt].ext_rtn := TRUE;
   END;
-  pr.ProtoList[pt].par[n-1].mode := mode; (* ¢®§ Ø†‡†¨•‚‡†: pm_*, ·¨. CONST *)
-  pr.ProtoList[pt].par[n-1].ind  := ind;  (* §´Ô param: (ind # 0) - ≠„¶•≠ †§‡•· *)
-                                          (* §´Ô len:    ind - ≠Æ¨•‡ ®ß¨•‡•≠®Ô *)
-  pr.ProtoList[pt].par[n-1].type := type;      (* ‡†ß¨•‡ Ø†‡†¨•‚‡† ??    *)
-  pr.ProtoList[pt].par[n-1].size := size;      (* ‡†ß¨•‡ Ø†‡†¨•‚‡† ??    *)
-  pr.ProtoList[pt].par[n-1].where:= where;     (* £§• ≠†ÂÆ§®‚·Ô Ø†‡†¨•‚‡ *)
-  pr.ProtoList[pt].par[n-1].offs := offs;      (* ·¨•È•≠®• ≠† ·‚•™•      *)
+  pr.ProtoList[pt].par[n-1].mode := mode; (* –≤–∏–¥ –ø–∞—Ä–∞–º–µ—Ç—Ä–∞: pm_*, —Å–º. CONST *)
+  pr.ProtoList[pt].par[n-1].ind  := ind;  (* –¥–ª—è param: (ind # 0) - –Ω—É–∂–µ–Ω –∞–¥—Ä–µ—Å *)
+                                          (* –¥–ª—è len:    ind - –Ω–æ–º–µ—Ä –∏–∑–º–µ—Ä–µ–Ω–∏—è *)
+  pr.ProtoList[pt].par[n-1].type := type;      (* —Ä–∞–∑–º–µ—Ä –ø–∞—Ä–∞–º–µ—Ç—Ä–∞ ??    *)
+  pr.ProtoList[pt].par[n-1].size := size;      (* —Ä–∞–∑–º–µ—Ä –ø–∞—Ä–∞–º–µ—Ç—Ä–∞ ??    *)
+  pr.ProtoList[pt].par[n-1].where:= where;     (* –≥–¥–µ –Ω–∞—Ö–æ–¥–∏—Ç—Å—è –ø–∞—Ä–∞–º–µ—Ç—Ä *)
+  pr.ProtoList[pt].par[n-1].offs := offs;      (* —Å–º–µ—â–µ–Ω–∏–µ –Ω–∞ —Å—Ç–µ–∫–µ      *)
 END std_param;
 
 VAR (* ----------- r t s - v a r i a b l e s ---------- *)

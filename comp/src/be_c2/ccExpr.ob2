@@ -410,7 +410,7 @@ PROCEDURE GenSize* (   n: pc.NODE
                    ; dim: INTEGER
                    ;   p: INTEGER);
 (*
-   dim - ª®«¨ç¥áâ¢® ¨­¤¥ªá æ¨©
+   dim - ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸Ð½Ð´ÐµÐºÑÐ°Ñ†Ð¸Ð¹
 *)
 VAR
   t: pc.STRUCT;
@@ -625,7 +625,7 @@ BEGIN
       IF p > 13 THEN out.WrChr (')') END;
     END;
   ELSIF dcl.IsCarray (o.type) THEN
-    (* ¤«ï C ARRs ¢á¥£¤  £ ­¥à¨âáï BSA, ­¨ç¥£® ¤àã£®£® á£¥­¥à¨âì ­¥«ì§ï *)
+    (* Ð´Ð»Ñ C ARRs Ð²ÑÐµÐ³Ð´Ð° Ð³Ð°Ð½ÐµÑ€Ð¸Ñ‚ÑÑ BSA, Ð½Ð¸Ñ‡ÐµÐ³Ð¾ Ð´Ñ€ÑƒÐ³Ð¾Ð³Ð¾ ÑÐ³ÐµÐ½ÐµÑ€Ð¸Ñ‚ÑŒ Ð½ÐµÐ»ÑŒÐ·Ñ *)
     ASSERT( (dcl.REF IN md) & (dcl.ANY IN md) OR (dcl.BSA IN md) );
     ASSERT( ~(cc.otag_notype IN o.tags) );
     dcl.ObjectUsage (o, bf(*=>*));
@@ -802,14 +802,14 @@ BEGIN
 	  END;
 	  out.WrFmt ("(%s)", nm);
           GenValue (ll, 13, prm_buf[i].ref);
-(* á«¨èª®¬ £àï§­®¥ à¥è¥­¨¥
+(* ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð³Ñ€ÑÐ·Ð½Ð¾Ðµ Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ
 	ELSIF (t.flag = pc.flag_c) &
 	      (ll.type.mode = pc.ty_pointer) &
 	      (ll.type.base.mode = pc.ty_loc) &
               ~cc.op_cpp
 	THEN
-          ( *    ¯®¤ ¢«¥­¨¥ ª®­âà®«ï â¨¯®¢ ¤«ï à à ¬¥âà®¢ â¨¯  ADDRESS,
-		¢ C++ â ª ¤¥« âì ­¥«ì§ï!
+          ( *    Ð¿Ð¾Ð´Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ñ Ñ‚Ð¸Ð¿Ð¾Ð² Ð´Ð»Ñ Ñ€Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¾Ð² Ñ‚Ð¸Ð¿Ð° ADDRESS,
+		Ð² C++ Ñ‚Ð°Ðº Ð´ÐµÐ»Ð°Ñ‚ÑŒ Ð½ÐµÐ»ÑŒÐ·Ñ!
           * )
 	  out.WrStr("(void * )");
           GenValue(ll, 13, prm_buf[i].ref);
@@ -1940,7 +1940,7 @@ BEGIN
      & (n.l.mode = pc.nd_unary)
      & (n.l.sub = pc.su_adr)
     THEN
-      (* ®¯â¨¬¨§­¥¬ cast ª char* *)
+      (* Ð¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð½ÐµÐ¼ cast Ðº char* *)
       GenConvAdr (n, p, md);
     ELSE
       IF p > 13 THEN out.WrChr ('(') END;
@@ -1956,7 +1956,7 @@ BEGIN
     THEN
       s1 := 0;
       s2 := 0;
-      (* ­¥ ­ã¦­® §­ âì à¥ «ì­ë¥ à §¬¥àë ¥á«¨ ¨§¢¥áâ­® çâ® ®­¨ à ¢­ë *)
+      (* Ð½Ðµ Ð½ÑƒÐ¶Ð½Ð¾ Ð·Ð½Ð°Ñ‚ÑŒ Ñ€ÐµÐ°Ð»ÑŒÐ½Ñ‹Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ ÐµÑÐ»Ð¸ Ð¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾ Ñ‡Ñ‚Ð¾ Ð¾Ð½Ð¸ Ñ€Ð°Ð²Ð½Ñ‹ *)
     ELSE
       s1 := pc.code.get_size (pc.su_size, n.l.type);
       s2 := pc.code.get_size (pc.su_size, n.type);
@@ -2271,7 +2271,7 @@ BEGIN
     IF p > 13 THEN out.WrChr ('(') END;
     GenTypeCast ("", n.type);
     IF (pc.ntag_chk_range IN n.tags) & ~(dcl.CHK IN md) THEN
-      (* ‡¤¥áì £¥­¥à¨âáï r_chk ­¥¯à ¢¨«ì­®£® à §¬¥à  (size = 4) !!! *)
+      (* Ð—Ð´ÐµÑÑŒ Ð³ÐµÐ½ÐµÑ€Ð¸Ñ‚ÑÑ r_chk Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° (size = 4) !!! *)
       out.WrFmt ("%s(", nms.x2c[nms.RangeChk (sf)]^);
       GenValue (n.l, 0, md*{dcl.CHK}); out.WrChr (',');
       GenMin (n.type); out.WrChr (',');
@@ -2515,7 +2515,7 @@ BEGIN
           i := dcl.GetBytes (n.pos, n.type)*8;
 	END;
 	IF i = 32 THEN
-	  (* à¥¤¯®«®£ ¥¬, çâ® ¯à®¬¥¦ãâ®ç­ë© à¥§ã«ìâ â ­¥ ¯à¥¢ëè ¥â 32 ¡¨â  *)
+	  (* ÐŸÑ€ÐµÐ´Ð¿Ð¾Ð»Ð¾Ð³Ð°ÐµÐ¼, Ñ‡Ñ‚Ð¾ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ Ð½Ðµ Ð¿Ñ€ÐµÐ²Ñ‹ÑˆÐ°ÐµÑ‚ 32 Ð±Ð¸Ñ‚Ð° *)
 	  IF p > 13 THEN out.WrChr ('(') END;
           out.WrChr ("~"); GenValue (n.l, 13, {});
 	  IF p > 13 THEN out.WrChr (')') END;

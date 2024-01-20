@@ -148,7 +148,7 @@ BEGIN
   IF Strings = NIL THEN
     NEW(Strings, 1);
     ASSERT(Strings#NIL);
-    Strings^[0] := 0C; -- ¢ ≠†Á†´• ¢·•£§† ß†Ø®·†≠† Ø„·‚†Ô ·‚‡Æ™†
+    Strings^[0] := 0C; -- –≤ –Ω–∞—á–∞–ª–µ –≤—Å–µ–≥–¥–∞ –∑–∞–ø–∏—Å–∞–Ω–∞ –ø—É—Å—Ç–∞—è —Å—Ç—Ä–æ–∫–∞
     StringsPos := 1;
   END;
   LOOP
@@ -357,7 +357,7 @@ BEGIN
   write_obj_name(f);
   fmt.print (s, "%s:%d,%d,%d;", current_write_name, type_no, bit_offset, bit_width);
   IF LENGTH(RecordFields)+LENGTH(s) > LEN(RecordFields)-16 THEN
-    -- ¢Î§†§®¨ stab · Ø•‡•¢Æ§Æ¨ ≠† ≠Æ¢„Ó ·‚‡Æ™„
+    -- –≤—ã–¥–∞–¥–∏–º stab —Å –ø–µ—Ä–µ–≤–æ–¥–æ–º –Ω–∞ –Ω–æ–≤—É—é —Å—Ç—Ä–æ–∫—É
     put_type ("%s\\\", RecordFields);
     RecordFields := "";
   END;
@@ -511,7 +511,7 @@ BEGIN
         ASSERT((cns.mode = pc.ob_cons) & (cns.val.mode = pc.nd_value));
         write_obj_name(cns);
         IF LENGTH(s)+LENGTH(current_write_name) > LEN(s)-16 THEN
-          -- ¢Î§†§®¨ stab · Ø•‡•¢Æ§Æ¨ ≠† ≠Æ¢„Ó ·‚‡Æ™„
+          -- –≤—ã–¥–∞–¥–∏–º stab —Å –ø–µ—Ä–µ–≤–æ–¥–æ–º –Ω–∞ –Ω–æ–≤—É—é —Å—Ç—Ä–æ–∫—É
           put_type ("%s\\\", s);
           s := "";
         END;
@@ -640,7 +640,7 @@ BEGIN
       -- "write_open_array" combines both 'set' and 'write' functions
       ASSERT(FALSE);
     | dbg.act_write:
-      (* ??? ØÆ ‚®Ø„ „ß≠†‚Ï £§• ´•¶®‚ §´®≠† *)
+      (* ??? –ø–æ —Ç–∏–ø—É —É–∑–Ω–∞—Ç—å –≥–¥–µ –ª–µ–∂–∏—Ç –¥–ª–∏–Ω–∞ *)
       put_type (":t%d=A%d", dbg.tname_transfer, dbg.write_type_cnt, dbg.tindex_transfer);
       INC(dbg.write_type_cnt);
     END;
@@ -968,8 +968,8 @@ END PrintStabs;
 
 PROCEDURE (emit: EMIT_STAB) ini*;
 BEGIN
--- Ö·´® ‡•¶®¨ ¢Î¢Æ§† ‚•™·‚Æ¢Î©, ≠•Æ°ÂÆ§®¨Æ ®≠®Ê®†´®ß®‡Æ¢†‚Ï
--- ‰†©´ §´Ô ¢Î¢Æ§† Ø‡ÆÊ•§„‡Æ©
+-- –ï—Å–ª–∏ —Ä–µ–∂–∏–º –≤—ã–≤–æ–¥–∞ —Ç–µ–∫—Å—Ç–æ–≤—ã–π, –Ω–µ–æ–±—Ö–æ–¥–∏–º–æ –∏–Ω–∏—Ü–∏–∞–ª–∏–∑–∏—Ä–æ–≤–∞—Ç—å
+-- —Ñ–∞–π–ª –¥–ª—è –≤—ã–≤–æ–¥–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä–æ–π
   linum_count := 0;
   Stabs := NIL;
   Strings := NIL;

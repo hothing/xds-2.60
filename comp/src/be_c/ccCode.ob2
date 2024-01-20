@@ -1,7 +1,7 @@
 (** Copyright (c) 1991,97 XDS Ltd, Russia. All Rights Reserved. *)
 MODULE ccCode; (** Sem 22-Sep-93. *)
 
-(**  Головной модуль генерации в С *)
+(**  ╨У╨╛╨╗╨╛╨▓╨╜╨╛╨╣ ╨╝╨╛╨┤╤Г╨╗╤М ╨│╨╡╨╜╨╡╤А╨░╤Ж╨╕╨╕ ╨▓ ╨б *)
 
 (* Modifications:
    08/Feb/96 Ned  2.12  op_gendll in "gen_includes"
@@ -52,7 +52,7 @@ PROCEDURE ^ gen_sequence(n: pc.NODE; lev: INTEGER;
 
 
 PROCEDURE new_object(VAR o: pc.OBJECT; mode: pc.OB_MODE; type: pc.STRUCT);
-  (* создает объект в текущей области действия *)
+  (* ╤Б╨╛╨╖╨┤╨░╨╡╤В ╨╛╨▒╤К╨╡╨║╤В ╨▓ ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╨╛╨▒╨╗╨░╤Б╤В╨╕ ╨┤╨╡╨╣╤Б╤В╨▓╨╕╤П *)
   VAR h: pc.STRUCT;
 BEGIN
   ASSERT(~dcl.gen_def);
@@ -166,7 +166,7 @@ PROCEDURE gen_statement_for(n: pc.NODE; lev: INTEGER; trt: BOOLEAN);
   END gen_var_assign;
 
   PROCEDURE gen_pre_check(en_if: BOOLEAN): BOOLEAN;
-    (* возвращает FALSE если цикл не исполняется ни разу *)
+    (* ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В FALSE ╨╡╤Б╨╗╨╕ ╤Ж╨╕╨║╨╗ ╨╜╨╡ ╨╕╤Б╨┐╨╛╨╗╨╜╤П╨╡╤В╤Б╤П ╨╜╨╕ ╤А╨░╨╖╤Г *)
     VAR neg: BOOLEAN;
   BEGIN
     neg:=stp.is_neg();
@@ -234,7 +234,7 @@ BEGIN
     cce.gen_value(l.r,0,{}); out.wf(";\n");
   END;
   IF dcl.cmp_value(pc.sb_equ,zz_abs_stp,zz_one) THEN
-    (* шаг равен +/- 1 *) (* или число повторений константа !!!!! *)
+    (* ╤И╨░╨│ ╤А╨░╨▓╨╡╨╜ +/- 1 *) (* ╨╕╨╗╨╕ ╤З╨╕╤Б╨╗╨╛ ╨┐╨╛╨▓╤В╨╛╤А╨╡╨╜╨╕╨╣ ╨║╨╛╨╜╤Б╤В╨░╨╜╤В╨░ !!!!! *)
     qq:=(l.r.mode=pc.nd_value) &
         dcl.cmp_value(pc.sb_neq,l.r.val,n.obj.type.min) &
         dcl.cmp_value(pc.sb_neq,l.r.val,n.obj.type.max);
@@ -251,7 +251,7 @@ BEGIN
     out.ws("; ");
     gen_var_inc(TRUE); out.wf(") {\n");
     gen_sequence(n.r,lev+1,dd,rt,FALSE,trt,n);
-    (* значения zz_* испорчены ! *)
+    (* ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П zz_* ╨╕╤Б╨┐╨╛╤А╤З╨╡╨╜╤Л ! *)
     IF NOT qq THEN
       out.sp(lev+1); out.ws("if (");
       gen_var_nm; out.ws("=="); gen_value_to;
@@ -269,7 +269,7 @@ BEGIN
       IF stp.is_neg() THEN zz_tmp.binary(pc.sb_minus,l.l.val,l.r.val);
       ELSE zz_tmp.binary(pc.sb_minus,l.r.val,l.l.val);
       END;
-      zz_tmp.binary(pc.sb_div,zz_tmp,zz_abs_stp); (* число повторений *)
+      zz_tmp.binary(pc.sb_div,zz_tmp,zz_abs_stp); (* ╤З╨╕╤Б╨╗╨╛ ╨┐╨╛╨▓╤В╨╛╤А╨╡╨╜╨╕╨╣ *)
       dcl.const_aggregate(zz_tmp,n.obj.type,1,FALSE,FALSE);
     ELSE
       t:=n.obj.type.super_type();
@@ -289,7 +289,7 @@ BEGIN
     END;
     out.wf(";;) {\n");
     gen_sequence(n.r,lev+1,dd,rt,FALSE,trt,n);
-    (* значения zz_* испорчены ! *)
+    (* ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П zz_* ╨╕╤Б╨┐╨╛╤А╤З╨╡╨╜╤Л ! *)
     zz_abs_stp.unary(pc.su_abs,stp);
     out.sp(lev+1); out.wf("if (!%s) break;\n",var_no);
     out.sp(lev+1); out.wf("--%s;\n",var_no);
@@ -303,12 +303,12 @@ PROCEDURE gen_statement_return(	n: pc.NODE;
                                 VAR rt: BOOLEAN;
 				nrt,trt: BOOLEAN);
 (*
-	nrt - оператор является последним в блоке: можно не генерить
-		goto в операторе RETURN
+	nrt - ╨╛╨┐╨╡╤А╨░╤В╨╛╤А ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╕╨╝ ╨▓ ╨▒╨╗╨╛╨║╨╡: ╨╝╨╛╨╢╨╜╨╛ ╨╜╨╡ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М
+		goto ╨▓ ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╡ RETURN
 
-	trt - по RETURN нужно выйти из процедуры оператором return,
-		нет кода, который нужно исполнить после RETURN но до
-		выхода из тела C-процедуры
+	trt - ╨┐╨╛ RETURN ╨╜╤Г╨╢╨╜╨╛ ╨▓╤Л╨╣╤В╨╕ ╨╕╨╖ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╛╨╝ return,
+		╨╜╨╡╤В ╨║╨╛╨┤╨░, ╨║╨╛╤В╨╛╤А╤Л╨╣ ╨╜╤Г╨╢╨╜╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╨╕╤В╤М ╨┐╨╛╤Б╨╗╨╡ RETURN ╨╜╨╛ ╨┤╨╛
+		╨▓╤Л╤Е╨╛╨┤╨░ ╨╕╨╖ ╤В╨╡╨╗╨░ C-╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л
 *)
   VAR nm: STR;
 BEGIN
@@ -337,7 +337,7 @@ BEGIN
     rt:=FALSE;
   END;
   IF NOT nrt THEN
-    (* генерим goto на конец блока *)
+    (* ╨│╨╡╨╜╨╡╤А╨╕╨╝ goto ╨╜╨░ ╨║╨╛╨╜╨╡╤Ж ╨▒╨╗╨╛╨║╨░ *)
     IF n.r.obj=NIL THEN
       cre_label(n.r.obj,"label");
       n.r.obj.pos:=n.pos;
@@ -456,12 +456,12 @@ PROCEDURE gen_statement(n: pc.NODE;
 			nrt,trt: BOOLEAN;
 			loop: pc.NODE);
 (*
-	nrt - оператор является последним в блоке: можно не генерить
-		goto в операторе RETURN
+	nrt - ╨╛╨┐╨╡╤А╨░╤В╨╛╤А ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╕╨╝ ╨▓ ╨▒╨╗╨╛╨║╨╡: ╨╝╨╛╨╢╨╜╨╛ ╨╜╨╡ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М
+		goto ╨▓ ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╡ RETURN
 
-	trt - по RETURN нужно выйти из процедуры оператором return,
-		нет кода, который нужно исполнить после RETURN но до
-		выхода из тела C-процедуры
+	trt - ╨┐╨╛ RETURN ╨╜╤Г╨╢╨╜╨╛ ╨▓╤Л╨╣╤В╨╕ ╨╕╨╖ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╛╨╝ return,
+		╨╜╨╡╤В ╨║╨╛╨┤╨░, ╨║╨╛╤В╨╛╤А╤Л╨╣ ╨╜╤Г╨╢╨╜╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╨╕╤В╤М ╨┐╨╛╤Б╨╗╨╡ RETURN ╨╜╨╛ ╨┤╨╛
+		╨▓╤Л╤Е╨╛╨┤╨░ ╨╕╨╖ ╤В╨╡╨╗╨░ C-╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л
 *)
   VAR
     nm  : STR;
@@ -481,7 +481,7 @@ BEGIN
      (n.mode#pc.nd_sproc) &
      (n.mode#pc.nd_for)
   THEN
-    (* nd_return и nd_block могут вырождаться в пустую строку! *)
+    (* nd_return ╨╕ nd_block ╨╝╨╛╨│╤Г╤В ╨▓╤Л╤А╨╛╨╢╨┤╨░╤В╤М╤Б╤П ╨▓ ╨┐╤Г╤Б╤В╤Г╤О ╤Б╤В╤А╨╛╨║╤Г! *)
     out.sp(lev);
   END;
   CASE n.mode OF
@@ -537,7 +537,7 @@ BEGIN
       IF NOT trt OR NOT nrt THEN
 	gen_sequence(n.r,lev,dd,rt,TRUE,FALSE,loop);
 	IF n.obj#NIL THEN
-	  (* раз есть метка, значит на нее попадает управление *)
+	  (* ╤А╨░╨╖ ╨╡╤Б╤В╤М ╨╝╨╡╤В╨║╨░, ╨╖╨╜╨░╤З╨╕╤В ╨╜╨░ ╨╜╨╡╨╡ ╨┐╨╛╨┐╨░╨┤╨░╨╡╤В ╤Г╨┐╤А╨░╨▓╨╗╨╡╨╜╨╕╨╡ *)
 	  ASSERT(NOT (pc.ntag_no_exit IN n.tags));
 	  dcl.o_usage(n.obj,nm);
 	  out.sp(lev); out.wf("%s:;\n",nm);
@@ -545,14 +545,14 @@ BEGIN
 	END;
       ELSE
 	gen_sequence(n.r,lev,dd,rt,TRUE,TRUE,loop);
-	(* если блоку сказано trt=TRUE то у него нет выходной метки,
-		поскольку не генериться goto
+	(* ╨╡╤Б╨╗╨╕ ╨▒╨╗╨╛╨║╤Г ╤Б╨║╨░╨╖╨░╨╜╨╛ trt=TRUE ╤В╨╛ ╤Г ╨╜╨╡╨│╨╛ ╨╜╨╡╤В ╨▓╤Л╤Е╨╛╨┤╨╜╨╛╨╣ ╨╝╨╡╤В╨║╨╕,
+		╨┐╨╛╤Б╨║╨╛╨╗╤М╨║╤Г ╨╜╨╡ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М╤Б╤П goto
 	*)
 	ASSERT(n.obj=NIL);
-	(* управление тем не менее может достичь текущей позиции C кода,
-		например если в блоке вообще нет операторов RETURN,
-		но это означает что процедура не возвращает результата
-		и return можно не генерить
+	(* ╤Г╨┐╤А╨░╨▓╨╗╨╡╨╜╨╕╨╡ ╤В╨╡╨╝ ╨╜╨╡ ╨╝╨╡╨╜╨╡╨╡ ╨╝╨╛╨╢╨╡╤В ╨┤╨╛╤Б╤В╨╕╤З╤М ╤В╨╡╨║╤Г╤Й╨╡╨╣ ╨┐╨╛╨╖╨╕╤Ж╨╕╨╕ C ╨║╨╛╨┤╨░,
+		╨╜╨░╨┐╤А╨╕╨╝╨╡╤А ╨╡╤Б╨╗╨╕ ╨▓ ╨▒╨╗╨╛╨║╨╡ ╨▓╨╛╨╛╨▒╤Й╨╡ ╨╜╨╡╤В ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╛╨▓ RETURN,
+		╨╜╨╛ ╤Н╤В╨╛ ╨╛╨╖╨╜╨░╤З╨░╨╡╤В ╤З╤В╨╛ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░ ╨╜╨╡ ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В╨░
+		╨╕ return ╨╝╨╛╨╢╨╜╨╛ ╨╜╨╡ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М
 	*)
       END;
     |pc.nd_exit:
@@ -639,19 +639,19 @@ BEGIN
 	  gen_case_range(k,lev);
 	  k:=k.next;
 	UNTIL k=NIL;
-	(* nrt:=FALSE ! Иначе вместо выхода из блока по RETURN
-		попадем в следующую альтернативу CASE
+	(* nrt:=FALSE ! ╨Ш╨╜╨░╤З╨╡ ╨▓╨╝╨╡╤Б╤В╨╛ ╨▓╤Л╤Е╨╛╨┤╨░ ╨╕╨╖ ╨▒╨╗╨╛╨║╨░ ╨┐╨╛ RETURN
+		╨┐╨╛╨┐╨░╨┤╨╡╨╝ ╨▓ ╤Б╨╗╨╡╨┤╤Г╤О╤Й╤Г╤О ╨░╨╗╤М╤В╨╡╤А╨╜╨░╤В╨╕╨▓╤Г CASE
 	*)
 	gen_sequence(l.r,lev+1,dd,rt,FALSE,trt,n);
 	IF NOT dd THEN out.sp(lev+1); out.wf("break;\n") END;
 	l:=l.next;
       END;
       IF m.mode=pc.nd_caselse THEN
-	(* пустой ELSE можно вообще не генерить *)
+	(* ╨┐╤Г╤Б╤В╨╛╨╣ ELSE ╨╝╨╛╨╢╨╜╨╛ ╨▓╨╛╨╛╨▒╤Й╨╡ ╨╜╨╡ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М *)
         IF m.r#NIL THEN
 	  out.sp(lev); out.wf("default:;\n");
 	  gen_sequence(m.r,lev+1,dd,rt,nrt,trt,n);
-	  (* break генерить обязательно, иначе нужна ';' после метки *)
+	  (* break ╨│╨╡╨╜╨╡╤А╨╕╤В╤М ╨╛╨▒╤П╨╖╨░╤В╨╡╨╗╤М╨╜╨╛, ╨╕╨╜╨░╤З╨╡ ╨╜╤Г╨╢╨╜╨░ ';' ╨┐╨╛╤Б╨╗╨╡ ╨╝╨╡╤В╨║╨╕ *)
 	  IF NOT dd THEN out.sp(lev+1); out.wf("break;\n") END;
         END;
       ELSE
@@ -725,12 +725,12 @@ PROCEDURE gen_sequence(n: pc.NODE;
 		trt: BOOLEAN;   (* do gen return *)
 		loop: pc.NODE   (* for, do, while *) );
 (*
-	nrt - оператор является последним в блоке: можно не генерить
-		goto в операторе RETURN
+	nrt - ╨╛╨┐╨╡╤А╨░╤В╨╛╤А ╤П╨▓╨╗╤П╨╡╤В╤Б╤П ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╕╨╝ ╨▓ ╨▒╨╗╨╛╨║╨╡: ╨╝╨╛╨╢╨╜╨╛ ╨╜╨╡ ╨│╨╡╨╜╨╡╤А╨╕╤В╤М
+		goto ╨▓ ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╡ RETURN
 
-	trt - по RETURN нужно выйти из процедуры оператором return,
-		нет кода, который нужно исполнить после RETURN но до
-		выхода из тела C-процедуры
+	trt - ╨┐╨╛ RETURN ╨╜╤Г╨╢╨╜╨╛ ╨▓╤Л╨╣╤В╨╕ ╨╕╨╖ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л ╨╛╨┐╨╡╤А╨░╤В╨╛╤А╨╛╨╝ return,
+		╨╜╨╡╤В ╨║╨╛╨┤╨░, ╨║╨╛╤В╨╛╤А╤Л╨╣ ╨╜╤Г╨╢╨╜╨╛ ╨╕╤Б╨┐╨╛╨╗╨╜╨╕╤В╤М ╨┐╨╛╤Б╨╗╨╡ RETURN ╨╜╨╛ ╨┤╨╛
+		╨▓╤Л╤Е╨╛╨┤╨░ ╨╕╨╖ ╤В╨╡╨╗╨░ C-╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╤Л
 
 *)
 BEGIN
@@ -790,7 +790,7 @@ BEGIN
            cc.ttag_cstdlib   IN dcl.cur_mod.type.tags);
   END;
   IF imp THEN
-    (* возможно это можно не делать, см. ccDef *)
+    (* ╨▓╨╛╨╖╨╝╨╛╨╢╨╜╨╛ ╤Н╤В╨╛ ╨╝╨╛╨╢╨╜╨╛ ╨╜╨╡ ╨┤╨╡╨╗╨░╤В╤М, ╤Б╨╝. ccDef *)
     u:=dcl.cur_mod.type.use;
     WHILE u#NIL DO
       dcl.mod_usage[u.obj.mno]:=TRUE;
@@ -837,8 +837,8 @@ BEGIN
   env.config.Equation("COPYRIGHT",s);
   IF s#NIL THEN dcl.out_comment(s^) END;
   IF code & tim.CanGetClock() & env.config.Option("GENDATE") THEN
-    (*	!!!! желательно писать в h-файл время записи сим-файла,
-	текущее время в h-файл писать нельзя - не работает сравнение.
+    (*	!!!! ╨╢╨╡╨╗╨░╤В╨╡╨╗╤М╨╜╨╛ ╨┐╨╕╤Б╨░╤В╤М ╨▓ h-╤Д╨░╨╣╨╗ ╨▓╤А╨╡╨╝╤П ╨╖╨░╨┐╨╕╤Б╨╕ ╤Б╨╕╨╝-╤Д╨░╨╣╨╗╨░,
+	╤В╨╡╨║╤Г╤Й╨╡╨╡ ╨▓╤А╨╡╨╝╤П ╨▓ h-╤Д╨░╨╣╨╗ ╨┐╨╕╤Б╨░╤В╤М ╨╜╨╡╨╗╤М╨╖╤П - ╨╜╨╡ ╤А╨░╨▒╨╛╤В╨░╨╡╤В ╤Б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡.
     *)
     tim.GetClock(dt);
     s:=pc.code.code_ext;

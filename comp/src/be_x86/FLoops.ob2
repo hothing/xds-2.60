@@ -26,7 +26,7 @@ TYPE
                     write,
                     unknown : BOOLEAN;
                     sz      : Emit.SizeType;
-                    ST_offs : SHORTINT; -- лежит на стеке с смещением
+                    ST_offs : SHORTINT; -- ╨╗╨╡╨╢╨╕╤В ╨╜╨░ ╤Б╤В╨╡╨║╨╡ ╤Б ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╨╡╨╝
                                         -- ST_SIZE - ST_offs
                 END;
 
@@ -35,7 +35,7 @@ TYPE
                     next    : AddrList;
                 END;
 
-(* сортирует список по count *)
+(* ╤Б╨╛╤А╤В╨╕╤А╤Г╨╡╤В ╤Б╨┐╨╕╤Б╨╛╨║ ╨┐╨╛ count *)
 PROCEDURE SortList(l : AddrList) : AddrList;
 VAR tmp      : AddrList;
     changed  : BOOLEAN;
@@ -59,7 +59,7 @@ BEGIN
     RETURN l;
 END SortList;
 
-(* переворачивает список *)
+(* ╨┐╨╡╤А╨╡╨▓╨╛╤А╨░╤З╨╕╨▓╨░╨╡╤В ╤Б╨┐╨╕╤Б╨╛╨║ *)
 PROCEDURE ReverseList(l : AddrList) : AddrList;
 VAR res, tmp : AddrList;
 BEGIN
@@ -81,21 +81,21 @@ END ClearScales;
 VAR LoopDescs : POINTER TO ARRAY OF
                     RECORD
                         max_FS       : SHORTINT;
-                                     -- макс. использование стека в цикле
+                                     -- ╨╝╨░╨║╤Б. ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╕╨╡ ╤Б╤В╨╡╨║╨░ ╨▓ ╤Ж╨╕╨║╨╗╨╡
                         with_call    : BOOLEAN;
-                                     -- содержит вызов
+                                     -- ╤Б╨╛╨┤╨╡╤А╨╢╨╕╤В ╨▓╤Л╨╖╨╛╨▓
                         res_regs     : def.Regs;
-                                     -- меняет регистры
+                                     -- ╨╝╨╡╨╜╤П╨╡╤В ╤А╨╡╨│╨╕╤Б╤В╤А╤Л
                         candidates   : AddrList;
-                                     -- что может захотеться садить на регистр
+                                     -- ╤З╤В╨╛ ╨╝╨╛╨╢╨╡╤В ╨╖╨░╤Е╨╛╤В╨╡╤В╤М╤Б╤П ╤Б╨░╨┤╨╕╤В╤М ╨╜╨░ ╤А╨╡╨│╨╕╤Б╤В╤А
                         fmem,
                         mem          : AddrList;
-                                     -- (вещественная)
-                                     -- используемая/изменяемая память в цикле
+                                     -- (╨▓╨╡╤Й╨╡╤Б╤В╨▓╨╡╨╜╨╜╨░╤П)
+                                     -- ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝╨░╤П/╨╕╨╖╨╝╨╡╨╜╤П╨╡╨╝╨░╤П ╨┐╨░╨╝╤П╤В╤М ╨▓ ╤Ж╨╕╨║╨╗╨╡
                     END;
 
 
-(* сравнение списков смещений из адресов *)
+(* ╤Б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╤Б╨┐╨╕╤Б╨║╨╛╨▓ ╤Б╨╝╨╡╤Й╨╡╨╜╨╕╨╣ ╨╕╨╖ ╨░╨┤╤А╨╡╤Б╨╛╨▓ *)
 PROCEDURE CompareOffsLists(l1,l2  : Emit.OffsRecPtr) : BOOLEAN;
 BEGIN
     LOOP
@@ -107,7 +107,7 @@ BEGIN
     END;
 END CompareOffsLists;
 
-(* сравнение списков процедур из адресов *)
+(* ╤Б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╤Б╨┐╨╕╤Б╨║╨╛╨▓ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А ╨╕╨╖ ╨░╨┤╤А╨╡╤Б╨╛╨▓ *)
 PROCEDURE CompareProcLists(l1,l2  : Emit.ProcRecPtr) : BOOLEAN;
 BEGIN
     LOOP
@@ -119,7 +119,7 @@ BEGIN
     END;
 END CompareProcLists;
 
-(* сравнение адресов *)
+(* ╤Б╤А╨░╨▓╨╜╨╡╨╜╨╕╨╡ ╨░╨┤╤А╨╡╤Б╨╛╨▓ *)
 PROCEDURE CompareAddrs(a1,a2 : def.AddrMode) : BOOLEAN;
 BEGIN
     RETURN (a1.place1.r  = a2.place1.r)  &  (a1.place1.v  = a2.place1.v)  &
@@ -129,8 +129,8 @@ BEGIN
            CompareOffsLists(a1.offslist,a2.offslist) & CompareProcLists(a1.proclist,a2.proclist);
 END CompareAddrs;
 
-(* возвращает хвост списка l, начиная с элемента, содержащего a,
-   или NIL
+(* ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В ╤Е╨▓╨╛╤Б╤В ╤Б╨┐╨╕╤Б╨║╨░ l, ╨╜╨░╤З╨╕╨╜╨░╤П ╤Б ╤Н╨╗╨╡╨╝╨╡╨╜╤В╨░, ╤Б╨╛╨┤╨╡╤А╨╢╨░╤Й╨╡╨│╨╛ a,
+   ╨╕╨╗╨╕ NIL
 *)
 PROCEDURE Member(l : AddrList; a :  def.AddrMode) : AddrList;
 BEGIN
@@ -143,9 +143,9 @@ END Member;
 
 
 (*
-   добавляет адрес a, используемый в узле n на чтение (если read)
-   или на запись к списку l,
-   если в l такой адрес уже есть, то добавляет n в used_in
+   ╨┤╨╛╨▒╨░╨▓╨╗╤П╨╡╤В ╨░╨┤╤А╨╡╤Б a, ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝╤Л╨╣ ╨▓ ╤Г╨╖╨╗╨╡ n ╨╜╨░ ╤З╤В╨╡╨╜╨╕╨╡ (╨╡╤Б╨╗╨╕ read)
+   ╨╕╨╗╨╕ ╨╜╨░ ╨╖╨░╨┐╨╕╤Б╤М ╨║ ╤Б╨┐╨╕╤Б╨║╤Г l,
+   ╨╡╤Б╨╗╨╕ ╨▓ l ╤В╨░╨║╨╛╨╣ ╨░╨┤╤А╨╡╤Б ╤Г╨╢╨╡ ╨╡╤Б╤В╤М, ╤В╨╛ ╨┤╨╛╨▒╨░╨▓╨╗╤П╨╡╤В n ╨▓ used_in
 *)
 PROCEDURE AddAddr(VAR   l : AddrList;
                         a : def.AddrMode;
@@ -177,7 +177,7 @@ BEGIN
     IF in_int_op THEN tmp^.ad.in_int_op := TRUE; END;
 END AddAddr;
 
-(* определяет 'строгую' известность адреса *)
+(* ╨╛╨┐╤А╨╡╨┤╨╡╨╗╤П╨╡╤В '╤Б╤В╤А╨╛╨│╤Г╤О' ╨╕╨╖╨▓╨╡╤Б╤В╨╜╨╛╤Б╤В╤М ╨░╨┤╤А╨╡╤Б╨░ *)
 PROCEDURE IsUnknownAddr(addr : def.AddrMode; loop: Loop) : BOOLEAN;
 VAR local : ir.Local;
 BEGIN
@@ -190,9 +190,9 @@ BEGIN
     RETURN FALSE;
 END IsUnknownAddr;
 
-(* вычисляет начальные значения дескрипторов циклов по узлу n в цикле l,
-   возвращает признак, что этот цикл еще имеет смысл пытаться
-   оптимизировать
+(* ╨▓╤Л╤З╨╕╤Б╨╗╤П╨╡╤В ╨╜╨░╤З╨░╨╗╤М╨╜╤Л╨╡ ╨╖╨╜╨░╤З╨╡╨╜╨╕╤П ╨┤╨╡╤Б╨║╤А╨╕╨┐╤В╨╛╤А╨╛╨▓ ╤Ж╨╕╨║╨╗╨╛╨▓ ╨┐╨╛ ╤Г╨╖╨╗╤Г n ╨▓ ╤Ж╨╕╨║╨╗╨╡ l,
+   ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В ╨┐╤А╨╕╨╖╨╜╨░╨║, ╤З╤В╨╛ ╤Н╤В╨╛╤В ╤Ж╨╕╨║╨╗ ╨╡╤Й╨╡ ╨╕╨╝╨╡╨╡╤В ╤Б╨╝╤Л╤Б╨╗ ╨┐╤Л╤В╨░╤В╤М╤Б╤П
+   ╨╛╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╨╛╨▓╨░╤В╤М
 *)
 PROCEDURE EvalLoopDesc(n : ir.Node; l : Loop) : BOOLEAN;
 VAR current,max : SHORTINT;
@@ -249,10 +249,10 @@ BEGIN
     RETURN LoopDescs^[l].max_FS < 8;
 END EvalLoopDesc;
 
-(* шкала с забракованными циклами *)
+(* ╤И╨║╨░╨╗╨░ ╤Б ╨╖╨░╨▒╤А╨░╨║╨╛╨▓╨░╨╜╨╜╤Л╨╝╨╕ ╤Ж╨╕╨║╨╗╨░╨╝╨╕ *)
 VAR discarded : BitVect.BitVector;
 
-(* инициализация всего барахла для FL-оптимизации *)
+(* ╨╕╨╜╨╕╤Ж╨╕╨░╨╗╨╕╨╖╨░╤Ж╨╕╤П ╨▓╤Б╨╡╨│╨╛ ╨▒╨░╤А╨░╤Е╨╗╨░ ╨┤╨╗╤П FL-╨╛╨┐╤В╨╕╨╝╨╕╨╖╨░╤Ж╨╕╨╕ *)
 PROCEDURE InitLoopDescs*;
 VAR s        : ir.TSNode;
     l        : Loop;
@@ -285,9 +285,9 @@ BEGIN
     END;
 END InitLoopDescs;
 
-(* может ли пересечься голова al1 с головой al2
-   у первой регистры - гарантировано инварианты цикла
-   первая - вещественная память, которую хочется засунуть на стек
+(* ╨╝╨╛╨╢╨╡╤В ╨╗╨╕ ╨┐╨╡╤А╨╡╤Б╨╡╤З╤М╤Б╤П ╨│╨╛╨╗╨╛╨▓╨░ al1 ╤Б ╨│╨╛╨╗╨╛╨▓╨╛╨╣ al2
+   ╤Г ╨┐╨╡╤А╨▓╨╛╨╣ ╤А╨╡╨│╨╕╤Б╤В╤А╤Л - ╨│╨░╤А╨░╨╜╤В╨╕╤А╨╛╨▓╨░╨╜╨╛ ╨╕╨╜╨▓╨░╤А╨╕╨░╨╜╤В╤Л ╤Ж╨╕╨║╨╗╨░
+   ╨┐╨╡╤А╨▓╨░╤П - ╨▓╨╡╤Й╨╡╤Б╤В╨▓╨╡╨╜╨╜╨░╤П ╨┐╨░╨╝╤П╤В╤М, ╨║╨╛╤В╨╛╤А╤Г╤О ╤Е╨╛╤З╨╡╤В╤Б╤П ╨╖╨░╤Б╤Г╨╜╤Г╤В╤М ╨╜╨░ ╤Б╤В╨╡╨║
 *)
 PROCEDURE AreLocationsIntersect(al1,al2 : AddrList) : BOOLEAN;
 VAR l1,l2 : ir.Local;
@@ -320,15 +320,15 @@ BEGIN
     RETURN CompareAddrs(a1,a2) OR AreLocationsIntersect(al1,al2);
 END AreLocationsIntersectStrict;
 
-(* может ли пересечься голова al1 с каким-нибудь адресом из al2
-   голова al1 - уже не очень хороший адрес,
-   но его регистры - инварианты в цикле
+(* ╨╝╨╛╨╢╨╡╤В ╨╗╨╕ ╨┐╨╡╤А╨╡╤Б╨╡╤З╤М╤Б╤П ╨│╨╛╨╗╨╛╨▓╨░ al1 ╤Б ╨║╨░╨║╨╕╨╝-╨╜╨╕╨▒╤Г╨┤╤М ╨░╨┤╤А╨╡╤Б╨╛╨╝ ╨╕╨╖ al2
+   ╨│╨╛╨╗╨╛╨▓╨░ al1 - ╤Г╨╢╨╡ ╨╜╨╡ ╨╛╤З╨╡╨╜╤М ╤Е╨╛╤А╨╛╤И╨╕╨╣ ╨░╨┤╤А╨╡╤Б,
+   ╨╜╨╛ ╨╡╨│╨╛ ╤А╨╡╨│╨╕╤Б╤В╤А╤Л - ╨╕╨╜╨▓╨░╤А╨╕╨░╨╜╤В╤Л ╨▓ ╤Ж╨╕╨║╨╗╨╡
 *)
 PROCEDURE CanIntersect(al1, al2 : AddrList) : BOOLEAN;
 BEGIN
-    (* списки не могут быть пустыми, поскольку всегда передается
-       LoopDescs^[l].mem, где l не входит в discarded, а значит в
-       l есть хотя бы одна вещественная память
+    (* ╤Б╨┐╨╕╤Б╨║╨╕ ╨╜╨╡ ╨╝╨╛╨│╤Г╤В ╨▒╤Л╤В╤М ╨┐╤Г╤Б╤В╤Л╨╝╨╕, ╨┐╨╛╤Б╨║╨╛╨╗╤М╨║╤Г ╨▓╤Б╨╡╨│╨┤╨░ ╨┐╨╡╤А╨╡╨┤╨░╨╡╤В╤Б╤П
+       LoopDescs^[l].mem, ╨│╨┤╨╡ l ╨╜╨╡ ╨▓╤Е╨╛╨┤╨╕╤В ╨▓ discarded, ╨░ ╨╖╨╜╨░╤З╨╕╤В ╨▓
+       l ╨╡╤Б╤В╤М ╤Е╨╛╤В╤П ╨▒╤Л ╨╛╨┤╨╜╨░ ╨▓╨╡╤Й╨╡╤Б╤В╨▓╨╡╨╜╨╜╨░╤П ╨┐╨░╨╝╤П╤В╤М
     *)
     REPEAT
         IF AreLocationsIntersect(al1,al2) THEN RETURN TRUE; END;
@@ -337,7 +337,7 @@ BEGIN
     RETURN FALSE;
 END CanIntersect;
 
-(* то же но для всего списка al1 *)
+(* ╤В╨╛ ╨╢╨╡ ╨╜╨╛ ╨┤╨╗╤П ╨▓╤Б╨╡╨│╨╛ ╤Б╨┐╨╕╤Б╨║╨░ al1 *)
 PROCEDURE ListsCanIntersect(al1,al2 : AddrList; dif_regs : def.Regs) : BOOLEAN;
 VAR tmp : AddrList;
 BEGIN
@@ -354,7 +354,7 @@ BEGIN
 END ListsCanIntersect;
 
 
-(* первое обращение к addr в link node для l - на запись *)
+(* ╨┐╨╡╤А╨▓╨╛╨╡ ╨╛╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ addr ╨▓ link node ╨┤╨╗╤П l - ╨╜╨░ ╨╖╨░╨┐╨╕╤Б╤М *)
 PROCEDURE FirstWrite(addr : def.AddrMode; l : Loop) : BOOLEAN;
 VAR s   : ocir.Segment;
     i   : INTEGER;
@@ -377,13 +377,13 @@ BEGIN
     RETURN FALSE;
 END FirstWrite;
 
-(* n - связующий участок цикла l *)
+(* n - ╤Б╨▓╤П╨╖╤Г╤О╤Й╨╕╨╣ ╤Г╤З╨░╤Б╤В╨╛╨║ ╤Ж╨╕╨║╨╗╨░ l *)
 PROCEDURE IsLinkNode(l : Loop; n : ir.Node) : BOOLEAN;
 BEGIN
     RETURN n = ir.Order^[SYSTEM.SUCC(ir.Nodes^[gr.LoopList^[l].Preheader].TopNumber)];
 END IsLinkNode;
 
-(* в nodes есть связующий участок цикла l *)
+(* ╨▓ nodes ╨╡╤Б╤В╤М ╤Б╨▓╤П╨╖╤Г╤О╤Й╨╕╨╣ ╤Г╤З╨░╤Б╤В╨╛╨║ ╤Ж╨╕╨║╨╗╨░ l *)
 PROCEDURE IncludeLinkNode(nodes : BitVect.BitVector; l : Loop) : BOOLEAN;
 VAR i : ir.TSNode;
 BEGIN
@@ -400,15 +400,15 @@ END IncludeLinkNode;
 PROCEDURE EvalLoopCandidates(l : Loop);
 VAR tmp, tmp1 : AddrList;
 BEGIN
-    (* сначала перенесем из fmem в candidates
-       только те адреса,
-       1) регистры которых не меняются в цикле или = ESP
-       2) адрес только на чтение или это локальная память
-       3) есть обращение в связывающем участке цикла
-       забраковывая все остальные
+    (* ╤Б╨╜╨░╤З╨░╨╗╨░ ╨┐╨╡╤А╨╡╨╜╨╡╤Б╨╡╨╝ ╨╕╨╖ fmem ╨▓ candidates
+       ╤В╨╛╨╗╤М╨║╨╛ ╤В╨╡ ╨░╨┤╤А╨╡╤Б╨░,
+       1) ╤А╨╡╨│╨╕╤Б╤В╤А╤Л ╨║╨╛╤В╨╛╤А╤Л╤Е ╨╜╨╡ ╨╝╨╡╨╜╤П╤О╤В╤Б╤П ╨▓ ╤Ж╨╕╨║╨╗╨╡ ╨╕╨╗╨╕ = ESP
+       2) ╨░╨┤╤А╨╡╤Б ╤В╨╛╨╗╤М╨║╨╛ ╨╜╨░ ╤З╤В╨╡╨╜╨╕╨╡ ╨╕╨╗╨╕ ╤Н╤В╨╛ ╨╗╨╛╨║╨░╨╗╤М╨╜╨░╤П ╨┐╨░╨╝╤П╤В╤М
+       3) ╨╡╤Б╤В╤М ╨╛╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨▓ ╤Б╨▓╤П╨╖╤Л╨▓╨░╤О╤Й╨╡╨╝ ╤Г╤З╨░╤Б╤В╨║╨╡ ╤Ж╨╕╨║╨╗╨░
+       ╨╖╨░╨▒╤А╨░╨║╨╛╨▓╤Л╨▓╨░╤П ╨▓╤Б╨╡ ╨╛╤Б╤В╨░╨╗╤М╨╜╤Л╨╡
     *)
     tmp := LoopDescs^[l].fmem;
-    (* забраковать те адреса, которые используются в целых командах и в них пишут *)
+    (* ╨╖╨░╨▒╤А╨░╨║╨╛╨▓╨░╤В╤М ╤В╨╡ ╨░╨┤╤А╨╡╤Б╨░, ╨║╨╛╤В╨╛╤А╤Л╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╤О╤В╤Б╤П ╨▓ ╤Ж╨╡╨╗╤Л╤Е ╨║╨╛╨╝╨░╨╜╨┤╨░╤Е ╨╕ ╨▓ ╨╜╨╕╤Е ╨┐╨╕╤И╤Г╤В *)
     REPEAT
         tmp1 := Member(LoopDescs^[l].mem,tmp^.ad.addr);
         IF tmp1^.ad.in_int_op THEN
@@ -457,7 +457,7 @@ BEGIN
     END;
     LoopDescs^[l].fmem := LoopDescs^[l].candidates;
     LoopDescs^[l].candidates := NIL;
-    (* теперь разберемся с пересечениями по памяти *)
+    (* ╤В╨╡╨┐╨╡╤А╤М ╤А╨░╨╖╨▒╨╡╤А╨╡╨╝╤Б╤П ╤Б ╨┐╨╡╤А╨╡╤Б╨╡╤З╨╡╨╜╨╕╤П╨╝╨╕ ╨┐╨╛ ╨┐╨░╨╝╤П╤В╨╕ *)
     tmp := LoopDescs^[l].fmem;
     REPEAT
         IF IsUnknownAddr(tmp^.ad.addr,l) & CanIntersect(tmp,LoopDescs^[l].mem)
@@ -475,7 +475,7 @@ BEGIN
 END EvalLoopCandidates;
 
 
-(* находит адреса-кандидаты на заталкивание в вещественный стек *)
+(* ╨╜╨░╤Е╨╛╨┤╨╕╤В ╨░╨┤╤А╨╡╤Б╨░-╨║╨░╨╜╨┤╨╕╨┤╨░╤В╤Л ╨╜╨░ ╨╖╨░╤В╨░╨╗╨║╨╕╨▓╨░╨╜╨╕╨╡ ╨▓ ╨▓╨╡╤Й╨╡╤Б╤В╨▓╨╡╨╜╨╜╤Л╨╣ ╤Б╤В╨╡╨║ *)
 PROCEDURE EvalCandidates();
 VAR l         : Loop;
 BEGIN
@@ -487,8 +487,8 @@ BEGIN
 END EvalCandidates;
 
 (*
- вычисляет для каждого адреса максимальные циклы, в которых нужно
- делать его перенос на стек
+ ╨▓╤Л╤З╨╕╤Б╨╗╤П╨╡╤В ╨┤╨╗╤П ╨║╨░╨╢╨┤╨╛╨│╨╛ ╨░╨┤╤А╨╡╤Б╨░ ╨╝╨░╨║╤Б╨╕╨╝╨░╨╗╤М╨╜╤Л╨╡ ╤Ж╨╕╨║╨╗╤Л, ╨▓ ╨║╨╛╤В╨╛╤А╤Л╤Е ╨╜╤Г╨╢╨╜╨╛
+ ╨┤╨╡╨╗╨░╤В╤М ╨╡╨│╨╛ ╨┐╨╡╤А╨╡╨╜╨╛╤Б ╨╜╨░ ╤Б╤В╨╡╨║
 *)
 PROCEDURE CalcMaxLoop();
 VAR l, out   : Loop;
@@ -496,8 +496,8 @@ VAR l, out   : Loop;
     tmp1     : AddrList;
     transfer : BOOLEAN;
 BEGIN
-    (* все те адреса из вложенных циклов, которые можно засунуть на
-       вещественный стек в охватывающем цикле, выкидываются из вложенных циклов,
+    (* ╨▓╤Б╨╡ ╤В╨╡ ╨░╨┤╤А╨╡╤Б╨░ ╨╕╨╖ ╨▓╨╗╨╛╨╢╨╡╨╜╨╜╤Л╤Е ╤Ж╨╕╨║╨╗╨╛╨▓, ╨║╨╛╤В╨╛╤А╤Л╨╡ ╨╝╨╛╨╢╨╜╨╛ ╨╖╨░╤Б╤Г╨╜╤Г╤В╤М ╨╜╨░
+       ╨▓╨╡╤Й╨╡╤Б╤В╨▓╨╡╨╜╨╜╤Л╨╣ ╤Б╤В╨╡╨║ ╨▓ ╨╛╤Е╨▓╨░╤В╤Л╨▓╨░╤О╤Й╨╡╨╝ ╤Ж╨╕╨║╨╗╨╡, ╨▓╤Л╨║╨╕╨┤╤Л╨▓╨░╤О╤В╤Б╤П ╨╕╨╖ ╨▓╨╗╨╛╨╢╨╡╨╜╨╜╤Л╤Е ╤Ж╨╕╨║╨╗╨╛╨▓,
     *)
     FOR l := ir.ZEROLoop TO SYSTEM.PRED(gr.NLoops,2) DO
         IF NOT BitVect.In(discarded,ORD(l)) THEN
@@ -514,13 +514,13 @@ BEGIN
                     INC(out);
                 END;
                 IF NOT transfer THEN
-                    (* нужно оставить в этом цикле *)
+                    (* ╨╜╤Г╨╢╨╜╨╛ ╨╛╤Б╤В╨░╨▓╨╕╤В╤М ╨▓ ╤Н╤В╨╛╨╝ ╤Ж╨╕╨║╨╗╨╡ *)
                     tmp1       := tmp;
                     tmp        := tmp^.next;
                     tmp1^.next := LoopDescs^[l].candidates;
                     LoopDescs^[l].candidates := tmp1;
                 ELSE
-                    (* будет, если надо, выноситься в охватывающем цикле *)
+                    (* ╨▒╤Г╨┤╨╡╤В, ╨╡╤Б╨╗╨╕ ╨╜╨░╨┤╨╛, ╨▓╤Л╨╜╨╛╤Б╨╕╤В╤М╤Б╤П ╨▓ ╨╛╤Е╨▓╨░╤В╤Л╨▓╨░╤О╤Й╨╡╨╝ ╤Ж╨╕╨║╨╗╨╡ *)
                     BitVect.Free(tmp^.ad.used_in);
                     tmp := tmp^.next;
                 END;
@@ -532,12 +532,12 @@ BEGIN
     END;
 END CalcMaxLoop;
 
-VAR buff_segm : ocir.Segment; -- используется для того,
-                              -- чтобы без шума и пыли пользоваться процедурами
-                              -- из ocir и EmitRrd для замены адреса
-                              -- на регистр вещественного стека
+VAR buff_segm : ocir.Segment; -- ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В╤Б╤П ╨┤╨╗╤П ╤В╨╛╨│╨╛,
+                              -- ╤З╤В╨╛╨▒╤Л ╨▒╨╡╨╖ ╤И╤Г╨╝╨░ ╨╕ ╨┐╤Л╨╗╨╕ ╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╤В╤М╤Б╤П ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░╨╝╨╕
+                              -- ╨╕╨╖ ocir ╨╕ EmitRrd ╨┤╨╗╤П ╨╖╨░╨╝╨╡╨╜╤Л ╨░╨┤╤А╨╡╤Б╨░
+                              -- ╨╜╨░ ╤А╨╡╨│╨╕╤Б╤В╤А ╨▓╨╡╤Й╨╡╤Б╤В╨▓╨╡╨╜╨╜╨╛╨│╨╛ ╤Б╤В╨╡╨║╨░
 
-(* заменить голову из al в op на ST_(al^.ad.ST_offs+op.FLOAT_SIZE *)
+(* ╨╖╨░╨╝╨╡╨╜╨╕╤В╤М ╨│╨╛╨╗╨╛╨▓╤Г ╨╕╨╖ al ╨▓ op ╨╜╨░ ST_(al^.ad.ST_offs+op.FLOAT_SIZE *)
 PROCEDURE Addr2STInOp(al : AddrList; op :def.Operation; VAR res : def.Operation);
 VAR bin  : def.BinRecipe;
     st_i : SHORTINT;
@@ -548,7 +548,7 @@ BEGIN
     old                := ocir.c_seg;
     ocir.c_seg         := buff_segm;
     (*
-      пихаем в нулевую команду общими процедурами, а потом перепихиваем в op
+      ╨┐╨╕╤Е╨░╨╡╨╝ ╨▓ ╨╜╤Г╨╗╨╡╨▓╤Г╤О ╨║╨╛╨╝╨░╨╜╨┤╤Г ╨╛╨▒╤Й╨╕╨╝╨╕ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨░╨╝╨╕, ╨░ ╨┐╨╛╤В╨╛╨╝ ╨┐╨╡╤А╨╡╨┐╨╕╤Е╨╕╨▓╨░╨╡╨╝ ╨▓ op
     *)
     bin := op.bin;
     st_i := VAL(SHORTINT,op.FLOAT_SIZE) + al^.ad.ST_offs;
@@ -576,10 +576,10 @@ BEGIN
 END Addr2STInOp;
 
 (*
-  1) все вхождения addr из al заменить на
+  1) ╨▓╤Б╨╡ ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П addr ╨╕╨╖ al ╨╖╨░╨╝╨╡╨╜╨╕╤В╤М ╨╜╨░
      ST_(FLOAT_SIZE + tmp^.ad.ST_offs),
-     соответствующим образом изменив команду
-  2) FLOAT_SIZE каждой команды увеличить на alloc,
+     ╤Б╨╛╨╛╤В╨▓╨╡╤В╤Б╤В╨▓╤Г╤О╤Й╨╕╨╝ ╨╛╨▒╤А╨░╨╖╨╛╨╝ ╨╕╨╖╨╝╨╡╨╜╨╕╨▓ ╨║╨╛╨╝╨░╨╜╨┤╤Г
+  2) FLOAT_SIZE ╨║╨░╨╢╨┤╨╛╨╣ ╨║╨╛╨╝╨░╨╜╨┤╤Л ╤Г╨▓╨╡╨╗╨╕╤З╨╕╤В╤М ╨╜╨░ alloc,
 *)
 PROCEDURE Addr2STInNode(al : AddrList; n : ir.Node; alloc : SHORTINT);
 VAR segm : ocir.Segment;
@@ -689,9 +689,9 @@ BEGIN
     END;
 END IsFLD_mem;
 
-(* выкинуть из сегмента команды FLD ST0 (позиция в s - from)
-   и FSTP ST1 (позиция в s - to)
-   в этом интервале пересчитать FLOAT_SIZE и использование STi
+(* ╨▓╤Л╨║╨╕╨╜╤Г╤В╤М ╨╕╨╖ ╤Б╨╡╨│╨╝╨╡╨╜╤В╨░ ╨║╨╛╨╝╨░╨╜╨┤╤Л FLD ST0 (╨┐╨╛╨╖╨╕╤Ж╨╕╤П ╨▓ s - from)
+   ╨╕ FSTP ST1 (╨┐╨╛╨╖╨╕╤Ж╨╕╤П ╨▓ s - to)
+   ╨▓ ╤Н╤В╨╛╨╝ ╨╕╨╜╤В╨╡╤А╨▓╨░╨╗╨╡ ╨┐╨╡╤А╨╡╤Б╤З╨╕╤В╨░╤В╤М FLOAT_SIZE ╨╕ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╕╨╡ STi
 *)
 PROCEDURE RemoveFLD_FSTP(s     : ocir.Segment;
                          from,
@@ -704,7 +704,7 @@ BEGIN
     FOR i := from TO to-2 DO
         s.code^[i] := s.code^[i+1];
         DEC(s.code^[i].FLOAT_SIZE);
-        (* заменить вхождения STi на STi-1, если STi > cur_STi *)
+        (* ╨╖╨░╨╝╨╡╨╜╨╕╤В╤М ╨▓╤Е╨╛╨╢╨┤╨╡╨╜╨╕╤П STi ╨╜╨░ STi-1, ╨╡╤Б╨╗╨╕ STi > cur_STi *)
         bin := s.code^[i].bin;
         WITH
           bin : Rrd2Bin.MoveTOS_STi DO
@@ -721,7 +721,7 @@ BEGIN
             IF VAL(SHORTINT,cur_STi) < bin^.r THEN DEC(bin^.r); END;
         ELSE
         END;
-        (* перевычислить cur_STi *)
+        (* ╨┐╨╡╤А╨╡╨▓╤Л╤З╨╕╤Б╨╗╨╕╤В╤М cur_STi *)
         cur_STi := cur_STi + def.GetFLOAT_SIZE_delta(s.code^[i].code);
     END;
     FOR i := to+1 TO s.code_len-1 DO
@@ -824,7 +824,7 @@ BEGIN
     DEC(s.code_len);
 END RemoveOp;
 
-(* использует ли op STi *)
+(* ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В ╨╗╨╕ op STi *)
 PROCEDURE UseSTi(op : def.Operation; STi : LONGINT) : BOOLEAN;
 VAR bin : def.BinRecipe;
 BEGIN
@@ -847,7 +847,7 @@ BEGIN
       END;
 END UseSTi;
 
-(*  все использования ST(i),i>=from, заменяет на ST(i+1) *)
+(*  ╨▓╤Б╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╨╛╨▓╨░╨╜╨╕╤П ST(i),i>=from, ╨╖╨░╨╝╨╡╨╜╤П╨╡╤В ╨╜╨░ ST(i+1) *)
 PROCEDURE IncUseSTi(VAR op : def.Operation; from : SHORTINT);
 VAR bin : def.BinRecipe;
 BEGIN
@@ -898,30 +898,30 @@ BEGIN
       END;
 END IncUseSTi;
 
-(* в первом проходе заменяет последовательности
+(* ╨▓ ╨┐╨╡╤А╨▓╨╛╨╝ ╨┐╤А╨╛╤Е╨╛╨┤╨╡ ╨╖╨░╨╝╨╡╨╜╤П╨╡╤В ╨┐╨╛╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╨╡╨╗╤М╨╜╨╛╤Б╤В╨╕
         FLD ST0
-        seq - последовательность команд, не использующая ST1
+        seq - ╨┐╨╛╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╨╡╨╗╤М╨╜╨╛╤Б╤В╤М ╨║╨╛╨╝╨░╨╜╨┤, ╨╜╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╤О╤Й╨░╤П ST1
         FSTP ST1
-        на
+        ╨╜╨░
         seq,
 
         FLD mem
         fop ST1
-        seq - последовательность команд, не использующая ST1
+        seq - ╨┐╨╛╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╨╡╨╗╤М╨╜╨╛╤Б╤В╤М ╨║╨╛╨╝╨░╨╜╨┤, ╨╜╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╤О╤Й╨░╤П ST1
         FSTP ST1
-        на
+        ╨╜╨░
         fopr mem
         seq
 
         FLD STi
         fop ST1
         FSTP ST(i+1)
-        на
+        ╨╜╨░
         fop STi, ST0
-   во втором проходе заменяет последовательность
+   ╨▓╨╛ ╨▓╤В╨╛╤А╨╛╨╝ ╨┐╤А╨╛╤Е╨╛╨┤╨╡ ╨╖╨░╨╝╨╡╨╜╤П╨╡╤В ╨┐╨╛╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╨╡╨╗╤М╨╜╨╛╤Б╤В╤М
         fop ST1
         FSTP ST1
-        на
+        ╨╜╨░
         foprp ST1
 *)
 PROCEDURE PeepAfterFL(n : ir.Node);
@@ -1028,7 +1028,7 @@ PROCEDURE OptimizeLoop(l : Loop);
 VAR tmp,
     tmp1  : AddrList;
     alloc,
-    offs  : SHORTINT; -- сколько удалось закинуть на стек;
+    offs  : SHORTINT; -- ╤Б╨║╨╛╨╗╤М╨║╨╛ ╤Г╨┤╨░╨╗╨╛╤Б╤М ╨╖╨░╨║╨╕╨╜╤Г╤В╤М ╨╜╨░ ╤Б╤В╨╡╨║;
     out   : Loop;
     n     : ir.Node;
     old   : ocir.Segment;
@@ -1044,7 +1044,7 @@ BEGIN
     LoopDescs^[l].candidates := SortList(LoopDescs^[l].candidates);
     tmp := LoopDescs^[l].candidates;
     alloc := 0;
-    (* сначала определим по max_FS, сколько можно выдвинуть на стек*)
+    (* ╤Б╨╜╨░╤З╨░╨╗╨░ ╨╛╨┐╤А╨╡╨┤╨╡╨╗╨╕╨╝ ╨┐╨╛ max_FS, ╤Б╨║╨╛╨╗╤М╨║╨╛ ╨╝╨╛╨╢╨╜╨╛ ╨▓╤Л╨┤╨▓╨╕╨╜╤Г╤В╤М ╨╜╨░ ╤Б╤В╨╡╨║*)
     LOOP
         INC(LoopDescs^[l].max_FS);
         INC(alloc);
@@ -1059,12 +1059,12 @@ BEGIN
         tmp := tmp^.next;
         IF (tmp = NIL) THEN EXIT END;
     END;
-    (* теперь в candidates только то, что будем всяко кидать на стек *)
-    (* теперь их перевернем, дабы наиболее часто используемые кидались на
-       стек последними
+    (* ╤В╨╡╨┐╨╡╤А╤М ╨▓ candidates ╤В╨╛╨╗╤М╨║╨╛ ╤В╨╛, ╤З╤В╨╛ ╨▒╤Г╨┤╨╡╨╝ ╨▓╤Б╤П╨║╨╛ ╨║╨╕╨┤╨░╤В╤М ╨╜╨░ ╤Б╤В╨╡╨║ *)
+    (* ╤В╨╡╨┐╨╡╤А╤М ╨╕╤Е ╨┐╨╡╤А╨╡╨▓╨╡╤А╨╜╨╡╨╝, ╨┤╨░╨▒╤Л ╨╜╨░╨╕╨▒╨╛╨╗╨╡╨╡ ╤З╨░╤Б╤В╨╛ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝╤Л╨╡ ╨║╨╕╨┤╨░╨╗╨╕╤Б╤М ╨╜╨░
+       ╤Б╤В╨╡╨║ ╨┐╨╛╤Б╨╗╨╡╨┤╨╜╨╕╨╝╨╕
     *)
     LoopDescs^[l].candidates := ReverseList(LoopDescs^[l].candidates);
-    (* увеличить на alloc max_FS у всех охватывающих циклов *)
+    (* ╤Г╨▓╨╡╨╗╨╕╤З╨╕╤В╤М ╨╜╨░ alloc max_FS ╤Г ╨▓╤Б╨╡╤Е ╨╛╤Е╨▓╨░╤В╤Л╨▓╨░╤О╤Й╨╕╤Е ╤Ж╨╕╨║╨╗╨╛╨▓ *)
     FOR out := SYSTEM.SUCC(l) TO SYSTEM.PRED(gr.NLoops) DO
         IF gr.LoopInLoop(l,out) THEN
             INC(LoopDescs^[out].max_FS,alloc);
@@ -1074,7 +1074,7 @@ BEGIN
         END;
     END;
     tmp := LoopDescs^[l].candidates;
-    (* считаем ST_offs и в PreHeader засовываем FLD *)
+    (* ╤Б╤З╨╕╤В╨░╨╡╨╝ ST_offs ╨╕ ╨▓ PreHeader ╨╖╨░╤Б╨╛╨▓╤Л╨▓╨░╨╡╨╝ FLD *)
     old := ocir.c_seg;
     ocir.c_seg := ocir.ProcSegms[gr.LoopList^[l].Preheader];
     offs := alloc-1;
@@ -1086,8 +1086,8 @@ BEGIN
         ELSE
             Emit.work.GenMoveTOS_M(tmp^.ad.addr, tmp^.ad.sz);
         END;
-        (* перевычислить атрибуты добавленной FLD -
-           PUSH_SIZE, FLOAT_SIZE и признаки NOT_MOVABLE-сти
+        (* ╨┐╨╡╤А╨╡╨▓╤Л╤З╨╕╤Б╨╗╨╕╤В╤М ╨░╤В╤А╨╕╨▒╤Г╤В╤Л ╨┤╨╛╨▒╨░╨▓╨╗╨╡╨╜╨╜╨╛╨╣ FLD -
+           PUSH_SIZE, FLOAT_SIZE ╨╕ ╨┐╤А╨╕╨╖╨╜╨░╨║╨╕ NOT_MOVABLE-╤Б╤В╨╕
         *)
         ocir.EvalLastAttrs;
         tmp^.ad.ST_offs := offs;
@@ -1095,7 +1095,7 @@ BEGIN
         tmp :=tmp^.next;
     UNTIL offs < 0;
     def.CURRENT_TPOS := old_tpos;
-    (* заменяем адреса на ST_i *)
+    (* ╨╖╨░╨╝╨╡╨╜╤П╨╡╨╝ ╨░╨┤╤А╨╡╤Б╨░ ╨╜╨░ ST_i *)
     FOR i := SYSTEM.SUCC(ir.Nodes^[gr.LoopList^[l].Preheader].TopNumber)
         TO SYSTEM.PRED(LEN(ir.Order^))
     DO
@@ -1104,9 +1104,9 @@ BEGIN
             PeepAfterFL(ir.Order^[i]);
         END;
     END;
-    (* теперь во всех участках после цикла вставить последовательность
-       FSTP ST0 если в адрес не писали,
-       FST addr иначе
+    (* ╤В╨╡╨┐╨╡╤А╤М ╨▓╨╛ ╨▓╤Б╨╡╤Е ╤Г╤З╨░╤Б╤В╨║╨░╤Е ╨┐╨╛╤Б╨╗╨╡ ╤Ж╨╕╨║╨╗╨░ ╨▓╤Б╤В╨░╨▓╨╕╤В╤М ╨┐╨╛╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╨╡╨╗╤М╨╜╨╛╤Б╤В╤М
+       FSTP ST0 ╨╡╤Б╨╗╨╕ ╨▓ ╨░╨┤╤А╨╡╤Б ╨╜╨╡ ╨┐╨╕╤Б╨░╨╗╨╕,
+       FST addr ╨╕╨╜╨░╤З╨╡
     *)
     Exits := gr.LoopList^[l].Exits;
     FOR i := SYSTEM.SUCC(ir.Nodes^[gr.LoopList^[l].Preheader].TopNumber)
@@ -1155,10 +1155,10 @@ BEGIN
     FLClear;
 END FLOptimizeMain;
 
-(* пытается найти, начиная с start, последовательный кусок,
-   начинающийся с загрузки чего-то на стек, работающий только с вершиной
-   стека, и кончающийся выгрузкой и уменьшением стека
-   возвращает признак удачности поиска
+(* ╨┐╤Л╤В╨░╨╡╤В╤Б╤П ╨╜╨░╨╣╤В╨╕, ╨╜╨░╤З╨╕╨╜╨░╤П ╤Б start, ╨┐╨╛╤Б╨╗╨╡╨┤╨╛╨▓╨░╤В╨╡╨╗╤М╨╜╤Л╨╣ ╨║╤Г╤Б╨╛╨║,
+   ╨╜╨░╤З╨╕╨╜╨░╤О╤Й╨╕╨╣╤Б╤П ╤Б ╨╖╨░╨│╤А╤Г╨╖╨║╨╕ ╤З╨╡╨│╨╛-╤В╨╛ ╨╜╨░ ╤Б╤В╨╡╨║, ╤А╨░╨▒╨╛╤В╨░╤О╤Й╨╕╨╣ ╤В╨╛╨╗╤М╨║╨╛ ╤Б ╨▓╨╡╤А╤И╨╕╨╜╨╛╨╣
+   ╤Б╤В╨╡╨║╨░, ╨╕ ╨║╨╛╨╜╤З╨░╤О╤Й╨╕╨╣╤Б╤П ╨▓╤Л╨│╤А╤Г╨╖╨║╨╛╨╣ ╨╕ ╤Г╨╝╨╡╨╜╤М╤И╨╡╨╜╨╕╨╡╨╝ ╤Б╤В╨╡╨║╨░
+   ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В ╨┐╤А╨╕╨╖╨╜╨░╨║ ╤Г╨┤╨░╤З╨╜╨╛╤Б╤В╨╕ ╨┐╨╛╨╕╤Б╨║╨░
 *)
 PROCEDURE FindTrace(sg             : ocir.Segment;
                     start          : INTEGER;
@@ -1214,9 +1214,9 @@ TYPE ArgResDesc = RECORD
                       f : def.Flags;
                       m    : AddrList;
                   END;
-(* пересекаются ли аргументы    sg.code[from..to]
-                 с результатами sg.code[from1..to1]
-    и наоборот
+(* ╨┐╨╡╤А╨╡╤Б╨╡╨║╨░╤О╤В╤Б╤П ╨╗╨╕ ╨░╤А╨│╤Г╨╝╨╡╨╜╤В╤Л    sg.code[from..to]
+                 ╤Б ╤А╨╡╨╖╤Г╨╗╤М╤В╨░╤В╨░╨╝╨╕ sg.code[from1..to1]
+    ╨╕ ╨╜╨░╨╛╨▒╨╛╤А╨╛╤В
 *)
 PROCEDURE IntersectArgRes(sg        : ocir.Segment;
                           from,to,
@@ -1241,7 +1241,7 @@ VAR arg1, arg2,
             res.r := res.r + sg.code[i].attrs.res.r*def.Regs{def.EAX..def.EDI};
             res.f := res.f + sg.code[i].attrs.res.f;
             bin   := sg.code[i].bin;
-            (* а Ў_а_┐бп б Ї ┐пвмо *)
+            (* ╨░┬а╨О_╨░_тФР╨▒╨┐ ╨▒ ╨З┬атФР╨┐╨▓╨╝╨╛ *)
             WITH
               bin : def.BinRecipeR DO
                 bin.ReadMem(a);
@@ -1256,7 +1256,7 @@ VAR arg1, arg2,
                 AddAddr(res.m,a,ir.ZERONode,TRUE,IsUnknownAddr(a,loop),FALSE,bin.GetWriteSz());
             ELSE
             END;
-            (* а Ў_а_┐бп бR бв_ЄR┐ *)
+            (* ╨░┬а╨О_╨░_тФР╨▒╨┐ ╨▒R ╨▒╨▓_╨ДRтФР *)
             WITH
               bin : Rrd2Bin.MoveTOS_STi DO
                 ASSERT(i=from);
@@ -1299,8 +1299,8 @@ BEGIN
                 (arg2.f*res1.f <> def.Flags{});
 END IntersectArgRes;
 
-(* перемешивает два независимых интервала с сугубо вещественными операциями,
-   возвращает число добавленных FXCH
+(* ╨┐╨╡╤А╨╡╨╝╨╡╤И╨╕╨▓╨░╨╡╤В ╨┤╨▓╨░ ╨╜╨╡╨╖╨░╨▓╨╕╤Б╨╕╨╝╤Л╤Е ╨╕╨╜╤В╨╡╤А╨▓╨░╨╗╨░ ╤Б ╤Б╤Г╨│╤Г╨▒╨╛ ╨▓╨╡╤Й╨╡╤Б╤В╨▓╨╡╨╜╨╜╤Л╨╝╨╕ ╨╛╨┐╨╡╤А╨░╤Ж╨╕╤П╨╝╨╕,
+   ╨▓╨╛╨╖╨▓╤А╨░╤Й╨░╨╡╤В ╤З╨╕╤Б╨╗╨╛ ╨┤╨╛╨▒╨░╨▓╨╗╨╡╨╜╨╜╤Л╤Е FXCH
 *)
 PROCEDURE Glue(sg         : ocir.Segment;
                from1, to1,

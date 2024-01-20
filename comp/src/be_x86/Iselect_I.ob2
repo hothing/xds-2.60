@@ -103,7 +103,7 @@ BEGIN
   END;
 
   IF p^.cost[tag] = MAX (INTEGER) THEN
-          opIO.print ("¤_а_ўR а ┐_вЁвм -_ г¤ <Rбм:\n");
+          opIO.print ("┬д_╨░_╤ЮR ╨░┬атФР_╨▓╨Б╨▓╨╝ -_ ╨│┬д┬а<R╨▒╨╝:\n");
           opIO.print ("RDD.IN_REG = %d\n", p^.cost[nts.NTreg]);
           opIO.print ("RDD.IN_LOCAL=%d\n", p^.cost[nts.NTlocal]);
           opIO.print ("RDD.IN_MEM = %d\n", p^.cost[nts.NTmem]);
@@ -125,7 +125,7 @@ BEGIN
 END LabelDAG_Print;
 <* END *>
 
---------------- Разметка одного узла при рекурсивной разметке дерева
+--------------- ╨а╨░╨╖╨╝╨╡╤В╨║╨░ ╨╛╨┤╨╜╨╛╨│╨╛ ╤Г╨╖╨╗╨░ ╨┐╤А╨╕ ╤А╨╡╨║╤Г╤А╤Б╨╕╨▓╨╜╨╛╨╣ ╤А╨░╨╖╨╝╨╡╤В╨║╨╡ ╨┤╨╡╤А╨╡╨▓╨░
 
 PROCEDURE(idb : Iselect_386_IDB) label(p: RD.DAGNODE);
 VAR q: B.newstate_proc;
@@ -200,7 +200,7 @@ BEGIN
     END;
 END CalcNonRootVarsTags;
 
-(*  вычисление целевого нетерминала дла переменных после разметки *)
+(*  ╨▓╤Л╤З╨╕╤Б╨╗╨╡╨╜╨╕╨╡ ╤Ж╨╡╨╗╨╡╨▓╨╛╨│╨╛ ╨╜╨╡╤В╨╡╤А╨╝╨╕╨╜╨░╨╗╨░ ╨┤╨╗╨░ ╨┐╨╡╤А╨╡╨╝╨╡╨╜╨╜╤Л╤Е ╨┐╨╛╤Б╨╗╨╡ ╤А╨░╨╖╨╝╨╡╤В╨║╨╕ *)
 PROCEDURE(idb : Iselect_386_IDB) CalcNonTerm(v : ir.VarNum; p : RD.DAGNODE);
 BEGIN
   IF (RD.Loc^[v].tag <> nts.NTlocal) &
@@ -215,7 +215,7 @@ BEGIN
   p.nt := RD.Loc^[v].tag;
 END CalcNonTerm;
 
---------------- Семантическая обработка поддерева ранее размеченного дерева
+--------------- ╨б╨╡╨╝╨░╨╜╤В╨╕╤З╨╡╤Б╨║╨░╤П ╨╛╨▒╤А╨░╨▒╨╛╤В╨║╨░ ╨┐╨╛╨┤╨┤╨╡╤А╨╡╨▓╨░ ╤А╨░╨╜╨╡╨╡ ╤А╨░╨╖╨╝╨╡╤З╨╡╨╜╨╜╨╛╨│╨╛ ╨┤╨╡╤А╨╡╨▓╨░
 
 PROCEDURE Reduce(p: RD.DAGNODE; goalnt: nts.NT; nest_level: INTEGER);
 VAR eruleno: nts.Rule;
@@ -327,7 +327,7 @@ BEGIN
     R.NeverUsePushInCall := xiEnv.config.Option("neverusepushincall");
     Iselect.FreeUnneededMemory;
 (*
-  Подготовка к генерации
+  ╨Я╨╛╨┤╨│╨╛╤В╨╛╨▓╨║╨░ ╨║ ╨│╨╡╨╜╨╡╤А╨░╤Ж╨╕╨╕
 *)
     DAG.IDB.InitLocations;
     reg.InitRegs;
@@ -381,7 +381,7 @@ BEGIN
     Emit.work := Emit.empty;
 <* END *>
 (*
-  Итерации - раскраска регистров
+  ╨Ш╤В╨╡╤А╨░╤Ж╨╕╨╕ - ╤А╨░╤Б╨║╤А╨░╤Б╨║╨░ ╤А╨╡╨│╨╕╤Б╤В╤А╨╛╨▓
 *)
     reg.Generation := FALSE;
     REPEAT
@@ -443,7 +443,7 @@ BEGIN
         R.CheckFloats;
     UNTIL NOT reg.iteration;
 (*
-  Собственно генерация кода
+  ╨б╨╛╨▒╤Б╤В╨▓╨╡╨╜╨╜╨╛ ╨│╨╡╨╜╨╡╤А╨░╤Ж╨╕╤П ╨║╨╛╨┤╨░
 *)
 --commented by kevin
     IF opAttrs.DOREORDER IN opAttrs.COMP_MODE THEN
@@ -497,7 +497,7 @@ VAR
   i: ir.VarNum;
 BEGIN
 (*
-  Очистить все, связанное с этой процедурой
+  ╨Ю╤З╨╕╤Б╤В╨╕╤В╤М ╨▓╤Б╨╡, ╤Б╨▓╤П╨╖╨░╨╜╨╜╨╛╨╡ ╤Б ╤Н╤В╨╛╨╣ ╨┐╤А╨╛╤Ж╨╡╨┤╤Г╤А╨╛╨╣
 *)
 --<* IF BIN THEN *>
     (**)

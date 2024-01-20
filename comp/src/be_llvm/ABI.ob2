@@ -235,22 +235,22 @@ END EvalProto;
 --                       Stack Frame Definition                               --
 --------------------------------------------------------------------------------
 (* The conventional stack frame appearance for PPC PowerOpen ABI is:
- ³ CALLER'S FRAME  ³
- ³                 ³
- ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´ <-16  old SP, SAVEDREG_AREA_START = 0
- ³  FPR save area  ³
- ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´ <-8
- ³  GPR save area  ³
- ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´ <-4   = LOCAL_AREA_START = - SAVEDREG_AREA_SIZE
- ³     Locals      ³
- ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´ <-4   = TEMP_AREA_START = LOCAL_AREA_START - LOCAL_AREA_SIZE
- ³_alignment_bytes_³
- ³    Temp area    ³
- ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´ <-4
- ³ Parameter area  ³
- ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´ <-8
- ³  Linkage area   ³
- ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ <-16  = new SP
+ â”‚ CALLER'S FRAME  â”‚
+ â”‚                 â”‚
+ â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤ <-16  old SP, SAVEDREG_AREA_START = 0
+ â”‚  FPR save area  â”‚
+ â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤ <-8
+ â”‚  GPR save area  â”‚
+ â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤ <-4   = LOCAL_AREA_START = - SAVEDREG_AREA_SIZE
+ â”‚     Locals      â”‚
+ â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤ <-4   = TEMP_AREA_START = LOCAL_AREA_START - LOCAL_AREA_SIZE
+ â”‚_alignment_bytes_â”‚
+ â”‚    Temp area    â”‚
+ â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤ <-4
+ â”‚ Parameter area  â”‚
+ â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤ <-8
+ â”‚  Linkage area   â”‚
+ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ <-16  = new SP
  (stack grows down)
    Frame is built (SP is updated) by callee
   ------ 0 -------
@@ -309,7 +309,7 @@ VAR
 
 --------------------------------------------------------------------------------
 VAR
-  ProcABI *: at.AbiType;  -- ABI ãåíåğèğóåìîé ïğîöåäóğû 
+  ProcABI *: at.AbiType;  -- ABI ÑƒÑ…ÑÑ…ĞÑˆĞÑ”Ñ…ÑŒÑÑ‰ ÑĞÑĞÑ…Ñ„Ñ”Ğâˆš 
 
 
 --------------------------------------------------------------------------------

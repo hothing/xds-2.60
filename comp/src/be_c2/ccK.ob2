@@ -3,7 +3,7 @@
 MODULE ccK;
 
 (* Modifications:
-   27/Mar/98 Vit  5.00 ÿSpeedup char tables placed here
+   27/Mar/98 Vit  5.00 Â Speedup char tables placed here
                         New options
    (XDS versions below, BE - above)
    27/Mar/96 Ned  2.12  back-end version 4.14

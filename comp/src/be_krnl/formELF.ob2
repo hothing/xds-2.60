@@ -1217,8 +1217,8 @@ VAR
    <* IF DBG_DWARF THEN *>
 
     CONST
-      LINE_BASE   = 1;   -- ¢Æß¨Æ¶≠Æ• ®ß¨•≠•≠®• ≠Æ¨•‡† ·‚‡Æ™® ¢ ‚•™·‚•
-      LINE_RANGE  = 14;  -- ¨†™·. §®†Ø†ßÆ≠ ®ß¨•≠•≠®©
+      LINE_BASE   = 1;   -- –≤–æ–∑–º–æ–∂–Ω–æ–µ –∏–∑–º–µ–Ω–µ–Ω–∏–µ –Ω–æ–º–µ—Ä–∞ —Å—Ç—Ä–æ–∫–∏ –≤ —Ç–µ–∫—Å—Ç–µ
+      LINE_RANGE  = 14;  -- –º–∞–∫—Å. –¥–∏–∞–ø–∞–∑–æ–Ω –∏–∑–º–µ–Ω–µ–Ω–∏–π
       OPCODE_BASE = 10;
 
       DW_LNS_copy             = 1;
@@ -1239,8 +1239,8 @@ VAR
       PFNAMEREC  = POINTER TO FNAMEREC;
 
       FNAMEREC = RECORD
-        name:    ARRAY 512 OF CHAR;  -- ®¨Ô ®·ÂÆ§≠Æ£Æ ‰†©´†
-        tree:    PLTABENTRY;         -- §•‡•¢Æ, „ØÆ‡Ô§ÆÁ•≠≠Æ• ØÆ †§‡•·†¨
+        name:    ARRAY 512 OF CHAR;  -- –∏–º—è –∏—Å—Ö–æ–¥–Ω–æ–≥–æ —Ñ–∞–π–ª–∞
+        tree:    PLTABENTRY;         -- –¥–µ—Ä–µ–≤–æ, —É–ø–æ—Ä—è–¥–æ—á–µ–Ω–Ω–æ–µ –ø–æ –∞–¥—Ä–µ—Å–∞–º
         next:    PFNAMEREC;
       END;
 
@@ -1253,17 +1253,17 @@ VAR
       END;
 
     VAR
-      -- fnamelist : ·Ø®·Æ™ (ØÆ ‰†©´†¨) §•‡•¢Ï•¢ LTABENTRY, „ØÆ‡Ô§ÆÁ•≠≠ÎÂ
-      -- ØÆ †§‡•·†¨, ØÆ¢‚Æ‡ÔÓÈ®•·Ô ·‚‡Æ™® ¢Î™®§Î¢†Ó‚·Ô.
+      -- fnamelist : —Å–ø–∏—Å–æ–∫ (–ø–æ —Ñ–∞–π–ª–∞–º) –¥–µ—Ä–µ–≤—å–µ–≤ LTABENTRY, —É–ø–æ—Ä—è–¥–æ—á–µ–Ω–Ω—ã—Ö
+      -- –ø–æ –∞–¥—Ä–µ—Å–∞–º, –ø–æ–≤—Ç–æ—Ä—è—é—â–∏–µ—Å—è —Å—Ç—Ä–æ–∫–∏ –≤—ã–∫–∏–¥—ã–≤–∞—é—Ç—Å—è.
       fnamelist       : PFNAMEREC;
 
 
-    -- ÑÆ°†¢´•≠®• ≠Æ¢Æ© ·‚‡„™‚„‡Î LTABENTRY ¢ ·Ø®·Æ™ §•‡•¢Ï•¢
-    -- •·´® Æ°Í•™‚ ´•¢•• ¢·•Â ¢ §•‡•¢• - ¢•‡≠•‚ •£Æ PFNAMEREC, ®≠†Á• - NIL
+    -- –î–æ–±–∞–≤–ª–µ–Ω–∏–µ –Ω–æ–≤–æ–π —Å—Ç—Ä—É–∫—Ç—É—Ä—ã LTABENTRY –≤ —Å–ø–∏—Å–æ–∫ –¥–µ—Ä–µ–≤—å–µ–≤
+    -- –µ—Å–ª–∏ –æ–±—ä–µ–∫—Ç –ª–µ–≤–µ–µ –≤—Å–µ—Ö –≤ –¥–µ—Ä–µ–≤–µ - –≤–µ—Ä–Ω–µ—Ç –µ–≥–æ PFNAMEREC, –∏–Ω–∞—á–µ - NIL
     PROCEDURE addLEntry (line: INT32; offs: CARD32; fname :ARRAY OF CHAR; o : OBJECT; obj_offs: CARD32);
     VAR
       curfile : PFNAMEREC;
-      -- §´Ô ®¨•≠® ‰†©´† ¢•‡≠•‚ „™†ß†‚•´Ï ≠† •£Æ PFNAMEREC (•·´® ≠†§Æ - ß†¢•§•‚)
+      -- –¥–ª—è –∏–º–µ–Ω–∏ —Ñ–∞–π–ª–∞ –≤–µ—Ä–Ω–µ—Ç —É–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –µ–≥–æ PFNAMEREC (–µ—Å–ª–∏ –Ω–∞–¥–æ - –∑–∞–≤–µ–¥–µ—Ç)
       PROCEDURE get_fname(fname : ARRAY OF CHAR) : PFNAMEREC;
       VAR
         p : PFNAMEREC;
@@ -1287,7 +1287,7 @@ VAR
         fnamelist := p;
         RETURN p;
       END get_fname;
-      -- ß†¢Æ§®‚ ≠Æ¢„Ó ß†Ø®·Ï LTABENTRY
+      -- –∑–∞–≤–æ–¥–∏—Ç –Ω–æ–≤—É—é –∑–∞–ø–∏—Å—å LTABENTRY
       PROCEDURE new_ltabentry():PLTABENTRY;
       VAR p : PLTABENTRY;
       BEGIN
@@ -1300,8 +1300,8 @@ VAR
         p.right    := NIL;
         RETURN p;
       END new_ltabentry;
-      -- ‡•™„‡·®¢≠Æ ®È•‚ ¢ §•‡•¢• · ™Æ‡≠•¨ ¢ 'p' ¨•·‚Æ ®, •·´® ‚†™Æ£Æ †§‡•·† ≠•‚,
-      -- ¢•Ë†•‚ ‚„§† ≠Æ¢„Ó LTABENTRY
+      -- —Ä–µ–∫—É—Ä—Å–∏–≤–Ω–æ –∏—â–µ—Ç –≤ –¥–µ—Ä–µ–≤–µ —Å –∫–æ—Ä–Ω–µ–º –≤ 'p' –º–µ—Å—Ç–æ –∏, –µ—Å–ª–∏ —Ç–∞–∫–æ–≥–æ –∞–¥—Ä–µ—Å–∞ –Ω–µ—Ç,
+      -- –≤–µ—à–∞–µ—Ç —Ç—É–¥–∞ –Ω–æ–≤—É—é LTABENTRY
       PROCEDURE app_tree(p : PLTABENTRY);
       BEGIN
         IF (offs < p.offs) THEN
@@ -1362,7 +1362,7 @@ VAR
         opcode: INT32;
       BEGIN
         RETURN FALSE;
-        --???? ™†™ ¢·• Ì‚Æ §•´†‚Ï ????
+        --???? –∫–∞–∫ –≤—Å–µ —ç—Ç–æ –¥–µ–ª–∞—Ç—å ????
         print ("gen_opcode (da=%$8X; dl=%d)\n", da, dl);
         IF (dl>=0) AND (dl <= LINE_BASE+LINE_RANGE-1) THEN
           opcode := dl-LINE_BASE+VAL(INT32, da)*LINE_RANGE;
@@ -1391,7 +1391,7 @@ VAR
         outSLEB128(dl);
         cmd.GenByte (DW_LNS_advance_pc);   -- DW_LNS_advance_pc
         outLEB128(da);
-        cmd.GenByte (DW_LNS_copy);         -- ·‚‡Æ™† ‚†°´®ÊÎ - ¢ „·‚†≠Æ¢´•≠≠ÎÂ ‡•£®·‚‡†Â.
+        cmd.GenByte (DW_LNS_copy);         -- —Å—Ç—Ä–æ–∫–∞ —Ç–∞–±–ª–∏—Ü—ã - –≤ —É—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–Ω—ã—Ö —Ä–µ–≥–∏—Å—Ç—Ä–∞—Ö.
       END;
       INC(line, dl);
       addr := addr+da;
@@ -1401,7 +1401,7 @@ VAR
     END gen_tree;
 
 
-    -- ¢ÎßÎ¢†•‚·Ô §´Ô ™†¶§Æ£Æ Æ°Í•™‚†
+    -- –≤—ã–∑—ã–≤–∞–µ—Ç—Å—è –¥–ª—è –∫–∞–∂–¥–æ–≥–æ –æ–±—ä–µ–∫—Ç–∞
     PROCEDURE iterLines(o: OBJECT);
     VAR
       line, col, oline, offs: INT32;
@@ -1432,8 +1432,8 @@ VAR
     END iterLines;
 
     PROCEDURE genLineInfo();
-    -- í„‚ ¨Î ß†ØÆ´≠Ô•¨ ®ß≠†Á†´Ï≠Æ Ø„·‚Î• ·•£¨•≠‚Î §´Ô .debug_line ® .debug_aranges
-    -- (ØÆ™† .debug_aranges Æ·‚†•‚·Ô Ø„·‚Î¨. ÇÆß¨Æ¶≠Æ, Æ≠ ® ≠• ≠„¶•≠ (see DWARF Book p.51))
+    -- –¢—É—Ç –º—ã –∑–∞–ø–æ–ª–Ω—è–µ–º –∏–∑–Ω–∞—á–∞–ª—å–Ω–æ –ø—É—Å—Ç—ã–µ —Å–µ–≥–º–µ–Ω—Ç—ã –¥–ª—è .debug_line –∏ .debug_aranges
+    -- (–ø–æ–∫–∞ .debug_aranges –æ—Å—Ç–∞–µ—Ç—Å—è –ø—É—Å—Ç—ã–º. –í–æ–∑–º–æ–∂–Ω–æ, –æ–Ω –∏ –Ω–µ –Ω—É–∂–µ–Ω (see DWARF Book p.51))
     VAR
       segm_old    : CODE_SEGM;
       lseg,seg    : CODE_SEGM;
@@ -1448,11 +1448,11 @@ VAR
       cmd.get_segm(segm_old);
       lseg := ddw.aSegments[ddw.SEG_DEBUG_LINE];
       cmd.set_segm(lseg);
-      fc.IterateContext(iterLines,NIL,NIL); -- ·‚‡Æ®‚·Ô fnamelist
+      fc.IterateContext(iterLines,NIL,NIL); -- —Å—Ç—Ä–æ–∏—Ç—Å—è fnamelist
       IF (fnamelist = NIL) THEN RETURN; END;
-      cmd.GenLWord(0);            -- total_length (Ø‡ÆØ®Ë•¨ ØÆß§≠••)
+      cmd.GenLWord(0);            -- total_length (–ø—Ä–æ–ø–∏—à–µ–º –ø–æ–∑–¥–Ω–µ–µ)
       cmd.GenWord (2);            -- version
-      cmd.GenLWord(0);            -- prologue_length (Ø‡ÆØ®Ë•¨ ØÆß§≠••)
+      cmd.GenLWord(0);            -- prologue_length (–ø—Ä–æ–ø–∏—à–µ–º –ø–æ–∑–¥–Ω–µ–µ)
       cmd.GenByte (1);            -- minimum_instruction_length
       cmd.GenByte (1);            -- default_is_stmt
       cmd.GenByte (LINE_BASE);    -- line_base
@@ -1467,7 +1467,7 @@ VAR
       outLEB128(0);               -- stand. opcode 6 (DW_LNS_negate_stmt)
       outLEB128(0);               -- stand. opcode 7 (DW_LNS_set_basic_block)
       outLEB128(0);               -- stand. opcode 8 (DW_LNS_const_add_pc)
-      outLEB128(1);               -- stand. opcode 9 (DW_LNS_fixed_advance_pc) (1?? í†¨ ≠• LEB128, † uhalf. ã†§≠Æ, ¨Î •• ¢·• ‡†¢≠Æ ≠• ®·ØÆ´Ïß„•¨.)
+      outLEB128(1);               -- stand. opcode 9 (DW_LNS_fixed_advance_pc) (1?? –¢–∞–º –Ω–µ LEB128, –∞ uhalf. –õ–∞–¥–Ω–æ, –º—ã –µ–µ –≤—Å–µ —Ä–∞–≤–Ω–æ –Ω–µ –∏—Å–ø–æ–ª—å–∑—É–µ–º.)
 
       cmd.GenByte(0);             -- include_directories table (empty)
       pf := fnamelist;
@@ -1482,17 +1482,17 @@ VAR
       cmd.GenByte(0); --file_names : done
 
       -- write prologue_length value
-      i := lseg.code_len - 10; -- ™Æ´-¢Æ °†©‚ èéëãÖ prologue_length §Æ ≠†Á†´† ™Æ§†
+      i := lseg.code_len - 10; -- –∫–æ–ª-–≤–æ –±–∞–π—Ç –ü–û–°–õ–ï prologue_length –¥–æ –Ω–∞—á–∞–ª–∞ –∫–æ–¥–∞
       cmd.move4b (sys.ADR (i),
                   sys.ADR (lseg.bcode[6]),
                   DoRevert);
-      -- ØÆ•Â†´®...
+      -- –ø–æ–µ—Ö–∞–ª–∏...
       pf := fnamelist;
       i  := 1; -- source file counter
       WHILE (pf # NIL) DO
         ltail     := pf.tree; WHILE (ltail.left  # NIL) DO ltail := ltail.left;  END;
         rtail     := pf.tree; WHILE (rtail.right # NIL) DO rtail := rtail.right; END;
-        offs_base := ltail.obj_offs; -- Æ‰‰·•‚ ·†¨Æ£Æ ´•¢Æ£Æ  Æ°Í•™‚† ¢ §•‡•¢•
+        offs_base := ltail.obj_offs; -- –æ—Ñ—Ñ—Å–µ—Ç —Å–∞–º–æ–≥–æ –ª–µ–≤–æ–≥–æ  –æ–±—ä–µ–∫—Ç–∞ –≤ –¥–µ—Ä–µ–≤–µ
         print ("  fname=%s\n", pf.name);
         print ("  ltail=(%$8X, %d)\n", ltail.offs, ltail.line);
         print ("  rtail=(%$8X, %d)\n", rtail.offs, rtail.line);
@@ -1504,16 +1504,16 @@ VAR
         cmd.GenByte (0);                            -- 0 - start ext. opcode
         outLEB128(5);                               -- ext. opcode size = 5
         cmd.GenByte (DW_LNE_set_address);           -- DW_LNE_set_address
-        cmd.gen_fixup(ltail.o, 0, cmd.fx_obj32);    -- ‰®™·†Ø ≠† ≠†Á†´Æ ·†¨Æ£Æ ´•¢Æ£Æ Æ°Í•™‚† ¢ §•‡•¢•
---&&&        cmd.GenLWord (0); -- ¢¨•·‚Æ ‰®™·†Ø†
+        cmd.gen_fixup(ltail.o, 0, cmd.fx_obj32);    -- —Ñ–∏–∫—Å–∞–ø –Ω–∞ –Ω–∞—á–∞–ª–æ —Å–∞–º–æ–≥–æ –ª–µ–≤–æ–≥–æ –æ–±—ä–µ–∫—Ç–∞ –≤ –¥–µ—Ä–µ–≤–µ
+--&&&        cmd.GenLWord (0); -- –≤–º–µ—Å—Ç–æ —Ñ–∏–∫—Å–∞–ø–∞
 
         addr := 0;
         line := 0;
-        gen_tree(pf.tree, addr, line, offs_base);   -- ¢ÎØ®·Î¢†•¨ §•‡•¢Æ ¢ ‚†°´®Ê„
+        gen_tree(pf.tree, addr, line, offs_base);   -- –≤—ã–ø–∏—Å—ã–≤–∞–µ–º –¥–µ—Ä–µ–≤–æ –≤ —Ç–∞–±–ª–∏—Ü—É
 
         seg  := cmd.get_ready(rtail.o);
-        aadv := VAL(CARD32,seg.code_len) + rtail.obj_offs; -- †§‡•· ØÆ·´• ØÆ·´•§≠•£Æ °†©‚† ØÆ·´•§≠•£Æ ´®·‚† §•‡•¢†
-        IF (offs_base+addr < aadv) THEN                    --   IF (Æ≠ ØÆ·´• „™†ß†‚•´Ô †§‡•·†) (* ‚†™ §Æ´¶≠Æ °Î‚Ï ¢·•£§†.. *)
+        aadv := VAL(CARD32,seg.code_len) + rtail.obj_offs; -- –∞–¥—Ä–µ—Å –ø–æ—Å–ª–µ –ø–æ—Å–ª–µ–¥–Ω–µ–≥–æ –±–∞–π—Ç–∞ –ø–æ—Å–ª–µ–¥–Ω–µ–≥–æ –ª–∏—Å—Ç–∞ –¥–µ—Ä–µ–≤–∞
+        IF (offs_base+addr < aadv) THEN                    --   IF (–æ–Ω –ø–æ—Å–ª–µ —É–∫–∞–∑–∞—Ç–µ–ª—è –∞–¥—Ä–µ—Å–∞) (* —Ç–∞–∫ –¥–æ–ª–∂–Ω–æ –±—ã—Ç—å –≤—Å–µ–≥–¥–∞.. *)
           aadv := aadv - (offs_base+addr);
           cmd.GenByte (DW_LNS_advance_pc);     -- DW_LNS_advance_pc
           outLEB128(aadv);
@@ -1536,34 +1536,34 @@ VAR
 
     PROCEDURE WriteDebugInfo_DWARF;
     (*
-      í„‚ ¨Î ¢ÎßÎ¢†•¨ dbg.generate, ØÆ·´• Á•£Æ °„§„‚ ¢®§≠Î ·•£¨•≠‚Î
-        ddw.aSegments[ddw.SEG_DEBUG_INFO]     - £Æ‚Æ¢Î© .debug_info
-        ddw.aSegments[ddw.SEG_DEBUG_ABBREV]   - £Æ‚Æ¢Î© .debug_abbrev
-        ddw.aSegments[ddw.SEG_DEBUG_ARANGES]  - Ø„·‚Æ©, ·Æß§†§®¨ ‚„‚
-        ddw.aSegments[ddw.SEG_DEBUG_LOC]      - Ø„·‚Æ© (Ø‡ÆØ„·‚®¨?)
-        ddw.aSegments[ddw.SEG_DEBUG_LINE]     - Ø„·‚Æ©, ·Æß§†§®¨ ‚„‚
-        ddw.aSegments[ddw.SEG_DEBUG_PUBNAMES] - £Æ‚Æ¢Î© .debug_pubnames
-        ddw.aSegments[ddw.SEG_DEBUG_STR]      - £Æ‚Æ¢Î© .debug_str (‚†¨ - Ø„·‚†Ô ‚†°´. ·®¨¢Æ´Æ¢)
-        ddw.aSegments[ddw.SEG_DEBUG_MACINFO]  - Ø„·‚Æ© (Ø‡ÆØ„·‚®¨?)
+      –¢—É—Ç –º—ã –≤—ã–∑—ã–≤–∞–µ–º dbg.generate, –ø–æ—Å–ª–µ —á–µ–≥–æ –±—É–¥—É—Ç –≤–∏–¥–Ω—ã —Å–µ–≥–º–µ–Ω—Ç—ã
+        ddw.aSegments[ddw.SEG_DEBUG_INFO]     - –≥–æ—Ç–æ–≤—ã–π .debug_info
+        ddw.aSegments[ddw.SEG_DEBUG_ABBREV]   - –≥–æ—Ç–æ–≤—ã–π .debug_abbrev
+        ddw.aSegments[ddw.SEG_DEBUG_ARANGES]  - –ø—É—Å—Ç–æ–π, —Å–æ–∑–¥–∞–¥–∏–º —Ç—É—Ç
+        ddw.aSegments[ddw.SEG_DEBUG_LOC]      - –ø—É—Å—Ç–æ–π (–ø—Ä–æ–ø—É—Å—Ç–∏–º?)
+        ddw.aSegments[ddw.SEG_DEBUG_LINE]     - –ø—É—Å—Ç–æ–π, —Å–æ–∑–¥–∞–¥–∏–º —Ç—É—Ç
+        ddw.aSegments[ddw.SEG_DEBUG_PUBNAMES] - –≥–æ—Ç–æ–≤—ã–π .debug_pubnames
+        ddw.aSegments[ddw.SEG_DEBUG_STR]      - –≥–æ—Ç–æ–≤—ã–π .debug_str (—Ç–∞–º - –ø—É—Å—Ç–∞—è —Ç–∞–±–ª. —Å–∏–º–≤–æ–ª–æ–≤)
+        ddw.aSegments[ddw.SEG_DEBUG_MACINFO]  - –ø—É—Å—Ç–æ–π (–ø—Ä–æ–ø—É—Å—Ç–∏–º?)
 
-       í•Ø•‡Ï ≠†¨ ·´•§„•‚ ß†ØÆ´≠®‚Ï
-        ddw.aSegments[ddw.SEG_DEBUG_LINE] ® ddw.aSegments[ddw.SEG_DEBUG_ARANGES],
-        ß†‚•¨ - ß†Ø®·†‚Ï ¢·• ¢ ‰†©´, ß†Ø®·†‚Ï ‰®™·†Ø≠Î• ·•™Ê®®,
-        ØÆØ‡†¢®‚Ï ‚†°´®Ê„ ‡†ß¨•È•≠®Ô ·•£¨•≠‚Æ¢ (‡†ß¨•‡Î Ì‚®Â ·•£¨•≠‚Æ¢ °Î´® ‡†≠ÏË•
-        ≠•®ß¢•·‚≠Î), ØÆØ‡†¢®‚Ï ¢ „¶• ß†Ø®·†≠≠Æ¨ ¢ ‰†©´ Â•†§•‡• ØÆß®Ê®Ó Ì‚Æ© ‚†°´®ÊÎ,
-        ·†¨† ‚†°´®Ê† Ø‡ÆØ®Ë•‚·Ô ØÆß§≠••.
-        Ü•´†‚•´Ï≠Æ Ø•‡•Ø®·†‚Ï £•¨Æ‡‡Æ© · Ø‡•§¢†‡®‚•´Ï≠Î¨ ‡†··Á•‚Æ¨ ‡†ß¨•‡Æ¢ ·•£¨•≠‚Æ¢..
+       –¢–µ–ø–µ—Ä—å –Ω–∞–º —Å–ª–µ–¥—É–µ—Ç –∑–∞–ø–æ–ª–Ω–∏—Ç—å
+        ddw.aSegments[ddw.SEG_DEBUG_LINE] –∏ ddw.aSegments[ddw.SEG_DEBUG_ARANGES],
+        –∑–∞—Ç–µ–º - –∑–∞–ø–∏—Å–∞—Ç—å –≤—Å–µ –≤ —Ñ–∞–π–ª, –∑–∞–ø–∏—Å–∞—Ç—å —Ñ–∏–∫—Å–∞–ø–Ω—ã–µ —Å–µ–∫—Ü–∏–∏,
+        –ø–æ–ø—Ä–∞–≤–∏—Ç—å —Ç–∞–±–ª–∏—Ü—É —Ä–∞–∑–º–µ—â–µ–Ω–∏—è —Å–µ–≥–º–µ–Ω—Ç–æ–≤ (—Ä–∞–∑–º–µ—Ä—ã —ç—Ç–∏—Ö —Å–µ–≥–º–µ–Ω—Ç–æ–≤ –±—ã–ª–∏ —Ä–∞–Ω—å—à–µ
+        –Ω–µ–∏–∑–≤–µ—Å—Ç–Ω—ã), –ø–æ–ø—Ä–∞–≤–∏—Ç—å –≤ —É–∂–µ –∑–∞–ø–∏—Å–∞–Ω–Ω–æ–º –≤ —Ñ–∞–π–ª —Ö–µ–∞–¥–µ—Ä–µ –ø–æ–∑–∏—Ü–∏—é —ç—Ç–æ–π —Ç–∞–±–ª–∏—Ü—ã,
+        —Å–∞–º–∞ —Ç–∞–±–ª–∏—Ü–∞ –ø—Ä–æ–ø–∏—à–µ—Ç—Å—è –ø–æ–∑–¥–Ω–µ–µ.
+        –ñ–µ–ª–∞—Ç–µ–ª—å–Ω–æ –ø–µ—Ä–µ–ø–∏—Å–∞—Ç—å –≥–µ–º–æ—Ä—Ä–æ–π —Å –ø—Ä–µ–¥–≤–∞—Ä–∏—Ç–µ–ª—å–Ω—ã–º —Ä–∞—Å—Å—á–µ—Ç–æ–º —Ä–∞–∑–º–µ—Ä–æ–≤ —Å–µ–≥–º–µ–Ω—Ç–æ–≤..
     *)
 
       PROCEDURE wr_dbg_sec(cseg : CODE_SEGM; section, relsection : INT32);
-      -- è®Ë•‚ ·Æ§•‡¶®¨Æ• ·•£¨•≠‚† cseg ¢ ·•™Ê®Ó section, •·´® ‚†¨ •·‚Ï ‰®™·†ØÎ, ‚Æ Ø®Ë•‚ §´Ô ≠®Â ·•™Ê®Ó relsection
-      -- Ç ‚†°´®Ê• ·•™Ê®© Ø‡ÆØ®Ë•‚ sh_offset ® sh_size
+      -- –ü–∏—à–µ—Ç —Å–æ–¥–µ—Ä–∂–∏–º–æ–µ —Å–µ–≥–º–µ–Ω—Ç–∞ cseg –≤ —Å–µ–∫—Ü–∏—é section, –µ—Å–ª–∏ —Ç–∞–º –µ—Å—Ç—å —Ñ–∏–∫—Å–∞–ø—ã, —Ç–æ –ø–∏—à–µ—Ç –¥–ª—è –Ω–∏—Ö —Å–µ–∫—Ü–∏—é relsection
+      -- –í —Ç–∞–±–ª–∏—Ü–µ —Å–µ–∫—Ü–∏–π –ø—Ä–æ–ø–∏—à–µ—Ç sh_offset –∏ sh_size
 
         PROCEDURE WriteToSection(cseg : CODE_SEGM; section : INT32);
 
           PROCEDURE MakeAddends();
-          -- è‡®¨•≠Ô•‚ ™ ·•£¨•≠‚„ ®¨•ÓÈ®•·Ô ‰®™·†ØÎ, † ¢ ·†¨®Â ‰®™·†Ø†Â
-          -- Æ°≠„´Ô•‚ fx_offs
+          -- –ü—Ä–∏–º–µ–Ω—è–µ—Ç –∫ —Å–µ–≥–º–µ–Ω—Ç—É –∏–º–µ—é—â–∏–µ—Å—è —Ñ–∏–∫—Å–∞–ø—ã, –∞ –≤ —Å–∞–º–∏—Ö —Ñ–∏–∫—Å–∞–ø–∞—Ö
+          -- –æ–±–Ω—É–ª—è–µ—Ç fx_offs
           VAR add, inf, i:  INT32;
               fx_adr: sys.ADDRESS;
           BEGIN
@@ -1603,7 +1603,7 @@ VAR
             z3:                                CARD16;
             i:                                 INT32;
         BEGIN
-          --&&& Á‚Æ°Î ≠• Ø®·†‚Ï .rel. ·•™Ê®®
+          --&&& —á—Ç–æ–±—ã –Ω–µ –ø–∏—Å–∞—Ç—å .rel. —Å–µ–∫—Ü–∏–∏
           --RETURN;
           IF (cseg.fxup#NIL) THEN
             ASSERT(relsection >= 0);
@@ -1636,7 +1636,7 @@ VAR
       END wr_dbg_sec;
 
 
-      -- ØÆØ‡†¢®¨ ¢ ‰†©´• Æ‰‰·•‚ ‚†°´®ÊÎ ·•£¨•≠‚Æ¢
+      -- –ø–æ–ø—Ä–∞–≤–∏–º –≤ —Ñ–∞–π–ª–µ –æ—Ñ—Ñ—Å–µ—Ç —Ç–∞–±–ª–∏—Ü—ã —Å–µ–≥–º–µ–Ω—Ç–æ–≤
       PROCEDURE correct_offset;
       BEGIN
         print (">>> correct_offset\n");
@@ -1664,7 +1664,7 @@ VAR
           genLineInfo();
           wr_dbg_sec(ddw.aSegments[ddw.SEG_DEBUG_LINE],    SHN_DEBUG_LINE,    SHN_RELOCATION_DEBUG_LINE);
 --&&&          wr_dbg_sec(ddw.aSegments[ddw.SEG_DEBUG_ARANGES], SHN_DEBUG_ARANGES, SHN_RELOCATION_DEBUG_ARANGES);
---&&& †··ÆÊ®®‡Æ¢†≠≠ÎÔ ·•™Ê®Ô · debug_line
+--&&& –∞—Å—Å–æ—Ü–∏–∏—Ä–æ–≤–∞–Ω–Ω—ã—è —Å–µ–∫—Ü–∏—è —Å debug_line
           correct_offset;
         END;
         print ("<<< WriteLineNumSections\n");
@@ -1682,7 +1682,7 @@ VAR
       BEGIN
         print (">>> WriteDebugInfoSections\n");
         IF GENDEBUG THEN
-          -- ÆØ‡•§•´®¨ name ® ext Æ°Í•™‚≠Æ£Æ ‰†´©†
+          -- –æ–ø—Ä–µ–¥–µ–ª–∏–º name –∏ ext –æ–±—ä–µ–∫—Ç–Ω–æ–≥–æ —Ñ–∞–ª–π–∞
           COPY(at.curr_mod.name^,name);
           env.config.Equation("OBJEXT", s);
           IF s = NIL THEN

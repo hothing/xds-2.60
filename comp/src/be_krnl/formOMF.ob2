@@ -27,7 +27,7 @@ IMPORT tc  := TimeConv;
 <* END *>
 
 
-VAR new_segment : BOOLEAN;   (* ™†¶§Æ© Ø‡ÆÊ•§„‡• - ØÆ Æ‚§•´Ï≠Æ¨„ ·•£¨•≠‚„ *)
+VAR new_segment : BOOLEAN;   (* –∫–∞–∂–¥–æ–π –ø—Ä–æ—Ü–µ–¥—É—Ä–µ - –ø–æ –æ—Ç–¥–µ–ª—å–Ω–æ–º—É —Å–µ–≥–º–µ–Ω—Ç—É *)
   cset : BOOLEAN;            (* OBJ-file - like IBM's CSET compiler *)
 
   gendebug         : BOOLEAN; -- generate debug info
@@ -187,7 +187,7 @@ BEGIN
   END;
   req := LEN(outbuf)-outcnt; IF size<req THEN req:=size END;
   IF req>0 THEN
-(*     ADR(´Æ™†´†) > MAX(LONGINT) - Ø•‡•ØÆ´≠•≠®• Ø‡® ¢™´ÓÁ•≠≠Æ¨ ™Æ≠‚‡Æ´• !!!
+(*     ADR(–ª–æ–∫–∞–ª–∞) > MAX(LONGINT) - –ø–µ—Ä–µ–ø–æ–ª–Ω–µ–Ω–∏–µ –ø—Ä–∏ –≤–∫–ª—é—á–µ–Ω–Ω–æ–º –∫–æ–Ω—Ç—Ä–æ–ª–µ !!!
     SYSTEM.MOVE(SYSTEM.ADR(data[0]), SYSTEM.ADR(outbuf[outcnt]), SHORT(req));
     INC(outcnt,req);
 *)
@@ -198,7 +198,7 @@ BEGIN
   DEC(size,req);
   IF size>0 THEN
     flush;
-(*     ADR(´Æ™†´†) > MAX(LONGINT) - Ø•‡•ØÆ´≠•≠®• Ø‡® ¢™´ÓÁ•≠≠Æ¨ ™Æ≠‚‡Æ´• !!!
+(*     ADR(–ª–æ–∫–∞–ª–∞) > MAX(LONGINT) - –ø–µ—Ä–µ–ø–æ–ª–Ω–µ–Ω–∏–µ –ø—Ä–∏ –≤–∫–ª—é—á–µ–Ω–Ω–æ–º –∫–æ–Ω—Ç—Ä–æ–ª–µ !!!
     SYSTEM.MOVE(SYSTEM.ADR(data[req]), SYSTEM.ADR(outbuf[0]), SHORT(size));
     INC(outcnt,size);
 *)
@@ -515,9 +515,9 @@ END WriteNames;
 PROCEDURE type_index(o: pc.OBJECT) : INTEGER;
 BEGIN
   RETURN 0
-  (* ‚†™ ™†™Æ© ¶• ≠† ·†¨Æ¨ §•´• ≠Æ¨•‡ Ø•‡¢Æ£Æ ≠•Ø‡®¨®‚®¢≠Æ£Æ ‚®Ø†:      *)
-  (*  ®´®   200H - ·¨Æ‚‡® ÆØ®·†≠®• OMF, Appendix 1                      *)
-  (*  ®´®  1000H - ·¨Æ‚‡® ÆØ®·†≠®• Symbol and Type Info, Ø. 1.4 ® 5.1   *)
+  (* —Ç–∞–∫ –∫–∞–∫–æ–π –∂–µ –Ω–∞ —Å–∞–º–æ–º –¥–µ–ª–µ –Ω–æ–º–µ—Ä –ø–µ—Ä–≤–æ–≥–æ –Ω–µ–ø—Ä–∏–º–∏—Ç–∏–≤–Ω–æ–≥–æ —Ç–∏–ø–∞:      *)
+  (*  –∏–ª–∏   200H - —Å–º–æ—Ç—Ä–∏ –æ–ø–∏—Å–∞–Ω–∏–µ OMF, Appendix 1                      *)
+  (*  –∏–ª–∏  1000H - —Å–º–æ—Ç—Ä–∏ –æ–ø–∏—Å–∞–Ω–∏–µ Symbol and Type Info, –ø. 1.4 –∏ 5.1   *)
 END type_index;
 <* POP *>
 
@@ -649,7 +649,7 @@ PROCEDURE allocate(o: pc.OBJECT);
         INC(SegCnt);
       ELSE
         IF NOT (at.SPACE IN at.COMP_MODE) THEN
-          pre_mkal(SegSizes[seg], l_dword);   -- ¢Î‡†¢≠®¢†≠®•
+          pre_mkal(SegSizes[seg], l_dword);   -- –≤—ã—Ä–∞–≤–Ω–∏–≤–∞–Ω–∏–µ
         END;
         set_adr(o, seg, SegSizes[seg]);
         rsegm := cmd.get_ready(o);
@@ -678,7 +678,7 @@ BEGIN
   | pc.ob_proc, pc.ob_xproc, pc.ob_lproc:
       alloc(SegCode);
 
-  | pc.ob_eproc, pc.ob_cproc: (* ≠®Á•£Æ ≠• §•´†‚Ï *)
+  | pc.ob_eproc, pc.ob_cproc: (* –Ω–∏—á–µ–≥–æ –Ω–µ –¥–µ–ª–∞—Ç—å *)
 
   | pc.ob_module :
       IF (o.mno = at.curr_mno) & ((o.flag IN opt.LangsWithModuleConstructors)OR(at.profilingMode # xProfRTS.PROF_MODE_NONE)) THEN
@@ -692,7 +692,7 @@ BEGIN
   | pc.ob_type:
       IF o.mno = at.curr_mno THEN alloc(SegIdat) END;
 
-  | pc.ob_label: (* ≠®Á•£Æ ≠• §•´†‚Ï *)
+  | pc.ob_label: (* –Ω–∏—á–µ–≥–æ –Ω–µ –¥–µ–ª–∞—Ç—å *)
 
   ELSE ASSERT(FALSE,100h+ORD(o^.mode));
   END;
@@ -792,9 +792,9 @@ BEGIN
     io.print("  [line = %d, offs = %x)\n", ln, of);
 <* END *>
 
-    INC(ln);                   (*  -- ‚.™. front-end ·Á®‚†•‚ ≠Æ¨•‡† ·‚‡Æ™ · 0 *)
+    INC(ln);                   (*  -- —Ç.–∫. front-end —Å—á–∏—Ç–∞–µ—Ç –Ω–æ–º–µ—Ä–∞ —Å—Ç—Ä–æ–∫ —Å 0 *)
     IF (ln # predln) & (of # predof) THEN
-      IF rec_rem() < xref_len THEN  (* -- ≠†Á†‚Ï ≠Æ¢„Ó ß†Ø®·Ï -- *)
+      IF rec_rem() < xref_len THEN  (* -- –Ω–∞—á–∞—Ç—å –Ω–æ–≤—É—é –∑–∞–ø–∏—Å—å -- *)
         end;
         begin(LINNUM); out_index(0); out_index(seg);
       END;
@@ -910,8 +910,8 @@ PROCEDURE GenReadySegm(SegInx: INT; Adr: INT; Seg: cmd.CODE_SEGM);
       IF i<r THEN do_qsort(i,r) END;
     END do_qsort;
 
-    PROCEDURE apply_fixup(fx_adr: LONGINT; (* †§‡•· §´Ô Ø‡†¢™® ¢ ·‚‡Æ™• ™Æ§† *)
-                          inf:    LONGINT  (* ·†¨† ØÆØ‡†¢™† *)
+    PROCEDURE apply_fixup(fx_adr: LONGINT; (* –∞–¥—Ä–µ—Å –¥–ª—è –ø—Ä–∞–≤–∫–∏ –≤ —Å—Ç—Ä–æ–∫–µ –∫–æ–¥–∞ *)
+                          inf:    LONGINT  (* —Å–∞–º–∞ –ø–æ–ø—Ä–∞–≤–∫–∞ *)
                          );
       VAR zz: SYSTEM.INT32;
     BEGIN
@@ -975,7 +975,7 @@ PROCEDURE GenReadySegm(SegInx: INT; Adr: INT; Seg: cmd.CODE_SEGM);
     END translate;
 
     VAR n: INT; cnt,toffs: LONGINT; tseg: INT;
-      fx_adr: LONGINT; (* †§‡•· §´Ô Ø‡†¢™® ¢ ·‚‡Æ™• ™Æ§† *)
+      fx_adr: LONGINT; (* –∞–¥—Ä–µ—Å –¥–ª—è –ø—Ä–∞–≤–∫–∏ –≤ —Å—Ç—Ä–æ–∫–µ –∫–æ–¥–∞ *)
 
   BEGIN (* --- m k _ f x t a b --- *)
     LastFxNo:= -1;
@@ -1346,11 +1346,11 @@ BEGIN
       END;
     END;
   ELSIF at.CC = at.BORLAND THEN
-    (* ØÆ™† ≠•‚ ≠®™†™®Â °®°´®Æ‚•™ ® Ø•‡•¨•≠≠ÎÂ *)
+    (* –ø–æ–∫–∞ –Ω–µ—Ç –Ω–∏–∫–∞–∫–∏—Ö –±–∏–±–ª–∏–æ—Ç–µ–∫ –∏ –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö *)
   ELSIF at.CC = at.OS2SYS_CALL THEN
-    (* ØÆ™† ≠•‚ ≠®™†™®Â °®°´®Æ‚•™ ® Ø•‡•¨•≠≠ÎÂ *)
+    (* –ø–æ–∫–∞ –Ω–µ—Ç –Ω–∏–∫–∞–∫–∏—Ö –±–∏–±–ª–∏–æ—Ç–µ–∫ –∏ –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö *)
   ELSIF at.CC = at.MSVC THEN
-    (* ØÆ™† ≠•‚ ≠®™†™®Â °®°´®Æ‚•™ ® Ø•‡•¨•≠≠ÎÂ *)
+    (* –ø–æ–∫–∞ –Ω–µ—Ç –Ω–∏–∫–∞–∫–∏—Ö –±–∏–±–ª–∏–æ—Ç–µ–∫ –∏ –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö *)
   END;
 END WriteDefaults;
 
@@ -1521,7 +1521,7 @@ BEGIN
 
   Init;
 
-  (* á†™Æ¨•≠‚†‡•≠Æ Shev'Æ¨ ØÆ ØÆ¢Æ§„ ≠†Ø®·†≠®Ô xlink §´Ô OS/2 £§• •·‚Ï smart *)
+  (* –ó–∞–∫–æ–º–µ–Ω—Ç–∞—Ä–µ–Ω–æ Shev'–æ–º –ø–æ –ø–æ–≤–æ–¥—É –Ω–∞–ø–∏—Å–∞–Ω–∏—è xlink –¥–ª—è OS/2 –≥–¥–µ –µ—Å—Ç—å smart *)
   (*
   IF at.TARGET = at.trg_OS2 THEN new_segment := FALSE;
   ELSE new_segment := at.new_segment IN at.COMP_MODE;
@@ -1588,15 +1588,15 @@ BEGIN
   reg.Register (opt.objFormat, opt.objOMF, formOMF);
 END formOMF.
 
-(* ·‚‡„™‚„‡† ØÆ‡Æ¶§†•¨Æ£Æ OMF-‰†©´† :
-  Header  - ®¨Ô Ø‡Æ£‡†¨¨Î, ¢•‡·®Ô, Ø‡®ß≠†™ "≠Æ¢Æ£Æ" ‰Æ‡¨†‚†
-  Names   - ®¨•≠† ·•£¨•≠‚Æ¢
-  Externals - ®¨•≠† ¢≠•Ë≠®Â Æ°Í•™‚Æ¢ (·‚†¢®‚·Ô ‚®Ø = 0)
-  Segments  - ÆØ‡•§•´•≠Æ 4 ·•£¨•≠‚† (CODE, DATA, CONST, BSS),
-              ØÆ·´•§≠®• 3 ·Æ°‡†≠Î ¢ £‡„ØØ„ DGROUPE
-  LEDATA, FIXUPs - ·Æ°·‚¢•≠≠Æ ™Æ§ ® §†≠≠Î• Ø‡Æ£‡†¨¨Î
-  Export    - ·Ø®·Æ™ ®¨•≠ Ì™·ØÆ‡‚®‡„•¨ÎÂ Æ°Í•™‚Æ¢
-  Defaults  - ·Ø®·Æ™ ≠•™Æ‚Æ‡ÎÂ ≠•Æ°ÂÆ§®¨ÎÂ ·‚†≠§†‡‚≠ÎÂ Æ°Í•™‚Æ¢ ® °®°´®Æ‚•™
-  End       - ß†§†•‚·Ô ‚®Ø ¨Æ§„´Ô ® ‚ÆÁ™† ¢ÂÆ§†, •·´® Æ≠ £´†¢≠Î©
+(* —Å—Ç—Ä—É–∫—Ç—É—Ä–∞ –ø–æ—Ä–æ–∂–¥–∞–µ–º–æ–≥–æ OMF-—Ñ–∞–π–ª–∞ :
+  Header  - –∏–º—è –ø—Ä–æ–≥—Ä–∞–º–º—ã, –≤–µ—Ä—Å–∏—è, –ø—Ä–∏–∑–Ω–∞–∫ "–Ω–æ–≤–æ–≥–æ" —Ñ–æ—Ä–º–∞—Ç–∞
+  Names   - –∏–º–µ–Ω–∞ —Å–µ–≥–º–µ–Ω—Ç–æ–≤
+  Externals - –∏–º–µ–Ω–∞ –≤–Ω–µ—à–Ω–∏—Ö –æ–±—ä–µ–∫—Ç–æ–≤ (—Å—Ç–∞–≤–∏—Ç—Å—è —Ç–∏–ø = 0)
+  Segments  - –æ–ø—Ä–µ–¥–µ–ª–µ–Ω–æ 4 —Å–µ–≥–º–µ–Ω—Ç–∞ (CODE, DATA, CONST, BSS),
+              –ø–æ—Å–ª–µ–¥–Ω–∏–µ 3 —Å–æ–±—Ä–∞–Ω—ã –≤ –≥—Ä—É–ø–ø—É DGROUPE
+  LEDATA, FIXUPs - —Å–æ–±—Å—Ç–≤–µ–Ω–Ω–æ –∫–æ–¥ –∏ –¥–∞–Ω–Ω—ã–µ –ø—Ä–æ–≥—Ä–∞–º–º—ã
+  Export    - —Å–ø–∏—Å–æ–∫ –∏–º–µ–Ω —ç–∫—Å–ø–æ—Ä—Ç–∏—Ä—É–µ–º—ã—Ö –æ–±—ä–µ–∫—Ç–æ–≤
+  Defaults  - —Å–ø–∏—Å–æ–∫ –Ω–µ–∫–æ—Ç–æ—Ä—ã—Ö –Ω–µ–æ–±—Ö–æ–¥–∏–º—ã—Ö —Å—Ç–∞–Ω–¥–∞—Ä—Ç–Ω—ã—Ö –æ–±—ä–µ–∫—Ç–æ–≤ –∏ –±–∏–±–ª–∏–æ—Ç–µ–∫
+  End       - –∑–∞–¥–∞–µ—Ç—Å—è —Ç–∏–ø –º–æ–¥—É–ª—è –∏ —Ç–æ—á–∫–∞ –≤—Ö–æ–¥–∞, –µ—Å–ª–∏ –æ–Ω –≥–ª–∞–≤–Ω—ã–π
 *)
 

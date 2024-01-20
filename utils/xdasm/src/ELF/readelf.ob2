@@ -74,7 +74,7 @@ CONST
 
 (*---------------------------------------------------------------------*)
 
-(* Используется при замыкании внутримодульных ссылок *)
+(* ╨Ш╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╤В╤Б╤П ╨┐╤А╨╕ ╨╖╨░╨╝╤Л╨║╨░╨╜╨╕╨╕ ╨▓╨╜╤Г╤В╤А╨╕╨╝╨╛╨┤╤Г╨╗╤М╨╜╤Л╤Е ╤Б╤Б╤Л╨╗╨╛╨║ *)
 
 CONST (* tags in tables *)
   K_LOCAL = {7};
@@ -110,7 +110,7 @@ TYPE ELF_HEADER = RECORD
          END;
 
 (*---------------------------------------------------------------------*)
-(* Таблица lnames и llnames *)
+(* ╨в╨░╨▒╨╗╨╕╤Ж╨░ lnames ╨╕ llnames *)
 TYPE
   LName = POINTER TO LNameDesc;
   LNameDesc = RECORD (adt.ElementDesc);
@@ -140,7 +140,7 @@ TYPE
 
 (* --------------------------------------------------------------------*)
 TYPE
-  (* Таблица pubdef и lpubdef *)
+  (* ╨в╨░╨▒╨╗╨╕╤Ж╨░ pubdef ╨╕ lpubdef *)
   PubName = POINTER TO PubNameDesc;
   PubNameDesc = RECORD (adt.ElementDesc)
     name  : objs.HashCode;

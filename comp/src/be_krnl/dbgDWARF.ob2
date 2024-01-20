@@ -1,6 +1,6 @@
 (* ??????
-  - ‡†·Ø‡•§•´•≠®• DW_OP_reg* - ØÆ™† Á‚Æ ‚†¨ Ø‡ÆØ®·†≠Î Ø•‡¢Î• ØÆØ†¢Ë®•·Ô ™Æ≠·‚†≠‚Î
-  - ¢•‡≠Æ ´® „ØÆ‚‡•°´•≠®• DW_AT_variable_parameter?
+  - —Ä–∞—Å–ø—Ä–µ–¥–µ–ª–µ–Ω–∏–µ DW_OP_reg* - –ø–æ–∫–∞ —á—Ç–æ —Ç–∞–º –ø—Ä–æ–ø–∏—Å–∞–Ω—ã –ø–µ—Ä–≤—ã–µ –ø–æ–ø–∞–≤—à–∏–µ—Å—è –∫–æ–Ω—Å—Ç–∞–Ω—Ç—ã
+  - –≤–µ—Ä–Ω–æ –ª–∏ —É–ø–æ—Ç—Ä–µ–±–ª–µ–Ω–∏–µ DW_AT_variable_parameter?
 *)
 MODULE dbgDWARF;
 
@@ -207,8 +207,8 @@ CONST
   SEG_DEBUG_MACINFO*            = 7;
   SEG_MAX                       = 7;
 
-  -- ù‚® ty_* ÆØ‡•§•´•≠Î ¢ §ÆØÆ´≠•≠®• ™ ÆØ®·†≠≠Î¨ ¢ pcK.OB2
-  -- PrimitiveTypeNo ¢Æß¢‡†È†•‚ Æ§≠Æ ®ß pc.ty_* ®´® ty_* ß≠†Á•≠®© [ + near32ptr]
+  -- –≠—Ç–∏ ty_* –æ–ø—Ä–µ–¥–µ–ª–µ–Ω—ã –≤ –¥–æ–ø–æ–ª–Ω–µ–Ω–∏–µ –∫ –æ–ø–∏—Å–∞–Ω–Ω—ã–º –≤ pcK.OB2
+  -- PrimitiveTypeNo –≤–æ–∑–≤—Ä–∞—â–∞–µ—Ç –æ–¥–Ω–æ –∏–∑ pc.ty_* –∏–ª–∏ ty_* –∑–Ω–∞—á–µ–Ω–∏–π [ + near32ptr]
   ty_boolean_1                  = pc.ty_boolean;
   ty_boolean_2                  = pc.ty_aux1;
   ty_boolean_4                  = pc.ty_aux2;
@@ -220,7 +220,7 @@ CONST
   ty_pvoid_                     = pc.ty_aux7;
   ty_max_                       = ty_pvoid_;
 
-  -- PrimitiveTypeNo Ø‡®°†¢®‚ near32ptr ™ ‚®Ø„, •·´® Ì‚Æ - „™†ß†‚•´Ï ≠† ≠•£Æ.
+  -- PrimitiveTypeNo –ø—Ä–∏–±–∞–≤–∏—Ç near32ptr –∫ —Ç–∏–ø—É, –µ—Å–ª–∏ —ç—Ç–æ - —É–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –Ω–µ–≥–æ.
   near32ptr = 080H;
 
 TYPE PARRINT32 = POINTER TO ARRAY OF INT32;
@@ -232,11 +232,11 @@ VAR
 (*======================================================================================================*)
 (* Debugger offsets table support *)
 VAR
-  dbgOffsTable     : PARRINT32;  -- Ñ´Ô ¢·•Â ®≠§•™·Æ¢ ¨Î °„§•¨ ß†ØÆ¨®≠†‚Ï Æ‰‰·•‚Î
-  dbgOffsTableSize : INT32;      -- ÇÎ§•´•≠Æ Ì´•¨•≠‚Æ¢ ¨†··®¢†
+  dbgOffsTable     : PARRINT32;  -- –î–ª—è –≤—Å–µ—Ö –∏–Ω–¥–µ–∫—Å–æ–≤ –º—ã –±—É–¥–µ–º –∑–∞–ø–æ–º–∏–Ω–∞—Ç—å –æ—Ñ—Ñ—Å–µ—Ç—ã
+  dbgOffsTableSize : INT32;      -- –í—ã–¥–µ–ª–µ–Ω–æ —ç–ª–µ–º–µ–Ω—Ç–æ–≤ –º–∞—Å—Å–∏–≤–∞
 
 PROCEDURE add_dbg_offset(idx : dbg.TYPE_INDEX);
--- Å•‡•‚ ®ß ‚®Ø† •£Æ ®≠§•™· ® ß†ØÆ¨®≠†•‚ ØÆ§ Ì‚®¨ ®≠§•™·Æ¨ ‚•™„È®© §•°†££•‡≠Î© Æ‰‰·•‚
+-- –ë–µ—Ä–µ—Ç –∏–∑ —Ç–∏–ø–∞ –µ–≥–æ –∏–Ω–¥–µ–∫—Å –∏ –∑–∞–ø–æ–º–∏–Ω–∞–µ—Ç –ø–æ–¥ —ç—Ç–∏–º –∏–Ω–¥–µ–∫—Å–æ–º —Ç–µ–∫—É—â–∏–π –¥–µ–±–∞–≥–≥–µ—Ä–Ω—ã–π –æ—Ñ—Ñ—Å–µ—Ç
 VAR
   i,l    : INT32;
   newTbl : PARRINT32;
@@ -255,17 +255,17 @@ BEGIN
 END add_dbg_offset;
 
 PROCEDURE query_dbg_offset(idx : dbg.TYPE_INDEX) : INT32;
--- èÆ ®≠§•™·„ ‚®Ø† ¢•‡≠•‚ ‡†≠•• ·ÆØÆ·‚†¢´•≠≠Î© •¨„ Æ‰‰·•‚
--- (•·´® Ì‚Æ - °†ßÆ¢Î© ‚®Ø, ‚Æ ¢•‡≠•‚·Ô „™†ß†‚•´Ï ≠† ÆØ‡•§•´•≠®• DW_TAG_base_type
+-- –ü–æ –∏–Ω–¥–µ–∫—Å—É —Ç–∏–ø–∞ –≤–µ—Ä–Ω–µ—Ç —Ä–∞–Ω–µ–µ —Å–æ–ø–æ—Å—Ç–∞–≤–ª–µ–Ω–Ω—ã–π –µ–º—É –æ—Ñ—Ñ—Å–µ—Ç
+-- (–µ—Å–ª–∏ —ç—Ç–æ - –±–∞–∑–æ–≤—ã–π —Ç–∏–ø, —Ç–æ –≤–µ—Ä–Ω–µ—Ç—Å—è —É–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ –æ–ø—Ä–µ–¥–µ–ª–µ–Ω–∏–µ DW_TAG_base_type
 BEGIN
   ASSERT((idx>=0) AND (idx < dbgOffsTableSize) AND (dbgOffsTable[idx] # -1));
   RETURN dbgOffsTable[idx];
 END query_dbg_offset;
 
-(* è‡® ÆØ®·†≠®® ‡•™Æ‡§†, §•°†££•‡≠Î© Æ‰‰·•‚ ·Æ§•‡¶†È•£Æ·Ô ¢ ≠•¨ ØÆ´Ô ‚®Ø† ‡•™Æ‡§, ≠• ÆØ®·†≠≠Æ£Æ
-   Æ‚§•´Ï≠Î¨ ‚®ØÆ¨, ≠•®ß¢•·‚•≠, •·‚Ï ‚Æ´Ï™Æ •£Æ ®≠§•™·. í„‚ ≠†™†Ø´®¢†Ó‚·Ô ß†Ø®·® · „™†ß†≠®•¨
-   Æ‰‰·•‚Æ¢ ¢ .debug_info ·•£¨•≠‚•, ™„§† ·´•§„•‚ Ø‡ÆØ®·†‚Ï ß≠†Á•≠®Ô Æ‰‰·•‚Æ¢ ·ÆÆ‚¢•‚·‚¢„ÓÈ®Â
-   ®≠§•™·†¨. èÆ ¨•‡• £•≠•‡†Ê®® ‚®ØÆ¢ Ì‚®Â ß†Ø®·•©, Æ≠® °„§„‚ Ø‡ÆØ®·Î¢†‚Ï·Ô ® ¢ÎÁ•‡™®¢†‚Ï·Ô ®ß ·Ø®·™†. *)
+(* –ü—Ä–∏ –æ–ø–∏—Å–∞–Ω–∏–∏ —Ä–µ–∫–æ—Ä–¥–∞, –¥–µ–±–∞–≥–≥–µ—Ä–Ω—ã–π –æ—Ñ—Ñ—Å–µ—Ç —Å–æ–¥–µ—Ä–∂–∞—â–µ–≥–æ—Å—è –≤ –Ω–µ–º –ø–æ–ª—è —Ç–∏–ø–∞ —Ä–µ–∫–æ—Ä–¥, –Ω–µ –æ–ø–∏—Å–∞–Ω–Ω–æ–≥–æ
+   –æ—Ç–¥–µ–ª—å–Ω—ã–º —Ç–∏–ø–æ–º, –Ω–µ–∏–∑–≤–µ—Å—Ç–µ–Ω, –µ—Å—Ç—å —Ç–æ–ª—å–∫–æ –µ–≥–æ –∏–Ω–¥–µ–∫—Å. –¢—É—Ç –Ω–∞–∫–∞–ø–ª–∏–≤–∞—é—Ç—Å—è –∑–∞–ø–∏—Å–∏ —Å —É–∫–∞–∑–∞–Ω–∏–µ–º
+   –æ—Ñ—Ñ—Å–µ—Ç–æ–≤ –≤ .debug_info —Å–µ–≥–º–µ–Ω—Ç–µ, –∫—É–¥–∞ —Å–ª–µ–¥—É–µ—Ç –ø—Ä–æ–ø–∏—Å–∞—Ç—å –∑–Ω–∞—á–µ–Ω–∏—è –æ—Ñ—Ñ—Å–µ—Ç–æ–≤ —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—â–∏—Ö
+   –∏–Ω–¥–µ–∫—Å–∞–º. –ü–æ –º–µ—Ä–µ –≥–µ–Ω–µ—Ä–∞—Ü–∏–∏ —Ç–∏–ø–æ–≤ —ç—Ç–∏—Ö –∑–∞–ø–∏—Å–µ–π, –æ–Ω–∏ –±—É–¥—É—Ç –ø—Ä–æ–ø–∏—Å—ã–≤–∞—Ç—å—Å—è –∏ –≤—ã—á–µ—Ä–∫–∏–≤–∞—Ç—å—Å—è –∏–∑ —Å–ø–∏—Å–∫–∞. *)
 TYPE
   FORWARDTYPESLIST = RECORD
                        idx     : dbg.TYPE_INDEX;
@@ -276,7 +276,7 @@ TYPE
 
 VAR pForwardList : PFORWARDTYPESLIST;
 
--- á†ØÆ¨≠®‚Ï ‚•™„È•• ¨•·‚Æ §´Ô ß†Ø®·® Æ‰‰·•‚† ‚®Ø† #idx
+-- –ó–∞–ø–æ–º–Ω–∏—Ç—å —Ç–µ–∫—É—â–µ–µ –º–µ—Å—Ç–æ –¥–ª—è –∑–∞–ø–∏—Å–∏ –æ—Ñ—Ñ—Å–µ—Ç–∞ —Ç–∏–ø–∞ #idx
 PROCEDURE addForwardPtr(idx: dbg.TYPE_INDEX);
 VAR pNew : PFORWARDTYPESLIST;
 BEGIN
@@ -287,13 +287,13 @@ BEGIN
   pForwardList  := pNew;
 END addForwardPtr;
 
--- è‡ÆØ®·†‚Ï (•·´® ≠†§Æ) Æ‰‰·•‚ dbgoffset ‚®Ø† #idx
+-- –ü—Ä–æ–ø–∏—Å–∞—Ç—å (–µ—Å–ª–∏ –Ω–∞–¥–æ) –æ—Ñ—Ñ—Å–µ—Ç dbgoffset —Ç–∏–ø–∞ #idx
 PROCEDURE writeForwardPtr(idx: dbg.TYPE_INDEX);
 VAR
   p         : PFORWARDTYPESLIST;
   dbgoffset : INT32;
 BEGIN
-  -- è‡®ÂÆ§®‚·Ô ®ß¢‡†È†‚Ï·Ô, ‚†™ ™†™ ≠•‚ ØÆ®≠‚•‡† ≠† ØÆ®≠‚•‡... :(
+  -- –ü—Ä–∏—Ö–æ–¥–∏—Ç—Å—è –∏–∑–≤—Ä–∞—â–∞—Ç—å—Å—è, —Ç–∞–∫ –∫–∞–∫ –Ω–µ—Ç –ø–æ–∏–Ω—Ç–µ—Ä–∞ –Ω–∞ –ø–æ–∏–Ω—Ç–µ—Ä... :(
   dbgoffset := aSegments[SEG_DEBUG_INFO].code_len;
   WHILE (pForwardList # NIL) AND (pForwardList.idx = idx) DO
     cmd.move4b (SYSTEM.ADR (dbgoffset),
@@ -552,7 +552,7 @@ END register_num;
 
 
 
--- initSegments : ·Æß§†•‚ ·•£¨•≠‚Î.
+-- initSegments : —Å–æ–∑–¥–∞–µ—Ç —Å–µ–≥–º–µ–Ω—Ç—ã.
 PROCEDURE initSegments();
 VAR i: INT32;
 BEGIN
@@ -694,7 +694,7 @@ BEGIN
   ASSERT(dbg.get_index(t)=dbg.write_type_cnt);
   END;
   add_dbg_offset(idx);
-  writeForwardPtr(idx); -- ¨Æ¶•‚ ØÆ‚‡•°Æ¢†‚Ï·Ô?
+  writeForwardPtr(idx); -- –º–æ–∂–µ—Ç –ø–æ—Ç—Ä–µ–±–æ–≤–∞—Ç—å—Å—è?
   outLEB128(SEG_DEBUG_ABBREV, abbrCodeCount);
   outLEB128(SEG_DEBUG_INFO,   abbrCodeCount);
   INC(abbrCodeCount);
@@ -753,7 +753,7 @@ BEGIN
     outData4 (SEG_DEBUG_INFO,   dbg_offs);
   ELSE
     addForwardPtr(idx);
-    outData4 (SEG_DEBUG_INFO,   0);                 (* Ø‡ÆØ®Ë•¨ ØÆ‚Æ¨, ™Æ£§† °„§•¨ ‰Æ‡¨®‡Æ¢†‚Ï Ì‚Æ‚ ‚®Ø (ß†Ø®·Ï) *)
+    outData4 (SEG_DEBUG_INFO,   0);                 (* –ø—Ä–æ–ø–∏—à–µ–º –ø–æ—Ç–æ–º, –∫–æ–≥–¥–∞ –±—É–¥–µ–º —Ñ–æ—Ä–º–∏—Ä–æ–≤–∞—Ç—å —ç—Ç–æ—Ç —Ç–∏–ø (–∑–∞–ø–∏—Å—å) *)
   END;
   out_AT_4 (DW_AT_data_member_location, byte_offs); --> DW_AT_data_member_location
   out_AT_00       ();
@@ -793,7 +793,7 @@ BEGIN
     ASSERT((act = dbg.act_write) AND (type = NIL));
     dbg.type_cnt       := first_nonprimitive;
     dbg.write_type_cnt := first_nonprimitive;
-    -- ç†Á≠•¨ ß§•·Ï Compile unit, ß†™Æ≠Á®‚·Ô Æ≠ ¢ exi
+    -- –ù–∞—á–Ω–µ–º –∑–¥–µ—Å—å Compile unit, –∑–∞–∫–æ–Ω—á–∏—Ç—Å—è –æ–Ω –≤ exi
     outLEB128(SEG_DEBUG_ABBREV, abbrCodeCount);
     outLEB128(SEG_DEBUG_INFO,   abbrCodeCount);
     INC(abbrCodeCount);
@@ -896,7 +896,7 @@ BEGIN
       END;
       outData1 (SEG_DEBUG_ABBREV, DW_CHILDREN_no);
       IF type = NIL THEN
-        -- ·Î´™† ≠† ‚®Ø, ®≠§•™· ™Æ‚Æ‡Æ£Æ ´•¶®‚ ·•©Á†· ¢ tindex_transfer
+        -- —Å—ã–ª–∫–∞ –Ω–∞ —Ç–∏–ø, –∏–Ω–¥–µ–∫—Å –∫–æ—Ç–æ—Ä–æ–≥–æ –ª–µ–∂–∏—Ç —Å–µ–π—á–∞—Å –≤ tindex_transfer
         outLEB128(SEG_DEBUG_ABBREV, DW_AT_type);
         outLEB128(SEG_DEBUG_ABBREV, DW_FORM_ref4);
         outData4 (SEG_DEBUG_INFO,   query_dbg_offset(dbg.tindex_transfer)); --> AT_TYPE
@@ -965,7 +965,7 @@ BEGIN
       INC(dbg.type_cnt);       -- LF_PROCEDURE
     | dbg.act_write:
       IF (type.obj = NIL) OR (type.obj.mode = pc.ob_type) THEN
-      -- §ÆØÆ´≠®‚•´Ï≠Æ Ø®Ë•¨ „™-´Ï ≠† Ø‡ÆÊ•§„‡„, idx(proc) °„§•‚ ≠† 1 °Æ´ÏË•
+      -- –¥–æ–ø–æ–ª–Ω–∏—Ç–µ–ª—å–Ω–æ –ø–∏—à–µ–º —É–∫-–ª—å –Ω–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä—É, idx(proc) –±—É–¥–µ—Ç –Ω–∞ 1 –±–æ–ª—å—à–µ
         ASSERT( dbg.get_index(type)=dbg.write_type_cnt);
         add_dbg_offset(dbg.get_index(type));
         outLEB128(SEG_DEBUG_ABBREV, abbrCodeCount);
@@ -980,9 +980,9 @@ BEGIN
         outData4 (SEG_DEBUG_INFO,   0);                     --> Place to write AT_type value
         out_AT_00       ();
         end_type();
-        -- à ·†¨„ Ø‡ÆÊ•§„‡„ · ®≠§•™·Æ¨ ≠† 1 °é´ÏË®¨
+        -- –ò —Å–∞–º—É –ø—Ä–æ—Ü–µ–¥—É—Ä—É —Å –∏–Ω–¥–µ–∫—Å–æ–º –Ω–∞ 1 –±–û–ª—å—à–∏–º
         write_procedure(type,dbg.get_index(type)+1);
-        -- è‡ÆØ®Ë•¨ Æ‰‰·•‚
+        -- –ü—Ä–æ–ø–∏—à–µ–º –æ—Ñ—Ñ—Å–µ—Ç
         val := query_dbg_offset(dbg.get_index(type));
         cmd.move4b (SYSTEM.ADR (val),                       --> Write AT_type value
                     SYSTEM.ADR (aSegments[SEG_DEBUG_INFO].bcode[temp]),
@@ -991,12 +991,12 @@ BEGIN
         write_procedure(type,dbg.get_index(type));
       END;
     END;
-  | dbg.ty_array,      -- Æ°ÎÁ≠Î© ‚®Ø®ß®‡Æ¢†≠≠Î© ·‚†‚®Á•·™®© ¨†··®¢
+  | dbg.ty_array,      -- –æ–±—ã—á–Ω—ã–π —Ç–∏–ø–∏–∑–∏—Ä–æ–≤–∞–Ω–Ω—ã–π —Å—Ç–∞—Ç–∏—á–µ—Å–∫–∏–π –º–∞—Å—Å–∏–≤
     dbg.ty_array_of,   -- POINTER TO ARRAY OF <type>
-    dbg.ty_open_array: -- Ø†‡†¨•‚‡ ‚®Ø† ARRAY OF <type>
+    dbg.ty_open_array: -- –ø–∞—Ä–∞–º–µ—Ç—Ä —Ç–∏–ø–∞ ARRAY OF <type>
     dbg.emit_type(act, type.base);
     IF ttag = dbg.ty_array THEN
-      dbg.emit_type(act, type.inx.base); -- ·†¨ ‚®Ø .inx ‡†·Ø®·Î¢†•‚·Ô ‚„‚ ¶•
+      dbg.emit_type(act, type.inx.base); -- —Å–∞–º —Ç–∏–ø .inx —Ä–∞—Å–ø–∏—Å—ã–≤–∞–µ—Ç—Å—è —Ç—É—Ç –∂–µ
     END;
     CASE act OF
     | dbg.act_set:
@@ -1017,10 +1017,10 @@ BEGIN
         out_AT_type (type.base);                            --> DW_AT_type
         out_AT_00   ();
         (*>
-          > è®Ë•¨ §ÆÁ•‡≠®© ‚Ì£ (DW_TAG_enumeration_type ®´® DW_TAG_subrange_type), ÆØ®·Î¢†ÓÈ®© ‚®Ø ®≠§•™·†.
-          >    dbg.ty_array       - ≠Æ‡¨†´Ï≠Î© ®≠§•™·
-          >    dbg.ty_array_of    - ØÆ·‚†¢®¨ ‚®Ø ®≠§•™·† LONGINT, range [1..0]
-          >    dbg.ty_open_array: - ØÆ·‚†¢®¨ ‚®Ø ®≠§•™·† LONGINT, range [2..0]
+          > –ü–∏—à–µ–º –¥–æ—á–µ—Ä–Ω–∏–π —Ç—ç–≥ (DW_TAG_enumeration_type –∏–ª–∏ DW_TAG_subrange_type), –æ–ø–∏—Å—ã–≤–∞—é—â–∏–π —Ç–∏–ø –∏–Ω–¥–µ–∫—Å–∞.
+          >    dbg.ty_array       - –Ω–æ—Ä–º–∞–ª—å–Ω—ã–π –∏–Ω–¥–µ–∫—Å
+          >    dbg.ty_array_of    - –ø–æ—Å—Ç–∞–≤–∏–º —Ç–∏–ø –∏–Ω–¥–µ–∫—Å–∞ LONGINT, range [1..0]
+          >    dbg.ty_open_array: - –ø–æ—Å—Ç–∞–≤–∏–º —Ç–∏–ø –∏–Ω–¥–µ–∫—Å–∞ LONGINT, range [2..0]
           >*)
         IF (ttag = dbg.ty_array) AND (type.inx.mode = pc.ty_enum) THEN
           -- write enumeration type
@@ -1077,7 +1077,7 @@ BEGIN
         ASSERT(inx < dbg.write_type_cnt);
       END;
     END;
-  | dbg.ty_SS: -- ARAY OF CHAR ®ß¢•·‚≠Æ© §´®≠Î
+  | dbg.ty_SS: -- ARAY OF CHAR –∏–∑–≤–µ—Å—Ç–Ω–æ–π –¥–ª–∏–Ω—ã
     CASE act OF
     | dbg.act_set:
       dbg.put_index(type);  -- LF_ARRAY OF CHAR;
@@ -1213,9 +1213,9 @@ BEGIN
       IF (type # NIL) AND (type.base # NIL) THEN
         out_AT_type (type.base);                      --> DW_AT_type
       END;
-      --?? DW_AT_return_addr   - Æ≠Æ
-      --?? DW_AT_static_link   -    ≠†¨
-      --?? DW_AT_frame_base    -       ≠†§Æ?
+      --?? DW_AT_return_addr   - –æ–Ω–æ
+      --?? DW_AT_static_link   -    –Ω–∞–º
+      --?? DW_AT_frame_base    -       –Ω–∞–¥–æ?
     END;
     out_o_AT_name  (o);                             --> DW_AT_name
     outLEB128(SEG_DEBUG_ABBREV, DW_AT_low_pc);      --> DW_AT_low_pc

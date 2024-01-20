@@ -336,11 +336,11 @@ END disable;
 
 PROCEDURE make_name*(
 	VAR res: ARRAY OF CHAR;
-	host   : pc.STRUCT;  (* ®¡« áâì ¤¥©áâ¢¨ï *)
-	mod    : pc.STRUCT;  (* ¥á«¨ # NIL â® ¯à¥ä¨ªá - ¨¬ï ¬®¤ã«ï *)
-	mode   : pc.OB_MODE;    (* ¨á¯®«ì§ã¥âáï ¤«ï ®¯à¥¤¥«¥­¨ï ‘ ¢¨¤¨¬®áâ¨ *)
-	from-  : ARRAY OF CHAR;  (* ®¡à §¥æ ¤«ï ¨¬¥­¨ *)
-	no     : INTEGER     (* ­®¬¥à ¨¬¥­¨, ¥á«¨ < 0 â® ¨¬ï á¨è­®¥ *)
+	host   : pc.STRUCT;  (* Ð¾Ð±Ð»Ð°ÑÑ‚ÑŒ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ *)
+	mod    : pc.STRUCT;  (* ÐµÑÐ»Ð¸ # NIL Ñ‚Ð¾ Ð¿Ñ€ÐµÑ„Ð¸ÐºÑ - Ð¸Ð¼Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ *)
+	mode   : pc.OB_MODE;    (* Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ Ð´Ð»Ñ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ñ Ð¡ Ð²Ð¸Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸ *)
+	from-  : ARRAY OF CHAR;  (* Ð¾Ð±Ñ€Ð°Ð·ÐµÑ† Ð´Ð»Ñ Ð¸Ð¼ÐµÐ½Ð¸ *)
+	no     : INTEGER     (* Ð½Ð¾Ð¼ÐµÑ€ Ð¸Ð¼ÐµÐ½Ð¸, ÐµÑÐ»Ð¸ < 0 Ñ‚Ð¾ Ð¸Ð¼Ñ ÑÐ¸ÑˆÐ½Ð¾Ðµ *)
 	): INFO;
 
   PROCEDURE chk_name(VAR fr: ARRAY OF CHAR): BOOLEAN;
@@ -666,7 +666,7 @@ END i_chk;
 
 PROCEDURE r_chk*(t: pc.STRUCT; VAR nm: ARRAY OF CHAR);
 BEGIN
-  IF t.mode#pc.ty_set THEN t:=t.super_type() END; (* !!!! á¬. to.do *)
+  IF t.mode#pc.ty_set THEN t:=t.super_type() END; (* !!!! ÑÐ¼. to.do *)
   CASE t.mode OF
     |pc.ty_shortint,pc.ty_integer  : x2c(nm_r_chk,nm);
     |pc.ty_longint                 : x2c(nm_r_chkl,nm);

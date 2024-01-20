@@ -235,17 +235,17 @@ VAR
   simple_comment    : obj.Comment; (* need for tag defined in foreign heade *)
 
   Modula2KeyWords: adt.Tree;
-  Import   : adt.List;  -- ·Ø®·Æ™ ®¨ØÆ‡‚†
-  AdtImport: adt.List;  -- ®¨•≠† ¨Æ§„´•© §´Ô ‚®ØÆ¢ ¢·‚‡•Á†ÓÈ®Â·Ô ¢
-                        -- §®‡•™‚®¢• #variant
+  Import   : adt.List;  -- —Å–ø–∏—Å–æ–∫ –∏–º–ø–æ—Ä—Ç–∞
+  AdtImport: adt.List;  -- –∏–º–µ–Ω–∞ –º–æ–¥—É–ª–µ–π –¥–ª—è —Ç–∏–ø–æ–≤ –≤—Å—Ç—Ä–µ—á–∞—é—â–∏—Ö—Å—è –≤
+                        -- –¥–∏—Ä–µ–∫—Ç–∏–≤–µ #variant
   TagDefinedInOtherHeader: adt.List; (* list of tag defined in other header
                                         and declared here *)
 
   ListForExtractNamedTypes: adt.List;
 
   -- Output
-  WriteBuffer: adt.List; -- °„‰•‡ §´Ô native section ¢ ·´„Á†• common backend'a
-  C_CodeSectionOpen: BOOLEAN; -- ¢Î¢Æ§®´†·Ï ´® ¢ ‰†©´ ØÆ·´•§≠•© C_CodeSection
+  WriteBuffer: adt.List; -- –±—É—Ñ–µ—Ä –¥–ª—è native section –≤ —Å–ª—É—á–∞–µ common backend'a
+  C_CodeSectionOpen: BOOLEAN; -- –≤—ã–≤–æ–¥–∏–ª–∞—Å—å –ª–∏ –≤ —Ñ–∞–π–ª –ø–æ—Å–ª–µ–¥–Ω–µ–π C_CodeSection
   WriteStrLn: PROCEDURE( str-: ARRAY OF CHAR; VAR pstr: lstr.String;
                          leadtab, tab: INT );
   WriteStr  : PROCEDURE( str-: ARRAY OF CHAR; VAR pstr: lstr.String;
@@ -1252,8 +1252,8 @@ BEGIN
   IF pattern = NIL THEN
     Error(28, 'H2DGen.FindCompatibleType');  RETURN NIL;
   ELSIF pattern.translation_variant # NIL THEN RETURN pattern;
-    (* •·´® ‚®Ø ¨Æ§®‰®Ê®‡Æ¢†≠ ØÆ´ÏßÆ¢†‚•´•¨, ‚Æ ·Æ¢¨•·‚®¨Î© · ≠®¨ ≠• ®È•¨, §
-       †°Î ≠• Ø‡†¢®‚Ï ¨≠Æ£Æ §‡„£®Â ¨•·‚ *)
+    (* –µ—Å–ª–∏ —Ç–∏–ø –º–æ–¥–∏—Ñ–∏—Ü–∏—Ä–æ–≤–∞–Ω –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª–µ–º, —Ç–æ —Å–æ–≤–º–µ—Å—Ç–∏–º—ã–π —Å –Ω–∏–º –Ω–µ –∏—â–µ–º, –¥
+       –∞–±—ã –Ω–µ –ø—Ä–∞–≤–∏—Ç—å –º–Ω–æ–≥–æ –¥—Ä—É–≥–∏—Ö –º–µ—Å—Ç *)
   END;
 
   type:= NIL;
@@ -1713,8 +1713,8 @@ END FlushWriteBuffer;
 
 (*------------------------------------------------------------------------*)
 PROCEDURE EmitSection ( backEnd: INT);
--- •·´® ·ÆÆ‚¢•‚·‚¢„ÓÈ®© backend ≠• ¢™´ÓÁ•≠, ‚Æ ·ÆÆ‚¢•‚·‚¢„ÓÈ†Ô
--- ·•™Ê®Ô ≠• ØÆØ†§†•‚ ¢Æ WriteBuffer
+-- –µ—Å–ª–∏ —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—â–∏–π backend –Ω–µ –≤–∫–ª—é—á–µ–Ω, —Ç–æ —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—â–∞—è
+-- —Å–µ–∫—Ü–∏—è –Ω–µ –ø–æ–ø–∞–¥–∞–µ—Ç –≤–æ WriteBuffer
 BEGIN
   IF (BackEndSection = backEnd) THEN  RETURN END;
   IF    (cfg.BackEnd = obj.common) & (backEnd = obj.common) THEN
@@ -1772,9 +1772,9 @@ END EmitSection;
 
 (*------------------------------------------------------------------------*)
 PROCEDURE GenHeadingObject ( osection, genTypeDef, backEnd: INT );
--- Ø•‡•§ ≠†Á†´Æ¨ £•≠•‡†Ê®® ™†¶§Æ£Æ Æ°Í•™‚† ≠•Æ°ÂÆ§®¨Æ ¢Îß¢†‚Ï GenHeadingObject
--- Ø‡® £•≠•‡†Ê®® Æ§≠Æ£Æ Æ°Í•™‚† §´Ô ‡†ß≠ÎÂ BackEndSection, Ø•‡•§ ™†¶§Æ©
---   ®ß ≠®Â ≠†§Æ ¢Îß¢†‚Ï GenHeadingObject
+-- –ø–µ—Ä–µ–¥ –Ω–∞—á–∞–ª–æ–º –≥–µ–Ω–µ—Ä–∞—Ü–∏–∏ –∫–∞–∂–¥–æ–≥–æ –æ–±—ä–µ–∫—Ç–∞ –Ω–µ–æ–±—Ö–æ–¥–∏–º–æ –≤—ã–∑–≤–∞—Ç—å GenHeadingObject
+-- –ø—Ä–∏ –≥–µ–Ω–µ—Ä–∞—Ü–∏–∏ –æ–¥–Ω–æ–≥–æ –æ–±—ä–µ–∫—Ç–∞ –¥–ª—è —Ä–∞–∑–Ω—ã—Ö BackEndSection, –ø–µ—Ä–µ–¥ –∫–∞–∂–¥–æ–π
+--   –∏–∑ –Ω–∏—Ö –Ω–∞–¥–æ –≤—ã–∑–≤–∞—Ç—å GenHeadingObject
 BEGIN
   IF backEnd = obj.no_change THEN
     backEnd:= BackEndSection;
@@ -1807,7 +1807,7 @@ VAR qualident: lstr.String;
     res: INT;
 BEGIN
   IF ( type = NIL ) OR ( lstr.Length1(type.name) <= 0 ) THEN
-    -- ¨Æ§®‰®Ê®‡Æ¢†≠≠Î ¨Æ£„‚ °Î‚Ï ‚Æ´Ï™Æ Æ°Í•™‚Î · ®¨•≠•¨
+    -- –º–æ–¥–∏—Ñ–∏—Ü–∏—Ä–æ–≤–∞–Ω–Ω—ã –º–æ–≥—É—Ç –±—ã—Ç—å —Ç–æ–ª—å–∫–æ –æ–±—ä–µ–∫—Ç—ã —Å –∏–º–µ–Ω–µ–º
     Error(28, 'H2DGen.Make.Qualident');
     RETURN;
   END;
@@ -2122,7 +2122,7 @@ VAR str: lstr.String;
     lstr.Deallocate(tmpStr);
   END GetName;
 
-(* ≠† ¨Æ§®‰®Ê®‡Æ¢†≠≠Æ• ®¨Ô ‚®Ø† (ØÆ´• type.translation_variant) Ø‡Æ°®¢†•¨ *)
+(* –Ω–∞ –º–æ–¥–∏—Ñ–∏—Ü–∏—Ä–æ–≤–∞–Ω–Ω–æ–µ –∏–º—è —Ç–∏–ø–∞ (–ø–æ–ª–µ type.translation_variant) –ø—Ä–æ–±–∏–≤–∞–µ–º *)
 BEGIN
   IF ( lstr.Length1(type.name) > 0 ) & ~(type.type IN obj.base_types) THEN
     GetName( type.name^, name );
@@ -3570,7 +3570,7 @@ VAR buffer: adt.List;
   VAR compatibleType: obj.Type;
   BEGIN
     IF type.translation_variant # NIL THEN
-      (* Ø‡®Æ‡®‚•‚ „ ‚Æ£Æ Á‚Æ „™†ßÎ¢†•‚ ØÆ´ÏßÆ¢†‚•´Ï ¢·•£§† ¢ÎË• *)
+      (* –ø—Ä–∏–æ—Ä–∏—Ç–µ—Ç —É —Ç–æ–≥–æ —á—Ç–æ —É–∫–∞–∑—ã–≤–∞–µ—Ç –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—å –≤—Å–µ–≥–¥–∞ –≤—ã—à–µ *)
       MakeQualident( type, outStr.str );
       lstr.Append( ';', outStr.str );
       RETURN TRUE;
@@ -3831,7 +3831,7 @@ VAR elm: adt.Element;
       genType:= tobj.type;
       BlendLists( tobj.modifier, genType.tobj_modifier );
     END;
-    IF tobj.type_name # NIL THEN (* Æ°‡†°Æ‚™† ¨Æ§®‰®Ê®‡Æ¢†≠≠Æ£Æ †‡£„¨•≠‚† *)
+    IF tobj.type_name # NIL THEN (* –æ–±—Ä–∞–±–æ—Ç–∫–∞ –º–æ–¥–∏—Ñ–∏—Ü–∏—Ä–æ–≤–∞–Ω–Ω–æ–≥–æ –∞—Ä–≥—É–º–µ–Ω—Ç–∞ *)
       MakeQualident( tobj, outStr );
       IF msg.WasError THEN RETURN END;
     ELSE
@@ -4186,7 +4186,7 @@ BEGIN
 END GenCharConst;
 
 CONST
-  buf_size = 256; -- ‡†ß¨•‡ °„‰•‡† §´Ô Ø‡•§·‚†¢´•≠®Ô Á®·•´ ØÆ °®‚†¨
+  buf_size = 256; -- —Ä–∞–∑–º–µ—Ä –±—É—Ñ–µ—Ä–∞ –¥–ª—è –ø—Ä–µ–¥—Å—Ç–∞–≤–ª–µ–Ω–∏—è —á–∏—Å–µ–ª –ø–æ –±–∏—Ç–∞–º
 
 (*------------------------------------------------------------------------*)
 PROCEDURE CheckBoolConst( tobj: obj.TypedObject; result: obj.ConstantValue );
@@ -4720,9 +4720,9 @@ BEGIN
     IF ~IsPointerToBaseType(node.type) THEN to.Insert( node ); END;
   ELSE
     WITH e: GeneratedType DO
-      IF (  e.type.header # NIL) &              -- ≠†©§•≠≠Î© ‚®Ø
-         ( (e.type.header # OutFile.header) OR  -- ®ß §‡„£Æ£Æ ‰†©´† ®´®
-           (e.type.line > elm.line)             -- Æ®·†≠ ØÆ·´• ‚®Ø† elm
+      IF (  e.type.header # NIL) &              -- –Ω–∞–π–¥–µ–Ω–Ω—ã–π —Ç–∏–ø
+         ( (e.type.header # OutFile.header) OR  -- –∏–∑ –¥—Ä—É–≥–æ–≥–æ —Ñ–∞–π–ª–∞ –∏–ª–∏
+           (e.type.line > elm.line)             -- –æ–∏—Å–∞–Ω –ø–æ—Å–ª–µ —Ç–∏–ø–∞ elm
          )
       THEN
         IF elm.type # obj.t_synonym THEN
@@ -5040,7 +5040,7 @@ BEGIN
   IF OutFile = NIL THEN
     lstr.Assign( tobj.name^, str);
   ELSE
-    lstr.Assign('', str);  --MakeQualident §•´†•‚ ¢·• Á•‡•ß Append
+    lstr.Assign('', str);  --MakeQualident –¥–µ–ª–∞–µ—Ç –≤—Å–µ —á–µ—Ä–µ–∑ Append
     MakeQualident(tobj, str);
   END;
 END ValueHandler;

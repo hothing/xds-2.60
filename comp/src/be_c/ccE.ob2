@@ -189,7 +189,7 @@ BEGIN
 END gen_len_usage;
 
 PROCEDURE gen_len*(n: pc.NODE; dim: LONGINT; type: pc.STRUCT; p: INTEGER);
-(* dim ­®¬¥à ¨­¤¥ªá æ¨¨, á«¥¢  ­ ¯à ¢® *)
+(* dim Ð½Ð¾Ð¼ÐµÑ€ Ð¸Ð½Ð´ÐµÐºÑÐ°Ñ†Ð¸Ð¸, ÑÐ»ÐµÐ²Ð° Ð½Ð°Ð¿Ñ€Ð°Ð²Ð¾ *)
   VAR t,f: pc.STRUCT; i,j: LONGINT; nm: STR;
 BEGIN
   t:=n.type;
@@ -217,11 +217,11 @@ BEGIN
 	RETURN;
       |pc.nd_unary,pc.nd_lconv:
 	IF (n.mode=pc.nd_lconv) OR (n.sub=pc.su_conv) THEN
-	  (* ¤«ï ¢ëå®¤­®£® ®âªàëâ®£® ¬ áá¨¢  ¤«ï ¢á¥å ¥£® ¨§¬¥à¥­¨©
-	     ªà®¬¥ ¯®á«¥¤­¥£® ¤®«¦­ë ¡ëâì á®®â¢¥âáâ¢ãîé¨¥ ¨§¬¥à¥­¨ï
-	     ¢ ®¯¥à ­¤¥ ®¯¥à æ¨¨ ¯à¥®¡à §®¢ ­¨ï, ¤«¨­  ¯® íâ¨¬
-	     ¨§¬¥à¥­¨ï¬ á®¢¯ ¤ ¥â á ¨áå®¤­®© ¤«¨­­®©. „«¨­  ¯®
-	     ¯®á«¥¤­¥¬ã ¨§¬¥à¥­¨î ¯¥à¥¢ëç¨á«ï¥âáï.
+	  (* Ð´Ð»Ñ Ð²Ñ‹Ñ…Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾Ð³Ð¾ Ð¼Ð°ÑÑÐ¸Ð²Ð° Ð´Ð»Ñ Ð²ÑÐµÑ… ÐµÐ³Ð¾ Ð¸Ð·Ð¼ÐµÑ€ÐµÐ½Ð¸Ð¹
+	     ÐºÑ€Ð¾Ð¼Ðµ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ³Ð¾ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð±Ñ‹Ñ‚ÑŒ ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ðµ Ð¸Ð·Ð¼ÐµÑ€ÐµÐ½Ð¸Ñ
+	     Ð² Ð¾Ð¿ÐµÑ€Ð°Ð½Ð´Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð¿Ñ€ÐµÐ¾Ð±Ñ€Ð°Ð·Ð¾Ð²Ð°Ð½Ð¸Ñ, Ð´Ð»Ð¸Ð½Ð° Ð¿Ð¾ ÑÑ‚Ð¸Ð¼
+	     Ð¸Ð·Ð¼ÐµÑ€ÐµÐ½Ð¸ÑÐ¼ ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÐµÑ‚ Ñ Ð¸ÑÑ…Ð¾Ð´Ð½Ð¾Ð¹ Ð´Ð»Ð¸Ð½Ð½Ð¾Ð¹. Ð”Ð»Ð¸Ð½Ð° Ð¿Ð¾
+	     Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¼Ñƒ Ð¸Ð·Ð¼ÐµÑ€ÐµÐ½Ð¸ÑŽ Ð¿ÐµÑ€ÐµÐ²Ñ‹Ñ‡Ð¸ÑÐ»ÑÐµÑ‚ÑÑ.
 	  *)
 	  f:=n.l.type;
 	  FOR i:=0 TO dim-1 DO ASSERT(f.mode IN pc.ARRs); f:=f.base END;
@@ -308,7 +308,7 @@ BEGIN
 END gen_size_usage;
 
 PROCEDURE gen_size*(n: pc.NODE; dim: INTEGER; p: INTEGER);
-  (* dim - ª®«¨ç¥áâ¢® ¨­¤¥ªá æ¨© *)
+  (* dim - ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸Ð½Ð´ÐµÐºÑÐ°Ñ†Ð¸Ð¹ *)
   VAR t: pc.STRUCT; i: INTEGER; nm: STR;
 BEGIN
   t:=n.type;
@@ -419,7 +419,7 @@ BEGIN
       IF p>13 THEN out.wr(')') END;
     END;
   ELSIF dcl.is_c_arr(o.type) THEN
-    (* ¤«ï C ARRs ¢á¥£¤  £ ­¥à¨âáï BSA, ­¨ç¥£® ¤àã£®£® á£¥­¥à¨âì ­¥«ì§ï *)
+    (* Ð´Ð»Ñ C ARRs Ð²ÑÐµÐ³Ð´Ð° Ð³Ð°Ð½ÐµÑ€Ð¸Ñ‚ÑÑ BSA, Ð½Ð¸Ñ‡ÐµÐ³Ð¾ Ð´Ñ€ÑƒÐ³Ð¾Ð³Ð¾ ÑÐ³ÐµÐ½ÐµÑ€Ð¸Ñ‚ÑŒ Ð½ÐµÐ»ÑŒÐ·Ñ *)
     ASSERT((dcl.REF IN md) & (dcl.ANY IN md) OR (dcl.BSA IN md));
     ASSERT(~(cc.otag_notype IN o.tags));
     dcl.o_usage(o,bf);
@@ -483,7 +483,7 @@ PROCEDURE gen_call*(n: pc.NODE; p: INTEGER; md: SET);
 BEGIN
   IF n.l#NIL THEN t:=n.l.type ELSE t:=n.obj.type END;
   rt:=dcl.is_c_arr(t.base);
-  (* rt=TRUE ¥á«¨ à¥§ã«ìâ â ¢®§¢à é ¥âáï ç¥à¥§ ¤®¯®«­¨â¥«ì­ë© ¯ à ¬¥âà *)
+  (* rt=TRUE ÐµÑÐ»Ð¸ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ÑÑ Ñ‡ÐµÑ€ÐµÐ· Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ *)
   ASSERT((dcl.REF IN md) & (dcl.ANY IN md) OR (dcl.BSA IN md) OR ~rt);
   ASSERT(~(dcl.LVL IN md));
   IF (dcl.REF IN md) OR rt THEN
@@ -540,14 +540,14 @@ BEGIN
 	  END;
 	  out.wf("(%s)",nm);
 	  gen_value(ll,13,prm_buf[i].ref);
-(* á«¨èª®¬ £àï§­®¥ à¥è¥­¨¥
+(* ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð³Ñ€ÑÐ·Ð½Ð¾Ðµ Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ
 	ELSIF (t.flag=pc.flag_c) &
 	      (ll.type.mode=pc.ty_pointer) &
 	      (ll.type.base.mode=pc.ty_loc) &
               ~cc.op_cpp
 	THEN
-	  (* 	¯®¤ ¢«¥­¨¥ ª®­âà®«ï â¨¯®¢ ¤«ï à à ¬¥âà®¢ â¨¯  ADDRESS,
-		¢ C++ â ª ¤¥« âì ­¥«ì§ï!
+	  (* 	Ð¿Ð¾Ð´Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ñ Ñ‚Ð¸Ð¿Ð¾Ð² Ð´Ð»Ñ Ñ€Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¾Ð² Ñ‚Ð¸Ð¿Ð° ADDRESS,
+		Ð² C++ Ñ‚Ð°Ðº Ð´ÐµÐ»Ð°Ñ‚ÑŒ Ð½ÐµÐ»ÑŒÐ·Ñ!
 	  *)
 	  out.ws("(void * )");
 	  gen_value(ll,13,prm_buf[i].ref);
@@ -1352,7 +1352,7 @@ BEGIN
        (n.l.mode=pc.nd_unary) &
        (n.l.sub=pc.su_adr)
     THEN
-      (* ®¯â¨¬¨§­¥¬ cast ª char* *)
+      (* Ð¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð½ÐµÐ¼ cast Ðº char* *)
       gen_conv_adr(n,p,md);
     ELSE
       IF p>13 THEN out.wr('(') END;
@@ -1367,7 +1367,7 @@ BEGIN
        (n.l.type.mode=pc.ty_proctype)
     THEN
       s1:=0; s2:=0;
-      (* ­¥ ­ã¦­® §­ âì à¥ «ì­ë¥ à §¬¥àë ¥á«¨ ¨§¢¥áâ­® çâ® ®­¨ à ¢­ë *)
+      (* Ð½Ðµ Ð½ÑƒÐ¶Ð½Ð¾ Ð·Ð½Ð°Ñ‚ÑŒ Ñ€ÐµÐ°Ð»ÑŒÐ½Ñ‹Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ ÐµÑÐ»Ð¸ Ð¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾ Ñ‡Ñ‚Ð¾ Ð¾Ð½Ð¸ Ñ€Ð°Ð²Ð½Ñ‹ *)
     ELSE
       s1:=pc.code.get_size(pc.su_size,n.l.type);
       s2:=pc.code.get_size(pc.su_size,n.type);
@@ -1633,7 +1633,7 @@ BEGIN
     IF p>13 THEN out.wr('(') END;
     gen_type_cast("",n.type);
     IF (pc.ntag_chk_range IN n.tags) & ~(dcl.CHK IN md) THEN
-      (* ‡¤¥áì £¥­¥à¨âáï r_chk ­¥¯à ¢¨«ì­®£® à §¬¥à  (size=4) !!! *)
+      (* Ð—Ð´ÐµÑÑŒ Ð³ÐµÐ½ÐµÑ€Ð¸Ñ‚ÑÑ r_chk Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° (size=4) !!! *)
       nms.r_chk(sf,fn); out.wf("%s(",fn);
       gen_value(n.l,0,md*{dcl.CHK}); out.wr(',');
       dcl.const_aggregate(n.type.min,sf,0,FALSE,FALSE); out.wr(',');
@@ -1826,7 +1826,7 @@ BEGIN
 	  i:=dcl.get_bytes(n.pos,n.type)*8;
 	END;
 	IF i=32 THEN
-	  (* à¥¤¯®«®£ ¥¬, çâ® ¯à®¬¥¦ãâ®ç­ë© à¥§ã«ìâ â ­¥ ¯à¥¢ëè ¥â 32 ¡¨â  *)
+	  (* ÐŸÑ€ÐµÐ´Ð¿Ð¾Ð»Ð¾Ð³Ð°ÐµÐ¼, Ñ‡Ñ‚Ð¾ Ð¿Ñ€Ð¾Ð¼ÐµÐ¶ÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ Ð½Ðµ Ð¿Ñ€ÐµÐ²Ñ‹ÑˆÐ°ÐµÑ‚ 32 Ð±Ð¸Ñ‚Ð° *)
 	  IF p>13 THEN out.wr('(') END;
 	  out.wr("~"); gen_value(n.l,13,{});
 	  IF p>13 THEN out.wr(')') END;

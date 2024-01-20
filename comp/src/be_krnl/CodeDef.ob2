@@ -217,8 +217,8 @@ TYPE
                 code_len* : LONGINT;
                 fxup_len* : LONGINT;
                 xref_len* : LONGINT;
-                start*, fin*: LONGINT; -- ç†Á†´Æ/™Æ≠•Ê ·Æ°·‚¢•≠≠Æ ‚•´† Ø‡ÆÊ•§„‡Î
-                frame_size* : LONGINT; -- ê†ß¨•‡ ≠†Á†´Ï≠Æ£Æ ™†§‡† Ø‡ÆÊ•§„‡Î
+                start*, fin*: LONGINT; -- –ù–∞—á–∞–ª–æ/–∫–æ–Ω–µ—Ü —Å–æ–±—Å—Ç–≤–µ–Ω–Ω–æ —Ç–µ–ª–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä—ã
+                frame_size* : LONGINT; -- –†–∞–∑–º–µ—Ä –Ω–∞—á–∞–ª—å–Ω–æ–≥–æ –∫–∞–¥—Ä–∞ –ø—Ä–æ—Ü–µ–¥—É—Ä—ã
                 has_frame*  : BOOLEAN;
 <* IF TARGET_RISC OR TARGET_SPARC THEN *>
                 placeholder*    : def.PHs;
@@ -641,8 +641,8 @@ BEGIN
     END;
 END GenAlign;
 
--- äÆ´®Á•·‚¢Æ ®≠·‚‡„™Ê®© ≠† ¢Î‡†¢≠®¢†≠®•
--- ÑÆ´¶≠† ·Æ£´†·Æ¢Î¢†‚Ï·Ô · GenAlign
+-- –ö–æ–ª–∏—á–µ—Å—Ç–≤–æ –∏–Ω—Å—Ç—Ä—É–∫—Ü–∏–π –Ω–∞ –≤—ã—Ä–∞–≤–Ω–∏–≤–∞–Ω–∏–µ
+-- –î–æ–ª–∂–Ω–∞ —Å–æ–≥–ª–∞—Å–æ–≤—ã–≤–∞—Ç—å—Å—è —Å GenAlign
 PROCEDURE GetAlign* (align: SHORTINT): SHORTINT;
 BEGIN
   IF align = 1 THEN
@@ -875,7 +875,7 @@ END MoveCodeFromTo;
 --------------------------------------------------------------------------------
 
 (*
-  ÑÆ°†¢®‚Ï ·•£¨•≠‚ 's' ¢ Â¢Æ·‚ ‚•™„È•£Æ £•≠•‡®‡„•¨Æ£Æ
+  –î–æ–±–∞–≤–∏—Ç—å —Å–µ–≥–º–µ–Ω—Ç 's' –≤ —Ö–≤–æ—Å—Ç —Ç–µ–∫—É—â–µ–≥–æ –≥–µ–Ω–µ—Ä–∏—Ä—É–µ–º–æ–≥–æ
 *)
 PROCEDURE AddSegmentB(s: CODE_SEGM);
 VAR l, j:   INT;
@@ -1260,7 +1260,7 @@ PROCEDURE iter_context*(md: pc.OBJECT; P: iterated_proc);
   END obj_list;
 
   VAR o: pc.OBJECT;
-BEGIN                                  -- Ì‚Æ ≠†§Æ ß†¨•≠®‚Ï ®‚•‡†‚Æ‡Æ¨ ®ß pcK
+BEGIN                                  -- —ç—Ç–æ –Ω–∞–¥–æ –∑–∞–º–µ–Ω–∏—Ç—å –∏—Ç–µ—Ä–∞—Ç–æ—Ä–æ–º –∏–∑ pcK
   obj_list(md.type.prof);
   obj_list(md.type.mem);
   o := at.work_objects;

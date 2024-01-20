@@ -55,10 +55,10 @@ VAR
 
 (* ------------- f l o a t i n g  ----------------------------------- *)
 
-VAR UseFloatOps* : BOOLEAN;      (* ¢ ™Æ§• Ø‡ÆÊ•§„‡Î •·‚Ï ™Æ¨†≠§Î FPU *)
-                                 (*   ¢Î·‚†¢´Ô•‚·Ô Ì¨®‚‚•‡Æ¨ ™Æ§†     *)
+VAR UseFloatOps* : BOOLEAN;      (* –≤ –∫–æ–¥–µ –ø—Ä–æ—Ü–µ–¥—É—Ä—ã –µ—Å—Ç—å –∫–æ–º–∞–Ω–¥—ã FPU *)
+                                 (*   –≤—ã—Å—Ç–∞–≤–ª—è–µ—Ç—Å—è —ç–º–∏—Ç—Ç–µ—Ä–æ–º –∫–æ–¥–∞     *)
 
-  was_float_triade* : BOOLEAN;   (* °Î´® ‚‡®†§Î · t_float - ¢Î·‚. opE *)
+  was_float_triade* : BOOLEAN;   (* –±—ã–ª–∏ —Ç—Ä–∏–∞–¥—ã —Å t_float - –≤—ã—Å—Ç. opE *)
 
 (* ------------- c o m p i l e r   o p t i o n s -------------------- *)
 VAR
@@ -245,33 +245,33 @@ CONST
   otag_undef*      = pc.otag_aux4; (* declared but not defined            *)
 
   otag_versionkey* = pc.otag_aux6; (* version key in module body name *)
-  otag_created*    = pc.otag_aux7; (* ®¨••‚·Ô ‚‡®†§≠Î© Æ°Í•™‚ *)
+  otag_created*    = pc.otag_aux7; (* –∏–º–µ–µ—Ç—Å—è —Ç—Ä–∏–∞–¥–Ω—ã–π –æ–±—ä–µ–∫—Ç *)
 
-(* ß≠†Á•≠®Ô omark ®·ØÆ´Ïß„Ó‚·Ô ‚Æ´Ï™Æ ¢Æ ¢‡•¨Ô Æ§≠Æ© ‚‡†≠·´ÔÊ®® *)
-(* ® ¢ sym-‰†©´Î ≠• ß†Ø®·Î¢†Ó‚·Ô                                *)
+(* –∑–Ω–∞—á–µ–Ω–∏—è omark –∏—Å–ø–æ–ª—å–∑—É—é—Ç—Å—è —Ç–æ–ª—å–∫–æ –≤–æ –≤—Ä–µ–º—è –æ–¥–Ω–æ–π —Ç—Ä–∞–Ω—Å–ª—è—Ü–∏–∏ *)
+(* –∏ –≤ sym-—Ñ–∞–π–ª—ã –Ω–µ –∑–∞–ø–∏—Å—ã–≤–∞—é—Ç—Å—è                                *)
 
-  omark_used*         = pc.omark_aux10; (* Æ°Í•™‚ ®·ØÆ´ÏßÆ¢†≠ ¢ Ø‡Æ£‡†¨¨• *)
+  omark_used*         = pc.omark_aux10; (* –æ–±—ä–µ–∫—Ç –∏—Å–ø–æ–ª—å–∑–æ–≤–∞–Ω –≤ –ø—Ä–æ–≥—Ä–∞–º–º–µ *)
   omark_not_used*     = pc.omark_retthis;
-  omark_allocated*    = pc.omark_aux11; (* £´Æ°†´Ï≠Æ© Ø•‡•¨•≠≠Æ© Ø‡®Ø®·†≠ offset *)
-  omark_nested_read*  = pc.omark_aux12; (* ¢´Æ¶•≠≠Î• §Æ·‚„Ø†Ó‚·Ô ™ ´Æ™†´†¨ Ø‡ÆÊ•§„‡Î *)
-  omark_nested_write* = pc.omark_aux13; (* ¢´Æ¶•≠≠Î• §Æ·‚„Ø†Ó‚·Ô ™ ´Æ™†´†¨ Ø‡ÆÊ•§„‡Î *)
-  omark_procdesc*     = pc.omark_aux14; (* Æ°Í•™‚ - §•·™‡®Ø‚Æ‡ Ø‡ÆÊ•§„‡Î *)
+  omark_allocated*    = pc.omark_aux11; (* –≥–ª–æ–±–∞–ª—å–Ω–æ–π –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π –ø—Ä–∏–ø–∏—Å–∞–Ω offset *)
+  omark_nested_read*  = pc.omark_aux12; (* –≤–ª–æ–∂–µ–Ω–Ω—ã–µ –¥–æ—Å—Ç—É–ø–∞—é—Ç—Å—è –∫ –ª–æ–∫–∞–ª–∞–º –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
+  omark_nested_write* = pc.omark_aux13; (* –≤–ª–æ–∂–µ–Ω–Ω—ã–µ –¥–æ—Å—Ç—É–ø–∞—é—Ç—Å—è –∫ –ª–æ–∫–∞–ª–∞–º –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
+  omark_procdesc*     = pc.omark_aux14; (* –æ–±—ä–µ–∫—Ç - –¥–µ—Å–∫—Ä–∏–ø—Ç–æ—Ä –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
 
-  omark_gen_FIRST*  = pc.omark_aux16;                   (* ØÆ¨•‚™® ‰Æ‡¨®‡Æ¢†≠®Ô ™Æ§†: *)
-  omark_gen_ready*  = omark_gen_FIRST ;  (*   •·‚Ï ·£•≠•‡®‡Æ¢†≠≠Î© ™Æ§ *)
-  omark_gen_marked* = SYSTEM.SUCC(omark_gen_FIRST);  (*   Ø‡®Ø®·†≠ †§‡•· ¢ ™Æ§•    *)
+  omark_gen_FIRST*  = pc.omark_aux16;                   (* –ø–æ–º–µ—Ç–∫–∏ —Ñ–æ—Ä–º–∏—Ä–æ–≤–∞–Ω–∏—è –∫–æ–¥–∞: *)
+  omark_gen_ready*  = omark_gen_FIRST ;  (*   –µ—Å—Ç—å —Å–≥–µ–Ω–µ—Ä–∏—Ä–æ–≤–∞–Ω–Ω—ã–π –∫–æ–¥ *)
+  omark_gen_marked* = SYSTEM.SUCC(omark_gen_FIRST);  (*   –ø—Ä–∏–ø–∏—Å–∞–Ω –∞–¥—Ä–µ—Å –≤ –∫–æ–¥–µ    *)
 
   omark_gen_usetcf* = SYSTEM.SUCC(omark_gen_marked); (* found some tcfs in the procedure *)
-(* ß≠†Á•≠®Ô ttag = 8-11,16 ®·ØÆ´Ïß„Ó‚·Ô ¢ sym-‰†©´†Â ™Æ≠¢•‡‚Æ‡† - ·¨. ccK.ob2 *)
+(* –∑–Ω–∞—á–µ–Ω–∏—è ttag = 8-11,16 –∏—Å–ø–æ–ª—å–∑—É—é—Ç—Å—è –≤ sym-—Ñ–∞–π–ª–∞—Ö –∫–æ–Ω–≤–µ—Ä—Ç–æ—Ä–∞ - —Å–º. ccK.ob2 *)
 
---  ttag_intrinsic*  = pc.ttag_aux14; (* ¢·‚‡Æ•≠≠†Ô ‰„≠-®Ô - ‡•†´®ß„•‚·Ô ·ÆØ‡ÆÊ•··Æ‡Æ¨ *)
+--  ttag_intrinsic*  = pc.ttag_aux14; (* –≤—Å—Ç—Ä–æ–µ–Ω–Ω–∞—è —Ñ—É–Ω-–∏—è - —Ä–µ–∞–ª–∏–∑—É–µ—Ç—Å—è —Å–æ–ø—Ä–æ—Ü–µ—Å—Å–æ—Ä–æ–º *)
                          (* value of the tag must be the same as in SL2.ob2 *)
 
-(* ß≠†Á•≠®Ô tmark ®·ØÆ´Ïß„Ó‚·Ô ‚Æ´Ï™Æ ¢Æ ¢‡•¨Ô Æ§≠Æ© ‚‡†≠·´ÔÊ®® *)
-(* ® ¢ sym-‰†©´Î ≠• ß†Ø®·Î¢†Ó‚·Ô                                *)
+(* –∑–Ω–∞—á–µ–Ω–∏—è tmark –∏—Å–ø–æ–ª—å–∑—É—é—Ç—Å—è —Ç–æ–ª—å–∫–æ –≤–æ –≤—Ä–µ–º—è –æ–¥–Ω–æ–π —Ç—Ä–∞–Ω—Å–ª—è—Ü–∏–∏ *)
+(* –∏ –≤ sym-—Ñ–∞–π–ª—ã –Ω–µ –∑–∞–ø–∏—Å—ã–≤–∞—é—Ç—Å—è                                *)
 
-  tmark_processed *= pc.tmark_aux10; (* ‚®Ø Æ°‡†°Æ‚†≠   *)
-  tmark_db_passed *= pc.tmark_aux11; (* Ø‡Æ©§•≠ Ø‡® Æ°ÂÆ§• §•°†£ Ì¨®‚‚•‡† *)
+  tmark_processed *= pc.tmark_aux10; (* —Ç–∏–ø –æ–±—Ä–∞–±–æ—Ç–∞–Ω   *)
+  tmark_db_passed *= pc.tmark_aux11; (* –ø—Ä–æ–π–¥–µ–Ω –ø—Ä–∏ –æ–±—Ö–æ–¥–µ –¥–µ–±–∞–≥ —ç–º–∏—Ç—Ç–µ—Ä–∞ *)
   tmark_db_index  *= pc.tmark_aux12; (* has index number for debug info *)
   tmark_llvm_defined *= pc.tmark_aux13; (* type defined in LLVM code *)
 
@@ -281,27 +281,27 @@ VAR default_alignment* : SHORTINT;
 
 (** ----------------- A T T R I B U T E S ------------------------------- *)
 
-CONST  (* -- ¢ ® § Î   † ‚ ‡ ® ° „ ‚ Æ ¢ -- *)
-   a_self*        = 1;   (* ‚Ì£ ® ≠Æ¨•‡ Æ°Í•™‚† *)                   (* inf_ext  *)
-   a_size*        = 2;   (* ‡†ß¨•‡ ‚®Ø† *)                           (* size_ext *)
-   a_prot*        = 3;   (* ≠Æ¨•‡ Ø‡Æ‚Æ‚®Ø† *)                       (* prot_ext *)
-   a_type*        = 4;   (* Ø•‡•¨•≠≠†Ô-‚®Ø VAR-Ø†‡†¨•‚‡† *)          (* inf_ext  *)
-   a_rtn*         = 5;   (* ¢Æß¢‡†‚≠Î© Ø†‡†¨•‚‡ *)                   (* inf_ext  *)
-   a_desc*        = 6;   (* §•·™‡®Ø‚Æ‡ ‚®Ø† („™†ß†‚•´Ï ≠† ??) *)     (* inf_ext  *)
+CONST  (* -- –≤ –∏ –¥ —ã   –∞ —Ç —Ä –∏ –± —É —Ç –æ –≤ -- *)
+   a_self*        = 1;   (* —Ç—ç–≥ –∏ –Ω–æ–º–µ—Ä –æ–±—ä–µ–∫—Ç–∞ *)                   (* inf_ext  *)
+   a_size*        = 2;   (* —Ä–∞–∑–º–µ—Ä —Ç–∏–ø–∞ *)                           (* size_ext *)
+   a_prot*        = 3;   (* –Ω–æ–º–µ—Ä –ø—Ä–æ—Ç–æ—Ç–∏–ø–∞ *)                       (* prot_ext *)
+   a_type*        = 4;   (* –ø–µ—Ä–µ–º–µ–Ω–Ω–∞—è-—Ç–∏–ø VAR-–ø–∞—Ä–∞–º–µ—Ç—Ä–∞ *)          (* inf_ext  *)
+   a_rtn*         = 5;   (* –≤–æ–∑–≤—Ä–∞—Ç–Ω—ã–π –ø–∞—Ä–∞–º–µ—Ç—Ä *)                   (* inf_ext  *)
+   a_desc*        = 6;   (* –¥–µ—Å–∫—Ä–∏–ø—Ç–æ—Ä —Ç–∏–ø–∞ (—É–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ ??) *)     (* inf_ext  *)
    a_re*          = 7;
    a_im*          = 8;
-   a_locOFFS*     = 9;   (* Æ°Í•¨ ‡†ß¨•È•≠≠ÎÂ ´Æ™†´Æ¢ *)             (* size_ext *)
-   a_globOFFS*    = 10;  (* ‡†ß¨•È•≠®• £´Æ°†´Ï≠Æ© Ø•‡•¨•≠≠Æ© *)      (* size_ext *)
+   a_locOFFS*     = 9;   (* –æ–±—ä–µ–º —Ä–∞–∑–º–µ—â–µ–Ω–Ω—ã—Ö –ª–æ–∫–∞–ª–æ–≤ *)             (* size_ext *)
+   a_globOFFS*    = 10;  (* —Ä–∞–∑–º–µ—â–µ–Ω–∏–µ –≥–ª–æ–±–∞–ª—å–Ω–æ–π –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π *)      (* size_ext *)
    a_name*        = 11;  (* object's external name *)                (* name_ext *)
    a_TOCoffs*     = 12;  (* offset in TOC *)                         (* TOC_ext  *)
    a_codeOFFS*    = 13;  (* offset in code *)                        (* offs_ext *)
    a_param_no*    = 14;  (* parameter number in prototype *)         (* size_ext *)
 
-   a_mybase*      = 16;  (* °†ß† Ø•‡•¨•≠≠ÎÂ Ø‡ÆÊ•§„‡Î *)             (* inf_ext  *)
+   a_mybase*      = 16;  (* –±–∞–∑–∞ –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)             (* inf_ext  *)
    a_base*        = a_mybase+1; (*!!*)
-                         (* a_base+i  --  °†ß† i-£Æ ÆÂ¢†‚. °´Æ™† *)  (* inf_ext  *)
+                         (* a_base+i  --  –±–∞–∑–∞ i-–≥–æ –æ—Ö–≤–∞—Ç. –±–ª–æ–∫–∞ *)  (* inf_ext  *)
    a_len*         = 48;
-                         (* a_len+i  -- §´®≠† ØÆ i-Æ¨„ ®ß¨•‡•≠®Ó *)  (* inf_ext  *)
+                         (* a_len+i  -- –¥–ª–∏–Ω–∞ –ø–æ i-–æ–º—É –∏–∑–º–µ—Ä–µ–Ω–∏—é *)  (* inf_ext  *)
 
    a_ABI*         = 70;  (* application binary interface *)          (* abi_ext *)
 
@@ -312,14 +312,14 @@ CONST  (* -- ¢ ® § Î   † ‚ ‡ ® ° „ ‚ Æ ¢ -- *)
 
    a_dllexported  = 84;  (* the object is DLL-exported *)            (* attr_ext *)
    a_stdcallmangle= 85;  (* the object's name is mangled *)          (* attr_ext *)
-   a_gen_code*    = 86;  (* Ì‚Æ‚ ® ¢·• ·´•§„ÓÈ®• - §´Ô ‰Æ‡¨®‡Æ¢†≠®Ô ™Æ§† *)
+   a_gen_code*    = 86;  (* —ç—Ç–æ—Ç –∏ –≤—Å–µ —Å–ª–µ–¥—É—é—â–∏–µ - –¥–ª—è —Ñ–æ—Ä–º–∏—Ä–æ–≤–∞–Ω–∏—è –∫–æ–¥–∞ *)
 
 TYPE
   ATTR_EXT* = POINTER TO attr_ext_rec;
 
   attr_ext_rec* = RECORD(pc.bext_rec)
     next* : ATTR_EXT;
-    kind* : SHORTINT;   (* ‚®Ø †‚‡®°„‚† *)
+    kind* : SHORTINT;   (* —Ç–∏–ø –∞—Ç—Ä–∏–±—É—Ç–∞ *)
   END;
 
 PROCEDURE (att: ATTR_EXT) out*(file: xfs.SymFile);
@@ -334,14 +334,14 @@ BEGIN
 END out;
 
 TYPE
-  INFO_EXT* = POINTER TO inf_ext_rec;     (* §´Ô Æ°Í•™‚Æ¢ *)
-  OFFS_EXT* = POINTER TO offs_ext_rec;    (* §´Ô £´Æ°†´Ï≠ÎÂ Ø•‡•¨•≠≠ÎÂ *)
-  SIZE_EXT* = POINTER TO size_ext_rec;    (* §´Ô ·‚‡„™‚„‡≠ÎÂ ‚®ØÆ¢ *)
-  PROT_EXT* = POINTER TO proto_ext_rec;   (* §´Ô Ø‡ÆÊ•§„‡≠ÎÂ ‚®ØÆ¢ *)
-  DBG_EXT*  = POINTER TO dbg_ext_rec;     (* §´Ô Æ°Í•™‚Æ¢, Ø‡•¶§• ¢·•£Æ Ø•‡•¨•≠≠ÎÂ *) 
+  INFO_EXT* = POINTER TO inf_ext_rec;     (* –¥–ª—è –æ–±—ä–µ–∫—Ç–æ–≤ *)
+  OFFS_EXT* = POINTER TO offs_ext_rec;    (* –¥–ª—è –≥–ª–æ–±–∞–ª—å–Ω—ã—Ö –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö *)
+  SIZE_EXT* = POINTER TO size_ext_rec;    (* –¥–ª—è —Å—Ç—Ä—É–∫—Ç—É—Ä–Ω—ã—Ö —Ç–∏–ø–æ–≤ *)
+  PROT_EXT* = POINTER TO proto_ext_rec;   (* –¥–ª—è –ø—Ä–æ—Ü–µ–¥—É—Ä–Ω—ã—Ö —Ç–∏–ø–æ–≤ *)
+  DBG_EXT*  = POINTER TO dbg_ext_rec;     (* –¥–ª—è –æ–±—ä–µ–∫—Ç–æ–≤, –ø—Ä–µ–∂–¥–µ –≤—Å–µ–≥–æ –ø–µ—Ä–µ–º–µ–Ω–Ω—ã—Ö *) 
 
 <* IF TARGET_PPC OR TARGET_SPARC OR TARGET_MIPS OR TARGET_LLVM THEN *>  
-  ABI_EXT  *= POINTER TO abi_ext_rec;     (* §´Ô Ø‡ÆÊ•§„‡ ® Ø‡ÆÊ•§„‡≠ÎÂ ‚®ØÆ¢ *)
+  ABI_EXT  *= POINTER TO abi_ext_rec;     (* –¥–ª—è –ø—Ä–æ—Ü–µ–¥—É—Ä –∏ –ø—Ä–æ—Ü–µ–¥—É—Ä–Ω—ã—Ö —Ç–∏–ø–æ–≤ *)
 <* END *>
 
   InfExtName *= ir.VarNum;
@@ -349,12 +349,12 @@ CONST
   ZEROInfExtName *= InfExtName{ 0 };
 TYPE
   inf_ext_rec = RECORD(attr_ext_rec)
-    procno*: ProcNum;    (* ≠Æ¨•‡ Ø‡ÆÊ•§„‡Î, Ø‡® Æ°‡†°Æ‚™• ™Æ‚Æ‡Æ© ØÆ·‚‡Æ•≠ *)
+    procno*: ProcNum;    (* –Ω–æ–º–µ—Ä –ø—Ä–æ—Ü–µ–¥—É—Ä—ã, –ø—Ä–∏ –æ–±—Ä–∞–±–æ—Ç–∫–µ –∫–æ—Ç–æ—Ä–æ–π –ø–æ—Å—Ç—Ä–æ–µ–Ω *)
     e_tag*:  ir.TagType;   (* ir.TagType [+ BASE] *)
-    name* :  InfExtName;    (* ≠Æ¨•‡ ´Æ™†´†, Ø•‡•¨•≠≠Æ© ®´® Ø‡ÆÊ•§„‡Î *)
+    name* :  InfExtName;    (* –Ω–æ–º–µ—Ä –ª–æ–∫–∞–ª–∞, –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π –∏–ª–∏ –ø—Ä–æ—Ü–µ–¥—É—Ä—ã *)
     value*:  pc.VALUE;
-    offs* :  LONGINT;    (* ¢ÆÆ°È•-‚Æ °Î´Æ °Î ÂÆ‡ÆËÆ ®¨•‚Ï ≠• ™Æ≠™‡•‚≠Æ• Á®·´Æ,
-                           † ß†§†‚Ï •£Æ Á•‡•ß ®¨Ô Ø•‡•¨•≠≠Æ© *)
+    offs* :  LONGINT;    (* –≤–æ–æ–±—â–µ-—Ç–æ –±—ã–ª–æ –±—ã —Ö–æ—Ä–æ—à–æ –∏–º–µ—Ç—å –Ω–µ –∫–æ–Ω–∫—Ä–µ—Ç–Ω–æ–µ —á–∏—Å–ª–æ,
+                           –∞ –∑–∞–¥–∞—Ç—å –µ–≥–æ —á–µ—Ä–µ–∑ –∏–º—è –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π *)
   END;
 
   size_ext_rec = RECORD(attr_ext_rec)
@@ -401,7 +401,7 @@ BEGIN
 END out;
 
 (* for C-converter compatibility *)
-CONST (* -- ≠Æ¨•‡† ®¨•≠ §´Ô ·†¨Æ£Æ Æ°Í•™‚† ® •£Æ Ø‡Æ®ß¢Æ§≠ÎÂ Æ°Í•™‚Æ¢ *)
+CONST (* -- –Ω–æ–º–µ—Ä–∞ –∏–º–µ–Ω –¥–ª—è —Å–∞–º–æ–≥–æ –æ–±—ä–µ–∫—Ç–∞ –∏ –µ–≥–æ –ø—Ä–æ–∏–∑–≤–æ–¥–Ω—ã—Ö –æ–±—ä–µ–∫—Ç–æ–≤ *)
   n_object_name    * = 0;
   n_type_desc_name * = 2;      (*  obj.mode = ob_type      *)
   n_BEGIN_name     * = 2;      (*  obj.mode = ob_module    *)
@@ -415,7 +415,7 @@ TYPE
     no*  : INTEGER;
   END;
 
-  NAME_EXT* = POINTER TO name_ext_rec;    (* ·Ø®·Æ™ ¢≠•Ë≠®Â ®¨•≠ *)
+  NAME_EXT* = POINTER TO name_ext_rec;    (* —Å–ø–∏—Å–æ–∫ –≤–Ω–µ—à–Ω–∏—Ö –∏–º–µ–Ω *)
 
   name_ext_rec = RECORD(attr_ext_rec)
     list*: NAME_INFO;
@@ -553,7 +553,7 @@ BEGIN
   IF a = NIL THEN
     NEW(nm);
     nm.list := i;
-    app_attr(o.ext, nm, a_name);  (* ®·ØÆ´ÏßÆ¢†‚Ï app_obj_attr ≠•´ÏßÔ !!! *)
+    app_attr(o.ext, nm, a_name);  (* –∏—Å–ø–æ–ª—å–∑–æ–≤–∞—Ç—å app_obj_attr –Ω–µ–ª—å–∑—è !!! *)
   ELSE
     nm := a(NAME_EXT);
     i.nxt := nm.list;
@@ -931,8 +931,8 @@ END skip_object;
 
 (** ------------------------------------------------------------------------ *)
 
-(* §´Ô Ø•‡•¨•≠≠Æ© ®´® Ø†‡†¨•‚‡† ¢Î§†•‚ ´Æ™†´,     *)
-(* ™ ™Æ‚Æ‡Æ¨„ Ì‚Æ‚ Æ°Í•™‚ "Ø‡®¢Ôß†≠"              *)
+(* –¥–ª—è –ø–µ—Ä–µ–º–µ–Ω–Ω–æ–π –∏–ª–∏ –ø–∞—Ä–∞–º–µ—Ç—Ä–∞ –≤—ã–¥–∞–µ—Ç –ª–æ–∫–∞–ª,     *)
+(* –∫ –∫–æ—Ç–æ—Ä–æ–º—É —ç—Ç–æ—Ç –æ–±—ä–µ–∫—Ç "–ø—Ä–∏–≤—è–∑–∞–Ω"              *)
 
 PROCEDURE loc_by_obj*(o: pc.OBJECT): ir.Local;
   VAR a: ATTR_EXT;
@@ -956,7 +956,7 @@ END GetStartTPos;
 
 (** --------- N A M E S   &   W O R K   O B J E C T s ------------------- *)
 
-VAR work_objects* : pc.OBJECT;            (* ·Ø®·Æ™ ‡†°ÆÁ®Â Æ°Í•™‚Æ¢ *)
+VAR work_objects* : pc.OBJECT;            (* —Å–ø–∏—Å–æ–∫ —Ä–∞–±–æ—á–∏—Ö –æ–±—ä–µ–∫—Ç–æ–≤ *)
 
 <* IF TARGET_RISC OR TARGET_SPARC THEN *>
 VAR
@@ -1042,12 +1042,12 @@ END T_type;
 
 TYPE
   float_cnst = POINTER TO float_cnst_rec;
-  float_cnst_rec = RECORD                  (* Ì‚Æ §•´Æ ·´•§„•‚ ™†™-‚Æ      *)
-                     ty: ir.TypeType;      (* „≠®‰®Ê®‡Æ¢†‚Ï · def.TEMP_VAR *)
+  float_cnst_rec = RECORD                  (* —ç—Ç–æ –¥–µ–ª–æ —Å–ª–µ–¥—É–µ—Ç –∫–∞–∫-—Ç–æ      *)
+                     ty: ir.TypeType;      (* —É–Ω–∏—Ñ–∏—Ü–∏—Ä–æ–≤–∞—Ç—å —Å def.TEMP_VAR *)
                      sz: ir.SizeType;
-                    val : pc.VALUE;        (* ... ®´® · work_objects Á•‡•ß *)
+                    val : pc.VALUE;        (* ... –∏–ª–∏ —Å work_objects —á–µ—Ä–µ–∑ *)
                     obj : pc.OBJECT;       (*      obj.val := val,         *)
-                    next: float_cnst;      (* ≠Æ £§• ‚Æ£§† ¢ßÔ‚Ï ty ® sz   *)
+                    next: float_cnst;      (* –Ω–æ –≥–¥–µ —Ç–æ–≥–¥–∞ –≤–∑—è—Ç—å ty –∏ sz   *)
                    END;
 VAR
   floats    : float_cnst;
